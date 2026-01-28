@@ -1,0 +1,5 @@
+{
+  "name": "HookLink",
+  "description": "A high-performance macOS context launcher built with Rust. Connect your files, web, and notes instantly.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hooklink - 목업</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {}
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark">
+  <!-- 메인 앱 컨테이너 -->
+  <div id="app"
+    class="w-full h-screen bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-zinc-700 flex flex-col overflow-hidden rounded-2xl shadow-2xl">
+
+    <!-- Search Bar -->
+    <div class="p-3 border-b border-gray-100 dark:border-zinc-800 shrink-0 flex items-center gap-2">
+      <!-- Search Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="text-gray-400 dark:text-zinc-500 shrink-0">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+      </svg>
+
+      <div class="relative flex-1">
+        <!-- 오버레이 레이어 -->
+        <div id="search-overlay"
+          class="absolute inset-0 flex items-center whitespace-pre overflow-hidden pointer-events-none select-none text-lg leading-normal"
+          aria-hidden="true"></div>
+
+        <!-- 투명 input -->
+        <input id="search-input" type="text" placeholder="Search hooks..."
+          class="relative w-full bg-transparent outline-none h-8 text-transparent caret-blue-500 dark:caret-blue-400 placeholder-gray-400 dark:placeholder-zinc-600 text-lg leading-normal"
+          spellcheck="false" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="flex-1 flex flex-col min-h-0 relative">
+      <div class="flex-1 overflow-y-auto p-2 scrollbar-hide">
+
+        <!-- Captured Context Card (New) - dynamically rendered by app.js -->
+        <div id="capture-card-container"></div>
+
+        <!-- Section Header -->
+        <div class="text-[10px] font-bold text-gray-400 dark:text-zinc-500 px-2 py-1 uppercase mt-2">
+          <span id="section-title">Recent Hooks</span>
+        </div>
+
+        <!-- Hook List -->
+        <div id="hook-list"></div>
+
+        <!-- Empty State -->
+        <div id="empty-state"
+          class="flex flex-col items-center justify-center py-10 text-gray-400 dark:text-zinc-600 gap-2"
+          style="display: none;">
+          <div class="text-2xl opacity-20">📭</div>
+          <div class="text-xs">저장된 훅이 없습니다.</div>
+          <div class="text-[10px] opacity-60">Option+Space로 캡처해보세요.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div
+      class="h-8 border-t border-gray-100 dark:border-zinc-800 bg-gray-50 dark:bg-zinc-900/50 flex items-center justify-between px-3 text-[10px] text-gray-500 dark:text-zinc-500 shrink-0">
+      <div class="relative flex-1 h-full">
+        <div class="absolute inset-y-0 left-0 flex items-center gap-3 duration-200">
+          <span class="flex items-center"><kbd class="kbd">Enter</kbd> Open</span>
+          <span class="flex items-center"><kbd class="kbd">⇧+Enter</kbd> Copy URL</span>
+          <span class="flex items-center"><kbd class="kbd">Tab</kbd> Edit</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="shrink-0 opacity-50">Hooklink v0.2.9</div>
+
+        <button class="hover:text-gray-800 dark:hover:text-gray-200 transition-colors flex items-center gap-1"
+          title="Help (⌘+/)">
+          <div class="flex items-center text-[10px] opacity-70">
+            <kbd class="kbd text-[9px] min-w-4 h-4 px-1 mr-1">⌘+/</kbd> Help
+          </div>
+        </button>
+
+        <div class="w-px h-3 bg-gray-200 dark:bg-zinc-700 mx-1"></div>
+
+        <button id="settings-btn" class="hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
+          title="Settings">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
