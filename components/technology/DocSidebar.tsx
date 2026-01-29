@@ -17,8 +17,8 @@ interface DocSidebarProps {
 
 const DocSidebar: React.FC<DocSidebarProps> = ({ docs, selectedId, onSelect }) => {
     return (
-        <aside className="w-full md:w-80 shrink-0 md:border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-            <div className="p-6 sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto scrollbar-hide">
+        <aside className="w-full md:w-80 shrink-0 md:border-r border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
+            <div className="p-8 sticky top-32 max-h-[calc(100vh-8rem)] overflow-y-auto scrollbar-hide">
                 <div className="mb-6">
                     <h2 className="font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
                         <FileText className="w-5 h-5 text-violet-500" />

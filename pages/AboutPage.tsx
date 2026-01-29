@@ -14,21 +14,18 @@ const AboutPage: React.FC = () => {
         >
             {/* Hero Section */}
             <section className="relative py-20 md:py-32 overflow-hidden border-b border-slate-100 dark:border-slate-800/50">
-                <div className="absolute inset-0 bg-gradient-to-b from-violet-100 via-white to-white dark:from-violet-900/10 dark:via-slate-950 dark:to-slate-950" />
+                <div className="absolute inset-0 bg-gradient-to-b from-rose-50 via-white to-white dark:from-rose-900/10 dark:via-slate-950 dark:to-slate-950" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-rose-400/20 to-violet-400/20 rounded-full blur-[120px] opacity-30 pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative">
                     <ScrollReveal>
                         <div className="max-w-4xl mx-auto text-center">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 text-sm font-bold mb-6">
-                                <BookMarked size={16} />
-                                가장 집요한 '연결'의 고집
-                            </div>
 
                             <h1 className="text-4xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tight">
                                 <span className="text-slate-900 dark:text-white">
                                     갈피를 못 잡겠나요? <br />
                                 </span>
-                                <span className="bg-gradient-to-r from-violet-600 via-purple-500 to-pink-500 dark:from-violet-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+                                <span className="bg-gradient-to-r from-rose-600 via-pink-500 to-violet-500 dark:from-rose-400 dark:via-pink-400 dark:to-violet-400 bg-clip-text text-transparent">
                                     당연합니다.
                                 </span>
                             </h1>
@@ -72,7 +69,7 @@ const AboutPage: React.FC = () => {
                     <ScrollReveal>
                         <div className="max-w-4xl mx-auto">
                             <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-12 text-center tracking-tight">
-                                0.03초를 위한 <span className="text-violet-600 dark:text-violet-400 underline decoration-8 decoration-violet-500/20">엔지니어의 변명</span>
+                                0.03초를 위한 <span className="text-rose-600 dark:text-rose-400 underline decoration-8 decoration-rose-500/20">엔지니어의 변명</span>
                             </h2>
 
                             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-xl">
@@ -87,10 +84,10 @@ const AboutPage: React.FC = () => {
                                             하지만 '그냥 쓰는 것'과 '깎아서 쓰는 것'은 천지차이입니다.
                                         </p>
                                         <p>
-                                            기존 도구들이 거대한 스크립트 덩어리를 통째로 던져 맥을 멈칫하게 만들 때, 갈피는 스크립트를 수술하듯 도려내고 최적화했습니다. 더 나아가, 우리는 OS의 신경망이라 불리는 <strong className="text-violet-600 dark:text-violet-400 font-bold">Accessibility API</strong>를 뚫어 정보를 즉시 낚아챕니다.
+                                            기존 도구들이 거대한 스크립트 덩어리를 통째로 던져 맥을 멈칫하게 만들 때, 갈피는 스크립트를 수술하듯 도려내고 최적화했습니다. 더 나아가, 우리는 OS의 신경망이라 불리는 <strong className="text-rose-600 dark:text-rose-400 font-bold">Accessibility API</strong>를 뚫어 정보를 즉시 낚아챕니다.
                                         </p>
                                         <p className="text-2xl font-black text-slate-900 dark:text-white pt-4">
-                                            그 결과 <span className="bg-violet-100 dark:bg-violet-900 text-violet-600 dark:text-violet-400 px-3 py-1 rounded">30ms(0.03초)</span>.
+                                            그 결과 <span className="bg-rose-100 dark:bg-rose-900 text-rose-600 dark:text-rose-400 px-3 py-1 rounded">30ms(0.03초)</span>.
                                             <br className="md:hidden" /> 인간이 인지하기도 힘든 '즉시 반응'을 만들어냈습니다.
                                         </p>
                                         <p className="border-t border-slate-100 dark:border-slate-800 pt-8 mt-8">
@@ -129,12 +126,12 @@ const AboutPage: React.FC = () => {
                                     </p>
                                 </div>
                                 <div className="relative">
-                                    <div className="bg-gradient-to-br from-violet-500 to-pink-500 rounded-3xl aspect-square flex items-center justify-center p-1">
+                                    <div className="bg-gradient-to-br from-rose-500 to-pink-500 rounded-3xl aspect-square flex items-center justify-center p-1 shadow-2xl shadow-rose-500/20">
                                         <div className="bg-white dark:bg-slate-900 w-full h-full rounded-[20px] flex flex-col items-center justify-center text-center p-8">
                                             <span className="text-6xl mb-4">🧠</span>
                                             <span className="text-2xl font-bold dark:text-white">7 ± 2</span>
                                             <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full mt-6 overflow-hidden">
-                                                <div className="w-full h-full bg-pink-500 animate-pulse"></div>
+                                                <div className="w-full h-full bg-rose-500 animate-pulse"></div>
                                             </div>
                                             <p className="text-sm text-slate-400 mt-4">Working Memory Capacity</p>
                                         </div>
@@ -190,7 +187,7 @@ const AboutPage: React.FC = () => {
                         <div className="max-w-4xl mx-auto text-center">
                             <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-8 leading-tight">
                                 잃어버린 맥락을 찾는 데 <br className="md:hidden" />
-                                <span className="text-violet-600 dark:text-violet-400">하루 20분을 쓰고 계시다면,</span>
+                                <span className="text-rose-600 dark:text-rose-400 px-2">하루 20분을 쓰고 계시다면,</span>
                             </h2>
                             <p className="text-2xl md:text-3xl font-bold text-slate-600 dark:text-slate-400 mb-12">
                                 이제 그 시간을 당신의 '진짜 일'에 투자하세요.

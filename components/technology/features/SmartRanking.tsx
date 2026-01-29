@@ -1,131 +1,147 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Scale, ArrowUp, Star, Calculator, ArrowDown, Clock, Zap, History, RefreshCcw, Trash2 } from 'lucide-react';
+import { TrendingUp, Zap, Layers, Sparkles, Brain, ArrowDown } from 'lucide-react';
 
 const SmartRanking: React.FC = () => {
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-black font-sans selection:bg-indigo-500/30">
+        <div className="min-h-full font-sans selection:bg-indigo-500/30">
             {/* Header */}
-            <header className="relative py-24 px-6 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-indigo-50 via-white to-slate-50 dark:from-indigo-950/20 dark:via-black dark:to-black z-0" />
-                <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-indigo-400/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
+            <header className="relative py-24 px-8 md:px-16 overflow-hidden border-b border-slate-100 dark:border-slate-800">
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-white dark:from-indigo-950/20 dark:via-slate-950 dark:to-slate-950 z-0" />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
 
-                <div className="relative z-10 max-w-4xl mx-auto text-center">
+                <div className="relative z-10 max-w-4xl">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                     >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold uppercase tracking-widest mb-6">
-                            <Scale size={12} />
-                            중력 및 시간 모델
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-black uppercase tracking-widest mb-8">
+                            <Sparkles size={14} className="animate-spin-slow" />
+                            Biological Sorting Algorithm
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
-                            스마트 랭킹 및 에이징
+                        <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight leading-[1.1]">
+                            검색할 필요가 없습니다. <br />
+                            <span className="text-indigo-600 dark:text-indigo-500 italic uppercase underline decoration-indigo-500/20">이미 맨 위에 있으니까요.</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-                            "중요한 것은 떠오르고,<br className="hidden md:block" /> 오래된 것은 자연스럽게 가라앉습니다."
+                        <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-3xl">
+                            "우리는 당신의 뇌보다 한 발 앞서 <br className="hidden md:block" /> 가장 중요한 연관 자료를 대령합니다."
                         </p>
                     </motion.div>
                 </div>
             </header>
 
-            <main className="max-w-4xl mx-auto px-6 pb-32 relative z-10 space-y-24">
-
-                {/* Intro / Dilemma */}
-                <section className="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">검색의 딜레마</h2>
+            <main className="max-w-5xl px-8 md:px-16 py-32 space-y-32">
+                {/* Section 1: The Gravity Algorithm */}
+                <section className="grid lg:grid-cols-2 gap-16 items-start">
+                    <div className="space-y-10">
                         <div className="space-y-4">
-                            <div className="p-6 bg-white dark:bg-slate-900 rounded-2xl border-l-4 border-l-blue-500 shadow-sm">
-                                <p className="font-medium text-slate-900 dark:text-white mb-1">최신성 (Recency)</p>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm">"방금 작업하던 파일을 바로 찾고 싶어."</p>
-                            </div>
-                            <div className="flex justify-center text-slate-400"><span className="text-xs font-bold uppercase tracking-widest">Vs</span></div>
-                            <div className="p-6 bg-white dark:bg-slate-900 rounded-2xl border-l-4 border-l-amber-500 shadow-sm">
-                                <p className="font-medium text-slate-900 dark:text-white mb-1">중요도 (Importance)</p>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm">"1년 전 파일이라도, 핵심 문서는 맨 위에 있어야 해."</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                        HookLink는 이 두 가지 상충되는 욕구를 동시에 만족시키기 위해, 물리학의 <strong>"중력 모델(Gravity Model)"</strong>과 <strong>"스마트 에이징(Smart Aging)"</strong>을 결합했습니다.
-                    </div>
-                </section>
-
-                {/* Formula Visualization */}
-                <section className="bg-slate-900 rounded-3xl p-8 md:p-12 text-white overflow-hidden relative">
-                    <div className="absolute -right-20 -top-20 w-80 h-80 bg-indigo-500/30 rounded-full blur-3xl" />
-
-                    <div className="text-center mb-12 relative z-10">
-                        <div className="inline-flex items-center gap-2 mb-4 text-indigo-400 font-mono text-sm">
-                            <Calculator size={16} /> The Formula
-                        </div>
-                        <div className="text-xl md:text-3xl font-mono bg-white/5 inline-block px-6 py-4 rounded-xl border border-white/10">
-                            Score = (<span className="text-amber-400">Mass</span> + <span className="text-blue-400">Usage</span>) × <span className="text-emerald-400">Time Factor</span>
-                        </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-10 relative z-10">
-                        <div>
-                            <div className="flex items-center gap-3 mb-4 text-amber-400">
-                                <Star size={24} fill="currentColor" />
-                                <h3 className="text-xl font-bold">Mass (질량)</h3>
-                            </div>
-                            <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                                사용자가 설정한 **중요도(★ 1~10)**는 파일의 '질량'입니다. 질량이 클수록 존재감이 뚜렷하며, 쉽게 움직이지 않습니다. 중요 파일은 시간의 흐름을 거스르고 상단을 지킵니다.
+                            <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+                                중력 랭킹 <br />
+                                <span className="text-indigo-500 uppercase">Gravity Rank</span>
+                            </h2>
+                            <p className="text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed">
+                                단순히 시간 순서(LIFO)로 정렬하는 것은 도구가 아닙니다. 갈피는 물리 법칙을 닮은 <b>중력 알고리즘</b>을 사용하여 검색 결과를 실시간으로 재배열합니다.
                             </p>
                         </div>
-                        <div>
-                            <div className="flex items-center gap-3 mb-4 text-emerald-400">
-                                <Clock size={24} />
-                                <h3 className="text-xl font-bold">Time (시간)</h3>
+
+                        <div className="space-y-6">
+                            {[
+                                { label: 'Mass (질량)', desc: '클릭 횟수와 열람 빈도에 따른 고유 질량 부여' },
+                                { label: 'Decay (감쇠)', desc: '시간이 흐름에 따라 자연스럽게 작용하는 기억의 반감기 적용' },
+                                { label: 'Boost (추진)', desc: '현재 작업 중인 프로젝트와의 연관성에 따른 동적 인력 발생' }
+                            ].map((item, i) => (
+                                <div key={i} className="flex gap-6 items-start">
+                                    <div className="shrink-0 w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-500 font-black text-xs">
+                                        0{i + 1}
+                                    </div>
+                                    <div className="space-y-1">
+                                        <h4 className="font-black text-slate-900 dark:text-white">{item.label}</h4>
+                                        <p className="text-sm text-slate-500 dark:text-slate-400 font-light">{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="relative p-12 bg-slate-900 rounded-[4rem] text-white overflow-hidden shadow-2xl group border border-white/5">
+                        <div className="absolute top-0 right-10 flex gap-4 opacity-20">
+                            {[...Array(3)].map((_, i) => (
+                                <motion.div
+                                    key={i}
+                                    animate={{ y: [0, 100, 0] }}
+                                    transition={{ duration: 5, delay: i * 1.5, repeat: Infinity }}
+                                    className="w-px h-64 bg-indigo-500"
+                                />
+                            ))}
+                        </div>
+
+                        <div className="relative z-10 space-y-12">
+                            <h3 className="font-mono text-xs uppercase tracking-[0.3em] text-indigo-400">Biological Engine</h3>
+                            <div className="space-y-6">
+                                <div className="p-6 bg-indigo-500 rounded-3xl shadow-[0_0_30px_rgba(99,102,241,0.4)] border border-indigo-400">
+                                    <div className="flex justify-between items-center mb-4">
+                                        <span className="text-[10px] font-black uppercase">Result Index #1</span>
+                                        <ArrowDown size={14} />
+                                    </div>
+                                    <p className="font-bold text-lg mb-2">현재 진행 중인 프로젝트 제안서</p>
+                                    <div className="flex gap-2">
+                                        <span className="px-2 py-1 bg-white/20 rounded-md text-[8px] font-black uppercase">Mass: 98.4</span>
+                                        <span className="px-2 py-1 bg-white/20 rounded-md text-[8px] font-black uppercase">Boosted</span>
+                                    </div>
+                                </div>
+
+                                <div className="p-6 bg-white/5 rounded-3xl border border-white/10 opacity-60">
+                                    <p className="font-bold mb-2">오래된 학습 노트 (2022)</p>
+                                    <div className="flex gap-2">
+                                        <span className="px-2 py-1 bg-white/10 rounded-md text-[8px] font-black uppercase">Decayed: 12.1</span>
+                                    </div>
+                                </div>
                             </div>
-                            <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                                시간은 모든 사물을 아래로 끌어당기는 '중력'과 같습니다. 하지만 최근에 건드린 파일은 '부스트'를 받아 일시적으로 중력을 이겨냅니다.
+                        </div>
+                    </div>
+                </section>
+
+                {/* Section 2: Zero Labor Indexing */}
+                <section className="bg-indigo-600 text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden group shadow-[0_50px_100px_rgba(79,70,229,0.3)]">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-indigo-400 to-transparent opacity-50" />
+
+                    <div className="relative z-10 grid md:grid-cols-5 gap-12 items-center">
+                        <div className="md:col-span-3 space-y-8">
+                            <h2 className="text-3xl md:text-5xl font-black leading-tight tracking-tight">
+                                검색어 입력은 <br />
+                                <span className="text-indigo-100 font-light italic">사치(Luxury)</span>입니다.
+                            </h2>
+                            <p className="text-xl text-indigo-100 leading-relaxed font-light">
+                                갈피를 여는 단축키를 누르는 그 찰나의 순간, 알고리즘은 이미 현재 활성화된 앱, 톰레, 클립보드의 내용을 바탕으로 당신이 필요로 할 파일을 맨 위에 배치합니다.
                             </p>
-                            <ul className="text-xs text-slate-400 space-y-2 pl-2 border-l border-slate-700">
-                                <li>• <span className="text-white font-bold">Recent 24h:</span> ×1.5 Booster</li>
-                                <li>• <span className="text-white font-bold">Old Files:</span> ×0.3 Decay (침전)</li>
-                            </ul>
+                            <div className="flex gap-6">
+                                <div className="p-6 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 flex-1">
+                                    <span className="text-[10px] font-black uppercase text-indigo-200 block mb-2">Success Rate</span>
+                                    <span className="text-3xl font-black">94%</span>
+                                </div>
+                                <div className="p-6 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 flex-1">
+                                    <span className="text-[10px] font-black uppercase text-indigo-200 block mb-2">Saved Time</span>
+                                    <span className="text-3xl font-black">15m/d</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="md:col-span-2 flex justify-center">
+                            <Brain size={160} className="text-white opacity-20" />
                         </div>
                     </div>
                 </section>
 
-                {/* Aging Benefits */}
-                <section>
-                    <div className="flex items-center gap-3 mb-8">
-                        <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-600 dark:text-orange-400">
-                            <RefreshCcw size={24} />
-                        </div>
-                        <h2 className="text-3xl font-bold text-slate-900 dark:text-white">유지보수 제로 (Zero Maintenance)</h2>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-6">
-                        <div className="p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800">
-                            <Trash2 className="w-8 h-8 text-slate-400 mb-4" />
-                            <h4 className="font-bold text-slate-900 dark:text-white mb-2">자동 청소</h4>
-                            <p className="text-sm text-slate-600 dark:text-slate-400">1년 전 자료가 검색창을 어지럽히지 않도록 자동으로 하단으로 밀어냅니다.</p>
-                        </div>
-                        <div className="p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800">
-                            <Zap className="w-8 h-8 text-orange-500 mb-4" />
-                            <h4 className="font-bold text-slate-900 dark:text-white mb-2">즉각적 접근</h4>
-                            <p className="text-sm text-slate-600 dark:text-slate-400">방금 닫은 파일을 다시 열 때, 단축키 한 번이면 100% 확률로 맨 위에 있습니다.</p>
-                        </div>
-                        <div className="p-6 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800">
-                            <ArrowDown className="w-8 h-8 text-emerald-500 mb-4" />
-                            <h4 className="font-bold text-slate-900 dark:text-white mb-2">자연스러운 감쇠</h4>
-                            <p className="text-sm text-slate-600 dark:text-slate-400">6개월 이상 열지 않은 링크는 점수가 서서히 낮아지며 검색 결과의 바닥으로 침전합니다.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <div className="text-center pt-10 border-t border-slate-200 dark:border-slate-800">
-                    <p className="text-xl md:text-2xl font-serif italic text-slate-500 dark:text-slate-400">
-                        "HookLink는 당신이 무엇을 중요하게 여기는지<br /> 이미 알고 있습니다."
+                {/* Closing */}
+                <div className="text-center pt-20 border-t border-slate-100 dark:border-slate-800 lg:px-20">
+                    <p className="text-2xl md:text-3xl font-black italic text-slate-900 dark:text-white mb-8 leading-tight">
+                        "저희는 당신이 무엇을 찾고 있는지 <br className="hidden md:block" /> 이미 알고 있습니다."
                     </p>
+                    <div className="inline-flex items-center gap-2 text-slate-400 font-mono text-[10px] tracking-[0.3em] uppercase">
+                        <span className="w-12 h-px bg-slate-300 dark:bg-slate-800" />
+                        Galpi Manifesto: Chapter 09
+                    </div>
                 </div>
-
             </main>
         </div>
     );

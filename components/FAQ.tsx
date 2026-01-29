@@ -1,52 +1,64 @@
 import React, { useState } from 'react';
 import { FAQS } from '../constants';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQ: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
-      <div className="container mx-auto px-6 max-w-3xl">
-        <h2 className="text-3xl font-bold text-center mb-12 text-slate-900 dark:text-white">자주 묻는 질문</h2>
+    <div className="max-w-3xl mx-auto space-y-4 px-6 relative z-10">
+      {/* Subtle Orange Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-orange-600/5 blur-[120px] pointer-events-none -z-10" />
 
-        <div className="space-y-4">
-          {FAQS.map((faq, idx) => (
-            <div key={idx} className="border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-950/50 overflow-hidden">
-              <button
-                onClick={() => setActiveIndex(activeIndex === idx ? null : idx)}
-                className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
-              >
-                <span className={`font-semibold text-lg ${activeIndex === idx ? 'text-violet-600 dark:text-violet-300' : 'text-slate-700 dark:text-slate-300'}`}>
-                  {faq.question}
-                </span>
-                {activeIndex === idx ? (
-                  <ChevronUp className="text-violet-500 shrink-0" />
-                ) : (
-                  <ChevronDown className="text-slate-400 dark:text-slate-500 shrink-0" />
-                )}
-              </button>
+      {FAQS.map((faq, idx) => {
+        const isOpen = activeIndex === idx;
+        return (
+          <div
+            key={idx}
+            className={`transition-all duration-500 rounded-3xl border ${isOpen
+              ? 'bg-white dark:bg-slate-900 border-orange-500/30 shadow-2xl shadow-orange-500/5'
+              : 'bg-white/50 dark:bg-white/[0.02] border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/10'
+              }`}
+          >
+            <button
+              onClick={() => setActiveIndex(isOpen ? null : idx)}
+              className="w-full flex items-center justify-between p-7 text-left focus:outline-none group"
+            >
+              <span className={`text-lg font-bold tracking-tight transition-colors ${isOpen
+                ? 'text-orange-600'
+                : 'text-slate-700 dark:text-slate-300'
+                }`}>
+                {faq.question}
+              </span>
+              <div className={`shrink-0 ml-4 w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 ${isOpen
+                ? 'bg-orange-600 border-orange-600 text-white'
+                : 'border-slate-200 dark:border-white/10 text-slate-400 group-hover:border-slate-300 dark:group-hover:border-white/20'
+                }`}>
+                {isOpen ? <Minus size={18} strokeWidth={3} /> : <Plus size={18} strokeWidth={3} />}
+              </div>
+            </button>
 
-              <AnimatePresence>
-                {activeIndex === idx && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-200 dark:border-slate-800/50 pt-4">
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                >
+                  <div className="px-7 pb-10 text-slate-600 dark:text-slate-400 leading-relaxed text-base font-light">
+                    <div className="pt-2 border-t border-slate-100 dark:border-white/5">
                       {faq.answer}
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      })}
+    </div>
   );
 };
 

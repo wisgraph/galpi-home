@@ -55,7 +55,11 @@ const Navbar: React.FC = () => {
                 {isActive(item.href) && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-violet-500 to-violet-600 rounded-full"
+                    className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r ${(item as any).theme === 'rose' ? 'from-rose-500 to-pink-500' :
+                      (item as any).theme === 'cyan' ? 'from-cyan-500 to-teal-500' :
+                        (item as any).theme === 'blue' ? 'from-blue-600 to-indigo-600' :
+                          (item as any).theme === 'amber' ? 'from-amber-500 to-orange-500' :
+                            'from-violet-500 to-purple-500'}`}
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
                 )}

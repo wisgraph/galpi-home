@@ -293,18 +293,15 @@ const FeaturesPage: React.FC = () => {
         <div className="bg-white dark:bg-slate-950 min-h-screen">
             {/* Hero Section */}
             <section className="relative pt-48 pb-24 overflow-hidden border-b border-slate-100 dark:border-white/5">
-                <div className="absolute inset-0 bg-gradient-to-b from-violet-50/50 to-transparent dark:from-violet-900/5 dark:to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-b from-cyan-50/50 to-transparent dark:from-cyan-900/5 dark:to-transparent" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 rounded-full blur-[120px] opacity-30 pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <ScrollReveal>
-                        <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-black tracking-widest uppercase mb-12 shadow-2xl">
-                            <Sparkles className="w-4 h-4 text-violet-500 animate-spin-slow" />
-                            Features: 백문이 불여일견
-                        </div>
 
                         <h1 className="text-5xl md:text-8xl font-black text-slate-900 dark:text-white mb-10 tracking-[ -0.05em] leading-[0.9]">
                             직접 눈으로 <br />
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 via-pink-500 to-amber-500 underline decoration-violet-500/20">확인하십시오.</span>
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-teal-500 to-emerald-500 underline decoration-cyan-500/20 underline-offset-8">확인하십시오.</span>
                         </h1>
 
                         <p className="text-2xl md:text-3xl text-slate-500 dark:text-slate-400 max-w-4xl mx-auto leading-relaxed font-light">
@@ -324,13 +321,13 @@ const FeaturesPage: React.FC = () => {
 
             {/* CTA Section */}
             <section className="py-48 bg-slate-950 relative overflow-hidden text-center">
-                <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-violet-600 via-transparent to-transparent" />
+                <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-600 via-transparent to-transparent" />
 
                 <div className="container mx-auto px-6 relative z-10">
                     <ScrollReveal>
                         <h2 className="text-4xl md:text-7xl font-black text-white mb-10 tracking-tight">
                             당신의 소중한 시간을 <br />
-                            <span className="text-violet-500">진짜 가치 있는 일</span>에 쓰세요.
+                            <span className="text-cyan-500">진짜 가치 있는 일</span>에 쓰세요.
                         </h2>
                         <p className="text-2xl text-slate-400 mb-16 max-w-3xl mx-auto font-light leading-relaxed">
                             찾지 마세요, 부르세요. <br />

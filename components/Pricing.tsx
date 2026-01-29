@@ -1,74 +1,116 @@
 import React from 'react';
-import { PRICING_TIERS } from '../constants';
-import { Check } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Check, ArrowRight, X } from 'lucide-react';
+import ScrollReveal from './animations/ScrollReveal';
+
+const plans = [
+  {
+    name: 'Starter',
+    subtitle: 'Free Forever',
+    price: '$0',
+    description: '부담 없이 시작하세요',
+    features: [
+      { text: '모든 기능 체험 가능', included: true },
+      { text: '최대 50개 링크 생성', included: true },
+      { text: '50개 이하 리딩/검색 평생 무제한', included: true, highlight: true },
+      { text: '데이터 로컬 저장', included: true },
+      { text: '링크 생성 무제한', included: false },
+    ],
+    cta: '무료 다운로드',
+    highlighted: false
+  },
+  {
+    name: 'Pro Lifetime',
+    subtitle: 'Phase 1 Early Bird',
+    price: '$4.99',
+    originalPrice: '$14.99',
+    description: '커피 한 잔 값으로 평생 소장',
+    badge: '🔥 선착순 100명',
+    features: [
+      { text: '모든 기능 무제한', included: true },
+      { text: '링크 생성 무제한', included: true, highlight: true },
+      { text: '읽기/검색/실행 평생 무제한', included: true },
+      { text: '데이터 로컬 저장', included: true },
+      { text: '평생 무료 업데이트', included: true },
+    ],
+    cta: '얼리버드 구매하기',
+    highlighted: true
+  }
+];
 
 const Pricing: React.FC = () => {
   return (
-    <section id="pricing" className="py-32 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-violet-100 dark:bg-brand-900/10 blur-[120px] pointer-events-none"></div>
+    <section id="pricing" className="py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden relative">
+      {/* Absolute Glow Background - Restored to Amber/Orange */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-orange-400/10 dark:bg-orange-900/10 blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20 relative">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-slate-900 dark:text-white tracking-tight relative z-10 leading-tight">
-            잃어버린 맥락을 찾는 데 <br className="md:hidden" />
-            <span className="text-violet-600 dark:text-violet-400 font-black italic">하루 20분</span>을 쓰고 계시다면,
-          </h2>
-          <p className="text-2xl font-bold text-slate-500 dark:text-slate-400 relative z-10">
-            이제 그 시간을 당신의 '진짜 일'에 투자하세요.
-            <br />
-            구독료 <span className="text-slate-900 dark:text-white underline decoration-violet-500/30">0원</span>으로 평생 소장하십시오.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">
+              구독료 <span className="bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 bg-clip-text text-transparent">0원.</span>
+            </h2>
+            <p className="text-xl text-slate-500 dark:text-slate-400 font-light">
+              도구는 빌리는 게 아니라 소장하는 것입니다.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-          {PRICING_TIERS.map((tier, idx) => (
-            <div key={idx} className="group relative">
-              <div className={`absolute -inset-[1px] rounded-[26px] blur-sm opacity-50 transition duration-500 ${tier.highlight ? 'bg-violet-500' : 'bg-transparent'}`}></div>
-
-              <div className={`relative h-full rounded-3xl p-8 flex flex-col ${tier.highlight
-                ? 'bg-white dark:bg-slate-900 border border-violet-300 dark:border-violet-500/50 shadow-xl'
-                : 'bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800'
-                }`}>
-                {tier.highlight && (
-                  <div className="absolute top-0 right-0 bg-violet-600 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-2xl uppercase tracking-wider shadow-lg">
-                    Best Value
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+          {plans.map((plan, index) => (
+            <ScrollReveal key={plan.name} delay={index * 0.1}>
+              <motion.div
+                whileHover={{ y: -10 }}
+                className={`relative rounded-[2.5rem] p-10 h-full transition-all border-2 ${plan.highlighted
+                  ? 'bg-white dark:bg-slate-900 border-amber-500 shadow-[0_20px_60px_rgba(249,115,22,0.15)]'
+                  : 'bg-white dark:bg-slate-900/50 border-slate-200 dark:border-slate-800'
+                  }`}
+              >
+                {plan.badge && (
+                  <div className="absolute -top-4 right-10 bg-gradient-to-r from-orange-600 to-red-600 text-white text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest shadow-lg">
+                    {plan.badge}
                   </div>
                 )}
 
-                <h3 className={`text-xl font-bold mb-2 ${tier.highlight ? 'text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300'}`}>
-                  {tier.name}
-                </h3>
-
-                <div className="flex items-baseline gap-2 mb-8">
-                  {tier.originalPrice && <span className="text-slate-400 dark:text-slate-500 line-through text-lg">{tier.originalPrice}</span>}
-                  <span className="text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">{tier.price}</span>
-                  <span className="text-slate-400 dark:text-slate-500 font-medium">/ lifetime</span>
+                <div className="mb-10 text-left">
+                  <h3 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-4">
+                    {plan.name}
+                  </h3>
+                  <div className="flex items-baseline gap-2">
+                    {plan.originalPrice && <span className="text-slate-400 line-through text-2xl font-light">{plan.originalPrice}</span>}
+                    <span className={`text-7xl font-black tracking-tighter italic ${plan.highlighted ? 'text-orange-600' : 'text-slate-900 dark:text-white'}`}>
+                      {plan.price}
+                    </span>
+                  </div>
+                  <p className="mt-4 text-slate-600 dark:text-slate-400 font-medium italic">{plan.description}</p>
                 </div>
 
-                <ul className="space-y-4 mb-8 flex-grow">
-                  {tier.features.map((feature, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-3 text-slate-600 dark:text-slate-300">
-                      <div className={`mt-0.5 rounded-full p-0.5 ${tier.highlight ? 'bg-violet-500' : 'bg-slate-300 dark:bg-slate-700'}`}>
-                        <Check size={14} className="text-white" strokeWidth={3} />
-                      </div>
-                      <span className="text-sm font-medium">{feature}</span>
+                <ul className="space-y-4 mb-12 flex-grow">
+                  {plan.features.map((feature, fIdx) => (
+                    <li key={fIdx} className="flex items-start gap-4 text-slate-600 dark:text-slate-400">
+                      {feature.included ? (
+                        <Check size={18} className={feature.highlight ? 'text-amber-500' : 'text-emerald-500'} strokeWidth={3} />
+                      ) : (
+                        <X size={18} className="text-slate-300" strokeWidth={3} />
+                      )}
+                      <span className={`text-base leading-tight ${feature.highlight ? 'text-slate-900 dark:text-white font-bold' : ''}`}>
+                        {feature.text}
+                      </span>
                     </li>
                   ))}
                 </ul>
 
-                <button className={`w-full py-4 rounded-xl font-bold transition-all relative overflow-hidden group/btn ${tier.highlight
-                  ? 'bg-violet-600 hover:bg-violet-700 text-white shadow-lg shadow-violet-500/25'
-                  : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-white'
-                  }`}>
-                  <span className="relative z-10">{tier.cta}</span>
+                <button
+                  className={`w-full py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-2 transition-all ${plan.highlighted
+                    ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-xl shadow-orange-600/30'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200'
+                    }`}
+                >
+                  {plan.cta}
+                  <ArrowRight size={20} />
                 </button>
-                {tier.highlight && (
-                  <p className="mt-4 text-center text-xs text-slate-400 dark:text-slate-500 italic">
-                    * 정식 버전 출시 후에는 구독형($XX/년)으로 전환될 예정입니다. 지금이 가장 저렴합니다.
-                  </p>
-                )}
-              </div>
-            </div>
+              </motion.div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
