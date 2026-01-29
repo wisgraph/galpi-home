@@ -9,9 +9,7 @@ const Pricing: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20 relative">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] opacity-10 dark:opacity-20 pointer-events-none">
-            <img src="/assets/images/pricing-lifetime.png" alt="Lifetime Key" className="w-full h-full object-contain" />
-          </div>
+
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white tracking-tight relative z-10">구독료 <span className="text-violet-600 dark:text-violet-400">0원</span>.</h2>
           <p className="text-xl text-slate-500 dark:text-slate-400 relative z-10">도구는 빌리는 게 아니라 소장하는 것입니다.</p>
         </div>
