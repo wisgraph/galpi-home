@@ -26,7 +26,7 @@ const FAQ: React.FC = () => {
               className="w-full flex items-center justify-between p-7 text-left focus:outline-none group"
             >
               <span className={`text-lg font-bold tracking-tight transition-colors ${isOpen
-                ? 'text-orange-600'
+                ? 'text-orange-600 dark:text-orange-400'
                 : 'text-slate-700 dark:text-slate-300'
                 }`}>
                 {faq.question}

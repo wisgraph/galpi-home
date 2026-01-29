@@ -3,7 +3,7 @@ import React from "react";
 const PersonaHeader: React.FC = () => {
   return (
     <div className="h-screen flex flex-col items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-violet-50 to-white dark:from-slate-950 dark:via-purple-950/20 dark:to-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white dark:from-slate-950 dark:via-purple-950/20 dark:to-slate-950" />
       <div className="relative z-10 text-center px-6">
         <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 dark:text-white mb-8">
           단순히 파일과 웹페이지를 저장만 하는 <br />

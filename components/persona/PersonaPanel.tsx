@@ -19,7 +19,7 @@ const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
     return (
       <div
         ref={ref}
-        className="h-screen w-full relative overflow-hidden flex flex-col md:flex-row items-center justify-center bg-slate-950 px-6 md:px-10 lg:px-16"
+        className="h-screen w-full relative overflow-hidden flex flex-col md:flex-row items-center justify-center bg-white dark:bg-slate-950 px-6 md:px-10 lg:px-16"
       >
         {/* 1. Immersive Apple-Style Background */}
         <div
@@ -35,7 +35,7 @@ const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
           <div
             className="absolute left-[4%] top-[6%] text-[6rem] md:text-[10rem] lg:text-[14rem] font-black leading-none select-none opacity-[0.15] dark:opacity-[0.2]"
             style={{
-              WebkitTextStroke: "2px rgba(255,255,255,0.4)",
+              WebkitTextStroke: isDark ? "2px rgba(255,255,255,0.4)" : "2px rgba(0,0,0,0.1)",
               color: "transparent",
             }}
           >
@@ -46,19 +46,19 @@ const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
         {/* 2. Cinematic Content Area (Left Focus) */}
         <div className="persona-content relative z-20 w-full md:w-[40%] flex flex-col items-start gap-1 md:translate-y-8">
           {/* H1: Role */}
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none tracking-tight">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-none tracking-tight">
             {persona.role}
           </h1>
 
           {/* H2: Title */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white/80 leading-[1.15] tracking-tight mt-6 max-w-xl">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-700 dark:text-white/80 leading-[1.15] tracking-tight mt-6 max-w-xl">
             {persona.title}
           </h2>
 
-          <div className="h-0.5 w-12 bg-white/20 mt-10 mb-6" />
+          <div className="h-0.5 w-12 bg-slate-200 dark:bg-white/20 mt-10 mb-6" />
 
           {/* H5: PainPoint */}
-          <p className="text-base md:text-lg text-slate-400 font-medium tracking-tight max-w-lg leading-relaxed">
+          <p className="text-base md:text-lg text-slate-500 dark:text-slate-400 font-medium tracking-tight max-w-lg leading-relaxed">
             {persona.painPoint.replace(/\*\*/g, "")}
           </p>
         </div>
@@ -115,16 +115,16 @@ const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
           {/* H4: Solution (Positioned lower with high Z-index and subtle contrast glow) */}
           <div className="mt-24 md:mt-32 text-center max-w-xl relative z-40">
             {/* Subtle Gradient Glow for readability */}
-            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-full w-full bg-slate-950/40 blur-3xl rounded-full" />
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-full w-full bg-white/40 dark:bg-slate-950/40 blur-3xl rounded-full" />
 
             <div className="relative z-10 flex flex-col items-center gap-2">
-              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30 mb-1">
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 dark:text-white/30 mb-1">
                 The Solution
               </span>
-              <h4 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+              <h4 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
                 {persona.solution}
               </h4>
-              <div className="h-px w-8 bg-white/20 mt-3" />
+              <div className="h-px w-8 bg-slate-200 dark:bg-white/20 mt-3" />
             </div>
           </div>
         </div>

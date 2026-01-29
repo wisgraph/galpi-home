@@ -32,7 +32,7 @@ const AboutPage: React.FC = () => {
 
                             <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
                                 당신의 생각이 끊어지는 '틈'을 메우기 위해,<br className="hidden md:block" />
-                                우리는 0.03초의 속도에 집착했습니다.
+                                우리는 <strong className="text-slate-900 dark:text-white">0.03초의 속도</strong>에 집착했습니다.
                             </p>
                         </div>
                     </ScrollReveal>
@@ -43,19 +43,14 @@ const AboutPage: React.FC = () => {
             <section className="py-24 bg-white dark:bg-slate-950">
                 <div className="container mx-auto px-6">
                     <ScrollReveal>
-                        <div className="max-w-4xl mx-auto">
-                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-800">
-                                <h2 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-slate-200 mb-8 italic">
-                                    "갈피: 겹치거나 포갠 물건의 하나하나의 사이."
+                        <div className="max-w-3xl mx-auto">
+                            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-slate-800 text-center">
+                                <h2 className="text-3xl font-serif font-bold text-slate-900 dark:text-white mb-6">
+                                    갈피 <span className="text-sm font-sans font-normal text-slate-500 ml-2">(명사)</span>
                                 </h2>
-                                <div className="space-y-6 text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
-                                    <p>
-                                        우리의 업무는 수백 개의 파일과 탭이 겹겹이 쌓인 거대한 탑과 같습니다.
-                                        그 사이(틈)를 비집고 들어가는 순간, 흐름은 끊기고 집중력은 증발합니다.
-                                    </p>
-                                    <p className="font-bold text-slate-900 dark:text-white">
-                                        갈피(Galpi)는 당신이 놓친 그 '틈'을 메우기 위해 태어났습니다.
-                                    </p>
+                                <div className="space-y-4 text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-serif">
+                                    <p>1. 겹치거나 포갠 물건의 하나하나의 사이.</p>
+                                    <p>2. 일이나 사물의 갈래가 구별되는 어름.</p>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +76,7 @@ const AboutPage: React.FC = () => {
                                             맥(Mac) 생태계에서 앱과 앱 사이를 완벽하게 연결하려면, AppleScript는 피할 수 없는 선택입니다. 경쟁사도, 저희도 마찬가지입니다.
                                         </p>
                                         <p className="font-bold text-slate-900 dark:text-white text-xl">
-                                            하지만 '그냥 쓰는 것'과 '깎아서 쓰는 것'은 천지차이입니다.
+                                            하지만 <span className="underline decoration-wavy decoration-rose-500/30">'그냥 쓰는 것'과 '깎아서 쓰는 것'</span>은 천지차이입니다.
                                         </p>
                                         <p>
                                             기존 도구들이 거대한 스크립트 덩어리를 통째로 던져 맥을 멈칫하게 만들 때, 갈피는 스크립트를 수술하듯 도려내고 최적화했습니다. 더 나아가, 우리는 OS의 신경망이라 불리는 <strong className="text-rose-600 dark:text-rose-400 font-bold">Accessibility API</strong>를 뚫어 정보를 즉시 낚아챕니다.
@@ -115,7 +110,7 @@ const AboutPage: React.FC = () => {
                                     <div className="p-6 bg-pink-50 dark:bg-pink-900/10 rounded-2xl border border-pink-100 dark:border-pink-900/30">
                                         <h3 className="text-xl font-bold text-pink-600 dark:text-pink-400 mb-4">밀러의 법칙 (The Magical Number Seven)</h3>
                                         <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                                            인간의 작업 기억(Working Memory) 용량은 고작 7개입니다. 당신의 머리가 나빠서 잊어버리는 것이 아닙니다. 뇌의 용량이 초과되었기 때문입니다.
+                                            인간의 작업 기억(Working Memory) 용량은 고작 <strong>7개</strong>입니다. 당신의 머리가 나빠서 잊어버리는 것이 아닙니다. 뇌의 용량이 초과되었기 때문입니다.
                                         </p>
                                     </div>
                                     <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -127,13 +122,22 @@ const AboutPage: React.FC = () => {
                                 </div>
                                 <div className="relative">
                                     <div className="bg-gradient-to-br from-rose-500 to-pink-500 rounded-3xl aspect-square flex items-center justify-center p-1 shadow-2xl shadow-rose-500/20">
-                                        <div className="bg-white dark:bg-slate-900 w-full h-full rounded-[20px] flex flex-col items-center justify-center text-center p-8">
-                                            <span className="text-6xl mb-4">🧠</span>
-                                            <span className="text-2xl font-bold dark:text-white">7 ± 2</span>
-                                            <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full mt-6 overflow-hidden">
-                                                <div className="w-full h-full bg-rose-500 animate-pulse"></div>
+                                        <div className="bg-white dark:bg-slate-900 w-full h-full rounded-[20px] flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
+
+                                            {/* 7 vs Infinity Animation */}
+                                            <div className="flex items-center gap-8 z-10">
+                                                <div className="text-center opacity-40 grayscale">
+                                                    <span className="text-4xl block mb-2">🧠</span>
+                                                    <span className="text-xl font-bold text-slate-400">Limit: 7</span>
+                                                </div>
+                                                <div className="w-px h-16 bg-slate-200 dark:bg-slate-800"></div>
+                                                <div className="text-center scale-110">
+                                                    <span className="text-4xl block mb-2">♾️</span>
+                                                    <span className="text-xl font-black bg-gradient-to-r from-rose-500 to-violet-500 bg-clip-text text-transparent">Galpi: ∞</span>
+                                                </div>
                                             </div>
-                                            <p className="text-sm text-slate-400 mt-4">Working Memory Capacity</p>
+
+                                            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-pink-500/5 pointer-events-none"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -144,8 +148,8 @@ const AboutPage: React.FC = () => {
             </section>
 
             {/* 비전: 파일을 찾지 마세요. 생각을 항해하세요. */}
-            <section className="py-24 bg-slate-950 text-white overflow-hidden relative">
-                <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+            <section className="py-24 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white overflow-hidden relative">
+                <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 dark:opacity-20"></div>
 
                 <div className="container mx-auto px-6 relative z-10">
                     <ScrollReveal>
@@ -156,25 +160,30 @@ const AboutPage: React.FC = () => {
                             </h2>
 
                             <div className="grid md:grid-cols-2 gap-8 mb-16">
-                                <div className="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 text-left">
-                                    <Compass className="w-12 h-12 text-cyan-400 mb-6" />
+                                <div className="bg-white dark:bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-slate-200 dark:border-white/10 text-left shadow-xl dark:shadow-none">
+                                    <Compass className="w-12 h-12 text-cyan-600 dark:text-cyan-400 mb-6" />
                                     <h3 className="text-xl font-bold mb-4">생각의 지도 (Thought Map)</h3>
-                                    <p className="text-slate-400 leading-relaxed">
+                                    <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
                                         언제까지 폴더 트리를 뒤적거리며 시간을 낭비하시겠습니까? 갈피는 당신의 지식 네트워크를 시각화된 '지도'로 펼쳐 보입니다.
                                     </p>
                                 </div>
-                                <div className="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 text-left">
-                                    <Network className="w-12 h-12 text-violet-400 mb-6" />
+                                <div className="bg-white dark:bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-slate-200 dark:border-white/10 text-left shadow-xl dark:shadow-none">
+                                    <Network className="w-12 h-12 text-violet-600 dark:text-violet-400 mb-6" />
                                     <h3 className="text-xl font-bold mb-4">맥락의 나침반</h3>
-                                    <p className="text-slate-400 leading-relaxed">
+                                    <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
                                         우리는 정보를 저장하는 창고가 아닙니다. 생각의 맥락을 보존하는 나침반입니다.
                                     </p>
                                 </div>
                             </div>
 
-                            <p className="text-slate-500 italic">
-                                (로드맵 포함: 곧, 당신의 생각 지도를 눈으로 확인하게 될 것입니다.)
-                            </p>
+                            <div className="flex flex-col items-center justify-center gap-4 mt-16">
+                                <span className="px-4 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-bold uppercase tracking-widest animate-pulse">
+                                    Coming Soon
+                                </span>
+                                <p className="text-slate-500 italic max-w-xl">
+                                    "곧, 당신의 생각 지도를 눈으로 확인하게 될 것입니다."
+                                </p>
+                            </div>
                         </div>
                     </ScrollReveal>
                 </div>
@@ -197,9 +206,9 @@ const AboutPage: React.FC = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => window.location.href = '/pricing'}
-                                className="group relative px-12 py-6 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl font-black text-xl shadow-2xl overflow-hidden shadow-violet-500/10"
+                                className="group relative px-12 py-6 bg-violet-600 dark:bg-violet-500 text-white rounded-2xl font-black text-xl shadow-2xl overflow-hidden shadow-violet-500/20 border-b-4 border-violet-800 dark:border-violet-700"
                             >
-                                <div className="absolute inset-0 bg-violet-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                                <div className="absolute inset-0 bg-violet-700 dark:bg-violet-400 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                                 <span className="relative z-10 flex items-center gap-3 font-black">
                                     30ms의 속도 경험하기 (무료 시작)
                                     <Sparkles size={24} className="animate-pulse" />

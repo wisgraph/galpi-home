@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const PersonaCTA: React.FC = () => {
     return (
         <div className="h-screen flex flex-col items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-b from-white via-violet-50 to-white dark:from-slate-950 dark:via-purple-950/30 dark:to-slate-950" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white dark:from-slate-950 dark:via-purple-950/30 dark:to-slate-950" />
             <div className="relative z-10 text-center px-6">
                 <h3 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
                     당신의 워크플로우에

@@ -80,7 +80,7 @@ const ContextTags: React.FC = () => {
                 </section>
 
                 {/* Section 2: Inverse Workflow */}
-                <section className="bg-slate-900 text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden group shadow-3xl">
+                <section className="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden group shadow-xl dark:shadow-3xl border border-slate-200 dark:border-white/5">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-rose-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 group-hover:bg-rose-500/20 transition-colors" />
 
                     <div className="relative z-10 space-y-12">
@@ -89,9 +89,9 @@ const ContextTags: React.FC = () => {
                                 '스탬프' 모드 <br />
                                 <span className="text-rose-500 italic font-light italic">Inverse Workflow</span>
                             </h2>
-                            <p className="text-xl text-slate-400 leading-relaxed font-light">
+                            <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-light">
                                 갈피는 반대로 갑니다. <b>#project:A</b>를 누르는 순간, 시스템은 단순히 보여주는 모드가 아니라 <b>'낙인을 찍는 모드'</b>가 됩니다.
-                                이제 눈에 보이는 모든 파일에 클릭 한 번으로 당신으 맥락을 주입하십시오.
+                                이제 눈에 보이는 모든 파일에 클릭 한 번으로 당신의 맥락을 주입하십시오.
                             </p>
                         </div>
 
@@ -106,12 +106,12 @@ const ContextTags: React.FC = () => {
                                     desc: "100개의 레퍼런스를 훑으며 필요한 것에만 체크하세요. 1분이면 대형 프로젝트의 소싱이 끝납니다."
                                 }
                             ].map((item, i) => (
-                                <div key={i} className="p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all group/card">
+                                <div key={i} className="p-8 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-3xl hover:bg-slate-50 dark:hover:bg-white/10 transition-all group/card shadow-sm dark:shadow-none">
                                     <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
                                         <div className="w-2 h-2 rounded-full bg-rose-500 group-hover/card:scale-150 transition-transform" />
                                         {item.title}
                                     </h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed font-light">
+                                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-light">
                                         {item.desc}
                                     </p>
                                 </div>

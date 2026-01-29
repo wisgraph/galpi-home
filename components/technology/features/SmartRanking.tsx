@@ -64,7 +64,7 @@ const SmartRanking: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="relative p-12 bg-slate-900 rounded-[4rem] text-white overflow-hidden shadow-2xl group border border-white/5">
+                    <div className="relative p-12 bg-white dark:bg-slate-900 rounded-[4rem] text-slate-900 dark:text-white overflow-hidden shadow-2xl group border border-slate-200 dark:border-white/5">
                         <div className="absolute top-0 right-10 flex gap-4 opacity-20">
                             {[...Array(3)].map((_, i) => (
                                 <motion.div
@@ -91,10 +91,10 @@ const SmartRanking: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="p-6 bg-white/5 rounded-3xl border border-white/10 opacity-60">
-                                    <p className="font-bold mb-2">오래된 학습 노트 (2022)</p>
+                                <div className="p-6 bg-slate-50 dark:bg-white/5 rounded-3xl border border-slate-100 dark:border-white/10 opacity-60">
+                                    <p className="font-bold mb-2 text-slate-700 dark:text-white/80">오래된 학습 노트 (2022)</p>
                                     <div className="flex gap-2">
-                                        <span className="px-2 py-1 bg-white/10 rounded-md text-[8px] font-black uppercase">Decayed: 12.1</span>
+                                        <span className="px-2 py-1 bg-slate-200 dark:bg-white/10 rounded-md text-[8px] font-black uppercase text-slate-500 dark:text-white/60">Decayed: 12.1</span>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@ const SmartRanking: React.FC = () => {
                 </section>
 
                 {/* Section 2: Zero Labor Indexing */}
-                <section className="bg-indigo-600 text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden group shadow-[0_50px_100px_rgba(79,70,229,0.3)]">
+                <section className="bg-indigo-600 dark:bg-indigo-600 text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden group shadow-[0_50px_100px_rgba(79,70,229,0.3)]">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-indigo-400 to-transparent opacity-50" />
 
                     <div className="relative z-10 grid md:grid-cols-5 gap-12 items-center">

@@ -38,7 +38,7 @@ const TechDeepDive: React.FC = () => {
                 <div>
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">30ms의 한계 돌파 (Native Path)</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                    남들은 느린 AppleScript를 그냥 씁니다. 갈피는 macOS의 Accessibility API에 직접 탄 중 저수준 최적화를 통해 30ms(0.03초)라는 반응 속도를 구현했습니다. 뇌의 속도를 따라잡는 쾌적함을 경험하세요.
+                    왜 갈피는 0.5초 만에 모든 걸 끝낼 수 있을까요? <strong>핵심 엔진이 0.03초 안에 반응하기 때문입니다.</strong> 남들이 느린 AppleScript로 시간을 허비할 때, 갈피는 macOS Accessibility API를 직접 타격하여 <strong>30ms(0.03초)</strong> 안에 맥락 캡처를 끝냅니다.
                   </p>
                 </div>
               </div>
@@ -48,9 +48,9 @@ const TechDeepDive: React.FC = () => {
                   <FileJson size={28} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-violet-600 dark:group-hover:text-purple-400 transition-colors">메모리 도둑을 잡았습니다 (Rust Core)</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-violet-600 dark:group-hover:text-purple-400 transition-colors">메모리 누수(Leak), 원천 봉쇄.</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                    켜둘수록 비대해지는 앱(Memory Leak)에 지치셨나요? Rust Core가 리소스를 엄격하게 통제하여 12GB까지 치솟는 경쟁사와 달리 항상 300MB 내외의 고정된 가벼움을 유지합니다.
+                    켜둘수록 느려지는 앱에 지치셨나요? Rust의 소유권(Ownership) 모델이 메모리 누수를 원천적으로 차단합니다. 12GB까지 치솟는 경쟁사와 달리 항상 300MB 내외의 고정된 가벼움을 유지합니다.
                   </p>
                   <span className="inline-block mt-3 text-xs px-2.5 py-1 bg-violet-100 dark:bg-purple-900/20 text-violet-700 dark:text-purple-300 border border-violet-200 dark:border-purple-500/30 rounded font-medium">Memory Stability Guaranteed</span>
                 </div>

@@ -31,7 +31,7 @@ const pricingPlans = [
             { text: '우선 기술 지원', included: false },
         ],
         cta: '무료 다운로드',
-        ctaLink: '#download',
+        ctaLink: 'https://github.com/wisgraph/galpi-release',
         highlighted: false
     },
     {
@@ -226,7 +226,7 @@ const PricingPage: React.FC = () => {
             {/* Voting Section - Engagement Wording */}
             <section className="py-24 bg-slate-50 dark:bg-slate-950">
                 <div className="container mx-auto px-6 max-w-4xl">
-                    <div className="bg-slate-950 dark:bg-slate-900 rounded-[3rem] p-12 md:p-16 text-center text-white relative overflow-hidden border border-white/5 shadow-2xl">
+                    <div className="bg-white dark:bg-slate-900 rounded-[3rem] p-12 md:p-16 text-center text-slate-900 dark:text-white relative overflow-hidden border border-slate-100 dark:border-white/5 shadow-xl dark:shadow-2xl">
                         <div className="absolute inset-0 bg-gradient-to-br from-amber-600/10 to-transparent pointer-events-none" />
                         <div className="relative z-10 space-y-8">
                             <Vote size={48} className="mx-auto text-amber-500" />
@@ -237,13 +237,13 @@ const PricingPage: React.FC = () => {
                             </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-xl mx-auto text-sm">
-                                <div className="bg-white/5 border border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-emerald-400">
+                                <div className="bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400">
                                     <Check size={14} /> [필수] Finder, Chrome
                                 </div>
-                                <div className="bg-white/5 border border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-amber-400">
+                                <div className="bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-amber-600 dark:text-amber-400">
                                     🚧 [개발 중] Arc Browser
                                 </div>
-                                <div className="bg-white/5 border border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-slate-400">
+                                <div className="bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-slate-500 dark:text-slate-400">
                                     🗳️ [투표] Notion, Slack...
                                 </div>
                             </div>
@@ -266,7 +266,7 @@ const PricingPage: React.FC = () => {
             </section>
 
             {/* CTA - Final Marketing Flare */}
-            <section className="py-40 relative overflow-hidden bg-slate-950 text-white text-center">
+            <section className="py-40 relative overflow-hidden bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-center">
                 <div className="absolute inset-0 bg-gradient-to-t from-orange-600/10 to-transparent pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative z-10">
@@ -277,7 +277,7 @@ const PricingPage: React.FC = () => {
                                     100개 앱을 지원할 때쯤엔, <br />
                                     <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent italic">가격은 4배($19.99)가 되어 있을 겁니다.</span>
                                 </h2>
-                                <p className="text-2xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+                                <p className="text-2xl text-slate-500 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
                                     가장 저렴한 오늘, 미래의 기능까지 미리 소장하세요.
                                 </p>
                             </div>

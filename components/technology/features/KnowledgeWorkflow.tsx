@@ -90,14 +90,14 @@ const KnowledgeWorkflow: React.FC = () => {
                         <h2 className="text-3xl font-bold text-slate-900 dark:text-white">생각의 속도로 전환하는 '디지털 데스크'</h2>
                     </div>
 
-                    <div className="bg-slate-900 text-white rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden">
+                    <div className="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white rounded-[2.5rem] p-8 md:p-12 relative overflow-hidden shadow-xl dark:shadow-3xl border border-slate-200 dark:border-white/5">
                         <div className="absolute left-0 bottom-0 w-full h-1/2 bg-gradient-to-t from-indigo-900/50 to-transparent" />
 
                         <div className="relative z-10 grid md:grid-cols-2 gap-12">
                             <div>
                                 <h3 className="text-2xl font-bold mb-4">즉각적인 전환 (Instant Switching)</h3>
-                                <p className="text-slate-300 leading-relaxed mb-8">
-                                    오후 업무 시작 전, 검색창에 <code className="bg-white/20 px-1 rounded">#project:B</code>를 입력하세요.<br /><br />
+                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                                    오후 업무 시작 전, 검색창에 <code className="bg-slate-200 dark:bg-white/20 px-1 rounded">#project:B</code>를 입력하세요.<br /><br />
                                     그 즉시 당신의 화면은 프로젝트 B와 관련된 피그마, 노션, 슬랙 대화로 재구성됩니다. 오전 업무의 잔상을 지우는 데 <strong>단 1초</strong>면 충분합니다.
                                 </p>
                             </div>
@@ -105,8 +105,8 @@ const KnowledgeWorkflow: React.FC = () => {
                                 <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer group">
                                     <div className="w-8 h-8 rounded bg-indigo-500 flex items-center justify-center font-bold">A</div>
                                     <div className="flex-1">
-                                        <div className="text-slate-400 text-xs">Previous Context</div>
-                                        <div className="font-bold">Project Alpha</div>
+                                        <div className="text-slate-500 dark:text-slate-400 text-xs">Previous Context</div>
+                                        <div className="font-bold text-slate-900 dark:text-white">Project Alpha</div>
                                     </div>
                                     <ArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
                                 </div>
@@ -114,7 +114,7 @@ const KnowledgeWorkflow: React.FC = () => {
                                 <div className="flex items-center gap-4 p-4 rounded-xl bg-indigo-600 border border-indigo-400 shadow-xl shadow-indigo-500/20 cursor-pointer">
                                     <div className="w-8 h-8 rounded bg-white text-indigo-600 flex items-center justify-center font-bold">B</div>
                                     <div className="flex-1">
-                                        <div className="text-indigo-200 text-xs">Active Context</div>
+                                        <div className="text-indigo-100 dark:text-indigo-200 text-xs">Active Context</div>
                                         <div className="font-bold text-white">Project Beta</div>
                                     </div>
                                 </div>

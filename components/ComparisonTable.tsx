@@ -44,7 +44,7 @@ const ComparisonTable: React.FC = () => {
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">더 빠르고, 더 안전하고, 더 합리적입니다.</h3>
           <a href="#pricing" className="inline-block px-10 py-4 bg-violet-600 hover:bg-violet-700 text-white rounded-2xl font-bold transition-all shadow-xl shadow-violet-500/25">
-            갈피로 갈아타기 (얼리버드 $4.99)
+            갈피로 갈아타기 (Super Early Bird $4.99)
           </a>
           <p className="mt-6 text-sm text-slate-500">기존 훅마크 사용자 환영 | 데이터 마이그레이션 지원(예정)</p>
         </div>

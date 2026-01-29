@@ -49,7 +49,7 @@ const featuresData = [
         subtitle: "Zero-Input Tagging",
         color: "from-rose-500 to-pink-600",
         themeColor: "#f43f5e",
-        pain: "태그 정리가 귀찮아서 포기하셨죠? 타이핑하는 순간 당신의 몰입은 깨집니다.",
+        pain: "태그 정리, 귀찮아서 미루다가 결국 포기하셨죠? 타이핑하는 순간 당신의 몰입은 깨집니다.",
         solution: "갈피에서는 캡처하는 순간, 현재 작업 중인 프로젝트의 태그가 자동으로 상속됩니다. 당신은 '분류'라는 노동에서 완전히 해방됩니다.",
         videos: [
             {
@@ -77,7 +77,7 @@ const featuresData = [
         color: "from-blue-500 to-cyan-600",
         themeColor: "#3b82f6",
         pain: "링크 20개를 언제 하나씩 복사하고 있습니까? 당신의 시간은 그것보다 훨씬 가치 있습니다.",
-        solution: "Cmd+Shift+C. 단축키 한 번이면 검색된 수십 개의 문서를 마크다운 리스트로 즉시 변환합니다. 옵시디언(Obsidian) 유저들이 열광하는 이유입니다.",
+        solution: "복잡한 설정 없이, Cmd+Shift+C 한 번이면 검색된 수십 개의 문서를 마크다운 리스트로 즉시 변환합니다. 옵시디언(Obsidian) 유저들이 열광하는 이유입니다.",
         videos: [
             {
                 path: "/assets/videos/bulk_copy_markdown.mov",
@@ -130,7 +130,7 @@ const featuresData = [
         subtitle: "Self-Healing Link Engine",
         color: "from-emerald-500 to-teal-600",
         themeColor: "#10b981",
-        pain: "파일 이름을 바꾸거나 위치를 옮기면 링크가 다 깨져버리는 유리 같은 도구들에 지치셨습니까?",
+        pain: "파일 이름 하나 바꿨다고 링크가 다 깨져버리는, 유리 같은 도구들의 배신에 지치셨습니까?",
         solution: "갈피의 링크는 절대 끊어지지 않습니다. 파일이 어디로 숨든 Inode 추적 기술이 끝까지 찾아냅니다. 마음대로 폴더를 정리하세요.",
         videos: [
             {
@@ -220,7 +220,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ feature, index }) => {
                                             key={i}
                                             onClick={() => setActiveIdx(i)}
                                             className={`px-6 py-2.5 rounded-2xl text-sm font-black transition-all duration-300 border ${activeIdx === i
-                                                ? `bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-slate-900 dark:border-white shadow-xl scale-105`
+                                                ? `bg-cyan-600 dark:bg-cyan-500 text-white border-cyan-700 dark:border-cyan-400 shadow-xl shadow-cyan-500/20 scale-105`
                                                 : "bg-transparent text-slate-500 dark:text-slate-500 border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 hover:text-slate-900 dark:hover:text-slate-300 font-bold"
                                                 }`}
                                         >
@@ -320,25 +320,25 @@ const FeaturesPage: React.FC = () => {
             </div>
 
             {/* CTA Section */}
-            <section className="py-48 bg-slate-950 relative overflow-hidden text-center">
-                <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-600 via-transparent to-transparent" />
+            <section className="py-48 bg-slate-50 dark:bg-slate-950 relative overflow-hidden text-center">
+                <div className="absolute inset-0 opacity-10 dark:opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-600 via-transparent to-transparent" />
 
                 <div className="container mx-auto px-6 relative z-10">
                     <ScrollReveal>
-                        <h2 className="text-4xl md:text-7xl font-black text-white mb-10 tracking-tight">
+                        <h2 className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white mb-10 tracking-tight">
                             당신의 소중한 시간을 <br />
                             <span className="text-cyan-500">진짜 가치 있는 일</span>에 쓰세요.
                         </h2>
-                        <p className="text-2xl text-slate-400 mb-16 max-w-3xl mx-auto font-light leading-relaxed">
+                        <p className="text-2xl text-slate-500 dark:text-slate-400 mb-16 max-w-3xl mx-auto font-light leading-relaxed">
                             찾지 마세요, 부르세요. <br />
-                            0.03초의 속도로 당신의 지적 우주가 연결됩니다.
+                            0.03초 엔진의 힘으로, 0.5초 만에 당신의 지적 우주를 연결합니다.
                         </p>
 
                         <motion.a
                             href="/pricing"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="inline-flex items-center gap-4 px-14 py-7 bg-white text-slate-950 rounded-2xl font-black text-2xl shadow-2xl hover:bg-slate-100 transition-all border-b-8 border-slate-200"
+                            className="inline-flex items-center gap-4 px-14 py-7 bg-cyan-600 dark:bg-cyan-500 text-white rounded-2xl font-black text-2xl shadow-2xl hover:bg-cyan-700 dark:hover:bg-cyan-400 transition-all border-b-8 border-cyan-800 dark:border-cyan-600 shadow-cyan-500/20"
                         >
                             지금 갈피 시작하기
                             <ArrowRight className="w-6 h-6" />

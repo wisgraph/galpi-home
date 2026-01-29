@@ -156,7 +156,7 @@ const PersonaTabsCarousel: React.FC = () => {
     }, []);
 
     return (
-        <div ref={sectionRef} className="bg-slate-950">
+        <div ref={sectionRef} className="bg-slate-50 dark:bg-slate-950">
             <PersonaHeader />
 
             <div ref={triggerRef} className="relative h-screen overflow-hidden">
@@ -168,8 +168,8 @@ const PersonaTabsCarousel: React.FC = () => {
                             onClick={() => scrollToPanel(i)}
                             className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer hover:scale-110
                                 ${i === activeIndex
-                                    ? "bg-white scale-125"
-                                    : "bg-white/30 hover:bg-white/50"
+                                    ? "bg-slate-900 dark:bg-white scale-125"
+                                    : "bg-slate-300 dark:bg-white/30 hover:bg-slate-400 dark:hover:bg-white/50"
                                 }`}
                             aria-label={`Go to panel ${i + 1}`}
                         />
@@ -196,7 +196,7 @@ const PersonaTabsCarousel: React.FC = () => {
                 </div>
             </div>
 
-            <div className="relative z-10 bg-slate-950">
+            <div className="relative z-10 bg-slate-50 dark:bg-slate-950">
                 <PersonaCTA />
             </div>
         </div>

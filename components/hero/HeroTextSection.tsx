@@ -75,7 +75,7 @@ const HeroTextSection: React.FC = () => {
         >
           <Link
             to="/pricing"
-            className="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl hover:shadow-violet-500/20 flex items-center gap-2"
+            className="px-8 py-4 bg-violet-600 dark:bg-violet-500 text-white rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-violet-500/25 border-b-4 border-violet-800 dark:border-violet-600 flex items-center gap-2"
           >
             <Download size={20} /> 갈피 시작하기
           </Link>

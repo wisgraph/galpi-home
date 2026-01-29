@@ -30,9 +30,9 @@ const Step1Animation = () => (
       <motion.div
         animate={{ scale: [1, 0.9, 1] }}
         transition={{ repeat: Infinity, duration: 2, repeatDelay: 1 }}
-        className="w-32 h-12 bg-white dark:bg-slate-700 rounded-lg shadow-md border-b-4 border-slate-300 dark:border-slate-900 flex items-center justify-center text-xs font-bold text-slate-500 dark:text-slate-300"
+        className="w-32 h-12 bg-white dark:bg-slate-700 rounded-lg shadow-md border-b-4 border-slate-300 dark:border-slate-900 flex items-center justify-center text-[10px] font-bold text-slate-500 dark:text-slate-300"
       >
-        SPACE
+        당신이 등록한 단축키
       </motion.div>
     </div>
   </div>
@@ -113,7 +113,7 @@ const steps = [
     icon: Camera,
     step: "Step 1",
     title: "Capture",
-    desc: "지금 보는 그 화면, 그대로 캡처. 웹사이트, PDF, 이메일... 단축키 한 번이면 현재 맥락이 런처에 담깁니다.",
+    desc: "지금 보는 그 화면, 그대로 캡처. 웹사이트, PDF, 이메일... 손에 익은 단축키 하나면 현재 맥락이 런처에 담깁니다.",
     color: "from-blue-500 to-cyan-500",
     animation: Step1Animation
   },
@@ -129,7 +129,7 @@ const steps = [
     icon: Zap,
     step: "Step 3",
     title: "Recall",
-    desc: "개떡같이 말해도 찰떡같이 찾습니다. 초성(ㄱㅎ), 태그, 키워드 무엇이든 입력하세요. 0.1초 만에 찾아냅니다.",
+    desc: "개떡같이 말해도 찰떡같이 찾습니다. 초성(ㄱㅁ), 태그, 키워드 무엇이든 입력하세요. 0.5초 만에 당신의 눈앞에 대령합니다.",
     color: "from-cyan-400 to-emerald-400",
     animation: Step3Animation
   }

@@ -6,34 +6,36 @@ import ScrollReveal from './animations/ScrollReveal';
 const plans = [
   {
     name: 'Starter',
-    subtitle: 'Free Forever',
+    subtitle: '찍먹해보기',
     price: '$0',
     description: '부담 없이 시작하세요',
     features: [
       { text: '모든 기능 체험 가능', included: true },
-      { text: '최대 50개 링크 생성', included: true },
-      { text: '50개 이하 리딩/검색 평생 무제한', included: true, highlight: true },
-      { text: '데이터 로컬 저장', included: true },
-      { text: '링크 생성 무제한', included: false },
+      { text: '최대 50개 링크 생성', included: true, highlight: true },
+      { text: '기존 링크 검색/실행 평생 무제한', included: true },
+      { text: '100% 로컬 데이터 저장', included: true },
+      { text: '카드 등록 불필요', included: true },
     ],
     cta: '무료 다운로드',
+    ctaLink: 'https://github.com/wisgraph/galpi-release',
     highlighted: false
   },
   {
     name: 'Pro Lifetime',
-    subtitle: 'Phase 1 Early Bird',
+    subtitle: '제한 없는 생산성',
     price: '$4.99',
-    originalPrice: '$14.99',
+    originalPrice: '$19.99',
     description: '커피 한 잔 값으로 평생 소장',
     badge: '🔥 선착순 100명',
     features: [
-      { text: '모든 기능 무제한', included: true },
-      { text: '링크 생성 무제한', included: true, highlight: true },
-      { text: '읽기/검색/실행 평생 무제한', included: true },
-      { text: '데이터 로컬 저장', included: true },
-      { text: '평생 무료 업데이트', included: true },
+      { text: '100명 한정 Super Early Bird 특가', included: true, highlight: true },
+      { text: '링크 생성/연결 무제한', included: true },
+      { text: '추후 기능 추가되어도 추가금 $0', included: true },
+      { text: '정식 출시 후 구독형 전환 예정', included: true },
+      { text: '우선 기술 지원', included: true },
     ],
-    cta: '얼리버드 구매하기',
+    cta: 'Super Early Bird 구매하기',
+    ctaLink: '#purchase',
     highlighted: true
   }
 ];
@@ -62,7 +64,7 @@ const Pricing: React.FC = () => {
               <motion.div
                 whileHover={{ y: -10 }}
                 className={`relative rounded-[2.5rem] p-10 h-full transition-all border-2 ${plan.highlighted
-                  ? 'bg-white dark:bg-slate-900 border-amber-500 shadow-[0_20px_60px_rgba(249,115,22,0.15)]'
+                  ? 'bg-white dark:bg-slate-900 border-amber-400 shadow-[0_20px_60px_rgba(249,115,22,0.15)]'
                   : 'bg-white dark:bg-slate-900/50 border-slate-200 dark:border-slate-800'
                   }`}
               >
@@ -100,7 +102,10 @@ const Pricing: React.FC = () => {
                   ))}
                 </ul>
 
-                <button
+                <motion.a
+                  href={plan.ctaLink}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   className={`w-full py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-2 transition-all ${plan.highlighted
                     ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-xl shadow-orange-600/30'
                     : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200'
@@ -108,7 +113,7 @@ const Pricing: React.FC = () => {
                 >
                   {plan.cta}
                   <ArrowRight size={20} />
-                </button>
+                </motion.a>
               </motion.div>
             </ScrollReveal>
           ))}

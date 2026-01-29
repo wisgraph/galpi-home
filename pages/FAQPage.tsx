@@ -190,7 +190,7 @@ const FAQPage: React.FC = () => {
                                                 onClick={() => setActiveIndex(isOpen ? null : id)}
                                                 className="w-full flex items-center justify-between p-8 text-left focus:outline-none"
                                             >
-                                                <span className={`text-xl font-bold tracking-tight transition-colors ${isOpen ? 'text-violet-600' : 'text-slate-700 dark:text-slate-300'
+                                                <span className={`text-xl font-bold tracking-tight transition-colors ${isOpen ? 'text-violet-600 dark:text-violet-400' : 'text-slate-700 dark:text-slate-300'
                                                     }`}>
                                                     Q. "{faq.question}"
                                                 </span>
@@ -211,7 +211,7 @@ const FAQPage: React.FC = () => {
                                                     >
                                                         <div className="px-8 pb-10 text-slate-600 dark:text-slate-400 leading-relaxed text-lg font-light pt-4 border-t border-slate-50 dark:border-slate-800/50">
                                                             <div className="flex items-start gap-4">
-                                                                <span className="text-2xl font-black text-violet-500 mt-1">A.</span>
+                                                                <span className="text-2xl font-black text-violet-500 dark:text-violet-400 mt-1">A.</span>
                                                                 <div className="w-full">
                                                                     {faq.answer}
                                                                 </div>
@@ -230,7 +230,7 @@ const FAQPage: React.FC = () => {
             </section>
 
             {/* Outro - Discord Link */}
-            <section className="py-32 bg-slate-950 text-white overflow-hidden relative border-t border-white/5">
+            <section className="py-32 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white overflow-hidden relative border-t border-slate-200 dark:border-white/5">
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 to-transparent pointer-events-none" />
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
@@ -243,13 +243,13 @@ const FAQPage: React.FC = () => {
                                 </h3>
                             </div>
 
-                            <p className="text-xl md:text-2xl text-slate-400 font-light leading-relaxed max-w-2xl mx-auto">
+                            <p className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 font-light leading-relaxed max-w-2xl mx-auto">
                                 저희는 숨지 않습니다. 디스코드 커뮤니티에는 저를 포함한 초기 유저들이 상주하고 있습니다. <br />
                                 기능 요청, 버그 제보, 혹은 단순한 수다도 환영합니다.
                             </p>
 
                             <motion.a
-                                href="https://discord.gg/yourlink"
+                                href="https://discord.gg/BeneFYvVmZ"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}

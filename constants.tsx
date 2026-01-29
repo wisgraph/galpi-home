@@ -61,16 +61,22 @@ export const COMPARISON_DATA: ComparisonItem[] = [
     note: '내 데이터는 온전히 나의 것'
   },
   {
-    feature: '반응 속도 (Latency)',
-    competitor: '1,000ms+ (사고의 맥을 끊음)',
-    galpi: '30ms 미만 (반응을 느끼기도 전)',
-    note: '생각보다 빠른 연결'
+    feature: '코어 레이턴시',
+    competitor: '300ms+ (스크립트 로딩 대기)',
+    galpi: '30ms (캡처 즉시 완료)',
+    note: '엔진 속도'
   },
   {
-    feature: '메모리 점유 (Efficiency)',
+    feature: '체감 속도 (UX)',
+    competitor: '딜레이 발생 (Laggy)',
+    galpi: '0.5초 (생각하는 즉시 연결)',
+    note: '사용자 체감 속도'
+  },
+  {
+    feature: '메모리 점유',
     competitor: '12GB+ (메모리 누수 문제)',
-    galpi: '300MB 미만 (Rust의 고집)',
-    note: '리소스 낭비 Zero'
+    galpi: '300MB 미만 (Rust의 메모리관리)',
+    note: '리소스 낙비 Zero'
   },
   {
     feature: '업데이트 정책',

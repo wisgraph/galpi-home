@@ -75,7 +75,7 @@ const UnbrokenLinks: React.FC = () => {
                 </section>
 
                 {/* Section 2: Stalker Logic */}
-                <section className="bg-slate-900 text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden group">
+                <section className="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden group shadow-xl dark:shadow-3xl border border-slate-200 dark:border-white/5">
                     <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-500 to-cyan-500 opacity-50 shadow-[0_0_20px_rgba(16,185,129,0.3)]" />
 
                     <div className="max-w-3xl space-y-10 relative z-10">
@@ -87,25 +87,25 @@ const UnbrokenLinks: React.FC = () => {
                             갈피는 집요한 <br />
                             <span className="text-emerald-500 italic uppercase">추적자(Stalker)</span>입니다.
                         </h2>
-                        <p className="text-xl text-slate-300 leading-relaxed font-light">
+                        <p className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed font-light">
                             파일의 이름이 바뀌어도, 폴더가 10번 바뀌어도, 심지어 <b>휴지통</b>에 들어가도 갈피는 끝까지 쫓아갑니다.
                             우리는 경로가 아닌, 운영체제가 부여한 영혼의 고유번호 <b>Inode</b>를 물고 늘어집니다.
                         </p>
 
                         <div className="grid md:grid-cols-2 gap-10 pt-10 text-left">
-                            <div className="space-y-4 p-8 bg-white/5 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
-                                <h4 className="text-emerald-400 font-black flex items-center gap-3 uppercase tracking-tight">
+                            <div className="space-y-4 p-8 bg-white dark:bg-white/5 rounded-3xl border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 transition-colors shadow-sm dark:shadow-none">
+                                <h4 className="text-emerald-600 dark:text-emerald-400 font-black flex items-center gap-3 uppercase tracking-tight">
                                     <ShieldCheck size={20} /> Inode Tracking
                                 </h4>
-                                <p className="text-sm text-slate-400 font-light leading-relaxed">
+                                <p className="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                                     파일의 위치나 이름에 의존하지 않습니다. 하위 파일 시스템의 고유 식별자를 통해 '동일성'을 물리적으로 보장합니다.
                                 </p>
                             </div>
-                            <div className="space-y-4 p-8 bg-white/5 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
-                                <h4 className="text-emerald-400 font-black flex items-center gap-3 uppercase tracking-tight">
+                            <div className="space-y-4 p-8 bg-white dark:bg-white/5 rounded-3xl border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 transition-colors shadow-sm dark:shadow-none">
+                                <h4 className="text-emerald-600 dark:text-emerald-400 font-black flex items-center gap-3 uppercase tracking-tight">
                                     <ExternalLink size={20} /> Alias Bookmark
                                 </h4>
-                                <p className="text-sm text-slate-400 font-light leading-relaxed">
+                                <p className="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                                     macOS의 북마크 기술을 활용하여, 시스템이 스스로 파일의 이동 경로를 갈피에게 '보고'하게 만듭니다.
                                 </p>
                             </div>

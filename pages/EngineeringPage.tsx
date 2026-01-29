@@ -223,17 +223,17 @@ const EngineeringPage: React.FC = () => {
             </div>
 
             {/* Global CTA */}
-            <section className="py-32 bg-slate-950 text-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-600 via-transparent to-transparent" />
+            <section className="py-32 bg-slate-50 dark:bg-slate-950 text-center relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10 dark:opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-600 via-transparent to-transparent" />
                 <div className="container mx-auto px-6 relative z-10">
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-10 tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-10 tracking-tight">
                         공학은 <span className="text-blue-500">정직</span>해야 합니다.
                     </h2>
                     <motion.a
                         href="/features"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center gap-3 px-10 py-5 bg-white text-slate-950 rounded-2xl font-black text-xl shadow-2xl transition-all"
+                        className="inline-flex items-center gap-3 px-10 py-5 bg-blue-600 dark:bg-blue-500 text-white rounded-2xl font-black text-xl shadow-2xl hover:bg-blue-700 dark:hover:bg-blue-400 transition-all border-b-4 border-blue-800 dark:border-blue-600 shadow-blue-500/20"
                     >
                         기능 작동 원리 보기
                         <ArrowRight size={20} />
