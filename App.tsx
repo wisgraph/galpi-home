@@ -6,8 +6,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import UseCasesPage from './pages/UseCasesPage';
-import TechnologyPage from './pages/TechnologyPage';
+import FeaturesPage from './pages/FeaturesPage';
+import EngineeringPage from './pages/EngineeringPage';
 import PricingPage from './pages/PricingPage';
 import FAQPage from './pages/FAQPage';
 
@@ -20,8 +20,8 @@ const AnimatedRoutes: React.FC = () => {
         <Routes location={location}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/use-cases" element={<UseCasesPage />} />
-          <Route path="/technology" element={<TechnologyPage />} />
+          <Route path="/features" element={<FeaturesPage />} />
+          <Route path="/engineering" element={<EngineeringPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/faq" element={<FAQPage />} />
         </Routes>

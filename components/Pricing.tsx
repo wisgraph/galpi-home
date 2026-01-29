@@ -9,9 +9,15 @@ const Pricing: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20 relative">
-
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white tracking-tight relative z-10">구독료 <span className="text-violet-600 dark:text-violet-400">0원</span>.</h2>
-          <p className="text-xl text-slate-500 dark:text-slate-400 relative z-10">도구는 빌리는 게 아니라 소장하는 것입니다.</p>
+          <h2 className="text-4xl md:text-5xl font-black mb-6 text-slate-900 dark:text-white tracking-tight relative z-10 leading-tight">
+            잃어버린 맥락을 찾는 데 <br className="md:hidden" />
+            <span className="text-violet-600 dark:text-violet-400 font-black italic">하루 20분</span>을 쓰고 계시다면,
+          </h2>
+          <p className="text-2xl font-bold text-slate-500 dark:text-slate-400 relative z-10">
+            이제 그 시간을 당신의 '진짜 일'에 투자하세요.
+            <br />
+            구독료 <span className="text-slate-900 dark:text-white underline decoration-violet-500/30">0원</span>으로 평생 소장하십시오.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">

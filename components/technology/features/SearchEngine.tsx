@@ -18,13 +18,15 @@ const SearchEngine: React.FC = () => {
                     >
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-widest mb-6">
                             <Gauge size={12} />
-                            Rust 기반
+                            Korean Optimized
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
-                            고성능 검색 엔진
+                        <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
+                            한국어 사용자에게 <br className="md:hidden" />
+                            가장 <span className="text-blue-600 dark:text-blue-400 italic">이기적인</span> 검색 엔진
                         </h1>
                         <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-                            "0.01초의 미학, <br className="hidden md:block" /> 생각의 속도로 정보를 찾아냅니다."
+                            해외 생산성 도구들을 쓰며 답답하셨죠? <br className="hidden md:block" />
+                            영문 오타조차 당신의 '의도'로 읽어냅니다.
                         </p>
                     </motion.div>
                 </div>
@@ -56,9 +58,10 @@ const SearchEngine: React.FC = () => {
                             <Sparkles size={24} />
                         </div>
                         <div className="flex-1">
-                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">완성형 초성 검색</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">초성 검색 (Choseong Search)</h3>
                             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                                한국어 사용자에게 가장 친숙하고 빠른 검색 방식을 제공합니다. 훅의 제목뿐만 아니라 <strong>태그 검색</strong>에서도 초성만으로 원하는 결과를 즉시 찾아낼 수 있습니다.
+                                <strong>"ㄱㅎㅇ"</strong>라고만 치세요. <code>2026_기획안.pdf</code>를 즉시 소환합니다. <br />
+                                파일명뿐만 아니라 태그조차 초성으로 잡아냅니다. <strong>#ㅎㄹ</strong>만 쳐도 <strong>#hooklink</strong>가 튀어나옵니다.
                             </p>
                             <div className="bg-slate-100 dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
                                 <div className="flex items-center gap-4 mb-4">
@@ -81,10 +84,10 @@ const SearchEngine: React.FC = () => {
                             <Zap size={24} />
                         </div>
                         <div>
-                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">유사 검색 (Fuzzy Matching)</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">퍼지 매칭 (Fuzzy Matching)</h3>
                             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                                정확한 철자를 기억할 필요가 없습니다. <code className="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-sm">hklk</code>만 입력해도 <span className="text-slate-900 dark:text-white font-bold">H</span>oo<span className="text-slate-900 dark:text-white font-bold">kL</span>in<span className="text-slate-900 dark:text-white font-bold">k</span>를 찾아냅니다.
-                                Rust의 고성능 매칭 엔진이 오타 속에서도 당신의 의도를 정확히 파악합니다.
+                                한영 전환을 깜빡해서 <code>rhlghldks</code>라고 치고 지우기를 반복했나요? <br />
+                                <code>hklk</code>라고 대충 쳐도 <code>HookLink</code>를 찾아냅니다. 당신의 오타 속에 숨겨진 <strong>'의도'</strong>를 파악합니다. 정확할 필요 없습니다. 대충 던져도 찰떡같이 알아듣습니다.
                             </p>
                         </div>
                     </div>
@@ -95,9 +98,9 @@ const SearchEngine: React.FC = () => {
                             <Cpu size={24} />
                         </div>
                         <div>
-                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">인메모리 아키텍처</h3>
+                            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">빛의 속도, 인메모리 아키텍처</h2>
                             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                                모든 인덱스는 RAM에 상주합니다. 디스크 I/O 병목 현상 없이, 수십만 개의 데이터를 찰나의 순간에 스캔합니다. 검색 버튼을 누를 필요도 없습니다. 타이핑하는 실시간으로 결과가 쏟아집니다.
+                                모든 인덱스는 RAM 위에서 빛의 속도로 스캔됩니다. 엔터(Enter)를 치기도 전에, 결과는 이미 화면에 떠 있습니다. 디스크를 긁는 소모적인 작업은 갈피에 없습니다.
                             </p>
                         </div>
                     </div>
@@ -105,7 +108,7 @@ const SearchEngine: React.FC = () => {
 
                 <div className="text-center pt-10 border-t border-slate-200 dark:border-slate-800">
                     <p className="text-xl md:text-2xl font-serif italic text-slate-500 dark:text-slate-400">
-                        "가장 뛰어난 검색은 사용자를 기다리게 하지 않습니다."
+                        "단 1초도 낭비하지 마세요. 당신의 시간은 비쌉니다."
                     </p>
                 </div>
 

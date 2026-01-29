@@ -246,7 +246,7 @@ const FAQPage: React.FC = () => {
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                 <a
-                                    href="mailto:support@hooklink.app"
+                                    href="mailto:support@galpi.app"
                                     className="px-6 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl text-slate-700 dark:text-white font-medium transition-colors"
                                 >
                                     📧 이메일 보내기

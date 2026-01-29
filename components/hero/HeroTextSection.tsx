@@ -80,12 +80,16 @@ const HeroTextSection: React.FC = () => {
             <Download size={20} /> 갈피 시작하기
           </Link>
           <Link
-            to="/how-it-works"
+            to="/features"
             className="px-8 py-4 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 rounded-full font-semibold text-lg hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors flex items-center gap-2"
           >
-            <Play size={18} className="text-violet-500" /> 작동 원리
+            <Play size={18} className="text-violet-500" /> 기능 확인 (Features)
           </Link>
         </div>
+
+        <p ref={addToRefs} className="mt-12 text-sm text-slate-400 dark:text-slate-500 font-medium italic">
+          * 갈피는 단순히 파일과 웹페이지를 저장만 하는 분들에게는 필요하지 않습니다.
+        </p>
       </div>
 
       {/* 스크롤 유도 아이콘 */}

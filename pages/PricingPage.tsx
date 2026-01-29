@@ -13,12 +13,12 @@ import {
 import ScrollReveal from '../components/animations/ScrollReveal';
 
 const comparisonFeatures = [
-    { feature: '핵심 엔진', competitor: 'AppleScript (느림, 불안정)', galpi: 'Rust Native (즉시 반응)', note: '메모리 점유율 1/10' },
-    { feature: '연결 방식', competitor: '1:1 수동 연결 (Manual Graph)', galpi: '맥락 기반 자동 연결 (Set Theory)', note: '노가다 vs 자동화' },
-    { feature: '데이터 형태', competitor: 'SQLite DB (암호화/불투명)', galpi: 'JSONL 텍스트 (투명/개방형)', note: '데이터 주권 보장' },
-    { feature: '복잡도', competitor: 'O(N²) (파일이 늘면 느려짐)', galpi: 'O(1) (늘어도 속도 일정)', note: '수만 개 링크도 0.1초' },
-    { feature: '링크 유지력', competitor: 'Alias 의존 (종종 깨짐)', galpi: 'Inode + UUID 이중 추적', note: '파일 추적률 99.9%' },
-    { feature: '가격 정책', competitor: '매년 $70 (임대 모델) 💸', galpi: '$4.99 (얼리버드 평생 소장) ☕️', note: '구독료 0원' },
+    { feature: '핵심 기술', competitor: 'Raw AppleScript (느림)', galpi: 'Accessibility API + Low-level Script', note: '30ms vs 1,000ms+ (압도적 속도)' },
+    { feature: '반응 속도', competitor: '클릭 후 딜레이 발생 (Laggy)', galpi: '0.03초 (30ms) 즉시 반응', note: '뇌의 속도를 따라잡음' },
+    { feature: '메모리 점유', competitor: '500MB → 12GB+ (Memory Leak)', galpi: '평균 300MB (고정/안정적)', note: '새지 않는 안정성 (Rust Core)' },
+    { feature: '연결 방식', competitor: '1:1 수동 연결 (노가다 방식)', galpi: '맥락 기반 자동 제안 (Set Theory)', note: '수동 작업 vs 자동화된 프레임워크' },
+    { feature: '데이터 주권', competitor: '불투명한 DB (Black Box)', galpi: 'JSONL 텍스트 (Open Data)', note: '내 데이터는 온전히 나의 것' },
+    { feature: '가격 정책', competitor: '매년 $70 (구독형 모델)', galpi: '$4.99 (얼리버드 평생 소장)', note: '구독료 0원' },
 ];
 
 const pricingPlans = [
@@ -85,11 +85,11 @@ const PricingPage: React.FC = () => {
                         <div className="max-w-4xl mx-auto text-center">
 
 
-                            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                                <span className="text-slate-900 dark:text-white">구독료 0원.</span>
+                            <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                                <span className="text-slate-900 dark:text-white">길을 찾는 데 쓰는 <span className="text-amber-600 dark:text-amber-400 italic underline decoration-amber-500/30">20분</span>,</span>
                                 <br />
                                 <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 dark:from-amber-400 dark:via-orange-400 dark:to-red-400 bg-clip-text text-transparent">
-                                    커피 한 잔 값으로 평생 소장
+                                    이제 당신의 '진짜 일'에 투자하세요.
                                 </span>
                             </h1>
 

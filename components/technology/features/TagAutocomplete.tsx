@@ -18,13 +18,15 @@ const TagAutocomplete: React.FC = () => {
                     >
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 text-xs font-bold uppercase tracking-widest mb-6">
                             <Sparkles size={12} />
-                            보조 지능
+                            Assistive Neural Network
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
-                            지능형 태그 자동완성
+                        <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
+                            신경망 자동완성 <br className="md:hidden" />
+                            <span className="text-purple-600 dark:text-purple-400 italic">(Neural Autocomplete)</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-                            "태그를 입력하는 순간,<br className="hidden md:block" /> 당신의 데이터 지도가 완성됩니다."
+                            단순한 텍스트 완성이 아닙니다. <br className="hidden md:block" />
+                            당신의 워크플로우를 학습하는 지능형 엔진입니다.
                         </p>
                     </motion.div>
                 </div>
@@ -34,9 +36,9 @@ const TagAutocomplete: React.FC = () => {
 
                 {/* Intro */}
                 <section className="text-center max-w-2xl mx-auto">
-                    <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                        Hooklink의 자동완성은 단순한 텍스트 제안이 아닙니다.
-                        당신의 워크플로우를 이해하고, 가장 적합한 맥락을 <strong>실시간으로</strong> 연결해주는 신경망입니다.
+                    <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light">
+                        <code>#pro</code>를 입력하면 당신이 지금 가장 필요로 할 <code>#project:antigravity</code>를 우선순위로 띄웁니다.
+                        갈피는 당신의 사용 패턴을 분석해 가장 적합한 맥락을 <strong>실시간으로</strong> 연결합니다.
                     </p>
                 </section>
 
@@ -57,15 +59,15 @@ const TagAutocomplete: React.FC = () => {
                                 {/* Autocomplete Dropdown */}
                                 <div className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden">
                                     <div className="p-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                                        Suggestions
+                                        Neural Suggestion
                                     </div>
                                     <div className="p-1">
-                                        <div className="p-2 rounded-lg bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 font-medium flex justify-between items-center cursor-pointer">
+                                        <div className="p-2 rounded-lg bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 font-bold flex justify-between items-center cursor-pointer">
                                             <span>#project:antigravity</span>
-                                            <span className="text-xs opacity-50">Enter</span>
+                                            <span className="text-[10px] opacity-50 px-1.5 py-0.5 rounded border border-purple-300">Enter</span>
                                         </div>
                                         <div className="p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 flex justify-between items-center cursor-pointer">
-                                            <span>#project:hooklink</span>
+                                            <span>#project:galpi</span>
                                         </div>
                                         <div className="p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 flex justify-between items-center cursor-pointer">
                                             <span>#protocol</span>
@@ -83,18 +85,18 @@ const TagAutocomplete: React.FC = () => {
                         <div className="w-12 h-12 rounded-xl bg-white dark:bg-black shadow-sm flex items-center justify-center text-slate-900 dark:text-white mb-6">
                             <Zap size={24} />
                         </div>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">퍼지 매칭 (Fuzzy Matching)</h3>
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">패턴 학습 (Pattern Learning)</h3>
                         <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                            오타가 있어도 괜찮습니다. `prjct`만 입력해도 `#project`를 찾아냅니다. 당신의 의도를 파악하여 관련 태그를 우선순위대로 배치합니다.
+                            당신이 어떤 프로젝트에서 갈피를 가장 많이 사용하는지 압니다. 고민할 필요 없이 <code>Tab</code>만 누르세요. 엔진이 당신의 다음 행동을 미리 준비합니다.
                         </p>
                     </div>
                     <div className="p-8 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">
                         <div className="w-12 h-12 rounded-xl bg-white dark:bg-black shadow-sm flex items-center justify-center text-slate-900 dark:text-white mb-6">
                             <Keyboard size={24} />
                         </div>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">키보드 우선 (Keyboard First)</h3>
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Zero Friction</h3>
                         <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                            마우스에 손을 올리지 마세요. 방향키와 `Tab`, `Enter`만으로 모든 태그 관리 활동이 가능합니다.
+                            방향키와 <code>Tab</code>, <code>Enter</code>면 충분합니다. 마우스를 찾는 찰나의 시간조차 아까운 분들을 위한 극단적인 키보드 인터페이스를 지향합니다.
                         </p>
                     </div>
                 </section>
@@ -106,13 +108,13 @@ const TagAutocomplete: React.FC = () => {
                     <div className="relative z-10">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 border border-white/20 text-xs font-bold uppercase tracking-widest mb-6">
                             <Command size={12} />
-                            프로 워크플로우 (Pro Workflow)
+                            Pro Workflow
                         </div>
-                        <h2 className="text-3xl font-bold mb-6">컨텍스트 승격 (Context Promotion)</h2>
+                        <h2 className="text-3xl font-black mb-6">컨텍스트 즉시 전환 (Focus)</h2>
                         <div className="grid md:grid-cols-2 gap-8">
                             <div>
-                                <p className="text-indigo-100 leading-relaxed mb-6">
-                                    Hooklink 자동완성만의 독보적인 기능.<br />
+                                <p className="text-indigo-100 leading-relaxed mb-6 font-medium">
+                                    단순히 결과를 보는 게 아니라, 작업의 '판'을 바꿉니다.<br />
                                     자동완성 창에서 태그를 고르고 <br />
                                     <strong className="text-white">Cmd + Enter</strong>를 누르세요.
                                 </p>
@@ -125,7 +127,7 @@ const TagAutocomplete: React.FC = () => {
                             <div className="flex items-center justify-center">
                                 <div className="p-6 bg-white/10 rounded-xl border border-white/10 backdrop-blur-sm">
                                     <p className="mb-2 text-indigo-100 text-sm">Action</p>
-                                    <div className="text-2xl font-bold">Cmd + Enter</div>
+                                    <div className="text-2xl font-black">Cmd + Enter</div>
                                     <p className="mt-2 text-xs text-indigo-200">검색 모드 → 작업 모드 즉시 전환</p>
                                 </div>
                             </div>
@@ -135,7 +137,7 @@ const TagAutocomplete: React.FC = () => {
 
                 <div className="text-center pt-10 border-t border-slate-200 dark:border-slate-800">
                     <p className="text-xl md:text-2xl font-serif italic text-slate-500 dark:text-slate-400">
-                        "단 1초도 낭비하지 마세요."
+                        "지능형 도구는 당신의 생각을 방해하지 않고 보조해야 합니다."
                     </p>
                 </div>
 

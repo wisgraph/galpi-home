@@ -49,16 +49,22 @@ export const PERSONAS: Persona[] = [
 
 export const COMPARISON_DATA: ComparisonItem[] = [
   {
-    feature: '핵심 엔진',
-    competitor: '무거운 Electron + 단순 스크립트',
-    galpi: 'Rust Core + 최적화된 네이티브 스택',
-    note: '메모리 점유율 1/10 (비교 불가능)'
+    feature: '핵심 기술',
+    competitor: 'Raw AppleScript (느림)',
+    galpi: 'Accessibility API + Low-level Script',
+    note: '30ms vs 1,000ms+ (압도적 속도)'
   },
   {
     feature: '반응 속도',
     competitor: '클릭 후 딜레이 발생 (Laggy)',
-    galpi: '0.1초 즉시 반응 (Instant Response)',
-    note: '사고의 흐름을 끊지 않는 가벼움'
+    galpi: '0.03초 (30ms) 즉시 반응',
+    note: '뇌의 속도를 따라잡는 쾌감'
+  },
+  {
+    feature: '메모리 점유',
+    competitor: '500MB → 12GB+ (Memory Leak)',
+    galpi: '평균 300MB (고정/안정적)',
+    note: '새지 않는 안정성 (Rust Core)'
   },
   {
     feature: '연결 방식',
@@ -68,15 +74,9 @@ export const COMPARISON_DATA: ComparisonItem[] = [
   },
   {
     feature: '데이터 주권',
-    competitor: '알 수 없는 암호화 DB (Black Box)',
+    competitor: '불투명한 DB (Black Box)',
     galpi: '투명한 JSONL 텍스트 (Open Data)',
     note: '내 데이터는 온전히 나의 것'
-  },
-  {
-    feature: '링크 유지력',
-    competitor: 'Alias 의존 (파일 이동 시 깨짐)',
-    galpi: 'Inode + UUID 이중 추적 (Self-Healing)',
-    note: '파일이 어디로 가든 찾아냅니다'
   },
   {
     feature: '가격 정책',
@@ -140,8 +140,8 @@ export const FAQS: FAQItem[] = [
 
 export const NAV_ITEMS = [
   { label: 'About', href: '/about' },
-  { label: 'Use Cases', href: '/use-cases' },
-  { label: 'Technology', href: '/technology' },
+  { label: 'Features', href: '/features' },
+  { label: 'Engineering', href: '/engineering' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/faq' },
 ];

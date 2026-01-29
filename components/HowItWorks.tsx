@@ -51,7 +51,7 @@ const Step2Animation = () => (
           transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
           className="overflow-hidden whitespace-nowrap text-sm text-slate-800 dark:text-slate-200"
         >
-          hooklink
+          galpi
         </motion.span>
         <motion.div
           animate={{ opacity: [1, 0] }}
@@ -69,10 +69,10 @@ const Step2Animation = () => (
       className="w-full bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
     >
       <div className="p-2 border-b border-slate-100 dark:border-slate-700/50 bg-violet-50 dark:bg-violet-900/20 text-xs text-violet-600 dark:text-violet-300 font-medium">
-        # hooklink_project
+        # galpi_project
       </div>
       <div className="p-2 text-xs text-slate-500 dark:text-slate-400">
-        # hooklink_design
+        # galpi_design
       </div>
     </motion.div>
   </div>
@@ -100,7 +100,7 @@ const Step3Animation = () => (
             <span className="text-sm font-bold text-slate-900 dark:text-white truncate">2026_기획서_vFinal.pdf</span>
             <span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500">PDF</span>
           </div>
-          <div className="text-xs text-slate-500 dark:text-slate-400 truncate">/Documents/Work/HookLink/...</div>
+          <div className="text-xs text-slate-500 dark:text-slate-400 truncate">/Documents/Work/갈피/...</div>
         </div>
       </div>
     </motion.div>
@@ -121,7 +121,7 @@ const steps = [
     icon: Hash,
     step: "Step 2",
     title: "Tag",
-    desc: "폴더 고민 끝, 태그로 툭. #프로젝트A, #참고자료 태그만 툭 던져두세요. 파일은 제자리에, 정리는 HookLink에.",
+    desc: "폴더 고민 끝, 태그로 툭. #프로젝트A, #참고자료 태그만 툭 던져두세요. 파일은 제자리에, 정리는 갈피에.",
     color: "from-violet-500 to-pink-500",
     animation: Step2Animation
   },
