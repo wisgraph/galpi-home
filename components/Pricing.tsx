@@ -56,6 +56,11 @@ const Pricing: React.FC = () => {
                   }`}>
                   <span className="relative z-10">{tier.cta}</span>
                 </button>
+                {tier.highlight && (
+                  <p className="mt-4 text-center text-xs text-slate-400 dark:text-slate-500 italic">
+                    * 정식 버전 출시 후에는 구독형($XX/년)으로 전환될 예정입니다. 지금이 가장 저렴합니다.
+                  </p>
+                )}
               </div>
             </div>
           ))}

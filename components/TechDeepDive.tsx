@@ -26,8 +26,8 @@ const TechDeepDive: React.FC = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-violet-500 dark:from-cyan-400 dark:to-blue-500">가장 튼튼한 금고.</span>
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 leading-relaxed">
-              Rust 기반의 네이티브 성능과 투명한 데이터 구조.<br />
-              갈피는 당신의 데이터를 절대 인질로 잡지 않습니다.
+              우리는 애플리케이션의 성능보다 사용자의 '데이터 주권'을 더 무겁게 생각합니다.<br />
+              갈피가 망해도 당신의 연결은 사라지지 않습니다. 가장 안전한 금고는 '투명한 금고'이기 때문입니다.
             </p>
 
             <div className="space-y-12">
@@ -36,9 +36,9 @@ const TechDeepDive: React.FC = () => {
                   <Database size={28} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">Native Performance (Rust)</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">Native Optimized (Rust Core)</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                    메모리 도둑(Electron)을 쫓아냈습니다. 갈피는 주요 로직이 Rust로 작성되어 메모리 점유율이 획기적으로 낮습니다. 팬 소음 없는 쾌적함을 경험하세요.
+                    단순한 래퍼가 아닙니다. 모든 핵심 로직은 Rust 기반 네이티브로 재설계되었습니다. AppleScript의 한계를 넘어선 0.1초의 반응 속도를 경험하세요.
                   </p>
                 </div>
               </div>
@@ -48,11 +48,11 @@ const TechDeepDive: React.FC = () => {
                   <FileJson size={28} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-violet-600 dark:group-hover:text-purple-400 transition-colors">Future-Proof Data (JSONL)</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-violet-600 dark:group-hover:text-purple-400 transition-colors">Transparent Data (JSONL)</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                    알 수 없는 암호화 DB가 아닙니다. 모든 링크는 내 문서 폴더의 투명한 텍스트 파일(JSONL)로 저장됩니다. 메모장으로 열고, Git으로 백업하세요.
+                    당신의 데이터를 암호화된 블랙박스에 가두지 마세요. 갈피는 모든 연결을 투명한 텍스트 파일(JSONL)로 저장합니다. 도구를 바꿔도 갈피의 데이터는 남습니다.
                   </p>
-                  <span className="inline-block mt-3 text-xs px-2.5 py-1 bg-violet-100 dark:bg-purple-900/20 text-violet-700 dark:text-purple-300 border border-violet-200 dark:border-purple-500/30 rounded font-medium">No Vendor Lock-in</span>
+                  <span className="inline-block mt-3 text-xs px-2.5 py-1 bg-violet-100 dark:bg-purple-900/20 text-violet-700 dark:text-purple-300 border border-violet-200 dark:border-purple-500/30 rounded font-medium">Data Sovereignty Guaranteed</span>
                 </div>
               </div>
 
@@ -61,9 +61,9 @@ const TechDeepDive: React.FC = () => {
                   <Anchor size={28} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">Self-Healing Links</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">Self-Healing Infrastructure</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                    파일이 도망가도 끝까지 추적합니다. 파일 이름을 바꾸거나 폴더를 옮겨도, macOS Inode 추적 기술로 끊어진 연결을 스스로 복구합니다.
+                    단순히 경로만 기억하는 것은 연결이 아닙니다. Inode 기반 추적 기술로 파일이 어디로 이사 가든, 이름을 바꾸든 끝까지 추적하여 연결을 스스로 복구합니다.
                   </p>
                 </div>
               </div>

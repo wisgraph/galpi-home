@@ -4,45 +4,45 @@ export const PERSONAS: Persona[] = [
   {
     id: 'pkm',
     title: 'The PKM Architect',
-    role: '옵시디언/노션 사용자',
-    painPoint: "옵시디언 그래프는 아름답지만, 정작 중요한 PDF 원본과 엑셀 파일은 파인더 어딘가에 고립되어 있습니다. 노트와 파일이 따로 노는 '반쪽짜리 세컨드 브레인'을 쓰고 계시진 않나요?",
-    solution: "노트와 파일을 잇는 가장 강력한 마크다운 접착제.",
+    role: '지식 체계의 마에스트로',
+    painPoint: "단순히 파일을 저장하는 분들은 이 도구가 필요 없습니다. 하지만 수많은 흩어진 노트와 파일을 하나의 맥락으로 관통하고 싶은 '진짜 전문가'라면, 갈피는 당신의 유일한 마크다운 접착제가 될 것입니다.",
+    solution: "지식의 연결이 곧 부가가치인 분들을 위하여.",
     features: [
-      "Instant MOC: #프로젝트A 태그로 검색된 파일 20개를 한 번에 복사",
-      "Plain Text First: [파일이름](hook://uuid) 형태의 순수 텍스트 링크 지원"
+      "Instant MOC: #프로젝트A 태그로 검색된 파일 20개를 0.1초 만에 마크다운으로 소환",
+      "Plain Text First: 당신이 시스템을 떠나도 링크는 텍스트로 영원히 남습니다"
     ]
   },
   {
     id: 'researcher',
     title: 'The Deep Diver',
     role: '연구자/대학원생',
-    painPoint: "논문을 읽다가 중요한 문구를 발견했습니다. 그런데 일주일 뒤, 그 문구가 '어느 논문, 몇 페이지'에 있었는지 기억나시나요? 다시 찾느라 30분을 낭비하고 계신가요?",
-    solution: "페이지를 넘어, 문단까지 기억합니다.",
+    painPoint: "수백 편의 논문 속에서 '그 문구' 하나를 찾으려 30분을 버리고 계신가요? 그 시간은 당신의 통찰을 위해 쓰여야 합니다. 갈피는 당신의 마우스를 내려놓고 사고의 흐름에만 집중하게 만듭니다.",
+    solution: "페이지를 넘어, 문단까지 0.5초 만에 랜딩.",
     features: [
-      "Deep PDF Linking: 링크 클릭 시 PDF 34페이지, 3번째 문단으로 이동",
-      "Zotero Integration: 서지 정보와 로컬 PDF를 하나의 맥락으로 연결"
+      "Deep PDF Linking: 링크 클릭 시 PDF 34페이지, 3번째 문단으로 핀포인트 이동",
+      "Zotero Integration: 서지 정보와 로컬 PDF를 하나의 완벽한 맥락으로 연결"
     ]
   },
   {
     id: 'developer',
     title: 'The Context Switcher',
-    role: '개발자/디자이너',
-    painPoint: "코드는 짰는데, '왜' 이렇게 짰는지 기억이 안 납니다. 기획서(Jira), 디자인(Figma), 코드(VS Code)가 다 따로 놀기 때문이죠. 이 셋을 확인하느라 창을 5번씩 오갑니다.",
-    solution: "IDE를 벗어나지 않는 맥락의 연결.",
+    role: '엔지니어링의 정점',
+    painPoint: "무거운 툴에 지치셨나요? 사고의 속도를 따라오지 못하는 딜레이는 죄악입니다. Rust로 짜인 극강의 가벼움으로, 코드는 VS Code에 두고 기획서와 디자인은 사고의 맥락 안에 가두세요.",
+    solution: "IDE를 벗어나지 않는 맥락의 순간이동.",
     features: [
-      "Intent Linking: 코드 주석에 galpi://ticket/123 링크 삽입",
-      "Native Rust Performance: 메모리 점유율 100MB 미만, 0 latency"
+      "Intent Linking: 코드 주석에 galpi://ticket/123 링크로 모든 기획서 즉시 호출",
+      "Native Rust Performance: 메모리 점유율 100MB 미만, 사고의 속도를 앞지르는 성능"
     ]
   },
   {
     id: 'pm',
     title: 'The Project Lead',
-    role: '법조인/PM/기획자',
-    painPoint: "회의 시작 3분 전. '그때 그 메일'과 첨부파일, 지난 회의록을 찾느라 식은땀을 흘립니다. 파일을 정리하는 것보다 찾는 게 더 일이 되어버렸습니다.",
-    solution: "모든 자료를 '사건' 중심으로 재편합니다.",
+    role: '비즈니스 마인드셋',
+    painPoint: "팀원들이 '그 기획서 어디 있어요?'라고 물을 때마다 흐름이 깨지나요? 모호한 설명 대신 클릭 가능한 '좌표'를 던지세요. 모두가 같은 곳을 보게 만드는 것, 그것이 리더의 효율입니다.",
+    solution: "설명하지 말고, 링크를 던지세요.",
     features: [
-      "Project Hub: 이메일, 계약서, 슬랙 메시지... 태그 하나로 통합 호출",
-      "Self-Healing: 파일을 다른 폴더로 옮겨도 끝까지 추적하여 연결 유지"
+      "Evidence Linking: 클라이언트 메일과 회의록을 기획서 옆에 증거로 박제",
+      "Self-Healing: 파일 경로가 바뀌어도 Inode 기반 추적으로 연결 유지"
     ]
   }
 ];
@@ -50,39 +50,39 @@ export const PERSONAS: Persona[] = [
 export const COMPARISON_DATA: ComparisonItem[] = [
   {
     feature: '핵심 엔진',
-    competitor: 'AppleScript (느림, 불안정)',
-    galpi: 'Rust Native (즉시 반응)',
-    note: '메모리 점유율 1/10'
+    competitor: '무거운 Electron + 단순 스크립트',
+    galpi: 'Rust Core + 최적화된 네이티브 스택',
+    note: '메모리 점유율 1/10 (비교 불가능)'
+  },
+  {
+    feature: '반응 속도',
+    competitor: '클릭 후 딜레이 발생 (Laggy)',
+    galpi: '0.1초 즉시 반응 (Instant Response)',
+    note: '사고의 흐름을 끊지 않는 가벼움'
   },
   {
     feature: '연결 방식',
-    competitor: '1:1 수동 연결 (Manual Graph)',
-    galpi: '맥락 기반 자동 연결 (Set Theory)',
-    note: '노가다 vs 자동화'
+    competitor: '1:1 수동 연결 (노가다 방식)',
+    galpi: '맥락 기반 자동 제안 (Set Theory 기반)',
+    note: '수동 작업 vs 자동화된 프레임워크'
   },
   {
-    feature: '데이터 형태',
-    competitor: 'SQLite DB (암호화/불투명)',
-    galpi: 'JSONL 텍스트 (투명/개방형)',
-    note: '데이터 주권 보장'
-  },
-  {
-    feature: '복잡도',
-    competitor: 'O(N²) (파일이 늘면 느려짐)',
-    galpi: 'O(1) (늘어도 속도 일정)',
-    note: '수만 개 링크도 0.1초'
+    feature: '데이터 주권',
+    competitor: '알 수 없는 암호화 DB (Black Box)',
+    galpi: '투명한 JSONL 텍스트 (Open Data)',
+    note: '내 데이터는 온전히 나의 것'
   },
   {
     feature: '링크 유지력',
-    competitor: 'Alias 의존 (종종 깨짐)',
-    galpi: 'Inode + UUID 이중 추적',
-    note: '파일 추적률 99.9%'
+    competitor: 'Alias 의존 (파일 이동 시 깨짐)',
+    galpi: 'Inode + UUID 이중 추적 (Self-Healing)',
+    note: '파일이 어디로 가든 찾아냅니다'
   },
   {
     feature: '가격 정책',
-    competitor: '매년 $70 (임대 모델) 💸',
-    galpi: '$4.99 (얼리버드 평생 소장) ☕️',
-    note: '구독료 0원'
+    competitor: '매년 $70 (구독형 임대 모델)',
+    galpi: '$4.99 (얼리버드 평생 소장)',
+    note: '구독 피로도 Zero'
   }
 ];
 
@@ -93,8 +93,8 @@ export const PRICING_TIERS: PricingTier[] = [
     features: [
       '모든 기능 체험 가능',
       '최대 50개 링크 생성',
-      '50개 이하 읽기/검색/실행 평생 무제한',
-      '데이터 로컬 저장',
+      '기존 링크 검색/실행 평생 무제한',
+      '100% 로컬 데이터 저장',
       '7일 묻지마 환불 보장'
     ],
     cta: '무료 다운로드'
@@ -105,13 +105,13 @@ export const PRICING_TIERS: PricingTier[] = [
     originalPrice: '$14.99',
     highlight: true,
     features: [
-      '모든 기능 무제한',
-      '링크 생성 무제한',
-      '평생 무료 업데이트',
-      '우선 기술 지원',
-      '선착순 100명 한정 특가'
+      '베타 기간 한정 얼리버드 혜택',
+      '링크 생성/연결 무제한',
+      '모든 기능 평생 소장 권한',
+      '정식 출시 후 구독형($XX/년) 미적용',
+      '우선 기술 지원'
     ],
-    cta: '얼리버드 구매하기'
+    cta: '커피 한 잔 값으로 평생 소장하기'
   }
 ];
 
