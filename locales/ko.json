@@ -179,6 +179,9 @@
             }
         ],
         "cta": "갈피로 갈아타기 (Super Early Bird $4.99)",
+        "footer": {
+            "title": "비교할수록 갈피입니다"
+        },
         "footerNote": "기존 훅마크 사용자 환영 | 데이터 마이그레이션 지원(예정)"
     },
     "pricing": {

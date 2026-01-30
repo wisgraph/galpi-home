@@ -176,6 +176,9 @@
             }
         ],
         "cta": "Switch to Galpi (Early Bird $4.99)",
+        "footer": {
+            "title": "The more you compare, the more it's Galpi"
+        },
         "footerNote": "Hookmark users welcome | Migration support coming soon"
     },
     "pricing": {
