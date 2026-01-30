@@ -27,7 +27,7 @@ export const FeatureList = [
 
     { id: 'typed-tags', title: '태그 관리: 노동의 종말', highlight: true },
     { id: 'tag-autocomplete', title: '신경망 자동완성' },
-    { id: 'context-tags', title: '필터링을 안 하는 이유' },
+    { id: 'context-tags', title: '몰입을 위한 컨텍스트 스탬프' },
     { id: 'auto-context-search', title: '마우스 없는 세상', highlight: true, separator: true },
 
     { id: 'data-sync', title: '투명한 데이터 금고' },
