@@ -1,14 +1,13 @@
 import React from 'react';
-import { Camera, Hash, Zap, Command, Search, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Camera, Hash, Zap, Command, Search, FileText } from 'lucide-react';
+import { useTranslation } from '@/locales/i18n';
 
 const Step1Animation = () => (
-  <div className="relative w-full h-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center overflow-hidden rounded-xl">
-    {/* Background Context: Web Browser */}
-    <div className="absolute inset-x-4 top-4 bottom-12 bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-3 opacity-50">
-      <div className="flex gap-1 mb-2">
-        <div className="w-2 h-2 rounded-full bg-red-400" />
-        <div className="w-2 h-2 rounded-full bg-amber-400" />
+  <div className="relative w-full h-full bg-slate-100 dark:bg-slate-900 flex flex-col items-center justify-center overflow-hidden rounded-xl p-4">
+    {/* Floating UI Element */}
+    <div className="absolute top-4 left-4 right-4 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 p-3 flex items-center gap-3">
+      <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center">
         <div className="w-2 h-2 rounded-full bg-green-400" />
       </div>
       <div className="space-y-2">
@@ -30,9 +29,9 @@ const Step1Animation = () => (
       <motion.div
         animate={{ scale: [1, 0.9, 1] }}
         transition={{ repeat: Infinity, duration: 2, repeatDelay: 1 }}
-        className="w-32 h-12 bg-white dark:bg-slate-700 rounded-lg shadow-md border-b-4 border-slate-300 dark:border-slate-900 flex items-center justify-center text-[10px] font-bold text-slate-500 dark:text-slate-300"
+        className="w-32 h-12 bg-white dark:bg-slate-700 rounded-lg shadow-md border-b-4 border-slate-300 dark:border-slate-900 flex items-center justify-center text-xs font-bold text-slate-500 dark:text-slate-300"
       >
-        당신이 등록한 단축키
+        SPACE
       </motion.div>
     </div>
   </div>
@@ -78,72 +77,76 @@ const Step2Animation = () => (
   </div>
 );
 
-const Step3Animation = () => (
-  <div className="relative w-full h-full bg-slate-100 dark:bg-slate-900 flex flex-col items-center justify-center overflow-hidden rounded-xl p-4">
-    {/* Search Input */}
-    <div className="w-full bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-2 flex items-center gap-2 mb-2">
-      <div className="w-4 h-4 rounded-full bg-cyan-500 flex items-center justify-center text-[8px] text-white font-bold">H</div>
-      <span className="text-sm text-slate-800 dark:text-slate-200">기획서</span>
-    </div>
-
-    {/* Result Item */}
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: [0, 1, 1, 0], scale: [0.95, 1, 1, 0.95] }}
-      transition={{ duration: 3, repeat: Infinity, repeatDelay: 0.5 }}
-      className="w-full bg-white dark:bg-slate-800 rounded-lg shadow-lg border-l-4 border-cyan-500 p-3"
-    >
-      <div className="flex items-center gap-3">
-        <FileText size={20} className="text-slate-400" />
-        <div className="min-w-0">
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-slate-900 dark:text-white truncate">2026_기획서_vFinal.pdf</span>
-            <span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500">PDF</span>
-          </div>
-          <div className="text-xs text-slate-500 dark:text-slate-400 truncate">/Documents/Work/갈피/...</div>
-        </div>
+const Step3Animation = () => {
+  const { t } = useTranslation();
+  return (
+    <div className="relative w-full h-full bg-slate-100 dark:bg-slate-900 flex flex-col items-center justify-center overflow-hidden rounded-xl p-4">
+      {/* Search Input */}
+      <div className="w-full bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-2 flex items-center gap-2 mb-2">
+        <div className="w-4 h-4 rounded-full bg-cyan-500 flex items-center justify-center text-[8px] text-white font-bold">G</div>
+        <span className="text-sm text-slate-800 dark:text-slate-200">{t('howItWorks.steps.2.docName') || '기획서'}</span>
       </div>
-    </motion.div>
-  </div>
-);
 
-
-const steps = [
-  {
-    icon: Camera,
-    step: "Step 1",
-    title: "Capture",
-    desc: "지금 보는 그 화면, 그대로 캡처. 웹사이트, PDF, 이메일... 손에 익은 단축키 하나면 현재 맥락이 런처에 담깁니다.",
-    color: "from-blue-500 to-cyan-500",
-    animation: Step1Animation
-  },
-  {
-    icon: Hash,
-    step: "Step 2",
-    title: "Tag",
-    desc: "폴더 고민 끝, 태그로 툭. #프로젝트A, #참고자료 태그만 툭 던져두세요. 파일은 제자리에, 정리는 갈피에.",
-    color: "from-violet-500 to-pink-500",
-    animation: Step2Animation
-  },
-  {
-    icon: Zap,
-    step: "Step 3",
-    title: "Recall",
-    desc: "개떡같이 말해도 찰떡같이 찾습니다. 초성(ㄱㅁ), 태그, 키워드 무엇이든 입력하세요. 0.5초 만에 당신의 눈앞에 대령합니다.",
-    color: "from-cyan-400 to-emerald-400",
-    animation: Step3Animation
-  }
-];
+      {/* Result Item */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: [0, 1, 1, 0], scale: [0.95, 1, 1, 0.95] }}
+        transition={{ duration: 3, repeat: Infinity, repeatDelay: 0.5 }}
+        className="w-full bg-white dark:bg-slate-800 rounded-lg shadow-lg border-l-4 border-cyan-500 p-3"
+      >
+        <div className="flex items-center gap-3">
+          <FileText size={20} className="text-slate-400" />
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-bold text-slate-900 dark:text-white truncate">2026_기획서_vFinal.pdf</span>
+              <span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500">PDF</span>
+            </div>
+            <div className="text-xs text-slate-500 dark:text-slate-400 truncate">/Documents/Work/Galpi/...</div>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
 
 const HowItWorks: React.FC = () => {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      icon: Camera,
+      step: "Step 1",
+      title: t('howItWorks.steps.0.title'),
+      desc: t('howItWorks.steps.0.desc'),
+      color: "from-blue-500 to-cyan-500",
+      animation: Step1Animation
+    },
+    {
+      icon: Hash,
+      step: "Step 2",
+      title: t('howItWorks.steps.1.title'),
+      desc: t('howItWorks.steps.1.desc'),
+      color: "from-violet-500 to-pink-500",
+      animation: Step2Animation
+    },
+    {
+      icon: Zap,
+      step: "Step 3",
+      title: t('howItWorks.steps.2.title'),
+      desc: t('howItWorks.steps.2.desc'),
+      color: "from-cyan-400 to-emerald-400",
+      animation: Step3Animation
+    }
+  ];
+
   return (
     <section id="how-it-works" className="py-24 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800/50 relative">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"></div>
 
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">복잡한 설정은 잊으세요.</h2>
-          <p className="text-slate-500 dark:text-slate-400">딱 3단계면 모든 준비가 끝납니다.</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">{t('howItWorks.title')}</h2>
+          <p className="text-slate-500 dark:text-slate-400">{t('howItWorks.subtitle')}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">

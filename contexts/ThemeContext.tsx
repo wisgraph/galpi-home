@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useEffect, ReactNode } from 'react';
 
 type Theme = 'dark' | 'light';
 
@@ -23,42 +23,25 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-    const [theme, setTheme] = useState<Theme>(() => {
-        // Check localStorage first
-        if (typeof window !== 'undefined') {
-            const saved = localStorage.getItem('hooklink-theme') as Theme;
-            if (saved) return saved;
-
-            // Check system preference
-            if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-                return 'light';
-            }
-        }
-        return 'dark';
-    });
+    const theme: Theme = 'dark';
+    const isDark = true;
 
     useEffect(() => {
         const root = document.documentElement;
-
-        if (theme === 'dark') {
-            root.classList.add('dark');
-            root.classList.remove('light');
-        } else {
-            root.classList.add('light');
-            root.classList.remove('dark');
-        }
-
-        localStorage.setItem('hooklink-theme', theme);
-    }, [theme]);
+        root.classList.add('dark');
+        root.classList.remove('light');
+        localStorage.setItem('hooklink-theme', 'dark');
+    }, []);
 
     const toggleTheme = () => {
-        setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+        // Disabled per user request to force dark mode
+        console.warn('Theme toggle is disabled. Using dark mode only.');
     };
 
     const value: ThemeContextType = {
         theme,
         toggleTheme,
-        isDark: theme === 'dark',
+        isDark,
     };
 
     return (

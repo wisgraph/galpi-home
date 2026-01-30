@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Link as LinkIcon, Menu, X, Sun, Moon } from 'lucide-react';
-import { NAV_ITEMS } from '../constants';
+import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../contexts/ThemeContext';
 import { useNavbarLogic } from '../hooks/useNavbarLogic';
+import { useTranslation } from '@/locales/i18n';
 
 const Navbar: React.FC = () => {
+  const { t, locale, setLocale } = useTranslation();
+  const [isLangOpen, setIsLangOpen] = React.useState(false);
   const {
     isScrolled,
     isMobileMenuOpen,
@@ -15,14 +16,20 @@ const Navbar: React.FC = () => {
     location
   } = useNavbarLogic();
 
-  const { theme, toggleTheme, isDark } = useTheme();
-
   const isActive = (href: string) => {
     if (href === '/') {
       return location.pathname === '/';
     }
     return location.pathname.startsWith(href);
   };
+
+  const navItems = [
+    { label: t('navbar.items.about'), href: '/about' },
+    { label: t('navbar.items.features'), href: '/features' },
+    { label: t('navbar.items.engineering'), href: '/engineering' },
+    { label: t('navbar.items.pricing'), href: '/pricing' },
+    { label: t('navbar.items.faq'), href: '/faq' },
+  ];
 
   return (
     <>
@@ -36,17 +43,21 @@ const Navbar: React.FC = () => {
             to="/"
             className="flex items-center gap-2 font-bold text-xl tracking-tight cursor-pointer group hover:opacity-80 transition-opacity"
           >
-            <LinkIcon className="text-violet-600 dark:text-white" size={24} />
-            <span className="text-slate-900 dark:text-white">갈피</span>
+            <img
+              src="/assets/images/galpi-image.png"
+              alt={t('navbar.brand')}
+              className="w-8 h-8 object-contain"
+            />
+            <span className="text-slate-900 dark:text-white">{t('navbar.brand')}</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.href}
-                className={`text-sm font-medium transition-colors relative ${isActive(item.href)
+                className={`text-base font-medium transition-colors relative ${isActive(item.href)
                   ? 'text-slate-900 dark:text-white'
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                   }`}
@@ -55,10 +66,10 @@ const Navbar: React.FC = () => {
                 {isActive(item.href) && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r ${(item as any).theme === 'rose' ? 'from-rose-500 to-pink-500' :
-                      (item as any).theme === 'cyan' ? 'from-cyan-500 to-teal-500' :
-                        (item as any).theme === 'blue' ? 'from-blue-600 to-indigo-600' :
-                          (item as any).theme === 'amber' ? 'from-amber-500 to-orange-500' :
+                    className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r ${item.href === '/about' ? 'from-rose-500 to-pink-500' :
+                      item.href === '/features' ? 'from-cyan-500 to-teal-500' :
+                        item.href === '/engineering' ? 'from-blue-600 to-indigo-600' :
+                          item.href === '/pricing' ? 'from-amber-500 to-orange-500' :
                             'from-violet-500 to-purple-500'}`}
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
@@ -68,42 +79,65 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Right Side Actions */}
-          <div className="hidden md:flex items-center gap-4">
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.div
-                  key={theme}
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {isDark ? <Sun size={18} /> : <Moon size={18} />}
-                </motion.div>
-              </AnimatePresence>
-            </button>
+          <div className="hidden md:flex items-center gap-5">
+            {/* Language Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:border-violet-500/50 transition-all text-sm font-bold shadow-sm"
+              >
+                <Globe size={16} className="text-violet-500" />
+                {locale === 'ko' ? '한국어' : 'English'}
+                <ChevronDown size={14} className={`opacity-50 transition-transform duration-300 ${isLangOpen ? 'rotate-180' : ''}`} />
+              </button>
 
-            {/* CTA Button */}
+              <AnimatePresence>
+                {isLangOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                    className="absolute right-0 mt-3 w-40 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] py-2 overflow-hidden z-[60]"
+                  >
+                    {[
+                      { code: 'ko', label: '🇰🇷 한국어' },
+                      { code: 'en', label: '🇺🇸 English' }
+                    ].map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => {
+                          setLocale(lang.code as any);
+                          setIsLangOpen(false);
+                        }}
+                        className={`w-full px-5 py-2.5 text-left text-sm transition-colors ${locale === lang.code
+                          ? 'bg-violet-500 text-white font-bold'
+                          : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
+                          }`}
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* CTA Button - High Premium Style */}
             <Link
               to="/pricing"
-              className="px-5 py-2 rounded-full bg-violet-600 text-white text-sm font-semibold hover:bg-violet-700 transition-all shadow-lg shadow-violet-500/25"
+              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-black hover:scale-105 active:scale-95 transition-all shadow-lg shadow-violet-500/30 flex items-center gap-2 border-b-2 border-violet-800"
             >
-              Download
+              {t('navbar.actions.download')}
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-3">
             <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+              onClick={() => setLocale(locale === 'ko' ? 'en' : 'ko')}
+              className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold"
             >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+              {locale === 'ko' ? 'EN' : 'KO'}
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -127,10 +161,11 @@ const Navbar: React.FC = () => {
           >
             <div className="container mx-auto px-6 py-8">
               <div className="flex flex-col gap-4">
-                {NAV_ITEMS.map((item) => (
+                {navItems.map((item) => (
                   <Link
                     key={item.label}
                     to={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className={`text-xl font-medium py-3 border-b border-slate-200 dark:border-slate-800 transition-colors ${isActive(item.href)
                       ? 'text-slate-900 dark:text-white border-violet-500'
                       : 'text-slate-500 dark:text-slate-400'
@@ -141,9 +176,10 @@ const Navbar: React.FC = () => {
                 ))}
                 <Link
                   to="/pricing"
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className="mt-4 px-6 py-3 rounded-full bg-violet-600 text-white text-center font-semibold"
                 >
-                  Download Free
+                  {t('navbar.actions.download')}
                 </Link>
               </div>
             </div>

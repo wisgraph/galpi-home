@@ -1,46 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, ArrowRight, X } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import ScrollReveal from './animations/ScrollReveal';
-
-const plans = [
-  {
-    name: 'Starter',
-    subtitle: '찍먹해보기',
-    price: '$0',
-    description: '부담 없이 시작하세요',
-    features: [
-      { text: '모든 기능 체험 가능', included: true },
-      { text: '최대 50개 링크 생성', included: true, highlight: true },
-      { text: '기존 링크 검색/실행 평생 무제한', included: true },
-      { text: '100% 로컬 데이터 저장', included: true },
-      { text: '카드 등록 불필요', included: true },
-    ],
-    cta: '무료 다운로드',
-    ctaLink: 'https://github.com/wisgraph/galpi-release',
-    highlighted: false
-  },
-  {
-    name: 'Pro Lifetime',
-    subtitle: '제한 없는 생산성',
-    price: '$4.99',
-    originalPrice: '$19.99',
-    description: '커피 한 잔 값으로 평생 소장',
-    badge: '🔥 선착순 100명',
-    features: [
-      { text: '100명 한정 Super Early Bird 특가', included: true, highlight: true },
-      { text: '링크 생성/연결 무제한', included: true },
-      { text: '추후 기능 추가되어도 추가금 $0', included: true },
-      { text: '정식 출시 후 구독형 전환 예정', included: true },
-      { text: '우선 기술 지원', included: true },
-    ],
-    cta: 'Super Early Bird 구매하기',
-    ctaLink: '#purchase',
-    highlighted: true
-  }
-];
+import { useTranslation } from '@/locales/i18n';
 
 const Pricing: React.FC = () => {
+  const { t } = useTranslation();
+  const tiersData = t('pricing.tiers');
+  const tiers = Array.isArray(tiersData) ? tiersData : [];
+
   return (
     <section id="pricing" className="py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden relative">
       {/* Absolute Glow Background - Restored to Amber/Orange */}
@@ -49,21 +17,22 @@ const Pricing: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">
-              구독료 <span className="bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 bg-clip-text text-transparent">0원.</span>
-            </h2>
+            <h2
+              className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight"
+              dangerouslySetInnerHTML={{ __html: t('pricing.title') }}
+            />
             <p className="text-xl text-slate-500 dark:text-slate-400 font-light">
-              도구는 빌리는 게 아니라 소장하는 것입니다.
+              {t('pricing.subtitle')}
             </p>
           </div>
         </ScrollReveal>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
-          {plans.map((plan, index) => (
-            <ScrollReveal key={plan.name} delay={index * 0.1}>
+          {tiers.map((plan: any, index: number) => (
+            <ScrollReveal key={plan.name || index} delay={index * 0.1}>
               <motion.div
                 whileHover={{ y: -10 }}
-                className={`relative rounded-[2.5rem] p-10 h-full transition-all border-2 ${plan.highlighted
+                className={`relative rounded-[2.5rem] p-10 h-full transition-all border-2 ${plan.name === 'Pro Lifetime'
                   ? 'bg-white dark:bg-slate-900 border-amber-400 shadow-[0_20px_60px_rgba(249,115,22,0.15)]'
                   : 'bg-white dark:bg-slate-900/50 border-slate-200 dark:border-slate-800'
                   }`}
@@ -80,7 +49,7 @@ const Pricing: React.FC = () => {
                   </h3>
                   <div className="flex items-baseline gap-2">
                     {plan.originalPrice && <span className="text-slate-400 line-through text-2xl font-light">{plan.originalPrice}</span>}
-                    <span className={`text-7xl font-black tracking-tighter italic ${plan.highlighted ? 'text-orange-600' : 'text-slate-900 dark:text-white'}`}>
+                    <span className={`text-7xl font-black tracking-tighter italic ${plan.name === 'Pro Lifetime' ? 'text-orange-600' : 'text-slate-900 dark:text-white'}`}>
                       {plan.price}
                     </span>
                   </div>
@@ -88,25 +57,25 @@ const Pricing: React.FC = () => {
                 </div>
 
                 <ul className="space-y-4 mb-12 flex-grow">
-                  {plan.features.map((feature, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-4 text-slate-600 dark:text-slate-400">
-                      {feature.included ? (
-                        <Check size={18} className={feature.highlight ? 'text-amber-500' : 'text-emerald-500'} strokeWidth={3} />
-                      ) : (
-                        <X size={18} className="text-slate-300" strokeWidth={3} />
-                      )}
-                      <span className={`text-base leading-tight ${feature.highlight ? 'text-slate-900 dark:text-white font-bold' : ''}`}>
-                        {feature.text}
-                      </span>
-                    </li>
-                  ))}
+                  {Array.isArray(plan.features) && plan.features.map((feature: string, fIdx: number) => {
+                    // Check for highlights or standard features
+                    const isHighlightedFeature = plan.name === 'Pro Lifetime' && (fIdx === 0);
+                    return (
+                      <li key={fIdx} className="flex items-start gap-4 text-slate-600 dark:text-slate-400">
+                        <Check size={18} className={isHighlightedFeature ? 'text-amber-500' : 'text-emerald-500'} strokeWidth={3} />
+                        <span className={`text-base leading-tight ${isHighlightedFeature ? 'text-slate-900 dark:text-white font-bold' : ''}`}>
+                          {feature}
+                        </span>
+                      </li>
+                    );
+                  })}
                 </ul>
 
                 <motion.a
-                  href={plan.ctaLink}
+                  href={plan.name === 'Pro Lifetime' ? '#purchase' : 'https://github.com/wisgraph/galpi-release'}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`w-full py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-2 transition-all ${plan.highlighted
+                  className={`w-full py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-2 transition-all ${plan.name === 'Pro Lifetime'
                     ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-xl shadow-orange-600/30'
                     : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200'
                     }`}

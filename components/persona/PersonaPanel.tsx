@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { Persona } from "./personaData";
 import { useTheme } from "../../contexts/ThemeContext";
+import { useTranslation } from '@/locales/i18n';
 
 interface PersonaPanelProps {
   persona: Persona;
@@ -11,10 +12,22 @@ interface PersonaPanelProps {
 const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
   ({ persona, index, total }, ref) => {
     const { isDark } = useTheme();
+    const { t } = useTranslation();
 
     const accentColor = isDark
       ? persona.theme.accent
       : persona.theme.accentLight;
+
+    // Get localized content from persona.items array
+    const personaList = t('persona.items');
+    const localizedPersona = Array.isArray(personaList)
+      ? personaList.find((p: any) => p.id === persona.id)
+      : null;
+
+    const role = localizedPersona?.role || persona.role;
+    const title = localizedPersona?.title || persona.title;
+    const painPoint = localizedPersona?.painPoint || persona.painPoint;
+    const solution = localizedPersona?.solution || persona.solution;
 
     return (
       <div
@@ -47,19 +60,19 @@ const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
         <div className="persona-content relative z-20 w-full md:w-[40%] flex flex-col items-start gap-1 md:translate-y-8">
           {/* H1: Role */}
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-none tracking-tight">
-            {persona.role}
+            {role}
           </h1>
 
           {/* H2: Title */}
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-700 dark:text-white/80 leading-[1.15] tracking-tight mt-6 max-w-xl">
-            {persona.title}
+            {title}
           </h2>
 
           <div className="h-0.5 w-12 bg-slate-200 dark:bg-white/20 mt-10 mb-6" />
 
           {/* H5: PainPoint */}
           <p className="text-base md:text-lg text-slate-500 dark:text-slate-400 font-medium tracking-tight max-w-lg leading-relaxed">
-            {persona.painPoint.replace(/\*\*/g, "")}
+            {painPoint.replace(/\*\*/g, "")}
           </p>
         </div>
 
@@ -75,8 +88,6 @@ const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
                 className="w-full h-auto"
               />
             </div>
-
-            {/* ... (secondary and extra layers) ... */}
 
             {/* 2. Middle Layer: Secondary result - Raw Image */}
             {persona.secondaryImages && persona.secondaryImages[1] && (
@@ -119,10 +130,10 @@ const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
 
             <div className="relative z-10 flex flex-col items-center gap-2">
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 dark:text-white/30 mb-1">
-                The Solution
+                {t('persona.panel.solutionBadge') || 'The Solution'}
               </span>
               <h4 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-                {persona.solution}
+                {solution}
               </h4>
               <div className="h-px w-8 bg-slate-200 dark:bg-white/20 mt-3" />
             </div>

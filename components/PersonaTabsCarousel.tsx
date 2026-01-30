@@ -16,6 +16,10 @@ const PersonaTabsCarousel: React.FC = () => {
     const panelsRef = useRef<HTMLDivElement[]>([]);
     const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
+    // Filter to only 2 personas
+    const displayPersonas = personas.slice(0, 2);
+    const personaCount = displayPersonas.length;
+
     const [activeIndex, setActiveIndex] = useState(0);
 
     // 클릭 시 해당 패널로 스크롤
@@ -23,9 +27,10 @@ const PersonaTabsCarousel: React.FC = () => {
         if (!scrollTriggerRef.current) return;
 
         const st = scrollTriggerRef.current;
-        const totalDuration = 40; // 타임라인 총 길이 (각 패널 약 10 단위)
-        const panelDuration = totalDuration / 4;
-        const targetProgress = (index * panelDuration + panelDuration * 0.3) / totalDuration;
+        // 타임라인 계산: 각 패널당 (Enter 2 + Hold 4 + Exit 2) = 8단위, 이동은 패널 사이마다 2단위
+        const totalDuration = personaCount * 8 + (personaCount - 1) * 2;
+        const panelDuration = 10; // (Enter 2 + Hold 4 + Exit 2 + Move 2)
+        const targetProgress = (index * panelDuration + 3.5) / totalDuration;
 
         // 해당 progress 위치로 스크롤
         const targetScroll = st.start + (st.end - st.start) * targetProgress;
@@ -34,7 +39,7 @@ const PersonaTabsCarousel: React.FC = () => {
             duration: 0.8,
             ease: "power2.inOut"
         });
-    }, []);
+    }, [personaCount]);
 
     useLayoutEffect(() => {
         const trigger = triggerRef.current;
@@ -42,7 +47,7 @@ const PersonaTabsCarousel: React.FC = () => {
 
         if (!trigger || !horizontal) return;
 
-        panelsRef.current = panelsRef.current.slice(0, personas.length);
+        panelsRef.current = panelsRef.current.slice(0, personaCount);
 
         const ctx = gsap.context(() => {
             const allElements = panelsRef.current.map(panel => ({
@@ -61,14 +66,14 @@ const PersonaTabsCarousel: React.FC = () => {
                 scrollTrigger: {
                     trigger: trigger,
                     start: "top top",
-                    end: "+=800%", // 더 여유있게
+                    end: `+=${personaCount * 200}%`, // 패널 수에 비례하게 조정
                     pin: true,
                     scrub: 1,
                     invalidateOnRefresh: true,
                     onUpdate: (self) => {
                         // 현재 스크롤 진행도에 따라 activeIndex 업데이트
                         const progress = self.progress;
-                        const newIndex = Math.min(3, Math.floor(progress * 4.5));
+                        const newIndex = Math.min(personaCount - 1, Math.floor(progress * (personaCount + 0.5)));
                         setActiveIndex(newIndex);
                     },
                 },
@@ -77,83 +82,38 @@ const PersonaTabsCarousel: React.FC = () => {
             // ScrollTrigger 참조 저장
             scrollTriggerRef.current = tl.scrollTrigger as ScrollTrigger;
 
-            // =====================================
-            // Panel 0
-            // =====================================
-            // Enter
-            tl.to(allElements[0].background, { opacity: 1, scale: 1, duration: 2 })
-                .to(allElements[0].content, { opacity: 1, x: 0, duration: 2 }, "<0.3")
-                .to(allElements[0].solution, { opacity: 1, x: 0, duration: 2 }, "<0.2");
+            // 동적으로 타임라인 생성
+            displayPersonas.forEach((_, index) => {
+                const el = allElements[index];
+                if (!el) return;
 
-            // Hold
-            tl.to({}, { duration: 4 });
+                // Enter
+                tl.to(el.background, { opacity: 1, scale: 1, duration: 2 })
+                    .to(el.content, { opacity: 1, x: 0, duration: 2 }, "<0.3")
+                    .to(el.solution, { opacity: 1, x: 0, duration: 2 }, "<0.2");
 
-            // Exit (완전히 끝난 후에 이동)
-            tl.to(allElements[0].content, { opacity: 0, x: -50, duration: 2 })
-                .to(allElements[0].solution, { opacity: 0, x: -50, duration: 2 }, "<")
-                .to(allElements[0].background, { opacity: 0, scale: 1.1, duration: 2 }, "<");
+                // Hold
+                tl.to({}, { duration: 4 });
 
-            // Move (Exit 끝난 후)
-            tl.to(horizontal, { xPercent: -25, duration: 2, ease: "power1.inOut" });
+                // Exit (마지막 패널도 페이드아웃하여 다음 섹션과 연결)
+                tl.to(el.content, { opacity: 0, x: -50, duration: 2 })
+                    .to(el.solution, { opacity: 0, x: -50, duration: 2 }, "<")
+                    .to(el.background, { opacity: 0, scale: 1.1, duration: 2 }, "<");
 
-            // =====================================
-            // Panel 1
-            // =====================================
-            // Enter (이동과 동시에 시작 - 크로스페이드 효과)
-            tl.to(allElements[1].background, { opacity: 1, scale: 1, duration: 2 })
-                .to(allElements[1].content, { opacity: 1, x: 0, duration: 2 }, "<0.3")
-                .to(allElements[1].solution, { opacity: 1, x: 0, duration: 2 }, "<0.2");
-
-            // Hold
-            tl.to({}, { duration: 4 });
-
-            // Exit
-            tl.to(allElements[1].content, { opacity: 0, x: -50, duration: 2 })
-                .to(allElements[1].solution, { opacity: 0, x: -50, duration: 2 }, "<")
-                .to(allElements[1].background, { opacity: 0, scale: 1.1, duration: 2 }, "<");
-
-            // Move
-            tl.to(horizontal, { xPercent: -50, duration: 2, ease: "power1.inOut" });
-
-            // =====================================
-            // Panel 2
-            // =====================================
-            // Enter
-            tl.to(allElements[2].background, { opacity: 1, scale: 1, duration: 2 })
-                .to(allElements[2].content, { opacity: 1, x: 0, duration: 2 }, "<0.3")
-                .to(allElements[2].solution, { opacity: 1, x: 0, duration: 2 }, "<0.2");
-
-            // Hold
-            tl.to({}, { duration: 4 });
-
-            // Exit
-            tl.to(allElements[2].content, { opacity: 0, x: -50, duration: 2 })
-                .to(allElements[2].solution, { opacity: 0, x: -50, duration: 2 }, "<")
-                .to(allElements[2].background, { opacity: 0, scale: 1.1, duration: 2 }, "<");
-
-            // Move
-            tl.to(horizontal, { xPercent: -75, duration: 2, ease: "power1.inOut" });
-
-            // =====================================
-            // Panel 3 (마지막)
-            // =====================================
-            // Enter
-            tl.to(allElements[3].background, { opacity: 1, scale: 1, duration: 2 })
-                .to(allElements[3].content, { opacity: 1, x: 0, duration: 2 }, "<0.3")
-                .to(allElements[3].solution, { opacity: 1, x: 0, duration: 2 }, "<0.2");
-
-            // Hold (마지막)
-            tl.to({}, { duration: 4 });
-
-            // Exit (일관성을 위해 마지막 패널도 페이드아웃)
-            tl.to(allElements[3].content, { opacity: 0, x: -50, duration: 2 })
-                .to(allElements[3].solution, { opacity: 0, x: -50, duration: 2 }, "<")
-                .to(allElements[3].background, { opacity: 0, scale: 1.1, duration: 2 }, "<");
+                // 만약 마지막 패널이 아니라면 이동
+                if (index < personaCount - 1) {
+                    tl.to(horizontal, {
+                        xPercent: -(100 / personaCount) * (index + 1),
+                        duration: 2,
+                        ease: "power1.inOut"
+                    });
+                }
+            });
 
         }, sectionRef);
 
         return () => ctx.revert();
-    }, []);
+    }, [personaCount, displayPersonas]);
 
     return (
         <div ref={sectionRef} className="bg-slate-50 dark:bg-slate-950">
@@ -162,7 +122,7 @@ const PersonaTabsCarousel: React.FC = () => {
             <div ref={triggerRef} className="relative h-screen overflow-hidden">
                 {/* Unified Progress Dots - Fixed position */}
                 <div className="absolute right-8 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4">
-                    {personas.map((_, i) => (
+                    {displayPersonas.map((_, i) => (
                         <button
                             key={i}
                             onClick={() => scrollToPanel(i)}
@@ -178,9 +138,10 @@ const PersonaTabsCarousel: React.FC = () => {
 
                 <div
                     ref={horizontalRef}
-                    className="flex h-full w-[400%]"
+                    className="flex h-full"
+                    style={{ width: `${personaCount * 100}%` }}
                 >
-                    {personas.map((persona, index) => (
+                    {displayPersonas.map((persona, index) => (
                         <div
                             key={persona.id}
                             className="w-screen h-full flex-shrink-0 relative"
@@ -189,7 +150,7 @@ const PersonaTabsCarousel: React.FC = () => {
                             <PersonaPanel
                                 persona={persona}
                                 index={index}
-                                total={personas.length}
+                                total={personaCount}
                             />
                         </div>
                     ))}

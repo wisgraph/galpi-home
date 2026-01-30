@@ -1,0 +1,267 @@
+{
+    "common": {
+        "cta": {
+            "start": "갈피 시작하기",
+            "download": "무료 다운로드",
+            "learnMore": "더 알아보기",
+            "superEarlyBird": "Super Early Bird 구매하기",
+            "freeTrial": "무료로 가치 확인하기"
+        }
+    },
+    "navbar": {
+        "brand": "갈피",
+        "items": {
+            "about": "서비스 소개",
+            "features": "기능 살펴보기",
+            "engineering": "엔지니어링",
+            "pricing": "요금제",
+            "faq": "FAQ"
+        },
+        "actions": {
+            "download": "Download"
+        }
+    },
+    "hero": {
+        "badge": "지적 생산을 위한 0.1초의 순간이동",
+        "title": "문서를 찾는 데 쓰는 1분은, <br /> <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-violet-400 dark:from-violet-400 dark:to-violet-300\">인생에서 가장 아까운 1분입니다.</span>",
+        "description": "폴더 깊숙이 박힌 논문, 흩어진 레퍼런스. 마우스는 내려두세요. <br /> 갈피는 당신의 자료를 <span class=\"border-b-2 border-violet-500/50\">0.5초 만에 소환</span>합니다.",
+        "ctaStart": "갈피 시작하기",
+        "ctaFeatures": "기능 확인 (Features)"
+    },
+    "persona": {
+        "header": {
+            "title": "단순히 파일과 웹페이지를 저장만 하는 <br /> <span class=\"bg-gradient-to-r from-violet-600 via-pink-500 to-cyan-500 dark:from-purple-400 dark:via-pink-400 dark:to-cyan-400 bg-clip-text text-transparent\">분들에게 갈피는 필요 없습니다</span>",
+            "description1": "갈피는 오직 <strong class=\"text-slate-900 dark:text-white font-bold underline decoration-violet-500/50\">'지식의 연결'이 부가가치인 분들</strong>을 위해 설계되었습니다.",
+            "description2": "지적 생산을 하는 전문가들의 고통을 <span class=\"text-violet-600 dark:text-violet-400 font-black italic\">0.1초의 쾌감</span>으로 바꿉니다."
+        },
+        "items": [
+            {
+                "id": "pkm",
+                "title": "지식 체계의 마에스트로, 옵시디언/노션 그 이상을 지휘하다.",
+                "role": "PKM 아키텍터",
+                "painPoint": "흩어진 노트와 파일을 하나의 맥락으로 관통하고 싶은 '진짜 전문가'를 위한 도구입니다. 당신의 도구들이 파편화되어 있다면, 갈피는 그것들을 잇는 유일한 마크다운 접착제가 될 것입니다.",
+                "solution": "지식의 연결이 곧 부가가치인 분들을 위하여.",
+                "features": [
+                    "Instant MOC: #프로젝트A 태그로 검색된 파일 20개를 0.1초 만에 마크다운 소환",
+                    "Plain Text First: 당신이 시스템을 떠나도 링크는 텍스트로 영원히 남습니다"
+                ]
+            },
+            {
+                "id": "researcher",
+                "title": "사고의 흐름을 방해하는 30분의 검색, 0.5초의 소환으로 바꾸세요.",
+                "role": "연구자 / 대학원생",
+                "painPoint": "수백 편의 논문 속에서 '그 문구' 하나를 찾으려 30분을 버리고 계신가요? 그 시간은 당신의 통찰을 위해 쓰여야 합니다. 갈피는 당신의 마우스를 내려놓고 사고의 흐름에만 집중하게 만듭니다.",
+                "solution": "페이지를 넘어, 문단까지 0.5초 만에 랜딩.",
+                "features": [
+                    "Deep PDF Linking: 링크 클릭 시 PDF 34페이지, 3번째 문단으로 핀포인트 이동",
+                    "Zotero Integration: 서지 정보와 로컬 PDF를 하나의 완벽한 맥락으로 연결"
+                ]
+            },
+            {
+                "id": "developer",
+                "title": "성능은 도덕입니다. 사고의 속도를 앞지르는 네이티브 연결.",
+                "role": "엔지니어 / 디자이너",
+                "painPoint": "무거운 툴은 사고를 둔탁하게 만듭니다. Rust로 짜인 극강의 가벼움으로 딜레이 없는 연결을 경험하세요. 코드는 편집기에, 기획서는 사고의 맥락 안에 가두세요.",
+                "solution": "IDE를 벗어나지 않는 맥락의 순간이동.",
+                "features": [
+                    "Intent Linking: 코드 주석에 galpi:// 링크로 모든 기획서 즉시 호출",
+                    "Native optimized: 메모리 점유율 100MB 미만, 0 latency 성능"
+                ]
+            },
+            {
+                "id": "planner",
+                "title": "회의 10분 줄이는 법: 말 대신 '좌표'를 던지세요.",
+                "role": "프로젝트 매니저 (PM)",
+                "painPoint": "팀원들이 자료를 찾을 때마다 당신의 흐름이 깨지나요? 모호한 설명 대신 정확한 좌표를 던지세요. 모두가 같은 곳을 보게 만드는 것, 그것이 전문가의 효율입니다.",
+                "solution": "설명하지 말고, 링크를 던지세요.",
+                "features": [
+                    "Deep Collaboration: 기획서 42페이지 하단 정확한 문단 타겟팅",
+                    "Self-Healing: 파일 경로가 바뀌어도 Inode 기반 추적으로 연결 유지"
+                ]
+            }
+        ],
+        "panel": {
+            "solutionBadge": "The Solution"
+        },
+        "cta": {
+            "title": "당신의 워크플로우에 <br /> <span class=\"text-violet-600 dark:text-purple-400\">'연결'</span>을 더하세요",
+            "subtitle": "지금 Super Early Bird $4.99에 평생 소장하세요. (선착순 100명)",
+            "button": "갈피 시작하기"
+        }
+    },
+    "howItWorks": {
+        "title": "복잡한 설정은 잊으세요.",
+        "subtitle": "딱 3단계면 모든 준비가 끝납니다.",
+        "steps": [
+            {
+                "step": "Step 1",
+                "title": "Capture",
+                "desc": "지금 보는 그 화면, 그대로 캡처. 웹사이트, PDF, 이메일... 단축키 한 번이면 현재 맥락이 런처에 담깁니다."
+            },
+            {
+                "step": "Step 2",
+                "title": "Tag",
+                "desc": "폴더 고민 끝, 태그로 툭. #프로젝트A, #참고자료 태그만 툭 던져두세요. 파일은 제자리에, 정리는 HookLink에."
+            },
+            {
+                "step": "Step 3",
+                "title": "Recall",
+                "desc": "개떡같이 말해도 찰떡같이 찾습니다. 초성(ㄱㅎ), 태그, 키워드 무엇이든 입력하세요. 0.1초 만에 찾아냅니다."
+            }
+        ]
+    },
+    "tech": {
+        "title": "가볍지만, <br /> <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-violet-500 dark:from-cyan-400 dark:to-blue-500\">가장 튼튼한 금고.</span>",
+        "description": "Rust 기반의 네이티브 성능과 투명한 데이터 구조. 갈피는 당신의 데이터를 절대 인질로 잡지 않습니다.",
+        "features": [
+            {
+                "title": "Native Performance (Rust)",
+                "desc": "메모리 도둑(Electron)을 쫓아냈습니다. 갈피는 주요 로직이 Rust로 작성되어 메모리 점유율이 획기적으로 낮습니다. 팬 소음 없는 쾌적함을 경험하세요."
+            },
+            {
+                "title": "Future-Proof Data (JSONL)",
+                "desc": "알 수 없는 암호화 DB가 아닙니다. 모든 링크는 내 문서 폴더의 투명한 텍스트 파일(JSONL)로 저장됩니다. 메모장으로 열고, Git으로 백업하세요."
+            },
+            {
+                "title": "Self-Healing Links",
+                "desc": "파일이 도망가도 끝까지 추적합니다. 파일 이름을 바꾸거나 폴더를 옮겨도, macOS Inode 추적 기술로 끊어진 연결을 스스로 복구합니다."
+            }
+        ],
+        "chart": {
+            "title": "Memory Usage Comparison"
+        }
+    },
+    "comparison": {
+        "title": "비교할 수 없는 본질의 격차.",
+        "subtitle": "구독형 서비스가 줄 수 없는 '소유의 미학'",
+        "headers": {
+            "feature": "비교 항목",
+            "competitor": "기존 연결 도구 (H)",
+            "galpi": "갈피 (Next Gen)",
+            "why": "Why?"
+        },
+        "items": [
+            {
+                "feature": "5년 사용 비용 (Total Cost)",
+                "competitor": "$350 (약 45만원, 월세 모델)",
+                "galpi": "$4.99 (약 6,500원, 자가 소유)",
+                "note": "1/70의 압도적 가성비"
+            },
+            {
+                "feature": "데이터 소유권 (Ownership)",
+                "competitor": "구독 만료 시 접근 불가 (인질)",
+                "galpi": "영원히 내 컴퓨터에 (텍스트 파일)",
+                "note": "내 데이터는 온전히 나의 것"
+            },
+            {
+                "feature": "코어 레이턴시",
+                "competitor": "300ms+ (스크립트 로딩 대기)",
+                "galpi": "30ms (캡처 즉시 완료)",
+                "note": "엔진 속도"
+            },
+            {
+                "feature": "체감 속도 (UX)",
+                "competitor": "딜레이 발생 (Laggy)",
+                "galpi": "0.5초 (생각하는 즉시 연결)",
+                "note": "사용자 체감 속도"
+            },
+            {
+                "feature": "메모리 점유",
+                "competitor": "12GB+ (메모리 누수 문제)",
+                "galpi": "300MB 미만 (Rust의 메모리관리)",
+                "note": "리소스 낭비 Zero"
+            },
+            {
+                "feature": "업데이트 정책",
+                "competitor": "기능 업데이트 시 가격 인상 유도",
+                "galpi": "추후 정식 버전 업데이트 평생 무료",
+                "note": "Super Early Bird만의 특권"
+            }
+        ],
+        "cta": "갈피로 갈아타기 (Super Early Bird $4.99)",
+        "footerNote": "기존 훅마크 사용자 환영 | 데이터 마이그레이션 지원(예정)"
+    },
+    "pricing": {
+        "title": "구독료 <span class=\"bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 bg-clip-text text-transparent\">0원.</span>",
+        "subtitle": "도구는 빌리는 게 아니라 소장하는 것입니다.",
+        "tiers": [
+            {
+                "name": "Starter",
+                "subtitle": "찍먹해보기",
+                "price": "$0",
+                "description": "부담 없이 시작하세요",
+                "features": [
+                    "모든 기능 체험 가능",
+                    "최대 50개 링크 생성",
+                    "기존 링크 검색/실행 평생 무제한",
+                    "100% 로컬 데이터 저장",
+                    "카드 등록 불필요"
+                ],
+                "cta": "무료 다운로드"
+            },
+            {
+                "name": "Pro Lifetime",
+                "subtitle": "제한 없는 생산성",
+                "price": "$4.99",
+                "originalPrice": "$19.99",
+                "description": "커피 한 잔 값으로 평생 소장",
+                "badge": "🔥 선착순 100명",
+                "features": [
+                    "100명 한정 Super Early Bird 특가",
+                    "링크 생성/연결 무제한",
+                    "추후 기능 추가되어도 추가금 $0",
+                    "정식 출시 후 구독형 전환 예정",
+                    "우선 기술 지원"
+                ],
+                "cta": "Super Early Bird 구매하기"
+            }
+        ]
+    },
+    "faq": {
+        "items": [
+            {
+                "question": "저는 이미 Raycast(또는 Alfred)를 잘 쓰고 있습니다. 이게 왜 필요한가요?",
+                "answer": "레이캐스트는 '도구'를 열지만, 갈피는 '작업'을 엽니다. 레이캐스트는 PDF 뷰어를 실행해 줄 뿐입니다. 하지만 갈피는 그 PDF의 14페이지, 세 번째 문단을 바로 열어줍니다. Raycast와 함께 쓰세요. 앱 실행은 Raycast로, 맥락 연결은 갈피로. 둘은 최고의 콤비입니다."
+            },
+            {
+                "question": "구독료도 없이 '평생 소장'이라니, 나중에 업데이트 중단되는 거 아닌가요?",
+                "answer": "우리는 서버 비용이 '0원'인 구조를 만들었습니다. 갈피는 모든 데이터를 당신의 컴퓨터(Local)에서 처리합니다. 우리에겐 매달 나가는 고정비가 없습니다. 따라서 한 번의 판매로도 충분히 지속 가능한 비즈니스 모델입니다."
+            },
+            {
+                "question": "만약 제가 갈피를 더 이상 안 쓰게 되면, 저장해둔 링크는 다 사라지나요?",
+                "answer": "절대 사라지지 않습니다. 데이터는 100% 당신의 것입니다. 갈피는 알 수 없는 암호화 DB를 쓰지 않습니다. 모든 링크 정보는 Documents/갈피/data.jsonl이라는 투명한 텍스트 파일에 저장됩니다. 메모장으로 열어서 확인하세요."
+            },
+            {
+                "question": "파일을 다른 폴더로 옮기거나 이름을 바꾸면 링크가 깨지나요?",
+                "answer": "갈피는 끝까지 쫓아가서 연결합니다. 단순히 파일 경로(주소)만 기억하는 게 아닙니다. macOS 파일 시스템의 고유 ID(Inode)와 자체 추적 기술(xattr)을 이용해 파일이 어디로 이사 가든 찾아냅니다."
+            },
+            {
+                "question": "제 워크플로우랑 안 맞으면 어떡하죠?",
+                "answer": "7일간 충분히 써보시고 결정하세요. 구매 후 7일 이내라면, 이유를 묻지 않고 100% 환불해 드립니다. 우리는 당신이 억지로 이 앱을 쓰길 원하지 않습니다."
+            }
+        ]
+    },
+    "footer": {
+        "description": "지적 생산을 위한 0.1초의 순간이동. <br /> 흩어진 지식의 조각들을 연결합니다.",
+        "navTitle": "탐색",
+        "businessTitle": "사업자 정보",
+        "labels": {
+            "company": "Company",
+            "businessNumber": "Business Number",
+            "address": "Address",
+            "adminSupport": "Admin / Support",
+            "officialSupport": "Official Support"
+        },
+        "adminOnly": "(Admin only)",
+        "officialSupportValues": {
+            "discord": "Discord Community",
+            "email": "wisgraph.license@gmail.com"
+        },
+        "copyright": "© 2026 galpi. All rights reserved.",
+        "links": {
+            "terms": "이용약관",
+            "privacy": "개인정보처리방침"
+        },
+        "builtWith": "Built with Rust in Seoul 🇰🇷"
+    }
+}
