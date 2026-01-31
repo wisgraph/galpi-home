@@ -106,7 +106,9 @@
             {
                 "step": "Step 3",
                 "title": "Recall",
-                "desc": "개떡같이 말해도 찰떡같이 찾습니다. 초성(ㄱㅎ), 태그, 키워드 무엇이든 입력하세요. 0.1초 만에 찾아냅니다."
+                "desc": "개떡같이 말해도 찰떡같이 찾습니다. 초성(ㄱㅎ), 태그, 키워드 무엇이든 입력하세요. 0.1초 만에 찾아냅니다.",
+                "docName": "기획서",
+                "fileName": "2026_기획서_vFinal.pdf"
             }
         ]
     },
@@ -127,6 +129,8 @@
                 "desc": "파일이 도망가도 끝까지 추적합니다. 파일 이름을 바꾸거나 폴더를 옮겨도, macOS Inode 추적 기술로 끊어진 연결을 스스로 복구합니다."
             }
         ],
+        "lockIn": "No Vendor Lock-in",
+        "dataPath": "~/Documents/갈피/data.jsonl",
         "chart": {
             "title": "Memory Usage Comparison"
         }
@@ -249,16 +253,20 @@
         "navTitle": "탐색",
         "businessTitle": "사업자 정보",
         "labels": {
-            "company": "Company",
-            "businessNumber": "Business Number",
-            "address": "Address",
-            "adminSupport": "Admin / Support",
-            "officialSupport": "Official Support"
+            "company": "상호명",
+            "businessNumber": "사업자등록번호",
+            "address": "주소",
+            "adminSupport": "행정 지원 (전화)",
+            "officialSupport": "기술 및 공식 지원"
         },
-        "adminOnly": "(Admin only)",
+        "values": {
+            "company": "위스그래프 (wisgraph)",
+            "address": "경기도 남양주시 화도읍 창현로 19, 503호"
+        },
+        "adminOnly": "* 행정 전용, 기술지원 불가",
         "officialSupportValues": {
-            "discord": "Discord Community",
-            "email": "wisgraph.license@gmail.com"
+            "discord": "디스코드 커뮤니티 (가장 빠름)",
+            "email": "wisgraph.license@gmail.com (24시간 내 회신)"
         },
         "copyright": "© 2026 galpi. All rights reserved.",
         "links": {
@@ -266,5 +274,929 @@
             "privacy": "개인정보처리방침"
         },
         "builtWith": "Built with Rust in Seoul 🇰🇷"
+    },
+    "aboutPage": {
+        "hero": {
+            "title": "갈피를 못 잡겠나요? <br /> <span class=\"bg-gradient-to-r from-rose-600 via-pink-500 to-violet-500 dark:from-rose-400 dark:via-pink-400 dark:to-violet-400 bg-clip-text text-transparent\">당연합니다.</span>",
+            "description": "당신의 생각이 끊어지는 '틈'을 메우기 위해,<br class=\"hidden md:block\" /> 우리는 <strong class=\"text-slate-900 dark:text-white\">0.03초의 속도</strong>에 집착했습니다."
+        },
+        "dictionary": {
+            "title": "갈피 <span class=\"text-sm font-sans font-normal text-slate-500 ml-2\">(명사)</span>",
+            "definitions": [
+                "1. 겹치거나 포갠 물건의 하나하나의 사이.",
+                "2. 일이나 사물의 갈래가 구별되는 어름."
+            ]
+        },
+        "engineerNote": {
+            "title": "0.03초를 위한 <span class=\"text-rose-600 dark:text-rose-400 underline decoration-8 decoration-rose-500/20\">엔지니어의 변명</span>",
+            "subtitle": "\"솔직히 고백합니다. 저희도 AppleScript를 씁니다.\"",
+            "paragraphs": [
+                "맥(Mac) 생태계에서 앱과 앱 사이를 완벽하게 연결하려면, AppleScript는 피할 수 없는 선택입니다. 경쟁사도, 저희도 마찬가지입니다.",
+                "하지만 <span class=\"underline decoration-wavy decoration-rose-500/30\">'그냥 쓰는 것'과 '깎아서 쓰는 것'</span>은 천지차이입니다.",
+                "기존 도구들이 거대한 스크립트 덩어리를 통째로 던져 맥을 멈칫하게 만들 때, 갈피는 스크립트를 수술하듯 도려내고 최적화했습니다. 더 나아가, 우리는 OS의 신경망이라 불리는 <strong class=\"text-rose-600 dark:text-rose-400 font-bold\">Accessibility API</strong>를 뚫어 정보를 즉시 낚아챕니다.",
+                "그 결과 <span class=\"bg-rose-100 dark:bg-rose-900 text-rose-600 dark:text-rose-400 px-3 py-1 rounded\">30ms(0.03초)</span>.<br class=\"md:hidden\" /> 인간이 인지하기도 힘든 '즉시 반응'을 만들어냈습니다.",
+                "이것은 단순한 앱이 아닙니다. '가벼움'과 '속도'에 미친 개발자가 맥(Mac) 사용자에게 바치는 헌사입니다. <strong class=\"text-slate-900 dark:text-white\">당신의 소중한 램(RAM)은 배경 화면에 떠 있는 유틸리티가 아니라, 오직 당신의 창작에만 쓰여야 한다는 집요한 고집의 결과물입니다.</strong>"
+            ]
+        },
+        "philosophy": {
+            "title": "당신의 <span class=\"text-pink-500\">뇌는 죄가 없습니다.</span>",
+            "law": {
+                "title": "밀러의 법칙 (The Magical Number Seven)",
+                "description": "인간의 작업 기억(Working Memory) 용량은 고작 <strong>7개</strong>입니다. 당신의 머리가 나빠서 잊어버리는 것이 아닙니다. 뇌의 용량이 초과되었기 때문입니다."
+            },
+            "description": "갈피는 이 생물학적 한계를 기술로 극복합니다. 우리가 만든 태그는 단순한 글자가 아닙니다.",
+            "synapse": "뇌가 놓쳐버린 맥락을 대신 붙잡고 있는 <span class=\"text-violet-600 dark:text-violet-400\">'디지털 시냅스'</span>입니다."
+        },
+        "vision": {
+            "title": "파일을 찾지 마세요.<br /><span class=\"text-cyan-400\">생각을 항해하세요.</span>",
+            "thoughtMap": {
+                "title": "생각의 지도 (Thought Map)",
+                "description": "언제까지 폴더 트리를 뒤적거리며 시간을 낭비하시겠습니까? 갈피는 당신의 지식 네트워크를 시각화된 '지도'로 펼쳐 보입니다."
+            },
+            "compass": {
+                "title": "맥락의 나침반",
+                "description": "우리는 정보를 저장하는 창고가 아닙니다. 생각의 맥락을 보존하는 나침반입니다."
+            },
+            "comingSoon": "Coming Soon",
+            "comingSoonQuote": "\"곧, 당신의 생각 지도를 눈으로 확인하게 될 것입니다.\""
+        },
+        "cta": {
+            "title": "잃어버린 맥락을 찾는 데 <br class=\"md:hidden\" /><span class=\"text-rose-600 dark:text-rose-400 px-2\">하루 20분을 쓰고 계시다면,</span>",
+            "subtitle": "이제 그 시간을 당신의 '진짜 일'에 투자하세요.",
+            "button": "30ms의 속도 경험하기 (무료 시작)"
+        }
+    },
+    "engineeringPage": {
+        "hero": {
+            "title": "타협하지 않는 <br /> <span class=\"bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent\">공학의 고집</span>",
+            "description": "우리는 단순히 앱을 만들지 않습니다. <br class=\"hidden md:block\" /> 가장 효율적인 방식으로 사고를 연결하기 위해 '기본'부터 다시 설계했습니다."
+        },
+        "overview": {
+            "rust": {
+                "badge": "Zero Memory Waste",
+                "title": "0.03초의 반응속도, <br /> 그 뒤에 숨겨진 <span class=\"text-cyan-500 italic uppercase underline decoration-cyan-500/30 font-serif\">Rust라는 고집</span>",
+                "description": "<b>\"왜 굳이 어려운 Rust로 개발했나요?\"</b><br /> 당신의 컴퓨터 메모리를 수백 MB씩 잡아먹는 '무거운 앱'을 만들고 싶지 않았습니다. 갈피는 네이티브 성능에 집착했고, Rust + Tauri로 그 목표를 달성했습니다.",
+                "chart": {
+                    "galpiLabel": "Galpi (Rust Core)",
+                    "galpiValue": "25 MB (Used only when needed)",
+                    "otherLabel": "일반적인 링크 앱",
+                    "otherValue": "220+ MB (상시 점유)"
+                },
+                "features": [
+                    {
+                        "title": "Performance",
+                        "desc": "아이콘을 누르는 순간, 앱은 이미 켜져 있습니다. 로딩 바(Loading Bar)는 저희 사전에 없습니다."
+                    },
+                    {
+                        "title": "Resource",
+                        "desc": "켜놓은 줄도 모를 가벼움. 갈피는 시스템 리소스를 점유하지 않고, 조용히 당신의 명령을 대기합니다."
+                    },
+                    {
+                        "title": "Architecture",
+                        "desc": "디스크를 긁지 않습니다. 엔터(Enter)를 치기도 전에, 결과는 이미 화면에 떠 있습니다."
+                    }
+                ]
+            },
+            "data": {
+                "badge": "Absolute Ownership",
+                "title": "당신의 데이터는 <br /> <span class=\"text-emerald-500 italic uppercase underline decoration-emerald-500/20\">오직 당신의 것</span>",
+                "description": "암호화된 블랙박스에 정보를 가두지 마세요. 갈피는 모든 데이터를 투명한 <b>JSONL</b> 파일로 저장합니다. 앱이 사라져도 당신의 연결은 텍스트 파일로 영원히 남습니다.",
+                "list": [
+                    "iCloud, Dropbox, Git 어디서든 완벽한 동기화",
+                    "개인정보 수집 Zero: 우리는 당신이 무엇을 검색하는지 모릅니다"
+                ]
+            }
+        },
+        "sidebar": {
+            "overview": "Engineering Overview"
+        },
+        "features": {
+            "search-engine": "가장 이기적인 한국어 검색",
+            "typed-tags": "태그 관리: 노동의 종말",
+            "tag-autocomplete": "신경망 자동완성",
+            "context-tags": "몰입을 위한 컨텍스트 스탬프",
+            "auto-context-search": "마우스 없는 세상",
+            "data-sync": "투명한 데이터 금고",
+            "unbroken-links": "끊어지지 않는 연결",
+            "smart-ranking": "엔터를 치기도 전에"
+        },
+        "featureDetails": {
+            "searchEngine": {
+                "badge": "Korean Optimized",
+                "title": "한국어 사용자에게 <br class=\"md:hidden\" /> 가장 <span class=\"text-blue-600 dark:text-blue-400 italic\">이기적인</span> 검색 엔진",
+                "description": "해외 생산성 도구들을 쓰며 답답하셨죠? <br class=\"hidden md:block\" /> 영문 오타조차 당신의 '의도'로 읽어냅니다.",
+                "stats": {
+                    "coldStart": "Cold Start",
+                    "queryTime": "Query Time (100k items)",
+                    "memory": "Memory Footprint"
+                },
+                "features": {
+                    "chosung": {
+                        "title": "초성 검색 (Choseong Search)",
+                        "description": "<strong>\"ㄱㅎㅇ\"</strong>라고만 치세요. <code>2026_기획안.pdf</code>를 즉시 소환합니다. <br /> 파일명뿐만 아니라 태그조차 초성으로 잡아냅니다. <strong>#ㅎㄹ</strong>만 쳐도 <strong>#hooklink</strong>가 튀어나옵니다."
+                    },
+                    "fuzzy": {
+                        "title": "퍼지 매칭 (Fuzzy Matching)",
+                        "description": "한영 전환을 깜빡해서 <code>rhlghldks</code>라고 치고 지우기를 반복했나요? <br /> <code>hklk</code>라고 대충 쳐도 <code>HookLink</code>를 찾아냅니다. 당신의 오타 속에 숨겨진 <strong>'의도'</strong>를 파악합니다. 정확할 필요 없습니다. 대충 던져도 찰떡같이 알아듣습니다."
+                    },
+                    "memory": {
+                        "title": "빛의 속도, 인메모리 아키텍처",
+                        "description": "모든 인덱스는 RAM 위에서 빛의 속도로 스캔됩니다. 엔터(Enter)를 치기도 전에, 결과는 이미 화면에 떠 있습니다. 디스크를 긁는 소모적인 작업은 갈피에 없습니다."
+                    }
+                },
+                "footer": "\"단 1초도 낭비하지 마세요. 당신의 시간은 비쌉니다.\""
+            },
+            "typedTags": {
+                "badge": "Automation First",
+                "title": "태그 관리가 <br class=\"md:hidden\" /> <span class=\"text-rose-600 dark:text-rose-400 italic\">'노동'</span>이 되어서는 안 됩니다.",
+                "description": "입력은 줄이고, 구조는 단단하게. <br class=\"hidden md:block\" /> 당신이 타이핑하는 그 순간, 이미 구조화를 끝마칩니다.",
+                "concept": {
+                    "title": "입력과 동시에 학습됩니다.",
+                    "description": "설정을 위해 메뉴를 뒤지지 마세요. 검색창에 <code>#platform:ios</code>라고 입력하는 순간, 시스템은 <code>platform</code>이라는 타입을 즉시 학습하고 등록합니다."
+                },
+                "features": {
+                    "preset": {
+                        "title": "스마트 프리셋 (Preset)",
+                        "description": "콜론(<code>:</code>)을 누르면, 갈피가 당신의 패턴을 분석해 다음 값을 제안합니다. 타이핑을 멈추고 선택만 하세요."
+                    },
+                    "palette": {
+                        "title": "시각적 우선순위",
+                        "description": "<code>#status:done</code>은 무채색으로, <code>#priority:high</code>는 붉은색으로. 정보의 경중을 색상으로 즉시 판단하세요."
+                    },
+                    "implicit": {
+                        "title": "암시적 구조 (Implicit)",
+                        "description": "태그를 다는 순간이 곧 데이터베이스를 설계하는 순간입니다. 별도의 설정 화면은 필요하지 않습니다."
+                    }
+                },
+                "smartSuggest": {
+                    "title": "지능형 제안 예시 (Smart Suggest)",
+                    "statusLabel": "→ done, doing, todo (자동 제안)",
+                    "priorityLabel": "→ High(Red), Low(Green)"
+                },
+                "footer": "\"단순히 찾는 도구가 아닙니다. <br />데이터의 맥락을 읽는 도구입니다.\""
+            },
+            "unbrokenLinks": {
+                "badge": "Self-Healing Engine",
+                "title": "파일 좀 옮겼다고 링크가 깨진다면, <br /> <span class=\"text-emerald-600 dark:text-emerald-500 italic uppercase underline decoration-emerald-500/30\">그건 도구가 아닙니다.</span>",
+                "description": "\"정리는 자유로워야 합니다. <br class=\"hidden md:block\" /> 갈피의 연결은 <b>강철 와이어</b>처럼 질깁니다.\"",
+                "nightmare": {
+                    "title": "\"폴더 정리 한 번 했다가, <br /> <span class=\"text-red-500\">지옥</span>을 보았습니다.\"",
+                    "description": "기존의 파일 링크(`file://`)는 너무나 연약합니다. 폴더 이름 하나, 파일 이름 하나만 바꿔도 길을 잃습니다. 우리는 이 허무한 경험을 기술로 해결했습니다.",
+                    "quote": "\"1년 전 스크랩한 자료들 중 30%가 링크가 깨져 있더군요. 그게 제가 이 기능을 만든 이유입니다.\"",
+                    "badge": "Nightmare Case",
+                    "yesterday": "Yesterday (Active)",
+                    "today": "Today (Renamed & Moved)"
+                },
+                "stalker": {
+                    "badge": "Persistent Tracking Engine",
+                    "title": "갈피는 집요한 <br /> <span class=\"text-emerald-500 italic uppercase\">추적자(Stalker)</span>입니다.",
+                    "description": "파일의 이름이 바뀌어도, 폴더가 10번 바뀌어도, 심지어 <b>휴지통</b>에 들어가도 갈피는 끝까지 쫓아갑니다. 우리는 경로가 아닌, 운영체제가 부여한 영혼의 고유번호 <b>Inode</b>를 물고 늘어집니다.",
+                    "inode": {
+                        "title": "Inode Tracking",
+                        "description": "파일의 위치나 이름에 의존하지 않습니다. 하위 파일 시스템의 고유 식별자를 통해 '동일성'을 물리적으로 보장합니다."
+                    },
+                    "alias": {
+                        "title": "Alias Bookmark",
+                        "description": "macOS의 북마크 기술을 활용하여, 시스템이 스스로 파일의 이동 경로를 갈피에게 '보고'하게 만듭니다."
+                    }
+                },
+                "footer": "\"마음껏 폴더를 정리하세요. <br class=\"hidden md:block\" /> 연결은 저희가 책임집니다.\"",
+                "manifesto": "Galpi Manifesto: Chapter 07"
+            },
+            "autoContextSearch": {
+                "badge": "Flow Preservation",
+                "title": "마우스 없는 세상 <br class=\"md:hidden\" /> <span class=\"text-purple-600 dark:text-purple-400 italic\">(Keyboard Only)</span>",
+                "description": "마우스에 손을 올리지 마세요. <br class=\"hidden md:block\" /> 흐름(Flow)을 깨지 않는 극단적인 키보드 온리 철학.",
+                "concept": {
+                    "title": "몰입을 위한 1초의 사수",
+                    "description": "작업 도중 마우스로 손이 가는 1초, 그 찰나에 몰입은 깨집니다. 갈피는 <strong>키보드 위에서 모든 것이 끝나도록</strong> 설계되었습니다. 검색, 태그 추가, 파일 실행, 링크 복사까지. 방향키와 <code>Tab</code>, <code>Enter</code>면 충분합니다.",
+                    "mouseWarning": {
+                        "title": "마우스는 '최후의 수단'입니다.",
+                        "description": "우리는 마우스를 사용하는 것이 인터페이스의 실패라고 믿습니다. 당신의 손이 키보드에 머무는 시간이 길어질수록, 생산성은 기하급수적으로 올라갑니다."
+                    },
+                    "reachBadge": "Everything within Reach",
+                    "noMouseBadge": "No Mouse Required"
+                },
+                "smartContext": {
+                    "title": "지능형 맥락 감지 (Smart Context)",
+                    "recovery": {
+                        "title": "과거의 작업실을 0.5초 만에 복원",
+                        "description": "현재 보고 있는 문서를 여는 순간, 갈피는 그 안에 담긴 맥락을 즉시 감지합니다. 이전에 같이 보았던 웹사이트, 참고했던 PDF들이 검색창에 자동으로 리스트업됩니다. <strong>\"저번에 뭐 봤더라?\"</strong> 고민하는 낭비를 멈추세요."
+                    },
+                    "custom": {
+                        "title": "커스텀 맥락 정의",
+                        "description": "<code>#project</code> 외에도 당신이 정의한 <code>#area</code>, <code>#topic</code> 등 모든 태그 키가 맥락의 기준이 됩니다. 갈피는 당신의 사고 구조를 강제하지 않고, 그저 뒤따를 뿐입니다."
+                    }
+                },
+                "footer": "\"단 1초도 낭비하지 마세요. 당신의 시간은 비쌉니다.\""
+            },
+            "contextTags": {
+                "badge": "The Context Workflow",
+                "title": "규칙이 감각으로,<br /> <span class=\"text-indigo-600 dark:text-indigo-400 italic\">스템프 시스템</span>",
+                "description": "단순한 분류를 넘어 작업의 흐름을 잇습니다. <br class=\"hidden md:block\" /> 갈피의 3단계 태그 매커니즘이 어떻게 수동 입력을 없애는지 확인해보세요.",
+                "steps": {
+                    "typedTag": {
+                        "badge": "01. The Grammar",
+                        "title": "타입드 태그 <br /> <span class=\"text-indigo-500\">(Typed Tag)</span>",
+                        "description": "갈피는 일반적인 태그뿐만 아니라, <code class=\"bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded\">#타입:값</code> 구조의 <b>타입드 태그</b>를 지원합니다. 이는 데이터와 작업 맥락에 '프로젝트', '속성'과 같은 명확한 역할을 부여하여, 지능형 필터링과 자동화가 가능하게 만드는 핵심 속성(Property)이 됩니다."
+                    },
+                    "contextType": {
+                        "badge": "02. The Eligibility",
+                        "title": "컨텍스트 타입 <br /> <span class=\"text-indigo-500\">(Context Type)</span>",
+                        "description": "설정 화면에서 '프로젝트'와 같이 특별한 관리가 필요한 타입을 지정할 수 있습니다. 여기에 등록된 타입들은 갈피 시스템의 <b>지능형 자동화 자격</b>을 얻으며, 단순한 태그를 넘어 실시간 작업 환경의 일부로 격상됩니다.",
+                        "guide": "설정 > 태그 > 컨텍스트 타입 에서 관리"
+                    },
+                    "contextStamp": {
+                        "badge": "03. The Activation",
+                        "title": "컨텍스트 스탬프 <br /> <span class=\"text-indigo-200 italic font-light italic\">Context Stamp</span>",
+                        "description": "검색창 우측에 고정되는 <b>스탬프(Stamp)</b>는 현재 당신의 작업 맥락을 의미합니다. 한 번 찍힌 스탬프는 당신의 모든 캡처 활동에 조용히 개입하여 입력을 대신합니다.",
+                        "features": {
+                            "autoInjection": {
+                                "title": "자동 주입 (Auto-Injection)",
+                                "description": "새 정보를 캡처할 때, 활성화된 스탬프가 자동으로 태그로 기록됩니다."
+                            },
+                            "zeroTyping": {
+                                "title": "제로 타이핑 (Zero Typing)",
+                                "description": "스탬프가 찍혀 있다면, 리스트의 항목을 클릭 한 번으로 일괄 분류할 수 있습니다."
+                            }
+                        }
+                    }
+                },
+                "footer": "\"정의된 타입(Type)이<br class=\"md:hidden\" /> 현재의 스탬프(Stamp)가 되어<br class=\"md:hidden\" /> 데이터와 만납니다.\""
+            },
+            "dataSync": {
+                "badge": "No Vendor Lock-in Philosophy",
+                "title": "우리는 데이터를 <br /> <span class=\"text-cyan-600 dark:text-cyan-500 italic uppercase underline decoration-cyan-500/20\">암호화하지 않습니다.</span>",
+                "description": "\"가장 안전한 금고는, <b>투명한 금고</b>입니다.\"",
+                "sovereignty": {
+                    "title": "당신의 데이터는 <br /> <span class=\"text-cyan-500 italic uppercase\">인질이 아닙니다.</span>",
+                    "description1": "대부분의 앱은 데이터를 꽁꽁 숨깁니다. 그래야 사용자가 도망가지 못하니까요. 그들은 알 수 없는 바이너리(Binary) 파일 뒤에 당신의 인생을 가둡니다.",
+                    "description2": "갈피는 정반대입니다. 우리는 당신이 언제든 떠날 수 있도록 문을 활짝 열어두었습니다.",
+                    "badge": "Human Readable",
+                    "comment": "// 파일이 깨져도 괜찮습니다. 한 줄만 건너뛰세요."
+                },
+                "technicalTruth": {
+                    "scriptable": {
+                        "title": "Scriptable",
+                        "description": "메모장으로 여세요. 파이썬 스크립트 한 줄이면 당신만의 통계 데이터를 직접 추출할 수 있습니다."
+                    },
+                    "crashProof": {
+                        "title": "Crash Proof",
+                        "description": "바이너리 DB(SQLite)는 하나만 꼬여도 전체가 먹통이 되지만, 갈피는 깨진 줄만 버리고 99%를 살려냅니다."
+                    },
+                    "zeroAnalytics": {
+                        "title": "Zero Analytics",
+                        "description": "서버는 당신의 파일명을 알 필요가 없습니다. 모든 처리는 당신의 드라이브에서만 일어납니다."
+                    }
+                },
+                "footer": "\"진정한 자유는 데이터를 직접 <br class=\"hidden md:block\" /> 통제할 수 있을 때 시작됩니다.\"",
+                "manifesto": "Galpi Manifesto: Chapter 05"
+            },
+            "knowledgeWorkflow": {
+                "badge": "지식 운영 체제",
+                "title": "양방향 연결의 진화",
+                "description": "\"링크를 넘어,<br class=\"hidden md:block\" /> 당신의 디지털 작업실(Context)을 소환하세요.\"",
+                "intro": "Hookmark가 파일과 파일 사이의 '길'을 만들었다면, <strong>HookLink</strong>는 그 길을 통해 당신의 모든 지식 파편들이 유기적으로 움직이는 '스마트한 작업 생태계'를 구축합니다.",
+                "contextFixing": {
+                    "title": "지식의 단절을 해결하는 '맥락의 고정'",
+                    "description": "나중에 링크를 찾아도 \"내가 이걸 왜 저장했지?\"라고 되묻곤 합니다. HookLink는 캡처의 순간, 그 맥락(Context)을 함께 박제합니다.",
+                    "steps": [
+                        "컨텍스트 태그 활성화 (#project:A)",
+                        "그냥 캡처 (분류 고민 X)",
+                        "자동으로 맥락 박제 및 분류 완료"
+                    ]
+                },
+                "digitalDesk": {
+                    "title": "생각의 속도로 전환하는 '디지털 데스크'",
+                    "instantSwitching": {
+                        "title": "즉각적인 전환 (Instant Switching)",
+                        "description": "오후 업무 시작 전, 검색창에 <code class=\"bg-slate-200 dark:bg-white/20 px-1 rounded\">#project:B</code>를 입력하세요.<br /><br /> 그 즉시 당신의 화면은 프로젝트 B와 관련된 피그마, 노션, 슬랙 대화로 재구성됩니다. 오전 업무의 잔상을 지우는 데 <strong>단 1초</strong>면 충분합니다."
+                    },
+                    "previousContext": "Previous Context",
+                    "activeContext": "Active Context"
+                },
+                "perfectLoop": {
+                    "title": "완벽한 루프 (The Perfect Loop)",
+                    "capture": {
+                        "title": "수집 (Capture)",
+                        "description": "웹과 앱의 파편을 <br />컨텍스트와 함께 수집"
+                    },
+                    "organize": {
+                        "title": "정리 (Organize)",
+                        "description": "지능형 자동완성과 <br />타입드 태그로 의미 부여"
+                    },
+                    "jump": {
+                        "title": "이동 (Jump)",
+                        "description": "원본 파편의 위치로 <br />즉시 되돌아가기"
+                    }
+                },
+                "footer": "\"단순히 링크 수집가가 아닌,<br /> 지능적인 지식 설계자가 되세요.\""
+            },
+            "rankingAlgorithm": {
+                "badge": "중력 모델 (Gravity Model)",
+                "title": "랭킹 알고리즘<br />(The Ranking Algorithm)",
+                "description": "\"흐르는 물(Recency)과<br class=\"hidden md:block\" /> 단단한 바위(Importance)의 조화.\"",
+                "conflict": {
+                    "title": "딜레마 (The Conflict)",
+                    "desire1": {
+                        "label": "첫 번째 욕구",
+                        "text": "\"방금 작업하던 파일(최신성)을 바로 열고 싶어.\""
+                    },
+                    "desire2": {
+                        "label": "두 번째 욕구",
+                        "text": "\"1년 전 파일이라도, 정말 중요한(중요도) 건 맨 위에 있어야 해.\""
+                    },
+                    "explanation": "이 두 가지 상충되는 욕구를 동시에 만족시키기 위해, HookLink는 물리학의 <strong>\"중력 모델(Gravity Model)\"</strong>을 차용했습니다."
+                },
+                "formula": {
+                    "title": "공식 (The Formula)",
+                    "mass": {
+                        "title": "Mass (질량)",
+                        "description": "사용자가 설정한 **중요도(★ 1~10)**는 파일의 '질량'입니다. 질량이 클수록 존재감이 뚜렷하며, 쉽게 움직이지 않습니다.",
+                        "details": [
+                            "• 가중치 1점 = 기본 점수 10,000점",
+                            "• 중요 파일은 사소한 파일에 절대 밀리지 않음"
+                        ]
+                    },
+                    "gravity": {
+                        "title": "Gravity (중력)",
+                        "description": "시간은 모든 사물을 아래로 끌어당기는 '중력'입니다.",
+                        "details": [
+                            "• Yesterday: ×1.5 Booster (반중력)",
+                            "• Old Files: ×0.3 Decay (침전)"
+                        ]
+                    }
+                },
+                "simulations": {
+                    "title": "시뮬레이션 (Simulations)",
+                    "sim1": {
+                        "title": "🌊 시뮬레이션 1: 일상적인 파일 (흐르는 물)",
+                        "item1": "어제 쓴 메모 (★1)",
+                        "item2": "작년 보고서 (★2)",
+                        "footer": "가중치가 비슷하다면 최신성이 승리합니다. 사용자는 항상 \"지금 작업 중인 파일\"을 먼저 보게 됩니다."
+                    },
+                    "sim2": {
+                        "title": "🪨 시뮬레이션 2: 중요 파일 (단단한 바위)",
+                        "item1": "마스터 플랜 (★8)",
+                        "item2": "어제 쓴 메모 (★1)",
+                        "footer": "압도적인 질량(중요도)을 가진 파일은 시간이 지나도 가라앉지 않고 상단을 지킵니다. (구명조끼 효과)"
+                    }
+                },
+                "footer": "\"HookLink는 당신이 무엇을 중요하게 여기는지<br /> 이미 알고 있습니다.\""
+            },
+            "smartAging": {
+                "badge": "유지보수 제로 (Zero Maintenance)",
+                "title": "스마트 에이징 알고리즘",
+                "description": "\"중요한 것은 선명하게,<br class=\"hidden md:block\" /> 오래된 것은 흐릿하게.\"",
+                "intro": {
+                    "title": "링크가 쌓였을 때의 문제점 (Link Clutter)",
+                    "description": "1년 전에 끝난 프로젝트 파일이 검색창 맨 위에 뜨시나요? <br /> HookLink는 검색 엔진에 <strong>\"시간의 개념\"</strong>을 도입하여 이 문제를 해결했습니다."
+                },
+                "mechanism": {
+                    "recency": {
+                        "title": "최신성 부스트 (Recency Boost)",
+                        "description": "최근 <strong>24시간 이내</strong>에 사용한 링크는 점수에 <strong class=\"text-orange-500\">1.5배 가산점</strong>을 받습니다. 키워드가 조금 부정확해도, 어제 쓴 파일이라면 최상단에 꽂힙니다."
+                    },
+                    "decay": {
+                        "title": "자연스러운 감쇠 (Natural Decay)",
+                        "description": "<strong>6개월 이상</strong> 열지 않은 링크는 점수가 <strong class=\"text-orange-500\">30% 수준</strong>으로 낮아집니다. 삭제되진 않지만, 검색 결과의 바닥으로 조용히 가라앉습니다."
+                    }
+                },
+                "benefits": {
+                    "title": "언제나 신선한 이유 (Feels Fresh)",
+                    "cleanup": {
+                        "title": "자동 청소",
+                        "description": "1년 전 자료가 검색창을 어지럽히지 않도록 자동으로 하단으로 밀어냅니다."
+                    },
+                    "access": {
+                        "title": "즉각적 접근",
+                        "description": "방금 닫은 파일을 다시 열 때, 단축키 한 번이면 100% 확률로 맨 위에 있습니다."
+                    },
+                    "zeroMaintenance": {
+                        "title": "유지보수 제로",
+                        "description": "별도 '아카이브' 버튼을 누를 필요가 없습니다. 그냥 쓰면 알아서 정리됩니다."
+                    }
+                },
+                "comparison": {
+                    "feature": "기능",
+                    "legacy": "기존 런처",
+                    "galpi": "HookLink",
+                    "ranking": "랭킹 기준",
+                    "rankingLegacy": "단순 텍스트 매칭",
+                    "rankingGalpi": "텍스트 + 시간 (Time Factor)",
+                    "oldFiles": "오래된 파일",
+                    "oldFilesLegacy": "여전히 상단 노출 (방해됨)",
+                    "oldFilesGalpi": "알아서 하단으로 침전",
+                    "management": "관리 방식",
+                    "managementLegacy": "수동 아카이브 필요",
+                    "managementGalpi": "자동 (Automatic)"
+                }
+            },
+            "tagAutocomplete": {
+                "badge": "Assistive Neural Network",
+                "title": "신경망 자동완성 <br class=\"md:hidden\" /> <span class=\"text-purple-600 dark:text-purple-400 italic\">(Neural Autocomplete)</span>",
+                "description": "단순한 텍스트 완성이 아닙니다. <br class=\"hidden md:block\" /> 당신의 워크플로우를 학습하는 지능형 엔진입니다.",
+                "intro": "<code>#pro</code>를 입력하면 당신이 지금 가장 필요로 할 <code>#project:antigravity</code>를 우선순위로 띄웁니다. 갈피는 당신의 사용 패턴을 분석해 가장 적합한 맥락을 <strong>실시간으로</strong> 연결합니다.",
+                "mockup": {
+                    "badge": "Neural Suggestion",
+                    "searchPlaceholder": "Search..."
+                },
+                "features": {
+                    "learning": {
+                        "title": "패턴 학습 (Pattern Learning)",
+                        "description": "당신이 어떤 프로젝트에서 갈피를 가장 많이 사용하는지 압니다. 고민할 필요 없이 <code>Tab</code>만 누르세요. 엔진이 당신의 다음 행동을 미리 준비합니다."
+                    },
+                    "frictionless": {
+                        "title": "Zero Friction",
+                        "description": "방향키와 <code>Tab</code>, <code>Enter</code>면 충분합니다. 마우스를 찾는 찰나의 시간조차 아까운 분들을 위한 극단적인 키보드 인터페이스를 지향합니다."
+                    }
+                },
+                "proTip": {
+                    "badge": "Pro Workflow",
+                    "title": "컨텍스트 즉시 전환 (Focus)",
+                    "description": "단순히 결과를 보는 게 아니라, 작업의 '판'을 바꿉니다. 자동완성 창에서 태그를 고르고 <strong class=\"text-white\">Cmd + Enter</strong>를 누르세요.",
+                    "action": "Action",
+                    "actionDesc": "검색 모드 → 작업 모드 즉시 전환"
+                },
+                "footer": "\"지능형 도구는 당신의 생각을 방해하지 않고 보조해야 합니다.\""
+            },
+            "smartRanking": {
+                "badge": "Biological Sorting Algorithm",
+                "title": "검색할 필요가 없습니다. <br /> <span class=\"text-indigo-600 dark:text-indigo-500 italic uppercase underline decoration-indigo-500/20\">이미 맨 위에 있으니까요.</span>",
+                "description": "\"우리는 당신의 뇌보다 한 발 앞서 <br class=\"hidden md:block\" /> 가장 중요한 연관 자료를 대령합니다.\"",
+                "gravity": {
+                    "title": "중력 랭킹 <br /> <span class=\"text-indigo-500 uppercase\">Gravity Rank</span>",
+                    "description": "단순히 시간 순서(LIFO)로 정렬하는 것은 도구가 아닙니다. 갈피는 물리 법칙을 닮은 <b>중력 알고리즘</b>을 사용하여 검색 결과를 실시간으로 재배열합니다.",
+                    "features": [
+                        {
+                            "label": "Mass (질량)",
+                            "desc": "클릭 횟수와 열람 빈도에 따른 고유 질량 부여"
+                        },
+                        {
+                            "label": "Decay (감쇠)",
+                            "desc": "시간이 흐름에 따라 자연스럽게 작용하는 기억의 반감기 적용"
+                        },
+                        {
+                            "label": "Boost (추진)",
+                            "desc": "현재 작업 중인 프로젝트와의 연관성에 따른 동적 인력 발생"
+                        }
+                    ],
+                    "visual": {
+                        "badge": "Biological Sorting simulation",
+                        "item1": {
+                            "badge": "Active Focus",
+                            "title": "현재 진행 중인 프로젝트 제안서",
+                            "tag": "#project:galpi"
+                        },
+                        "item2": {
+                            "title": "오래된 학습 노트 (2022)"
+                        }
+                    }
+                },
+                "biologicalEngine": {
+                    "badge": "Biological Engine",
+                    "result1": {
+                        "title": "현재 진행 중인 프로젝트 제안서",
+                        "mass": "Mass: 98.4",
+                        "boost": "Boosted"
+                    },
+                    "result2": {
+                        "title": "오래된 학습 노트 (2022)",
+                        "decay": "Decayed: 12.1"
+                    }
+                },
+                "zeroLabor": {
+                    "title": "검색어 입력은 <br /> <span class=\"text-indigo-100 font-light italic\">사치(Luxury)</span>입니다.",
+                    "description": "갈피를 여는 단축키를 누르는 그 찰나의 순간, 알고리즘은 이미 현재 활성화된 앱, 클립보드의 내용을 바탕으로 당신이 필요로 할 파일을 맨 위에 배치합니다.",
+                    "stats": {
+                        "success": {
+                            "label": "Success Rate",
+                            "value": "94%"
+                        },
+                        "time": {
+                            "label": "Saved Time",
+                            "value": "2.4h/wk"
+                        }
+                    }
+                },
+                "footer": "\"저희는 당신이 무엇을 찾고 있는지 <br class=\"hidden md:block\" /> 이미 알고 있습니다.\"",
+                "manifesto": "Galpi Manifesto: Chapter 09"
+            }
+        },
+        "status": {
+            "underConstruction": "Under Construction"
+        },
+        "cta": {
+            "title": "공학은 <span class=\"text-blue-500\">정직</span>해야 합니다.",
+            "button": "기능 작동 원리 보기"
+        }
+    },
+    "faqPage": {
+        "hero": {
+            "title": "구매하기 전에 <br /> <span class=\"bg-gradient-to-r from-violet-600 via-purple-500 to-indigo-600 bg-clip-text text-transparent italic underline decoration-violet-500/20 underline-offset-8\">의심부터 하세요.</span>",
+            "description": "저희는 여러분이 맹목적으로 구매하는 것을 원치 않습니다. <br class=\"hidden md:block\" /> 갈피가 당신의 워크플로우에 맞는지, 우리가 믿을 만한 팀인지 꼼꼼히 검증하십시오. <br class=\"hidden md:block\" /> 가장 날카로운 질문들에 대해 피하지 않고 답해 드립니다."
+        },
+        "categories": {
+            "comparison": {
+                "title": "1. 기존 도구와의 비교 (The Elephant in the Room)",
+                "faqs": [
+                    {
+                        "question": "이미 훅마크(Hookmark)가 있는데, 굳이 갈피를 써야 합니까?",
+                        "answer": "<div class=\"space-y-4\"><p class=\"text-xl font-bold text-slate-900 dark:text-white border-l-4 border-violet-500 pl-4 py-1\">\"헤비 유저라면 훅마크를 쓰시고, 스피드광이라면 갈피를 쓰세요.\"</p><p>솔직히 말씀드립니다. 훅마크는 훌륭합니다. 200개가 넘는 앱을 지원하고 기능도 방대합니다. 하지만 그만큼 무겁고 느립니다.</p><p>여러분이 하루 종일 100가지 앱을 쓴다면 훅마크가 정답입니다. 하지만 <strong>Finder, Chrome, Obsidian, Preview</strong> 이 4가지를 업무의 90%로 사용한다면?</p><p class=\"bg-slate-50 dark:bg-white/5 p-4 rounded-xl\">갈피는 훅마크보다 <strong class=\"text-violet-600\">20배 빠르고, 메모리는 1/20만 사용하며, 가격은 1/14입니다.</strong> 저희는 '보편성'을 포기하고 '속도'와 '깊이'를 선택했습니다.</p></div>"
+                    }
+                ]
+            },
+            "sustainability": {
+                "title": "2. 지속 가능성 (The Sustainability)",
+                "faqs": [
+                    {
+                        "question": "평생 소장 $4.99? 먹튀 하거나 망하는 거 아닙니까?",
+                        "answer": "<div class=\"space-y-4\"><p class=\"text-xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4 py-1\">\"저희는 매달 나가는 '서버 비용'이 0원입니다. 그래서 안 망합니다.\"</p><p>대부분의 SaaS가 구독료를 받는 이유는 클라우드 서버 유지비 때문입니다. 유저가 늘수록 적자가 나는 구조죠.</p><p>갈피는 <strong>로컬 우선(Local-First)</strong> 앱입니다. 데이터 처리는 여러분의 맥에서 이루어지고, 저장은 여러분의 하드디스크에 합니다.</p><p>저희에게는 고정 지출이 없습니다. 즉, 한 번 팔면 그 수익은 온전히 개발자의 인건비와 업데이트 비용으로 쓰입니다. 가장 지속 가능한 비즈니스 모델을 택했습니다.</p></div>"
+                    }
+                ]
+            },
+            "data": {
+                "title": "3. 데이터 주권 (The Safety)",
+                "faqs": [
+                    {
+                        "question": "개발자가 업데이트를 중단하면 내 데이터는 어떻게 됩니까?",
+                        "answer": "<div class=\"space-y-4\"><p class=\"text-xl font-bold text-slate-900 dark:text-white border-l-4 border-purple-500 pl-4 py-1\">\"갈피가 사라져도, 당신의 데이터는 살아남습니다.\"</p><p>저희는 최악의 상황(폐업)까지 대비해 설계했습니다. 갈피는 데이터를 암호화된 DB에 가두지 않습니다. 모든 연결 정보는 <strong>JSONL</strong>이라는 투명한 텍스트 파일로 저장됩니다.</p><p>만약 갈피 앱이 없어져도, 여러분은 메모장이나 엑셀, 혹은 파이썬 스크립트로 데이터를 열어보고 백업할 수 있습니다. <strong>저희는 여러분의 데이터를 인질로 잡지 않습니다.</strong></p></div>"
+                    }
+                ]
+            },
+            "technical": {
+                "title": "4. 기술적 신뢰성 (The Engineering)",
+                "faqs": [
+                    {
+                        "question": "AppleScript 기반 앱들은 다 느리던데, 이건 진짜 빠릅니까?",
+                        "answer": "<div class=\"space-y-4\"><p class=\"text-xl font-bold text-slate-900 dark:text-white border-l-4 border-violet-600 pl-4 py-1\">\"그냥 쓴 게 아니라, 뼈만 남기고 깎았기 때문입니다.\"</p><p>맞습니다. 보통의 AppleScript 앱은 느립니다. 스크립트 실행을 위해 무거운 프로세스를 띄우기 때문입니다.</p><p>저희는 <strong>Rust</strong>를 사용하여 스크립트를 밀리초(ms) 단위로 통제합니다. 또한, 가능한 모든 구간에서 스크립트 대신 <strong>macOS Accessibility API(접근성 API)</strong>를 사용하여 OS와 직접 통신합니다.</p><p class=\"bg-violet-50 dark:bg-violet-900/10 p-4 rounded-xl text-violet-900 dark:text-violet-200 font-bold\">\"0.03초\". 이것은 마케팅 용어가 아니라, 계측된 팩트입니다. 직접 써보고 느리지 않다면 환불하십시오.</p></div>"
+                    }
+                ]
+            },
+            "refund": {
+                "title": "5. 결제 및 환불 (The Guarantee)",
+                "faqs": [
+                    {
+                        "question": "제 맥 환경에서 제대로 작동 안 하면 어쩌죠?",
+                        "answer": "<div class=\"space-y-4\"><p class=\"text-xl font-bold text-slate-900 dark:text-white border-l-4 border-rose-500 pl-4 py-1\">\"7일 안에 메일 주세요. 묻지도 따지지도 않고 환불해 드립니다.\"</p><p>맥의 환경은 다양합니다. 권한 문제나 특정 버전 충돌이 있을 수 있습니다. 구매 후 7일간 충분히 테스트해보세요.</p><p>만약 실행이 안 되거나, 기대만큼 빠르지 않거나, 심지어 <strong>그냥 마음에 안 들어도</strong> 괜찮습니다. support@galpi.app으로 메일 한 통만 보내주시면, 이유를 묻지 않고 100% 환불 처리해 드립니다. <strong>리스크는 저희가 집집니다.</strong></p></div>"
+                    }
+                ]
+            }
+        },
+        "outro": {
+            "badge": "여전히 남은 질문",
+            "title": "개발자와 직접 <span class=\"italic\">대화하고 싶으신가요?</span>",
+            "description": "저희는 숨지 않습니다. 디스코드 커뮤니티에는 저를 포함한 초기 유저들이 상주하고 있습니다. <br /> 기능 요청, 버그 제보, 혹은 단순한 수다도 환영합니다.",
+            "button": "개발자에게 직접 따지러 가기 (Discord)"
+        }
+    },
+    "featuresPage": {
+        "hero": {
+            "title": "직접 눈으로 <br /> <span class=\"bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-teal-500 to-emerald-500 underline decoration-cyan-500/20 underline-offset-8\">확인하십시오.</span>",
+            "description": "화려한 카피로 현혹하지 않습니다. <br class=\"hidden md:block\" /> 갈피가 당신의 워크플로우에서 <strong class=\"text-slate-900 dark:text-white font-black underline\"> '비효율'을 제거하는 5가지 순간</strong>입니다."
+        },
+        "labels": {
+            "problem": "The Problem",
+            "solution": "The Solution"
+        },
+        "features": [
+            {
+                "id": "context-awareness",
+                "title": "맥락 인식: 검색하지 마세요",
+                "subtitle": "Context Prediction Engine",
+                "pain": "또 검색창을 띄우셨습니까? 같은 파일을 하루에 10번 검색하는 건 인생의 낭비입니다.",
+                "solution": "갈피는 당신이 문서를 여는 순간, 뇌보다 먼저 연관 자료를 대령합니다. 검색하지 마세요. 그냥 주어지는 것을 누르세요.",
+                "videos": [
+                    {
+                        "label": "자동 맥락 소환",
+                        "desc": "이미 등록된 문서를 다시 열면, 갈피가 그 문서의 맥락을 인식해 연관 자료를 자동으로 제안합니다."
+                    },
+                    {
+                        "label": "타입드 태그 엔진",
+                        "desc": "타입(Type)과 값(Value)이 결합된 태그 시스템으로 정교하게 맥락을 필터링합니다."
+                    }
+                ],
+                "points": [
+                    "현재 작업 맥락 자동 감지 및 관련 문서 노출",
+                    "검색어 입력 없이도 필요한 자료에 즉시 접근",
+                    "사고의 흐름을 끊지 않는 지능형 제안"
+                ]
+            },
+            {
+                "id": "smart-tagging",
+                "title": "스마트 태깅: 키보드를 칠 필요가 없습니다",
+                "subtitle": "Zero-Input Tagging",
+                "pain": "태그 정리, 귀찮아서 미루다가 결국 포기하셨죠? 타이핑하는 순간 당신의 몰입은 깨집니다.",
+                "solution": "갈피에서는 캡처하는 순간, 현재 작업 중인 프로젝트의 태그가 자동으로 상속됩니다. 당신은 '분류'라는 노동에서 완전히 해방됩니다.",
+                "videos": [
+                    {
+                        "label": "태그 자동 상속",
+                        "desc": "현재 작업 중인 프로젝트 태그를 새 갈피에 자동으로 부여합니다."
+                    },
+                    {
+                        "label": "원클릭 맥락 추가",
+                        "desc": "타이핑 없이 마우스 클릭만으로 컨텍스트를 즉시 연결합니다."
+                    }
+                ],
+                "points": [
+                    "현재 포커스된 컨텍스트 태그 자동 추천",
+                    "태그 기반 맥락 관리의 스트레스 제로",
+                    "분류가 아닌 '연결'에 집중하는 워크플로우"
+                ]
+            },
+            {
+                "id": "bulk-ops",
+                "title": "대량 관리: 노가다는 기계에게 넘기세요",
+                "subtitle": "Markdown Bulk-Export",
+                "pain": "링크 20개를 언제 하나씩 복사하고 있습니까? 당신의 시간은 그것보다 훨씬 가치 있습니다.",
+                "solution": "복잡한 설정 없이, Cmd+Shift+C 한 번이면 검색된 수십 개의 문서를 마크다운 리스트로 즉시 변환합니다. 옵시디언(Obsidian) 유저들이 열광하는 이유입니다.",
+                "videos": [
+                    {
+                        "label": "마크다운 일괄 복사",
+                        "desc": "검색된 모든 갈피를 Obsidian 전용 [제목](링크) 리스트로 즉시 복사"
+                    },
+                    {
+                        "label": "초고속 필터링",
+                        "desc": "태그 버튼 하나로 수만 개의 자료 중 필요한 것만 즉시 걸러냅니다."
+                    }
+                ],
+                "points": [
+                    "Cmd+Shift+C를 통한 고성능 일괄 복사",
+                    "수동 작업 대비 100배 빠른 자료 정리",
+                    "대량의 지식 자산을 인덱싱하는 가장 효율적인 방법"
+                ]
+            },
+            {
+                "id": "environment-recall",
+                "title": "환경 복구: 0.5초 만에 복귀하세요",
+                "subtitle": "Workspace Snapshot",
+                "pain": "어제 하던 작업을 다시 세팅하는 데 15분을 쓰고 계시진 않나요? 뇌를 예열하는 데 너무 많은 힘을 빼지 마세요.",
+                "solution": "엔터(Enter) 한 번으로 웹사이트, PDF, 파인더 창을 동시에 띄웁니다. 당신의 뇌를 '작업 모드'로 전환하는 데 걸리는 시간, 단 0.5초.",
+                "videos": [
+                    {
+                        "label": "컨텍스트 일괄 실행",
+                        "desc": "검색된 모든 문서를 한 번에 오픈하여 작업 환경을 즉시 복구합니다."
+                    },
+                    {
+                        "label": "다중 폴더 오픈",
+                        "desc": "관련된 모든 시스템 폴더를 동시에 열어 프로젝트를 바로 시작합니다."
+                    }
+                ],
+                "points": [
+                    "한 번의 조작으로 수십 개의 창을 즉시 배열",
+                    "웹, 문서, 파인더 폴더까지 완벽 지원",
+                    "작업 기억(Working Memory)을 디지털로 즉시 로딩"
+                ]
+            },
+            {
+                "id": "persistence",
+                "title": "신뢰성: 불멸(Indestructible)의 링크",
+                "subtitle": "Self-Healing Link Engine",
+                "pain": "파일 이름 하나 바꿨다고 링크가 다 깨져버리는, 유리 같은 도구들의 배신에 지치셨습니까?",
+                "solution": "갈피의 링크는 절대 끊어지지 않습니다. 파일이 어디로 숨든 Inode 추적 기술이 끝까지 찾아냅니다. 마음대로 폴더를 정리하세요.",
+                "videos": [
+                    {
+                        "label": "정밀한 딥링크",
+                        "desc": "클릭 한 번으로 옵시디언 문서나 저장된 웹 리소스의 특정 위치로 도달합니다."
+                    },
+                    {
+                        "label": "파일 시스템 추적",
+                        "desc": "폴더가 이동하거나 이름이 바뀌어도 경로를 잃지 않고 찾아갑니다."
+                    }
+                ],
+                "points": [
+                    "Inode + UUID 기반의 자가 치유(Self-Healing) 기술",
+                    "Obsidian, Web, Preview 앱과의 완벽한 딥링크 통합",
+                    "파일 위치에 상관없이 유지되는 견고한 데이터 연결"
+                ]
+            }
+        ],
+        "cta": {
+            "title": "당신의 소중한 시간을 <br /> <span class=\"text-cyan-500\">진짜 가치 있는 일</span>에 쓰세요.",
+            "subtitle": "찾지 마세요, 부르세요. <br /> 0.03초 엔진의 힘으로, 0.5초 만에 당신의 지적 우주를 연결합니다.",
+            "button": "지금 갈피 시작하기"
+        }
+    },
+    "pricingPage": {
+        "hero": {
+            "apps": "(Finder, Chrome, Obsidian, Preview)",
+            "question": "지금 당장 100개의 앱 연동이 필요하신가요?",
+            "optimized": "갈피는 이 4가지 앱에 최적화된 <span class=\"text-amber-600 dark:text-amber-400\">속도와 깊이</span>를 제공합니다.",
+            "opportunity": "앞으로 추가될 100개 이상의 앱 연동을 <strong class=\"text-slate-900 dark:text-white\">가장 저렴한 가격에 평생 소장</strong>하고 싶다면, <br /> <strong class=\"text-amber-600 dark:text-amber-400\">지금이 마지막 기회입니다.</strong>"
+        },
+        "plans": [
+            {
+                "name": "Starter",
+                "subtitle": "Free Forever",
+                "price": "$0",
+                "description": "부담 없이 시작하세요",
+                "cta": "무료 다운로드",
+                "features": [
+                    {
+                        "text": "모든 기능 체험 가능",
+                        "included": true
+                    },
+                    {
+                        "text": "최대 50개 링크 생성",
+                        "included": true
+                    },
+                    {
+                        "text": "50개 이하 리딩/검색 평생 무제한",
+                        "included": true,
+                        "highlight": true
+                    },
+                    {
+                        "text": "데이터 로컬 저장",
+                        "included": true
+                    },
+                    {
+                        "text": "링크 생성 무제한",
+                        "included": false
+                    },
+                    {
+                        "text": "우선 기술 지원",
+                        "included": false
+                    }
+                ]
+            },
+            {
+                "name": "Pro Lifetime",
+                "subtitle": "Super Early Bird",
+                "price": "$4.99",
+                "originalPrice": "$19.99",
+                "description": "선착순 100명 한정 최저가",
+                "badge": "🔥 100명 한정",
+                "cta": "Super Early Bird 구매",
+                "features": [
+                    {
+                        "text": "모든 기능 무제한",
+                        "included": true
+                    },
+                    {
+                        "text": "링크 생성 무제한",
+                        "included": true,
+                        "highlight": true
+                    },
+                    {
+                        "text": "읽기/검색/실행 평생 무제한",
+                        "included": true
+                    },
+                    {
+                        "text": "데이터 로컬 저장",
+                        "included": true
+                    },
+                    {
+                        "text": "평생 무료 업데이트 (100+ 앱)",
+                        "included": true
+                    },
+                    {
+                        "text": "우선 기술 지원",
+                        "included": true
+                    }
+                ]
+            }
+        ],
+        "roadmap": {
+            "title": "갈피의 가격은 '주식'처럼 우상향합니다.",
+            "description": "우리는 지원 앱이 늘어날 때마다 가격을 현실화할 예정입니다. <br /> <strong>단, 이미 구매한 분들은 추가 비용 없이 평생 업데이트를 받습니다.</strong>",
+            "appAppreciation": "Price Appreciation",
+            "supportSuffix": " 지원",
+            "footerNote": "\"오늘 $4.99에 구매하신 분은, 나중에 앱이 100개가 되어도 $0원입니다.\"",
+            "phases": [
+                {
+                    "phase": "Phase 1",
+                    "apps": "핵심 4개",
+                    "price": "$4.99",
+                    "status": "🔥 선착순 100명",
+                    "note": "(Super Early Bird)"
+                },
+                {
+                    "phase": "Phase 2",
+                    "apps": "핵심 4개",
+                    "price": "$6.99",
+                    "status": "101명부터",
+                    "note": "(인원 마감 시)"
+                },
+                {
+                    "phase": "Phase 3",
+                    "apps": "20개 확장",
+                    "price": "$9.99",
+                    "status": "업데이트 시",
+                    "note": ""
+                },
+                {
+                    "phase": "Phase 4",
+                    "apps": "50개 확장",
+                    "price": "$14.99",
+                    "status": "업데이트 시",
+                    "note": ""
+                },
+                {
+                    "phase": "Phase 5",
+                    "apps": "100개+ 완성",
+                    "price": "$19.99",
+                    "status": "정상가",
+                    "note": ""
+                }
+            ]
+        },
+        "trustBadges": [
+            {
+                "text": "7일 묻지마 환불 보장",
+                "subtext": "마음에 안 들면 메일 한 통 주세요"
+            },
+            {
+                "text": "No Vendor Lock-in",
+                "subtext": "앱을 지워도 데이터는 텍스트로 남습니다"
+            },
+            {
+                "text": "Secure Payment",
+                "subtext": "Lemon Squeezy 안전 결제"
+            }
+        ],
+        "voting": {
+            "title": "다음 지원 앱은 여러분이 결정합니다.",
+            "description": "저희는 쓰지도 않는 200개 앱을 무작정 넣지 않습니다. <br /> 유저분들이 가장 많이 요청한 앱부터 하나씩, <strong>장인 정신으로 깎아서</strong> 탑재합니다.",
+            "required": "[필수] Finder, Chrome",
+            "inProgress": "🚧 [개발 중] Arc Browser",
+            "voting": "🗳️ [투표] Notion, Slack...",
+            "button": "다음 지원 앱 투표하기 →"
+        },
+        "faqTitle": "자주 묻는 질문",
+        "finalCta": {
+            "title": "100개 앱을 지원할 때쯤엔, <br /> <span class=\"bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent italic\">가격은 4배($19.99)가 되어 있을 겁니다.</span>",
+            "description": "가장 저렴한 오늘, 미래의 기능까지 미리 소장하세요.",
+            "button": "Super Early Bird 구매하기 ($4.99)",
+            "footer": "Buy Once, Own Forever."
+        }
+    },
+    "privacyPage": {
+        "title": "개인정보처리방침",
+        "lastUpdated": "마지막 수정일: 2026년 1월 29일",
+        "summary": {
+            "title": "한 줄 요약: 저희는 여러분을 감시하지 않습니다.",
+            "description": "갈피는 사용자의 소중한 데이터와 개인정보를 탐내지 않습니다. 모든 데이터 처리는 오직 귀하의 맥(Mac) 안에서만 이루어지며, 외부 서버로 전송되지 않습니다."
+        },
+        "notCollected": {
+            "title": "수집하지 않는 항목",
+            "items": [
+                "등록된 파일명 및 경로",
+                "사용자의 검색 쿼리 및 태그 정보",
+                "웹 브라우징 기록 및 스크랩된 내용",
+                "어플리케이션 사용 통계"
+            ]
+        },
+        "storage": {
+            "title": "데이터 저장 방식",
+            "description": "모든 인덱스 정보는 로컬 드라이브의 사용자 문서 폴더 내 <code>.jsonl</code> 형식으로 투명하게 저장됩니다. 사용자는 언제든 이 데이터를 직접 눈으로 확인하고 이동하거나 삭제할 수 있습니다."
+        },
+        "payment": {
+            "title": "결제 및 라이선스 검증",
+            "description": "라이선스 구매 시 입력한 이메일 주소는 오직 구매 확인 및 라이선스 키 발송, 그리고 중복 실행 방지를 위한 최소한의 인증 용도로만 사용됩니다. 결제 정보(카드 번호 등)는 암호화되어 안전한 결제 대행사(PG사)를 통해서만 처리되며, 저희는 이를 보관하지 않습니다."
+        },
+        "destruction": {
+            "title": "정보의 파기",
+            "description": "사용자가 라이선스 해지를 요청하거나 서비스 이용을 중단할 경우, 수집된 최소한의 계정 정보는 관련 법령에 따라 일정 기간 보관 후 지체 없이 파기합니다."
+        },
+        "contact": {
+            "title": "문의처",
+            "email": "이메일: wisgraph.license@gmail.com",
+            "description": "개인정보와 관련하여 불안한 점이 있거나 권리 행사를 원하시는 경우, 언제든 아래 연락처로 말씀해 주십시오."
+        }
+    },
+    "termsPage": {
+        "title": "서비스 이용약관",
+        "lastUpdated": "마지막 수정일: 2026년 1월 29일",
+        "sections": [
+            {
+                "id": "01",
+                "title": "목적",
+                "content": "본 약관은 위스그래프(이하 \"회사\")가 제공하는 어플리케이션 '갈피(galpi)'(이하 \"서비스\")의 이용 조건 및 절차, 회사와 회원 간의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다."
+            },
+            {
+                "id": "02",
+                "title": "서비스의 정의 및 특징",
+                "content": "갈피는 사용자의 로컬 환경(macOS) 내 파일 및 웹페이지 링크를 관리하고 검색하는 '로컬 우선(Local-First)' 생산성 도구입니다. 모든 데이터는 사용자의 기기에 저장되며, 회사는 사용자의 데이터를 중앙 서버로 수집하거나 저장하지 않습니다."
+            },
+            {
+                "id": "03",
+                "title": "라이선스 및 소유권",
+                "items": [
+                    "1. 사용자가 구매한 라이선스는 서비스의 영구 소유권을 의미하지 않으며, 약정된 기간 또는 조건 하에 서비스를 이용할 수 있는 권한을 부여하는 것입니다.",
+                    "2. 1개의 라이선스 키는 원칙적으로 1명의 사용자가 소유한 기기에 한하여 등록 및 사용 가능합니다."
+                ]
+            },
+            {
+                "id": "04",
+                "title": "환불 정책",
+                "content": "갈피는 '묻지도 따지지도 않는 7일 환불' 정책을 지향합니다. 구매 후 7일 이내에 support@galpi.app으로 환불을 요청할 경우, 사용 이유와 관계없이 전액 환불을 진행합니다. 단, 환불 처리 후 라이선스 키는 즉시 무효화됩니다."
+            },
+            {
+                "id": "05",
+                "title": "책임의 제한",
+                "content": "갈피는 사용자의 데이터 손실, 파일 시스템 오류, 또는 제3자 어플리케이션과의 충돌로 발생하는 결과에 대해 어떠한 법적 책임도 지지 않습니다. 데이터의 백업 및 관리는 전적으로 사용자의 책임입니다."
+            }
+        ],
+        "footer": "갈피와 함께 더 나은 지식 워크플로우를 만들어가시길 바랍니다."
     }
 }

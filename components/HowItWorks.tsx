@@ -98,7 +98,7 @@ const Step3Animation = () => {
           <FileText size={20} className="text-slate-400" />
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <span className="text-sm font-bold text-slate-900 dark:text-white truncate">2026_기획서_vFinal.pdf</span>
+              <span className="text-sm font-bold text-slate-900 dark:text-white truncate">{t('howItWorks.steps.2.fileName') || '2026_기획서_vFinal.pdf'}</span>
               <span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500">PDF</span>
             </div>
             <div className="text-xs text-slate-500 dark:text-slate-400 truncate">/Documents/Work/Galpi/...</div>

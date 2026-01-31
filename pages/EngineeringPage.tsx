@@ -17,12 +17,16 @@ import {
 import ScrollReveal from '../components/animations/ScrollReveal';
 import DocSidebar from '../components/technology/DocSidebar';
 import { FeatureRegistry, FeatureList } from '../components/technology/TechRegistry';
+import { useTranslation } from '@/locales/i18n';
 
 /**
  * TechOverview: This is the updated "Chapter-based" or "Manifesto" overview
  * that replaces the old basic overview while maintaining the engineering truths.
  */
 const TechOverview: React.FC = () => {
+    const { t } = useTranslation();
+    const rustFeatures = t('engineeringPage.overview.rust.features');
+    const dataList = t('engineeringPage.overview.data.list');
     return (
         <div className="bg-white dark:bg-slate-950">
             {/* 1. Rust Native Performance */}
@@ -31,21 +35,21 @@ const TechOverview: React.FC = () => {
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="space-y-8">
                             <div className="inline-flex items-center gap-3 text-cyan-500 font-black tracking-widest uppercase text-sm">
-                                <Cpu size={20} /> Zero Memory Waste
+                                <Cpu size={20} /> {t('engineeringPage.overview.rust.badge')}
                             </div>
-                            <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
-                                0.03초의 반응속도, <br />
-                                그 뒤에 숨겨진 <span className="text-cyan-500 italic uppercase underline decoration-cyan-500/30 font-serif">Rust라는 고집</span>
-                            </h2>
-                            <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                                <b>"왜 굳이 어려운 Rust로 개발했나요?"</b><br />
-                                당신의 컴퓨터 메모리를 수백 MB씩 잡아먹는 '무거운 앱'을 만들고 싶지 않았습니다. 갈피는 네이티브 성능에 집착했고, Rust + Tauri로 그 목표를 달성했습니다.
-                            </p>
+                            <h2
+                                className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight"
+                                dangerouslySetInnerHTML={{ __html: t('engineeringPage.overview.rust.title') }}
+                            />
+                            <p
+                                className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-light"
+                                dangerouslySetInnerHTML={{ __html: t('engineeringPage.overview.rust.description') }}
+                            />
                             <div className="bg-slate-50 dark:bg-slate-900/50 p-8 rounded-[2rem] border border-slate-100 dark:border-slate-800/50 space-y-6">
                                 <div className="space-y-2">
                                     <div className="flex justify-between text-[10px] text-slate-500 uppercase font-black tracking-widest">
-                                        <span>Galpi (Rust Core)</span>
-                                        <span className="text-cyan-500">25 MB (Used only when needed)</span>
+                                        <span>{t('engineeringPage.overview.rust.chart.galpiLabel')}</span>
+                                        <span className="text-cyan-500">{t('engineeringPage.overview.rust.chart.galpiValue')}</span>
                                     </div>
                                     <div className="h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                                         <motion.div
@@ -58,8 +62,8 @@ const TechOverview: React.FC = () => {
                                 </div>
                                 <div className="space-y-2">
                                     <div className="flex justify-between text-[10px] text-slate-400 uppercase font-black tracking-widest">
-                                        <span>일반적인 링크 앱</span>
-                                        <span>220+ MB (상시 점유)</span>
+                                        <span>{t('engineeringPage.overview.rust.chart.otherLabel')}</span>
+                                        <span>{t('engineeringPage.overview.rust.chart.otherValue')}</span>
                                     </div>
                                     <div className="h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                                         <motion.div
@@ -74,19 +78,19 @@ const TechOverview: React.FC = () => {
                         </div>
 
                         <div className="grid grid-cols-1 gap-4">
-                            {[
-                                { icon: Zap, title: 'Performance', desc: '아이콘을 누르는 순간, 앱은 이미 켜져 있습니다. 로딩 바(Loading Bar)는 저희 사전에 없습니다.' },
-                                { icon: HardDrive, title: 'Resource', desc: '켜놓은 줄도 모를 가벼움. 갈피는 시스템 리소스를 점유하지 않고, 조용히 당신의 명령을 대기합니다.' },
-                                { icon: GitBranch, title: 'Architecture', desc: '디스크를 긁지 않습니다. 엔터(Enter)를 치기도 전에, 결과는 이미 화면에 떠 있습니다.' }
-                            ].map((item, i) => (
-                                <div key={i} className="p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2rem] hover:shadow-xl transition-all">
-                                    <div className="w-12 h-12 rounded-2xl bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center text-violet-600 dark:text-violet-400 mb-6">
-                                        <item.icon size={24} />
+                            {Array.isArray(rustFeatures) && rustFeatures.map((item: any, i: number) => {
+                                const icons = [Zap, HardDrive, GitBranch];
+                                const Icon = icons[i] || Zap;
+                                return (
+                                    <div key={i} className="p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2rem] hover:shadow-xl transition-all">
+                                        <div className="w-12 h-12 rounded-2xl bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center text-violet-600 dark:text-violet-400 mb-6">
+                                            <Icon size={24} />
+                                        </div>
+                                        <h3 className="text-xl font-black dark:text-white mb-2 uppercase">{item.title}</h3>
+                                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-light">{item.desc}</p>
                                     </div>
-                                    <h3 className="text-xl font-black dark:text-white mb-2 uppercase">{item.title}</h3>
-                                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-light">{item.desc}</p>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
@@ -120,20 +124,18 @@ const TechOverview: React.FC = () => {
 
                         <div className="order-1 lg:order-2 space-y-10">
                             <div className="inline-flex items-center gap-3 text-emerald-500 font-black tracking-widest uppercase text-sm">
-                                <Shield size={20} /> Absolute Ownership
+                                <Shield size={20} /> {t('engineeringPage.overview.data.badge')}
                             </div>
-                            <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1]">
-                                당신의 데이터는 <br />
-                                <span className="text-emerald-500 italic uppercase underline decoration-emerald-500/20">오직 당신의 것</span>
-                            </h2>
-                            <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                                암호화된 블랙박스에 정보를 가두지 마세요. 갈피는 모든 데이터를 투명한 <b>JSONL</b> 파일로 저장합니다. 앱이 사라져도 당신의 연결은 텍스트 파일로 영원히 남습니다.
-                            </p>
+                            <h2
+                                className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.1]"
+                                dangerouslySetInnerHTML={{ __html: t('engineeringPage.overview.data.title') }}
+                            />
+                            <p
+                                className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-light"
+                                dangerouslySetInnerHTML={{ __html: t('engineeringPage.overview.data.description') }}
+                            />
                             <div className="flex flex-col gap-4">
-                                {[
-                                    'iCloud, Dropbox, Git 어디서든 완벽한 동기화',
-                                    '개인정보 수집 Zero: 우리는 당신이 무엇을 검색하는지 모릅니다'
-                                ].map((li, i) => (
+                                {Array.isArray(dataList) && dataList.map((li: string, i: number) => (
                                     <div key={i} className="flex items-center gap-4 text-slate-700 dark:text-slate-300 font-bold uppercase text-xs tracking-widest">
                                         <div className="w-2 h-2 rounded-full bg-emerald-500" />
                                         <span>{li}</span>
@@ -149,7 +151,7 @@ const TechOverview: React.FC = () => {
 };
 
 const EngineeringPage: React.FC = () => {
-    // We default to 'overview' to show the Engineering Manifesto first.
+    const { t } = useTranslation();
     const [selectedId, setSelectedId] = useState<string>('overview');
 
     const SelectedComponent = selectedId === 'overview' ? TechOverview : FeatureRegistry[selectedId];
@@ -170,17 +172,15 @@ const EngineeringPage: React.FC = () => {
                 <div className="container mx-auto px-6 relative text-center">
                     <ScrollReveal>
 
-                        <h1 className="text-4xl md:text-7xl font-black mb-8 tracking-tight leading-[1.1]">
-                            타협하지 않는 <br />
-                            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">
-                                공학의 고집
-                            </span>
-                        </h1>
+                        <h1
+                            className="text-4xl md:text-7xl font-black mb-8 tracking-tight leading-[1.1]"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.hero.title') }}
+                        />
 
-                        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium">
-                            우리는 단순히 앱을 만들지 않습니다. <br className="hidden md:block" />
-                            가장 효율적인 방식으로 사고를 연결하기 위해 '기본'부터 다시 설계했습니다.
-                        </p>
+                        <p
+                            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed font-medium"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.hero.description') }}
+                        />
                     </ScrollReveal>
                 </div>
             </section>
@@ -191,8 +191,11 @@ const EngineeringPage: React.FC = () => {
                     {/* Sidebar Area with persistent divider */}
                     <DocSidebar
                         docs={[
-                            { id: 'overview', title: 'Engineering Overview', highlight: false, separator: true },
-                            ...FeatureList
+                            { id: 'overview', title: t('engineeringPage.sidebar.overview'), highlight: false, separator: true },
+                            ...FeatureList.map(item => ({
+                                ...item,
+                                title: t(`engineeringPage.features.${item.id}`)
+                            }))
                         ]}
                         selectedId={selectedId}
                         onSelect={setSelectedId}
@@ -213,7 +216,7 @@ const EngineeringPage: React.FC = () => {
                                     <SelectedComponent />
                                 ) : (
                                     <div className="py-24 text-center text-slate-500 font-black uppercase tracking-widest">
-                                        Under Construction
+                                        {t('engineeringPage.status.underConstruction')}
                                     </div>
                                 )}
                             </motion.div>
@@ -226,16 +229,17 @@ const EngineeringPage: React.FC = () => {
             <section className="py-32 bg-slate-50 dark:bg-slate-950 text-center relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10 dark:opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-600 via-transparent to-transparent" />
                 <div className="container mx-auto px-6 relative z-10">
-                    <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-10 tracking-tight">
-                        공학은 <span className="text-blue-500">정직</span>해야 합니다.
-                    </h2>
+                    <h2
+                        className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-10 tracking-tight"
+                        dangerouslySetInnerHTML={{ __html: t('engineeringPage.cta.title') }}
+                    />
                     <motion.a
                         href="/features"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="inline-flex items-center gap-3 px-10 py-5 bg-blue-600 dark:bg-blue-500 text-white rounded-2xl font-black text-xl shadow-2xl hover:bg-blue-700 dark:hover:bg-blue-400 transition-all border-b-4 border-blue-800 dark:border-blue-600 shadow-blue-500/20"
                     >
-                        기능 작동 원리 보기
+                        {t('engineeringPage.cta.button')}
                         <ArrowRight size={20} />
                     </motion.a>
                 </div>

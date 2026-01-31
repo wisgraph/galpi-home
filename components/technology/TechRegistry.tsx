@@ -23,14 +23,14 @@ export const FeatureRegistry: Record<string, React.FC> = {
 };
 
 export const FeatureList = [
-    { id: 'search-engine', title: '가장 이기적인 한국어 검색', highlight: true, separator: true },
+    { id: 'search-engine', highlight: true, separator: true },
 
-    { id: 'typed-tags', title: '태그 관리: 노동의 종말', highlight: true },
-    { id: 'tag-autocomplete', title: '신경망 자동완성' },
-    { id: 'context-tags', title: '몰입을 위한 컨텍스트 스탬프' },
-    { id: 'auto-context-search', title: '마우스 없는 세상', highlight: true, separator: true },
+    { id: 'typed-tags', highlight: true },
+    { id: 'tag-autocomplete' },
+    { id: 'context-tags' },
+    { id: 'auto-context-search', highlight: true, separator: true },
 
-    { id: 'data-sync', title: '투명한 데이터 금고' },
-    { id: 'unbroken-links', title: '끊어지지 않는 연결' },
-    { id: 'smart-ranking', title: '엔터를 치기도 전에' },
+    { id: 'data-sync' },
+    { id: 'unbroken-links' },
+    { id: 'smart-ranking' },
 ];

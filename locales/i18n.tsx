@@ -10,7 +10,7 @@ const translations: Record<string, any> = {
 type Locale = 'ko' | 'en';
 
 interface TranslationContextType {
-    t: (path: string) => any;
+    t: (path: string, options?: any) => any;
     locale: Locale;
     setLocale: (locale: Locale) => void;
 }
@@ -34,7 +34,7 @@ export const TranslationProvider: React.FC<{ children: ReactNode }> = ({ childre
         document.documentElement.lang = locale;
     }, [locale]);
 
-    const t = (path: string): any => {
+    const t = (path: string, _options?: any): any => {
         const keys = path.split('.');
         let current: any = translations[locale];
 

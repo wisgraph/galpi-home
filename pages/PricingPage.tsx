@@ -14,62 +14,19 @@ import {
 } from 'lucide-react';
 import ScrollReveal from '../components/animations/ScrollReveal';
 import FAQ from '../components/FAQ';
+import { useTranslation } from '@/locales/i18n';
 
-
-const pricingPlans = [
-    {
-        name: 'Starter',
-        subtitle: 'Free Forever',
-        price: '$0',
-        description: '부담 없이 시작하세요',
-        features: [
-            { text: '모든 기능 체험 가능', included: true },
-            { text: '최대 50개 링크 생성', included: true },
-            { text: '50개 이하 리딩/검색 평생 무제한', included: true, highlight: true },
-            { text: '데이터 로컬 저장', included: true },
-            { text: '링크 생성 무제한', included: false },
-            { text: '우선 기술 지원', included: false },
-        ],
-        cta: '무료 다운로드',
-        ctaLink: 'https://github.com/wisgraph/galpi-release',
-        highlighted: false
-    },
-    {
-        name: 'Pro Lifetime',
-        subtitle: 'Super Early Bird',
-        price: '$4.99',
-        originalPrice: '$19.99',
-        description: '선착순 100명 한정 최저가',
-        badge: '🔥 100명 한정',
-        features: [
-            { text: '모든 기능 무제한', included: true },
-            { text: '링크 생성 무제한', included: true, highlight: true },
-            { text: '읽기/검색/실행 평생 무제한', included: true },
-            { text: '데이터 로컬 저장', included: true },
-            { text: '평생 무료 업데이트 (100+ 앱)', included: true },
-            { text: '우선 기술 지원', included: true },
-        ],
-        cta: 'Super Early Bird 구매',
-        ctaLink: '#purchase',
-        highlighted: true
-    }
-];
-
-const priceRoadmap = [
-    { phase: 'Phase 1', apps: '핵심 4개', price: '$4.99', status: '🔥 선착순 100명', current: true, note: '(Super Early Bird)' },
-    { phase: 'Phase 2', apps: '핵심 4개', price: '$6.99', status: '101명부터', current: false, note: '(인원 마감 시)' },
-    { phase: 'Phase 3', apps: '20개 확장', price: '$9.99', status: '업데이트 시', current: false, note: '' },
-    { phase: 'Phase 4', apps: '50개 확장', price: '$14.99', status: '업데이트 시', current: false, note: '' },
-    { phase: 'Phase 5', apps: '100개+ 완성', price: '$19.99', status: '정상가', current: false, note: '' },
-];
-
-const trustBadges = [
-    { icon: Shield, text: '7일 묻지마 환불 보장', subtext: '마음에 안 들면 메일 한 통 주세요' },
-    { icon: Zap, text: 'No Vendor Lock-in', subtext: '앱을 지워도 데이터는 텍스트로 남습니다' },
-    { icon: CreditCard, text: 'Secure Payment', subtext: 'Lemon Squeezy 안전 결제' },
-];
 
 const PricingPage: React.FC = () => {
+    const { t } = useTranslation();
+
+    const pricingPlans = t('pricingPage.plans', { returnObjects: true }) as any[];
+    const priceRoadmap = t('pricingPage.roadmap.phases', { returnObjects: true }) as any[];
+    const trustBadges = t('pricingPage.trustBadges', { returnObjects: true }) as any[];
+
+    // Map icons to badges
+    const badgeIcons = [Shield, Zap, CreditCard];
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -89,23 +46,22 @@ const PricingPage: React.FC = () => {
 
                             <div className="space-y-4">
                                 <p className="text-lg md:text-xl text-slate-500 dark:text-slate-500 font-medium">
-                                    (Finder, Chrome, Obsidian, Preview)
+                                    {t('pricingPage.hero.apps')}
                                 </p>
                                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-tight">
-                                    <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent italic">
-                                        지금 당장 100개의 앱 연동이 필요하신가요?
-                                    </span>
+                                    <span
+                                        className="bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent italic"
+                                        dangerouslySetInnerHTML={{ __html: t('pricingPage.hero.question') }}
+                                    />
                                 </h1>
                             </div>
 
                             <div className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed space-y-4 font-light">
-                                <p className="font-bold text-slate-900 dark:text-white">
-                                    갈피는 이 4가지 앱에 최적화된 <span className="text-amber-600 dark:text-amber-400">속도와 깊이</span>를 제공합니다.
-                                </p>
-                                <p>
-                                    앞으로 추가될 100개 이상의 앱 연동을 <strong className="text-slate-900 dark:text-white">가장 저렴한 가격에 평생 소장</strong>하고 싶다면, <br />
-                                    <strong className="text-amber-600 dark:text-amber-400">지금이 마지막 기회입니다.</strong>
-                                </p>
+                                <p
+                                    className="font-bold text-slate-900 dark:text-white"
+                                    dangerouslySetInnerHTML={{ __html: t('pricingPage.hero.optimized') }}
+                                />
+                                <p dangerouslySetInnerHTML={{ __html: t('pricingPage.hero.opportunity') }} />
                             </div>
                         </div>
                     </ScrollReveal>
@@ -123,7 +79,7 @@ const PricingPage: React.FC = () => {
                                 <ScrollReveal key={plan.name} delay={index * 0.1}>
                                     <motion.div
                                         whileHover={{ y: -10 }}
-                                        className={`relative rounded-[2.5rem] p-10 h-full transition-all border-2 ${plan.highlighted
+                                        className={`relative rounded-[2.5rem] p-10 h-full transition-all border-2 ${plan.name === 'Pro Lifetime'
                                             ? 'bg-white dark:bg-slate-900 border-amber-400 shadow-[0_20px_60px_rgba(245,158,11,0.12)]'
                                             : 'bg-white dark:bg-slate-900/50 border-slate-200 dark:border-slate-800'
                                             }`}
@@ -140,7 +96,7 @@ const PricingPage: React.FC = () => {
                                             </h3>
                                             <div className="flex items-baseline gap-2">
                                                 {plan.originalPrice && <span className="text-slate-400 line-through text-2xl font-light">{plan.originalPrice}</span>}
-                                                <span className={`text-7xl font-black tracking-tighter italic ${plan.highlighted ? 'text-amber-500' : 'text-slate-900 dark:text-white'}`}>
+                                                <span className={`text-7xl font-black tracking-tighter italic ${plan.name === 'Pro Lifetime' ? 'text-amber-500' : 'text-slate-900 dark:text-white'}`}>
                                                     {plan.price}
                                                 </span>
                                             </div>
@@ -148,7 +104,7 @@ const PricingPage: React.FC = () => {
                                         </div>
 
                                         <ul className="space-y-4 mb-12 flex-grow">
-                                            {plan.features.map((feature, fIdx) => (
+                                            {plan.features.map((feature: any, fIdx: number) => (
                                                 <li key={fIdx} className="flex items-start gap-4 text-slate-600 dark:text-slate-400">
                                                     {feature.included ? (
                                                         <Check size={18} className={feature.highlight ? 'text-amber-500' : 'text-emerald-500'} strokeWidth={3} />
@@ -163,10 +119,10 @@ const PricingPage: React.FC = () => {
                                         </ul>
 
                                         <motion.a
-                                            href={plan.ctaLink}
+                                            href={plan.name === 'Pro Lifetime' ? '#purchase' : 'https://github.com/wisgraph/galpi-release'}
                                             whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
-                                            className={`w-full py-5 rounded-2xl font-black text-xl text-center flex items-center justify-center gap-2 transition-all ${plan.highlighted
+                                            className={`w-full py-5 rounded-2xl font-black text-xl text-center flex items-center justify-center gap-2 transition-all ${plan.name === 'Pro Lifetime'
                                                 ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-xl shadow-orange-600/30'
                                                 : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200'
                                                 }`}
@@ -188,37 +144,37 @@ const PricingPage: React.FC = () => {
                     <ScrollReveal>
                         <div className="text-center mb-16 space-y-4">
                             <div className="inline-flex items-center gap-2 text-orange-500 font-black uppercase text-sm tracking-widest mb-2">
-                                <TrendingUp size={20} /> Price Appreciation
+                                <TrendingUp size={20} /> {t('pricingPage.roadmap.appAppreciation')}
                             </div>
-                            <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight italic">갈피의 가격은 '주식'처럼 우상향합니다.</h2>
-                            <p className="text-xl text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                                우리는 지원 앱이 늘어날 때마다 가격을 현실화할 예정입니다. <br />
-                                <strong>단, 이미 구매한 분들은 추가 비용 없이 평생 업데이트를 받습니다.</strong>
-                            </p>
+                            <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight italic">{t('pricingPage.roadmap.title')}</h2>
+                            <p
+                                className="text-xl text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed"
+                                dangerouslySetInnerHTML={{ __html: t('pricingPage.roadmap.description') }}
+                            />
                         </div>
                     </ScrollReveal>
                     <div className="grid gap-4">
                         {priceRoadmap.map((item, i) => (
-                            <div key={i} className={`flex flex-col md:flex-row items-center justify-between p-8 rounded-3xl border transition-all ${item.current
+                            <div key={i} className={`flex flex-col md:flex-row items-center justify-between p-8 rounded-3xl border transition-all ${i === 0
                                 ? 'bg-amber-500/5 border-amber-500 shadow-xl scale-[1.02] z-10'
                                 : 'bg-slate-50 dark:bg-slate-900/30 border-slate-100 dark:border-slate-800 opacity-50'
                                 }`}>
                                 <div className="flex items-center gap-6 mb-4 md:mb-0">
-                                    <span className={`text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full ${item.current ? 'bg-amber-500 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-500'}`}>
+                                    <span className={`text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full ${i === 0 ? 'bg-amber-500 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-500'}`}>
                                         {item.phase}
                                     </span>
-                                    <span className={`text-xl font-bold ${item.current ? 'text-slate-900 dark:text-white' : 'text-slate-500'}`}>{item.apps} 지원</span>
+                                    <span className={`text-xl font-bold ${i === 0 ? 'text-slate-900 dark:text-white' : 'text-slate-500'}`}>{item.apps}{t('pricingPage.roadmap.supportSuffix')}</span>
                                     {item.note && <span className="text-xs text-slate-400 italic">{item.note}</span>}
                                 </div>
                                 <div className="flex items-center gap-8">
-                                    <span className={`text-3xl font-black ${item.current ? 'text-amber-600' : 'text-slate-400'}`}>{item.price}</span>
+                                    <span className={`text-3xl font-black ${i === 0 ? 'text-amber-600' : 'text-slate-400'}`}>{item.price}</span>
                                     <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{item.status}</span>
                                 </div>
                             </div>
                         ))}
                     </div>
                     <div className="mt-10 text-center text-slate-400 italic font-medium">
-                        "오늘 $4.99에 구매하신 분은, 나중에 앱이 100개가 되어도 $0원입니다."
+                        {t('pricingPage.roadmap.footerNote')}
                     </div>
                 </div>
             </section>
@@ -230,26 +186,26 @@ const PricingPage: React.FC = () => {
                         <div className="absolute inset-0 bg-gradient-to-br from-amber-600/10 to-transparent pointer-events-none" />
                         <div className="relative z-10 space-y-8">
                             <Vote size={48} className="mx-auto text-amber-500" />
-                            <h2 className="text-4xl font-black tracking-tight">다음 지원 앱은 여러분이 결정합니다.</h2>
-                            <p className="text-xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
-                                저희는 쓰지도 않는 200개 앱을 무작정 넣지 않습니다. <br />
-                                유저분들이 가장 많이 요청한 앱부터 하나씩, <strong>장인 정신으로 깎아서</strong> 탑재합니다.
-                            </p>
+                            <h2 className="text-4xl font-black tracking-tight">{t('pricingPage.voting.title')}</h2>
+                            <p
+                                className="text-xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed"
+                                dangerouslySetInnerHTML={{ __html: t('pricingPage.voting.description') }}
+                            />
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-xl mx-auto text-sm">
                                 <div className="bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400">
-                                    <Check size={14} /> [필수] Finder, Chrome
+                                    <Check size={14} /> {t('pricingPage.voting.required')}
                                 </div>
                                 <div className="bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-amber-600 dark:text-amber-400">
-                                    🚧 [개발 중] Arc Browser
+                                    {t('pricingPage.voting.inProgress')}
                                 </div>
                                 <div className="bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-slate-500 dark:text-slate-400">
-                                    🗳️ [투표] Notion, Slack...
+                                    {t('pricingPage.voting.voting')}
                                 </div>
                             </div>
 
                             <button className="px-10 py-5 bg-amber-600 text-white rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-xl shadow-amber-600/30">
-                                다음 지원 앱 투표하기 →
+                                {t('pricingPage.voting.button')}
                             </button>
                         </div>
                     </div>
@@ -260,7 +216,7 @@ const PricingPage: React.FC = () => {
             {/* FAQ Section */}
             <section className="py-32 bg-slate-50 dark:bg-slate-950">
                 <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-20 tracking-tight">자주 묻는 질문</h2>
+                    <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-20 tracking-tight">{t('pricingPage.faqTitle')}</h2>
                     <FAQ />
                 </div>
             </section>
@@ -273,12 +229,12 @@ const PricingPage: React.FC = () => {
                     <ScrollReveal>
                         <div className="max-w-4xl mx-auto space-y-12">
                             <div className="space-y-4">
-                                <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
-                                    100개 앱을 지원할 때쯤엔, <br />
-                                    <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent italic">가격은 4배($19.99)가 되어 있을 겁니다.</span>
-                                </h2>
+                                <h2
+                                    className="text-5xl md:text-7xl font-black tracking-tighter leading-tight"
+                                    dangerouslySetInnerHTML={{ __html: t('pricingPage.finalCta.title') }}
+                                />
                                 <p className="text-2xl text-slate-500 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
-                                    가장 저렴한 오늘, 미래의 기능까지 미리 소장하세요.
+                                    {t('pricingPage.finalCta.description')}
                                 </p>
                             </div>
 
@@ -289,12 +245,12 @@ const PricingPage: React.FC = () => {
                                     whileTap={{ scale: 0.95 }}
                                     className="inline-flex items-center gap-4 px-12 py-6 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full text-white font-black text-2xl shadow-2xl shadow-orange-600/30 hover:shadow-orange-600/50 transition-all border-b-4 border-orange-800"
                                 >
-                                    Super Early Bird 구매하기 ($4.99)
+                                    {t('pricingPage.finalCta.button')}
                                     <ArrowRight size={28} />
                                 </motion.a>
                             </div>
 
-                            <p className="text-slate-500 font-medium tracking-widest text-sm uppercase">Buy Once, Own Forever.</p>
+                            <p className="text-slate-500 font-medium tracking-widest text-sm uppercase">{t('pricingPage.finalCta.footer')}</p>
                         </div>
                     </ScrollReveal>
                 </div>
@@ -304,3 +260,4 @@ const PricingPage: React.FC = () => {
 };
 
 export default PricingPage;
+

@@ -4,14 +4,14 @@
             "start": "Get Started",
             "download": "Download Free",
             "learnMore": "Learn More",
-            "superEarlyBird": "Get Super Early Bird",
-            "freeTrial": "Try for Free"
+            "superEarlyBird": "Buy Super Early Bird",
+            "freeTrial": "Test Drive for Free"
         }
     },
     "navbar": {
         "brand": "Galpi",
         "items": {
-            "about": "About",
+            "about": "Mission",
             "features": "Features",
             "engineering": "Engineering",
             "pricing": "Pricing",
@@ -22,62 +22,61 @@
         }
     },
     "hero": {
-        "badge": "Teleporting your thoughts at 30ms",
-        "title": "Searching for files is <br /> <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-violet-400\">stolen time from your life.</span>",
-        "description": "Stop digging through folders and buried links. Put your mouse down. <br /> Galpi summons your context in <strong class=\"text-slate-900 dark:text-white font-semibold underline decoration-violet-500/50 decoration-4\">0.5 seconds flat.</strong>",
-        "ctaStart": "Start for Free",
-        "ctaFeatures": "Explore Features",
-        "footerNote": "* Galpi is for those who need to connect knowledge, not just store it."
+        "badge": "0.1s Teleportation for your mind",
+        "title": "Every minute spent hunting for files <br /> <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-violet-400 dark:from-violet-400 dark:to-violet-300\">is a minute stolen from your creativity.</span>",
+        "description": "Scattered papers, lost browser tabs, hidden PDFs. Drop the mouse. <br /> Galpi summons your context in <span class=\"border-b-2 border-violet-500/50\">less than 0.5 seconds.</span>",
+        "ctaStart": "Launch Galpi",
+        "ctaFeatures": "Explore Features"
     },
     "persona": {
         "header": {
-            "title": "If you just want to save files, <br /> <span class=\"bg-gradient-to-r from-violet-600 via-pink-500 to-cyan-500 dark:from-purple-400 dark:via-pink-400 dark:to-cyan-400 bg-clip-text text-transparent\">Galpi is not for you</span>",
-            "description1": "Galpi is designed for those where <strong class=\"text-slate-900 dark:text-white font-bold underline decoration-violet-500/50\">knowledge-linking is the value.</strong>",
-            "description2": "We turn the friction of search into a <span class=\"text-violet-600 dark:text-violet-400 font-black italic\">0.1s snap.</span>"
+            "title": "If you just save files and bookmarks, <br /> <span class=\"bg-gradient-to-r from-violet-600 via-pink-500 to-cyan-500 dark:from-purple-400 dark:via-pink-400 dark:to-cyan-400 bg-clip-text text-transparent\">Galpi isn't for you.</span>",
+            "description1": "Galpi is architected exclusively for <strong class=\"text-slate-900 dark:text-white font-bold underline decoration-violet-500/50\">those whose value lies in 'connecting knowledge.'</strong>",
+            "description2": "We transform the friction of intellectual production into a <span class=\"text-violet-600 dark:text-violet-400 font-black italic\">0.1s flow state.</span>"
         },
         "items": [
             {
                 "id": "pkm",
-                "title": "Orchestrate your knowledge beyond Obsidian and Notion.",
-                "role": "PKM Specialist",
-                "painPoint": "For experts who want to bridge scattered notes and files into a single intent. If your tools feel fragmented, Galpi is the ultimate markdown glue for your digital brain.",
-                "solution": "Where connections become value.",
+                "title": "The Maestro of Knowledge. Orchestrate beyond Obsidian and Notion.",
+                "role": "PKM Architect",
+                "painPoint": "For the expert who needs to bridge scattered notes and files into a single, cohesive context. If your tools feel fragmented, Galpi is the markdown adhesive you've been waiting for.",
+                "solution": "Where connections become tangible value.",
                 "features": [
-                    "Instant MOC: Gather 20 files tagged #Project-X in 0.1s as Markdown",
-                    "Plain-Text First: Your links stay as text, even if you leave the app"
+                    "Instant MOC: Gather 20 files via #ProjectA in 0.1s as a markdown list",
+                    "Plain Text First: Even if you leave the system, your links remain as text forever"
                 ]
             },
             {
                 "id": "researcher",
-                "title": "Trade 30 minutes of searching for 0.5s of summoning.",
+                "title": "Replace 30 minutes of hunting with 0.5 seconds of recall.",
                 "role": "Researcher / Scholar",
-                "painPoint": "Still wasting 30 minutes looking for 'that one quote' in hundreds of PDFs? Your time should be spent on insights, not file navigation. Stay in the zone.",
-                "solution": "From page to paragraph in 0.5s.",
+                "painPoint": "Wasting 30 minutes trying to find 'that one quote' in a sea of PDFs? That time belongs to your insights. Galpi lets you stay in the flow, summoning facts without breaking focus.",
+                "solution": "Deep dive into paragraphs, not just pages.",
                 "features": [
-                    "Deep PDF Linking: Jump directly to Page 34, 3rd Paragraph",
-                    "Zotero Integration: Seamlessly link citations to local PDF context"
+                    "Deep PDF Linking: Click a link; jump to page 34, paragraph 3 instantly",
+                    "Zotero Integration: Bridge bibliographies and local PDFs into one seamless context"
                 ]
             },
             {
                 "id": "developer",
-                "title": "Performance is morality. Teleportation at the speed of thought.",
+                "title": "Performance is Morality. Native speed that outruns your brain.",
                 "role": "Engineer / Designer",
-                "painPoint": "Bloated tools dull your thinking. Experience extreme lightness with a Rust core. Keep code in the IDE and references exactly where you left them.",
-                "solution": "Context teleportation without leaving the editor.",
+                "painPoint": "Bloated tools dull the edge of thought. Experience zero-latency connections built with Rust. Keep code in your editor and context in your head.",
+                "solution": "Teleport across contexts without leaving your IDE.",
                 "features": [
-                    "Intent Linking: Call any spec via galpi:// links in code comments",
-                    "Native Optimized: Sub-100MB memory footprint, zero latency"
+                    "Intent Linking: Call any spec or asset via galpi:// links in code comments",
+                    "Native performance: Under 100MB RAM, sub-30ms latency"
                 ]
             },
             {
                 "id": "planner",
-                "title": "Halve meeting times: Don't just talk, give 'coordinates'.",
-                "role": "Project Manager",
-                "painPoint": "Tired of breaking flow to help team members find documents? Stop explaining. Point them to the exact paragraph. That is true professional efficiency.",
-                "solution": "Don't explain. Link it.",
+                "title": "Shorten meetings by 10 minutes: Send coordinates, not descriptions.",
+                "role": "Product Manager",
+                "painPoint": "Does your team break your flow asking for docs? Stop describing where things are. Give them exact coordinates. Aligning everyone instantly—that’s true efficiency.",
+                "solution": "Don't explain. Link directly.",
                 "features": [
-                    "Deep Collaboration: Target exact paragraphs in 50-page specs",
-                    "Self-Healing: Inode-based tracking finds files even if moved"
+                    "Precision Collaboration: Target exact paragraphs deep within specs",
+                    "Self-Healing Links: Move folders, rename files—Galpi never loses the trail"
                 ]
             }
         ],
@@ -86,182 +85,1118 @@
         },
         "cta": {
             "title": "Add <span class=\"text-violet-600 dark:text-purple-400\">'Connection'</span> <br /> to your workflow",
-            "subtitle": "Get Pro Lifetime for $4.99 and own it forever. (First 100 seeds)",
-            "button": "Start Galpi"
+            "subtitle": "Own it for life. Super Early Bird $4.99 (Limited to first 100)",
+            "button": "Start Now"
         }
     },
     "howItWorks": {
-        "title": "Forget complex setups.",
-        "subtitle": "Everything is ready in just 3 steps.",
+        "title": "Zero friction setup.",
+        "subtitle": "3 Steps to context-awareness.",
         "steps": [
             {
                 "step": "Step 1",
                 "title": "Capture",
-                "desc": "Capture what you see, as you see it. Web, PDF, Email—one hotkey saves the current context to your launcher.",
-                "animationText": "Your Custom Hotkey"
+                "desc": "Take a snapshot of your screen. Web, PDF, Email... one hotkey pins the current context to your launcher."
             },
             {
                 "step": "Step 2",
                 "title": "Tag",
-                "desc": "No more folder anxiety. Drop a #tag. Files stay where they are; the connection lives in Galpi."
+                "desc": "Skip the folder structure. Just tag it. #ProjectA, #Reference. Files stay put; context moves into Galpi."
             },
             {
                 "step": "Step 3",
                 "title": "Recall",
-                "desc": "Search by intent, not just name. Initials, tags, keywords—it doesn't matter. Summon in 0.5s.",
-                "docName": "Spec"
+                "desc": "Search with intent. Shorthand, tags, or keywords. Summon what you need in under 0.1s.",
+                "docName": "Spec Doc",
+                "fileName": "2026_Spec_vFinal.pdf"
             }
         ]
     },
     "tech": {
-        "title": "Performance is Morality. <br /> Native Core for Engineers.",
-        "description": "Galpi's core logic is built on a high-performance Rust backend that doesn't allow even 0.1ms of latency.",
+        "title": "Lean performance. <br /> <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-violet-500 dark:from-cyan-400 dark:to-blue-500\">Bulletproof security.</span>",
+        "description": "Native Rust performance with transparent data structures. Galpi never holds your data hostage.",
         "features": [
             {
-                "title": "Rust Powered",
-                "desc": "Not a bloated Electron app wrapped in TypeScript. Built natively in Rust for pinpoint precision and legendary speed."
+                "title": "Native Performance (Rust)",
+                "desc": "We evicted the memory hogs (Electron). Built with Rust, Galpi keeps your RAM free and your fans silent. Pure speed, no bloat."
             },
             {
-                "title": "Local First",
-                "desc": "Your data stays on your hardware. 100% local database with zero server transmission for both privacy and speed."
+                "title": "Future-Proof Data (JSONL)",
+                "desc": "No opaque databases. Every link is stored as a transparent JSONL file in your Documents. Open it with any editor; back it up with Git."
             },
             {
-                "title": "Inode Tracking",
-                "desc": "Links don't break even if you rename files or move them. Permanent hyperlinking via OS-level identifier tracking."
+                "title": "Self-Healing Links",
+                "desc": "Files move, but links shouldn't. Whether you rename or relocate, our macOS Inode tracking heals broken connections automatically."
             }
         ],
+        "lockIn": "No Vendor Lock-in",
+        "dataPath": "~/Documents/Galpi/data.jsonl",
         "chart": {
             "title": "Memory Usage Comparison"
         }
     },
     "comparison": {
-        "title": "A gap in essence, not just features.",
-        "subtitle": "The beauty of ownership over the subscription trap.",
+        "title": "Beyond the alternative.",
+        "subtitle": "The elegance of ownership, not a subscription.",
         "headers": {
             "feature": "Feature",
-            "competitor": "Competitor (Subscription)",
-            "galpi": "Galpi (Permanent)",
+            "competitor": "Legacy Tools (H)",
+            "galpi": "Galpi (Next Gen)",
             "why": "Why?"
         },
         "items": [
             {
                 "feature": "5-Year Total Cost",
-                "competitor": "$350+ (Rent Model)",
-                "galpi": "$4.99 (Ownership Model)",
-                "note": "1/70th of the cost"
+                "competitor": "$350+ (Monthly Rents)",
+                "galpi": "$4.99 (One-time Buy)",
+                "note": "1/70th the cost"
             },
             {
                 "feature": "Data Ownership",
-                "competitor": "Locked if subscription ends",
-                "galpi": "Lives on your Mac forever",
-                "note": "Complete sovereignty"
+                "competitor": "Locked out if sub ends (Hostage)",
+                "galpi": "On your disk forever (Plain Text)",
+                "note": "True sovereignty"
             },
             {
                 "feature": "Core Latency",
-                "competitor": "300ms+ (Script loading)",
-                "galpi": "30ms (Instant response)",
-                "note": "Engine speed"
+                "competitor": "300ms+ (Script Overhead)",
+                "galpi": "30ms (Instant Capture)",
+                "note": "Native Engine"
             },
             {
-                "feature": "Resource usage",
+                "feature": "Perceived Speed",
+                "competitor": "Laggy interactions",
+                "galpi": "Instant (Speed of Thought)",
+                "note": "Flow State"
+            },
+            {
+                "feature": "Memory Footprint",
                 "competitor": "12GB+ (Memory Leaks)",
-                "galpi": "<300MB (Rust safety)",
-                "note": "Zero waste"
+                "galpi": "Under 300MB (Rust Native)",
+                "note": "Zero Waste"
             },
             {
                 "feature": "Update Policy",
-                "competitor": "Pay more for new features",
-                "galpi": "Lifetime free updates",
-                "note": "Super Early Bird perk"
+                "competitor": "Paid upgrades or rent hikes",
+                "galpi": "Lifetime Updates Included",
+                "note": "Early Bird Perk"
             }
         ],
-        "cta": "Switch to Galpi (Early Bird $4.99)",
+        "cta": "Switch to Galpi (Super Early Bird $4.99)",
         "footer": {
-            "title": "The more you compare, the more it's Galpi"
+            "title": "Calculated for Performance"
         },
-        "footerNote": "Hookmark users welcome | Migration support coming soon"
+        "footerNote": "Hookmark users welcome | Migration support soon"
     },
     "pricing": {
-        "title": "Subscription fee: <span class=\"bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 bg-clip-text text-transparent\">$0.</span>",
+        "title": "Subscriptions: <span class=\"bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 bg-clip-text text-transparent\">$0.</span>",
         "subtitle": "Tools should be owned, not rented.",
         "tiers": [
             {
                 "name": "Starter",
-                "subtitle": "Get a Taste",
+                "subtitle": "Test the waters",
                 "price": "$0",
-                "description": "Start connecting without friction.",
+                "description": "Start building context",
                 "features": [
-                    "Full feature access",
-                    "Up to 50 links",
-                    "Unlimited search & recall",
-                    "100% Local data",
+                    "All core features enabled",
+                    "Up to 50 active links",
+                    "Unlimited search and recall",
+                    "100% Local data storage",
                     "No credit card required"
                 ],
                 "cta": "Download Free"
             },
             {
                 "name": "Pro Lifetime",
-                "subtitle": "Limitless Productivity",
+                "subtitle": "Unbounded Productivity",
                 "price": "$4.99",
                 "originalPrice": "$19.99",
-                "description": "Own forever for the price of a coffee.",
-                "badge": "🔥 100 Seats Only",
+                "description": "Lifetime access for the price of a coffee",
+                "badge": "🔥 Limited Offer",
                 "features": [
-                    "Exclusive Super Early Bird price",
-                    "Unlimited links & connections",
+                    "Super Early Bird (First 100 users)",
+                    "Unlimited link creation",
                     "Forever free updates",
-                    "Local-first, priority support",
-                    "Lock in the legacy price"
+                    "No recurring fees, ever",
+                    "Priority technical support"
                 ],
-                "cta": "Buy Early Bird"
+                "cta": "Buy Super Early Bird"
             }
         ]
     },
     "faq": {
         "items": [
             {
-                "question": "I already use Raycast or Alfred. Why do I need Galpi?",
-                "answer": "Raycast launches 'tools', Galpi opens 'work'. Raycast opens your PDF viewer; Galpi opens Page 14, 3rd Paragraph of that PDF. Use Raycast for apps, use Galpi for context. They are the perfect duo."
+                "question": "I already use Raycast/Alfred. Why do I need this?",
+                "answer": "Raycast opens 'tools'; Galpi opens 'tasks'. Raycast launches your PDF viewer. Galpi opens page 14 of that specific PDF. Use them together: Raycast for launching apps, Galpi for navigating context."
             },
             {
-                "question": "No subscription? How do you stay sustainable?",
-                "answer": "We built a zero-server-cost architecture. Galpi processes all data locally on your Mac. Since we don't have monthly cloud bills, a one-time purchase is sustainable for us and better for you."
+                "question": "No subscription? How is this sustainable?",
+                "answer": "Our monthly server cost is $0. Galpi is local-first. We don't pay for cloud processing because your Mac does the work. One-time sales easily cover development and updates."
             },
             {
-                "question": "What happens if I stop using Galpi? Is my data trapped?",
-                "answer": "Never. Your data is 100% yours. Galpi uses transparent text files (JSONL) instead of opaque databases. You can open them in any text editor and move your data whenever you want."
+                "question": "What happens to my links if I stop using Galpi?",
+                "answer": "They stay yours. Galpi doesn't use a proprietary DB. Every link is in a JSONL text file in your documents. You can open and read it with any text editor."
             },
             {
-                "question": "What if I move or rename my files?",
-                "answer": "Galpi tracks them automatically. We don't just store file paths. By using macOS Inode and xattr tracking, we find your files even if they've moved to a different folder."
+                "question": "Will links break if I move files?",
+                "answer": "Galpi hunts them down. We don't just remember the path. Using macOS Inodes and xattr, we track the file's unique ID. Move it, rename it—Galpi finds it."
             },
             {
                 "question": "What if it doesn't fit my workflow?",
-                "answer": "Try it for 7 days. If it doesn't click, we'll give you a 100% refund, no questions asked. We want Galpi to be a tool you love, not a purchase you regret."
+                "answer": "Try it for 7 days. If it's not a fit, we'll refund you 100%, no questions asked. We only want you to use Galpi if it truly adds value."
             }
         ]
     },
     "footer": {
-        "description": "0.1s teleportation for intellectual productivity. <br /> Connecting the scattered pieces of your knowledge.",
-        "navTitle": "Explore",
+        "description": "Recall in 0.1s. <br /> Connecting the fragments of your knowledge.",
+        "navTitle": "Navigation",
         "businessTitle": "Business Info",
         "labels": {
             "company": "Company",
-            "businessNumber": "Registration",
+            "businessNumber": "Business License",
             "address": "Address",
-            "adminSupport": "Admin / Support",
-            "officialSupport": "Official Support"
+            "adminSupport": "Admin Phone",
+            "officialSupport": "Technical Support"
         },
-        "adminOnly": "(Admin only)",
+        "values": {
+            "company": "Wisgraph",
+            "address": "Floor 5, 19 Changhyeon-ro, Namyangju-si, Korea"
+        },
+        "adminOnly": "* Admin only, no tech support",
         "officialSupportValues": {
-            "discord": "Discord Community",
-            "email": "wisgraph.license@gmail.com"
+            "discord": "Discord (Fastest Support)",
+            "email": "support@galpi.app"
         },
-        "copyright": "© 2026 galpi. All rights reserved.",
+        "copyright": "© 2026 Galpi. All rights reserved.",
         "links": {
-            "terms": "Terms of Service",
-            "privacy": "Privacy Policy"
+            "terms": "Terms",
+            "privacy": "Privacy"
         },
         "builtWith": "Built with Rust in Seoul 🇰🇷"
+    },
+    "aboutPage": {
+        "hero": {
+            "title": "Lost your train of thought? <br /> <span class=\"bg-gradient-to-r from-rose-600 via-pink-500 to-violet-500 dark:from-rose-400 dark:via-pink-400 dark:to-violet-400 bg-clip-text text-transparent\">It's not you, it's the tools.</span>",
+            "description": "To bridge the gap in your thinking, <br class=\"hidden md:block\" /> we obsessed over a response time of <strong class=\"text-slate-900 dark:text-white\">30ms.</strong>"
+        },
+        "dictionary": {
+            "title": "Galpi <span class=\"text-sm font-sans font-normal text-slate-500 ml-2\">(Noun)</span>",
+            "definitions": [
+                "1. The space between layers or folded items.",
+                "2. The point where things branch or distinguish."
+            ]
+        },
+        "engineerNote": {
+            "title": "An Engineer's <span class=\"text-rose-600 dark:text-rose-400 underline decoration-8 decoration-rose-500/20\">Apology for 30ms</span>",
+            "subtitle": "\"Full disclosure: We use AppleScript too.\"",
+            "paragraphs": [
+                "To connect apps on macOS perfectly, AppleScript is inevitable. Our competitors use it, and we do too.",
+                "But there is a world of difference between <span class=\"underline decoration-wavy decoration-rose-500/30\">'using' it and 'optimizing' it.</span>",
+                "While others toss around heavy blocks of script that make your Mac stutter, we've surgically optimized every line. Furthermore, we tap into the <strong class=\"text-rose-600 dark:text-rose-400 font-bold\">Accessibility API</strong> to snatch information instantly.",
+                "The result: <span class=\"bg-rose-100 dark:bg-rose-900 text-rose-600 dark:text-rose-400 px-3 py-1 rounded\">30ms</span>. <br class=\"md:hidden\" /> A reaction time faster than human perception.",
+                "This isn't just an app. It's an tribute to Mac users from a developer obsessed with speed. <strong class=\"text-slate-900 dark:text-white\">Your RAM belongs to your creativity, not to the utilities waiting in the background.</strong>"
+            ]
+        },
+        "philosophy": {
+            "title": "Your <span class=\"text-pink-500\">brain isn't to blame.</span>",
+            "law": {
+                "title": "Miller's Law (The Magical Number Seven)",
+                "description": "Working memory is limited to roughly <strong>7 slots.</strong> You don't forget because you're slow; you forget because you're full."
+            },
+            "description": "Galpi overcomes biological limits with software. Our tags aren't just labels.",
+            "synapse": "They are <span class=\"text-violet-600 dark:text-violet-400\">'Digital Synapses'</span> holding the context your brain let go of."
+        },
+        "vision": {
+            "title": "Navigate thoughts, <br /><span class=\"text-cyan-400\">not file trees.</span>",
+            "thoughtMap": {
+                "title": "Thought Map",
+                "description": "Stop digging through folders. Galpi visualizes your knowledge network as a navigable map."
+            },
+            "compass": {
+                "title": "The Context Compass",
+                "description": "We aren't a warehouse for data. We are the compass for your intent."
+            },
+            "comingSoon": "Coming Soon",
+            "comingSoonQuote": "\"Soon, you will see your own thoughts mapped out.\""
+        },
+        "cta": {
+            "title": "If you spend <span class=\"text-rose-600 dark:text-rose-400 px-2\">20 minutes a day</span> <br class=\"md:hidden\" /> chasing lost context,",
+            "subtitle": "It's time to invest that time back into your real work.",
+            "button": "Experience 30ms Velocity (Start Free)"
+        }
+    },
+    "engineeringPage": {
+        "hero": {
+            "title": "The Integrity of <br /> <span class=\"bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent\">Uncompromising Code</span>",
+            "description": "We don't just build apps. <br class=\"hidden md:block\" /> We re-architect cognitive connection from the ground up for maximum efficiency."
+        },
+        "overview": {
+            "rust": {
+                "badge": "Zero Memory Waste",
+                "title": "The Core of <span class=\"text-cyan-500 italic uppercase underline decoration-cyan-500/30 font-serif\">Rust Core</span>",
+                "description": "<b>\"Why build it in Rust?\"</b><br /> Because your computer shouldn't crawl just to save a link. We obsessed over native performance to achieve the speed of thought without the weight.",
+                "chart": {
+                    "galpiLabel": "Galpi (Rust Native)",
+                    "galpiValue": "25 MB (Peak Activity)",
+                    "otherLabel": "Legacy Indexers",
+                    "otherValue": "220+ MB (Always Bloated)"
+                },
+                "features": [
+                    {
+                        "title": "Performance",
+                        "desc": "The moment you click, it's there. We've deleted 'Loading Bars' from our vocabulary."
+                    },
+                    {
+                        "title": "Resource",
+                        "desc": "So lean you'll forget it's running. Galpi waits silently without stealing your CPU cycles."
+                    },
+                    {
+                        "title": "Architecture",
+                        "desc": "Zero disk thrashing. Results appear before you even finish your thought."
+                    }
+                ]
+            },
+            "data": {
+                "badge": "Absolute Ownership",
+                "title": "Data Sovereignty: <br /> <span class=\"text-emerald-500 italic uppercase underline decoration-emerald-500/20\">Unconditionally Yours</span>",
+                "description": "Don't lock your life in a black box. Galpi stores everything in transparent <b>JSONL</b>. If we disappear, your links remain as permanent text.",
+                "list": [
+                    "Seamless sync via iCloud, Dropbox, or Git",
+                    "Privacy by design: No analytics. We never see what you search."
+                ]
+            }
+        },
+        "sidebar": {
+            "overview": "Engineering Manifesto"
+        },
+        "features": {
+            "search-engine": "Aggressive Search Engine",
+            "typed-tags": "Typed Tags: The End of Labor",
+            "tag-autocomplete": "Neural Autocomplete",
+            "context-tags": "Context Specific Stamps",
+            "auto-context-search": "Keyboard-only Workflow",
+            "data-sync": "Transparent Data Vault",
+            "unbroken-links": "Self-Healing Engine",
+            "smart-ranking": "Predictive Gravity Ranking"
+        },
+        "featureDetails": {
+            "searchEngine": {
+                "badge": "Aggressive Recall",
+                "title": "A Search Engine <br class=\"md:hidden\" /> for <span class=\"text-blue-600 dark:text-blue-400 italic\">Unfair</span> Productivity",
+                "description": "Fed up with slow indexing? <br class=\"hidden md:block\" /> We read your intent, even through the typos.",
+                "stats": {
+                    "coldStart": "Insta-Start",
+                    "queryTime": "Query Time (100k items)",
+                    "memory": "Memory Footprint"
+                },
+                "features": {
+                    "chosung": {
+                        "title": "Intent Scoping",
+                        "description": "Type <strong>\"proj\"</strong> to find <code>2026_Proposal.pdf</code> instantly. <br /> It works for tags too. <strong>#hk</strong> summons <strong>#hooklink</strong> before you finish typing."
+                    },
+                    "fuzzy": {
+                        "title": "Fuzzy Search Engine",
+                        "description": "Forget exact matches. <code>hklk</code> finds <code>HookLink</code>. We parse the <strong>intent</strong> behind the typo. Don't be precise; be fast."
+                    },
+                    "memory": {
+                        "title": "In-Memory Excellence",
+                        "description": "Indices are scanned on RAM at the speed of light. Results appear before the 'Enter' key is fully pressed. No disk waiting, ever."
+                    }
+                },
+                "footer": "\"Don't waste a second. Your time is too expensive.\""
+            },
+            "typedTags": {
+                "badge": "Automation First",
+                "title": "Tagging shouldn't <br class=\"md:hidden\" /> feel like <span class=\"text-rose-600 dark:text-rose-400 italic\">work.</span>",
+                "description": "Less input, more structure. <br class=\"hidden md:block\" /> We architect your data while you type.",
+                "concept": {
+                    "title": "Learn while typing.",
+                    "description": "Skip the settings menu. Type <code>#platform:ios</code> and Galpi immediately learns the <code>platform</code> type. Simple as that."
+                },
+                "features": {
+                    "preset": {
+                        "title": "Smart Presets",
+                        "description": "Hit colon (<code>:</code>) and watch Galpi suggest the next value based on your patterns. Stop typing and start selecting."
+                    },
+                    "palette": {
+                        "title": "Visual Hierarchy",
+                        "description": "<code>#status:done</code> stays muted, while <code>#priority:high</code> turns vivid red. Judge importance at a glance."
+                    },
+                    "implicit": {
+                        "title": "Implicit Structure",
+                        "description": "Tagging is database design. No separate configuration screens required. It's built into the flow."
+                    }
+                },
+                "smartSuggest": {
+                    "title": "Smart Suggestion (Example)",
+                    "statusLabel": "→ done, doing, todo (Auto)",
+                    "priorityLabel": "→ High(Red), Low(Green)"
+                },
+                "footer": "\"It's not just a finder. <br />It's an engine for context.\""
+            },
+            "unbrokenLinks": {
+                "badge": "Self-Healing Engine",
+                "title": "If links break when you move a file, <br /> <span class=\"text-emerald-600 dark:text-emerald-500 italic uppercase underline decoration-emerald-500/30\">that's not a tool, that's a liability.</span>",
+                "description": "\"Organizing should be fearless. <br class=\"hidden md:block\" /> Galpi links are as strong as <b>steel cables</b>.\"",
+                "nightmare": {
+                    "title": "\"Renamed a folder, <br /> <span class=\"text-red-500\">lost my entire library.</span>\"",
+                    "description": "Standard `file://` links are fragile. One rename and they die. We fixed this frustration with forensic technology.",
+                    "quote": "\"I realized 30% of my links were dead because of basic maintenance. That's why I built this.\"",
+                    "badge": "The Nightmare Case",
+                    "yesterday": "Yesterday (Active)",
+                    "today": "Today (Renamed & Moved)"
+                },
+                "stalker": {
+                    "badge": "Persistent Tracking Engine",
+                    "title": "Galpi is a <br /> <span class=\"text-emerald-500 italic uppercase\">Relentless Hunter.</span>",
+                    "description": "Renamed? Moved? Even in the <b>Trash</b>? Galpi finds it. We don't just track paths; we track the file's unique <b>Inode</b> identity.",
+                    "inode": {
+                        "title": "Inode Persistence",
+                        "description": "We don't rely on file paths. We target the physical ID assigned by the OS, ensuring identity is never lost."
+                    },
+                    "alias": {
+                        "title": "Alias Bookmark Tech",
+                        "description": "Using macOS Bookmark technology, the OS itself 'reports' file moves back to Galpi automatically."
+                    }
+                },
+                "footer": "\"Organize your folders fearlessly. <br class=\"hidden md:block\" /> We'll handle the connections.\"",
+                "manifesto": "Galpi Manifesto: Chapter 07"
+            },
+            "autoContextSearch": {
+                "badge": "Preserve Focus",
+                "title": "The Keyboard-Only <br class=\"md:hidden\" /> <span class=\"text-purple-600 dark:text-purple-400 italic\">Lifestyle</span>",
+                "description": "Drop the mouse. <br class=\"hidden md:block\" /> An extreme philosophy designed to keep you in the Flow.",
+                "concept": {
+                    "title": "Sustaining the Flow",
+                    "description": "The second you reach for the mouse, the flow breaks. Galpi is designed to keep you <strong>centered on the keys</strong>. Search, tag, launch, and copy—all via Tab and Enter.",
+                    "mouseWarning": {
+                        "title": "The Mouse is a Failure.",
+                        "description": "We believe reaching for the mouse is an interface failure. As you stay on the keys, your productivity scales exponentially."
+                    },
+                    "reachBadge": "Everything within Reach",
+                    "noMouseBadge": "No Mouse Required"
+                },
+                "smartContext": {
+                    "title": "Predictive Context",
+                    "recovery": {
+                        "title": "Restore Workspace in 0.5s",
+                        "description": "Open a doc, and Galpi instantly senses the context. Sites, PDFs, and notes from your last session appear automatically. Never ask \"What was I doing?\" again."
+                    },
+                    "custom": {
+                        "title": "Custom Context Scope",
+                        "description": "Define your own context via #tags. Galpi doesn't force a structure; it maps yours seamlessly."
+                    }
+                },
+                "footer": "\"Don't waste a second. Your focus is finite.\""
+            },
+            "contextTags": {
+                "badge": "The Context Workflow",
+                "title": "From Rule to Reflex:<br /> <span class=\"text-indigo-600 dark:text-indigo-400 italic\">The Stamp System</span>",
+                "description": "Beyond sorting—it bridges your workflow. <br class=\"hidden md:block\" /> See how Galpi's 3-step mechanism eliminates manual labor.",
+                "steps": {
+                    "typedTag": {
+                        "badge": "01. The Grammar",
+                        "title": "Typed Tags <br /> <span class=\"text-indigo-500\">(Identity)</span>",
+                        "description": "Galpi supports <code class=\"bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded\">#type:value</code> structures. This isn't just a label; it's a property that enables intelligent filtering and automation."
+                    },
+                    "contextType": {
+                        "badge": "02. The Eligibility",
+                        "title": "Context Types <br /> <span class=\"text-indigo-500\">(Activation)</span>",
+                        "description": "Promote a tag to a Context Type. Once promoted, it gains <b>Intelligent Automation status</b>, becoming a permanent part of your workspace logic.",
+                        "guide": "Settings > Tags > Manage Context Types"
+                    },
+                    "contextStamp": {
+                        "badge": "03. The Injection",
+                        "title": "Context Stamp <br /> <span class=\"text-indigo-200 italic font-light\">Zero Labor</span>",
+                        "description": "The <b>Stamp</b> represents your current intent. Once set, it silently injects itself into every capture, doing the work for you.",
+                        "features": {
+                            "autoInjection": {
+                                "title": "Auto-Injection",
+                                "description": "New captures are automatically stamped with the active project tag."
+                            },
+                            "zeroTyping": {
+                                "title": "Zero Typing",
+                                "description": "Sort existing items with a single click while a Stamp is active."
+                            }
+                        }
+                    }
+                },
+                "footer": "\"Identity becomes Intent,<br class=\"md:hidden\" /> Intent becomes Data.\""
+            },
+            "dataSync": {
+                "badge": "No Vendor Lock-in",
+                "title": "We refuse to <br /> <span class=\"text-cyan-600 dark:text-cyan-500 italic uppercase underline decoration-cyan-500/20\">encrypt your life.</span>",
+                "description": "\"The safest vault is a <b>Transparent</b> one.\"",
+                "sovereignty": {
+                    "title": "Your data is <br /> <span class=\"text-cyan-500 italic uppercase\">not a hostage.</span>",
+                    "description1": "Most apps hide your data behind binary walls so you can't leave. They trap your history in opaque databases.",
+                    "description2": "Galpi is the opposite. We keep the door open so you always have the freedom to move.",
+                    "badge": "Human Readable",
+                    "comment": "// Corruption proof: Just skip the broken line."
+                },
+                "technicalTruth": {
+                    "scriptable": {
+                        "title": "Scriptable",
+                        "description": "Open it in NotePad. Use a Python script to extract your own stats in seconds."
+                    },
+                    "crashProof": {
+                        "title": "Crash Proof",
+                        "description": "SQLite corrupts the whole DB if one byte fails. Galpi just ignores the bad line and saves the other 99%."
+                    },
+                    "zeroAnalytics": {
+                        "title": "Zero Analytics",
+                        "description": "The server doesn't even know your file names. Everything stays on your disk."
+                    }
+                },
+                "footer": "\"True freedom begins when <br class=\"hidden md:block\" /> you own your raw data.\"",
+                "manifesto": "Galpi Manifesto: Chapter 05"
+            },
+            "knowledgeWorkflow": {
+                "badge": "OS for Personal Science",
+                "title": "Evolution of Linking",
+                "description": "\"Go beyond links.<br class=\"hidden md:block\" /> Summon your entire Digital Workspace.\"",
+                "intro": "If Hookmark built the 'road', <strong>Galpi</strong> built the 'smart ecosystem' where your knowledge fragments move organically.",
+                "contextFixing": {
+                    "title": "Ending the 'Wait, why did I save this?' dilemma",
+                    "description": "Capture doesn't just save a link; it preserves the entire <b>Context</b> of the moment.",
+                    "steps": [
+                        "Activate Context (#project:A)",
+                        "Capture (No thinking needed)",
+                        "Context is automatically baked in"
+                    ]
+                },
+                "digitalDesk": {
+                    "title": "The Digital Desktop",
+                    "instantSwitching": {
+                        "title": "Instant Context Switching",
+                        "description": "Type <code class=\"bg-slate-200 dark:bg-white/20 px-1 rounded\">#project:B</code>. Instantly, your screen shifts to Project B's Figma, Notion, and Slack threads. Reset your workspace in 1 second."
+                    },
+                    "previousContext": "Previous Context",
+                    "activeContext": "Active Context"
+                },
+                "perfectLoop": {
+                    "title": "The Perfect Loop",
+                    "capture": {
+                        "title": "Capture",
+                        "description": "Gather fragments <br />with full context"
+                    },
+                    "organize": {
+                        "title": "Organize",
+                        "description": "Neural autocomplete <br />and structural tags"
+                    },
+                    "jump": {
+                        "title": "Jump",
+                        "description": "Teleport back <br />to the source"
+                    }
+                },
+                "footer": "\"Don't just collect links.<br /> Architect your knowledge.\""
+            },
+            "rankingAlgorithm": {
+                "badge": "Gravity Model",
+                "title": "The Ranking Algorithm",
+                "description": "\"The harmony of <br class=\"hidden md:block\" /> Recency and Importance.\"",
+                "conflict": {
+                    "title": "The Conflict",
+                    "desire1": {
+                        "label": "The Instant Desire",
+                        "text": "\"I want the file I was just working on (Recency) to be right there.\""
+                    },
+                    "desire2": {
+                        "label": "The Deep Desire",
+                        "text": "\"Even if a file is a year old, if it's critical (Importance), it must stay at the top.\""
+                    },
+                    "explanation": "To satisfy both of these conflicting needs, Galpi utilizes the <strong>\"Gravity Model\"</strong> borrowed from physics."
+                },
+                "formula": {
+                    "title": "The Formula",
+                    "mass": {
+                        "title": "Mass (Priority)",
+                        "description": "The **Importance (★ 1-10)** you set is the file's 'mass'. Greater mass creates a stronger presence that resists time.",
+                        "details": [
+                            "• 1 Star = 10,000 base points",
+                            "• Heavy files never get pushed down by trivial noise"
+                        ]
+                    },
+                    "gravity": {
+                        "title": "Gravity (Time Decay)",
+                        "description": "Time acts as 'gravity', pulling items down based on age.",
+                        "details": [
+                            "• Yesterday: ×1.5 Anti-Gravity Booster",
+                            "• Old Files: ×0.3 Natural Decay"
+                        ]
+                    }
+                },
+                "simulations": {
+                    "title": "Simulations",
+                    "sim1": {
+                        "title": "🌊 Simulation 1: Flux (Recency wins)",
+                        "item1": "Review from Yesterday (★1)",
+                        "item2": "Report from last year (★2)",
+                        "footer": "When priorities are similar, recency wins. You always see your current work first."
+                    },
+                    "sim2": {
+                        "title": "🪨 Simulation 2: Solidity (Priority wins)",
+                        "item1": "Master Plan (★8)",
+                        "item2": "Note from Yesterday (★1)",
+                        "footer": "Files with high mass (priority) stay floating at the top regardless of age. (The Lifebuoy Effect)"
+                    }
+                },
+                "footer": "\"Galpi already knows<br /> what matters to you.\""
+            },
+            "smartAging": {
+                "badge": "Zero Maintenance",
+                "title": "Smart Aging Algorithm",
+                "description": "\"Keep the vital sharp,<br class=\"hidden md:block\" /> let the old fade gracefully.\"",
+                "intro": {
+                    "title": "The Problem with Growing Libraries (Link Clutter)",
+                    "description": "Tired of year-old project files cluttering your search? <br /> Galpi solves this by introducing <strong>\"The Concept of Time\"</strong> into search ranking."
+                },
+                "mechanism": {
+                    "recency": {
+                        "title": "Recency Boost",
+                        "description": "Links used within the **last 24 hours** get a <strong class=\"text-orange-500\">1.5x score multiplier</strong>. Even if your keyword is fuzzy, if you used it yesterday, it stays on top."
+                    },
+                    "decay": {
+                        "title": "Natural Decay",
+                        "description": "Links untouched for **over 6 months** gradually sink to <strong class=\"text-orange-500\">30% of their score</strong>. They aren't deleted; they just settle at the bottom of the index."
+                    }
+                },
+                "benefits": {
+                    "title": "Why it always Feels Fresh",
+                    "cleanup": {
+                        "title": "Auto-Clean",
+                        "description": "Old debris settles at the bottom automatically without manually archiving."
+                    },
+                    "access": {
+                        "title": "Immediate Recall",
+                        "description": "Recently closed files have a 100% chance of appearing at index zero."
+                    },
+                    "zeroMaintenance": {
+                        "title": "No Maintenance",
+                        "description": "No need for manual 'Archive' buttons. Use it, and the system organizes itself."
+                    }
+                },
+                "comparison": {
+                    "feature": "Feature",
+                    "legacy": "Generic Launchers",
+                    "galpi": "Galpi Native",
+                    "ranking": "Ranking Logic",
+                    "rankingLegacy": "Simple String Matching",
+                    "rankingGalpi": "String + Time (Dynamic Factor)",
+                    "oldFiles": "Stale Content",
+                    "oldFilesLegacy": "Stays at the top (Clutter)",
+                    "oldFilesGalpi": "Settle at the bottom (Decay)",
+                    "management": "Organization",
+                    "managementLegacy": "Manual Archiving Required",
+                    "managementGalpi": "Fully Automatic (Set & Forget)"
+                }
+            },
+            "smartRanking": {
+                "badge": "Biological Sorting",
+                "title": "Stop searching. <br /> <span class=\"text-indigo-600 dark:text-indigo-500 italic uppercase underline decoration-indigo-500/20\">It's already at the top.</span>",
+                "description": "\"Summoning relevant data <br class=\"hidden md:block\" /> before your brain even asks.\"",
+                "gravity": {
+                    "title": "Gravity Ranking <br /> <span class=\"text-indigo-500 uppercase\">The Physics of Files</span>",
+                    "description": "Sorting by time is lazy. Galpi uses <b>Gravity Ranking</b> to reposition results based on cognitive load.",
+                    "features": [
+                        {
+                            "label": "Mass",
+                            "desc": "Inherent weight based on usage frequency and priority"
+                        },
+                        {
+                            "label": "Decay",
+                            "desc": "Natural half-life of memory applied to older results"
+                        },
+                        {
+                            "label": "Boost",
+                            "desc": "Dynamic attraction based on your current focus"
+                        }
+                    ],
+                    "visual": {
+                        "badge": "Biological Sorting simulation",
+                        "item1": {
+                            "badge": "Active Focus",
+                            "title": "Active Project Proposal",
+                            "tag": "#project:galpi"
+                        },
+                        "item2": {
+                            "title": "Old Research Note (2022)"
+                        }
+                    }
+                },
+                "biologicalEngine": {
+                    "badge": "Biological Engine",
+                    "result1": {
+                        "title": "Active Project Proposal",
+                        "mass": "Mass: 98.4",
+                        "boost": "Boosted"
+                    },
+                    "result2": {
+                        "title": "Old Research Note (2022)",
+                        "decay": "Decayed: 12.1"
+                    }
+                },
+                "zeroLabor": {
+                    "title": "Search is a <br /> <span class=\"text-indigo-100 font-light italic\">Luxury.</span>",
+                    "description": "While you hit the shortcut, the algorithm analyzes your active app, clipboard, and recent focus to put the right file at index zero.",
+                    "stats": {
+                        "success": {
+                            "label": "Prediction Rate",
+                            "value": "94%"
+                        },
+                        "time": {
+                            "label": "Saved Time",
+                            "value": "2.4h/wk"
+                        }
+                    }
+                },
+                "footer": "\"We already know <br class=\"hidden md:block\" /> what you're looking for.\"",
+                "manifesto": "Galpi Manifesto: Chapter 09"
+            },
+            "tagAutocomplete": {
+                "badge": "Neural Assist",
+                "title": "Neural Autocomplete <br class=\"md:hidden\" /> <span class=\"text-purple-600 dark:text-purple-400 italic\">(Predictive)</span>",
+                "description": "Not just text completion. <br class=\"hidden md:block\" /> An engine that learns your habits.",
+                "intro": "Type <code>#pro</code> and it knows you mean <code>#project:antigravity</code> right now. It learns your workflow patterns in real-time.",
+                "mockup": {
+                    "badge": "Neural Suggestion",
+                    "searchPlaceholder": "Search..."
+                },
+                "features": {
+                    "learning": {
+                        "title": "Pattern Learning",
+                        "description": "The engine knows which project you're deep in. Hit Tab. We've already anticipated the next move."
+                    },
+                    "frictionless": {
+                        "title": "Zero Friction",
+                        "description": "Built for the speed-obsessed. Everything happens via keys, never the mouse."
+                    }
+                },
+                "proTip": {
+                    "badge": "Pro Workflow",
+                    "title": "Shift Focus Instantly",
+                    "description": "Don't just find results; change the entire workspace. Hit <strong class=\"text-white\">Cmd + Enter</strong> on a suggested tag.",
+                    "action": "Focus",
+                    "actionDesc": "Switch Search Mode to Workspace Mode"
+                },
+                "footer": "\"Tools should assist thinking, not interrupt it.\""
+            }
+        },
+        "status": {
+            "underConstruction": "In Development"
+        },
+        "cta": {
+            "title": "Engineering is <span class=\"text-blue-500\">Transparency.</span>",
+            "button": "Explore the Logic"
+        }
+    },
+    "faqPage": {
+        "hero": {
+            "title": "Before you commit, <br /> <span class=\"bg-gradient-to-r from-violet-600 via-purple-500 to-indigo-600 bg-clip-text text-transparent italic underline decoration-violet-500/20 underline-offset-8\">bring your skepticism.</span>",
+            "description": "We don't want blind users. <br class=\"hidden md:block\" /> Challenge our tech, check the roadmap, and verify if we solve your pain. <br class=\"hidden md:block\" /> No fluff. Just answers."
+        },
+        "categories": {
+            "comparison": {
+                "title": "1. Competitor Comparison",
+                "faqs": [
+                    {
+                        "question": "I have Hookmark. Why Galpi?",
+                        "answer": "<div class=\"space-y-4\"><p class=\"text-xl font-bold text-slate-900 dark:text-white border-l-4 border-violet-500 pl-4 py-1\">\"Hookmark is a library; Galpi is a scout.\"</p><p>Hookmark supports 200+ apps but feels heavy. If <strong>Finder, Chrome, Obsidian, and Preview</strong> are 90% of your work, Galpi is better.</p><p class=\"bg-slate-50 dark:bg-white/5 p-4 rounded-xl\">Galpi is <strong class=\"text-violet-600\">20x faster, uses 1/20th the RAM, and costs 1/14th the price.</strong> We built it for speed-demons.</p></div>"
+                    }
+                ]
+            },
+            "sustainability": {
+                "title": "2. Sustainability",
+                "faqs": [
+                    {
+                        "question": "Lifetime for $4.99? Is this a scam?",
+                        "answer": "<div class=\"space-y-4\"><p class=\"text-xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4 py-1\">\"Zero server cost = Zero recurring debt.\"</p><p>SaaS costs are high due to cloud bills. Galpi is <strong>Local-First</strong>. Every sale funds development, not AWS.</p></div>"
+                    }
+                ]
+            },
+            "data": {
+                "title": "3. Data Safety",
+                "faqs": [
+                    {
+                        "question": "What if you stop updating the app?",
+                        "answer": "<div class=\"space-y-4\"><p class=\"text-xl font-bold text-slate-900 dark:text-white border-l-4 border-purple-500 pl-4 py-1\">\"Your data outlives the app.\"</p><p>We use <strong>JSONL</strong>—pure text. If we shut down, your links are still readable in any editor. We refuse to hold data hostage.</p></div>"
+                    }
+                ]
+            },
+            "technical": {
+                "title": "4. Technical Reliability",
+                "faqs": [
+                    {
+                        "question": "AppleScript is usually slow. Is this different?",
+                        "answer": "<div class=\"space-y-4\"><p class=\"text-xl font-bold text-slate-900 dark:text-white border-l-4 border-violet-600 pl-4 py-1\">\"We surgically optimized the scripts via Rust.\"</p><p>Standard apps are sluggish. We use <strong>Rust</strong> and the <strong>macOS Accessibility API</strong> for sub-30ms performance. It's not marketing; it's physics.</p></div>"
+                    }
+                ]
+            },
+            "refund": {
+                "title": "5. Guarantee",
+                "faqs": [
+                    {
+                        "question": "What if it doesn't work for me?",
+                        "answer": "<div class=\"space-y-4\"><p class=\"text-xl font-bold text-slate-900 dark:text-white border-l-4 border-rose-500 pl-4 py-1\">\"7-day unconditional refund.\"</p><p>Mac environments vary. If it doesn't just 'work' or satisfy your speed requirements, email us. 100% refund, no questions asked.</p></div>"
+                    }
+                ]
+            }
+        },
+        "outro": {
+            "badge": "Unanswered Questions?",
+            "title": "Talk to the <span class=\"italic\">Team</span>",
+            "description": "We're on Discord. Chat with us, request features, or report bugs directly.",
+            "button": "Join Discord"
+        }
+    },
+    "featuresPage": {
+        "hero": {
+            "title": "See the <br /> <span class=\"bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-teal-500 to-emerald-500 underline decoration-cyan-500/20 underline-offset-8\">Actual Flow.</span>",
+            "description": "No hype. <br class=\"hidden md:block\" /> 5 moments where Galpi <strong class=\"text-slate-900 dark:text-white font-black underline\">kills inefficiency.</strong>"
+        },
+        "labels": {
+            "problem": "The Friction",
+            "solution": "The Flow"
+        },
+        "features": [
+            {
+                "id": "context-awareness",
+                "title": "Context Awareness",
+                "subtitle": "Predictive Engine",
+                "pain": "Searching for the same doc 10 times a day? That's wasted focus.",
+                "solution": "The document you need is summoned before you even ask. Don't search. Just click.",
+                "videos": [
+                    {
+                        "label": "Auto-Context",
+                        "desc": "Open a document; Galpi predicts and suggests related resources."
+                    },
+                    {
+                        "label": "Typed Tag Engine",
+                        "desc": "Deep context filtering via structural tags."
+                    }
+                ],
+                "points": [
+                    "Auto-context detection based on active window",
+                    "Zero-search access to relevant files",
+                    "Fluid intellectual continuity"
+                ]
+            },
+            {
+                "id": "smart-tagging",
+                "title": "Smart Tagging",
+                "subtitle": "Zero-Input Workflow",
+                "pain": "Tagging is boring work. Most people give up because of the friction.",
+                "solution": "New captures automatically inherit tags from your current workspace. True 'filing' automation.",
+                "videos": [
+                    {
+                        "label": "Inheritance",
+                        "desc": "New links inherit your project tags automatically."
+                    },
+                    {
+                        "label": "One-click Stamp",
+                        "desc": "Link everything with a single click."
+                    }
+                ],
+                "points": [
+                    "Predictive tag suggestions",
+                    "Stress-free structural organization",
+                    "Connection-first workflow"
+                ]
+            },
+            {
+                "id": "bulk-ops",
+                "title": "Bulk Operations",
+                "subtitle": "Power Export",
+                "pain": "Copying 20 links manually is soul-crushing.",
+                "solution": "One hotkey (Cmd+Shift+C) turns search results into Markdown. Built for Obsidian power-users.",
+                "videos": [
+                    {
+                        "label": "Bulk-Copy",
+                        "desc": "Instantly export results as Obsidian-ready lists."
+                    },
+                    {
+                        "label": "Sprinting Filter",
+                        "desc": "Sift through thousands of records via tags."
+                    }
+                ],
+                "points": [
+                    "Cmd+Shift+C for bulk markdown export",
+                    "100x faster than manual copy-paste",
+                    "Professional knowledge management"
+                ]
+            },
+            {
+                "id": "environment-recall",
+                "title": "Environment Recall",
+                "subtitle": "Workspace Reset",
+                "pain": "Resetting your desktop takes 15 minutes. Don't waste your morning setup.",
+                "solution": "Launch web, PDFs, and folders in one go. Restore your 'Work State' in 0.5s.",
+                "videos": [
+                    {
+                        "label": "Bulk Open",
+                        "desc": "Deploy all related documents instantly."
+                    },
+                    {
+                        "label": "Directory Launch",
+                        "desc": "Open multiple system directories at once."
+                    }
+                ],
+                "points": [
+                    "Deploy dozens of windows via Enter",
+                    "Full Finder, Browser, and PDF support",
+                    "Digital working memory loading"
+                ]
+            },
+            {
+                "id": "persistence",
+                "title": "Indestructible Links",
+                "subtitle": "Self-Healing Tech",
+                "pain": "Fragile paths mean dead links. Renaming shouldn't break your history.",
+                "solution": "Galpi links survive renames and moves via Inode tracking. Move files fearlessly.",
+                "videos": [
+                    {
+                        "label": "Deep Link Precision",
+                        "desc": "Jump into exact paragraphs or web anchors."
+                    },
+                    {
+                        "label": "Persistence",
+                        "desc": "Links survive even if you reorganize everything."
+                    }
+                ],
+                "points": [
+                    "Self-Healing via Inode + UUID technology",
+                    "Obsidian, Browser, and Preview integration",
+                    "Bulletproof connectivity"
+                ]
+            }
+        ],
+        "cta": {
+            "title": "Invest your time <br /> <span class=\"text-cyan-500\">in creative work.</span>",
+            "subtitle": "Don't hunt. Summon. <br /> Use our 0.03s engine to connect your intellectual cosmos.",
+            "button": "Start Now"
+        }
+    },
+    "pricingPage": {
+        "hero": {
+            "apps": "(Finder, Chrome, Obsidian, Preview)",
+            "question": "Need 100 integrations right now?",
+            "optimized": "Galpi delivers <span class=\"text-amber-600 dark:text-amber-400\">unmatched depth</span> for these 4 core apps first.",
+            "opportunity": "Lock in <strong class=\"text-slate-900 dark:text-white\">lifetime access at the lowest price</strong> before we expand to 100+ apps. <br /> <strong class=\"text-amber-600 dark:text-amber-400\">This is your final opportunity.</strong>"
+        },
+        "plans": [
+            {
+                "name": "Starter",
+                "subtitle": "Free Forever",
+                "price": "$0",
+                "description": "Start building context",
+                "cta": "Download Free",
+                "features": [
+                    {
+                        "text": "All features enabled",
+                        "included": true
+                    },
+                    {
+                        "text": "Up to 50 active links",
+                        "included": true
+                    },
+                    {
+                        "text": "Search & Recall forever",
+                        "included": true,
+                        "highlight": true
+                    },
+                    {
+                        "text": "Local Data storage",
+                        "included": true
+                    },
+                    {
+                        "text": "Unlimited creation",
+                        "included": false
+                    },
+                    {
+                        "text": "Priority Support",
+                        "included": false
+                    }
+                ]
+            },
+            {
+                "name": "Pro Lifetime",
+                "subtitle": "Super Early Bird",
+                "price": "$4.99",
+                "originalPrice": "$19.99",
+                "description": "First 100 only",
+                "badge": "🔥 Last Remaining",
+                "cta": "Buy Early Bird",
+                "features": [
+                    {
+                        "text": "Everything unlimited",
+                        "included": true
+                    },
+                    {
+                        "text": "Unlimited links",
+                        "included": true,
+                        "highlight": true
+                    },
+                    {
+                        "text": "Recall & Search forever",
+                        "included": true
+                    },
+                    {
+                        "text": "Local Data storage",
+                        "included": true
+                    },
+                    {
+                        "text": "Lifetime updates (100+ apps)",
+                        "included": true
+                    },
+                    {
+                        "text": "Priority Support",
+                        "included": true
+                    }
+                ]
+            }
+        ],
+        "roadmap": {
+            "title": "The Price of Speed appreciates.",
+            "description": "We will raise the price as the integration library grows. <br /> <strong>Early adopters lock in $0 updates for life.</strong>",
+            "appAppreciation": "Pricing Roadmap",
+            "supportSuffix": " Support",
+            "footerNote": "\"Buy for $4.99 today; get the 100-app suite for free tomorrow.\"",
+            "phases": [
+                {
+                    "phase": "Phase 1",
+                    "apps": "4 Core Apps",
+                    "price": "$4.99",
+                    "status": "🔥 100 Seats Only",
+                    "note": "(Early Bird)"
+                },
+                {
+                    "phase": "Phase 2",
+                    "apps": "4 Core Apps",
+                    "price": "$6.99",
+                    "status": "Waitlist",
+                    "note": ""
+                },
+                {
+                    "phase": "Phase 3",
+                    "apps": "20 Apps",
+                    "price": "$9.99",
+                    "status": "Rollout",
+                    "note": ""
+                },
+                {
+                    "phase": "Phase 4",
+                    "apps": "50 Apps",
+                    "price": "$14.99",
+                    "status": "Scaling",
+                    "note": ""
+                },
+                {
+                    "phase": "Phase 5",
+                    "apps": "100+ Apps",
+                    "price": "$19.99",
+                    "status": "Normal Price",
+                    "note": ""
+                }
+            ]
+        },
+        "trustBadges": [
+            {
+                "text": "7-Day No-Wait Refund",
+                "subtext": "Email us if it's not a fit"
+            },
+            {
+                "text": "No Vendor Lock-in",
+                "subtext": "Links stay as text forever"
+            },
+            {
+                "text": "Secure Checkout",
+                "subtext": "Powered by Lemon Squeezy"
+            }
+        ],
+        "voting": {
+            "title": "You decide the Roadmap.",
+            "description": "We don't bloat. We build what users request. <br /> Every integration is <b>crafted by hand</b> for performance.",
+            "required": "[Active] Finder, Chrome",
+            "inProgress": "🚧 [Building] Arc Browser",
+            "voting": "🗳️ [Voting] Notion, Slack...",
+            "button": "Vote for Next App →"
+        },
+        "faqTitle": "Pricing FAQ",
+        "finalCta": {
+            "title": "Expansion is coming. <br /> <span class=\"bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent italic\">The $19.99 price point is inevitable.</span>",
+            "description": "Lock in future power today at the lowest point.",
+            "button": "Buy Super Early Bird ($4.99)",
+            "footer": "Buy Once, Own Forever."
+        }
+    },
+    "privacyPage": {
+        "title": "Privacy Policy",
+        "lastUpdated": "Last Update: January 29, 2026",
+        "summary": {
+            "title": "In short: We don't watch you.",
+            "description": "Galpi is local-first. We don't want your data or your searches. Everything stays on your Mac, and nothing enters our servers."
+        },
+        "notCollected": {
+            "title": "What we NEVER collect",
+            "items": [
+                "Your file names or paths",
+                "Your search queries or tags",
+                "Your browsing history or snippets",
+                "Your app usage statistics"
+            ]
+        },
+        "storage": {
+            "title": "Transparent Storage",
+            "description": "All data is saved in your Documents folder in <code>.jsonl</code> format. You can inspect, move, or delete it anytime. You are the architect of your own history."
+        },
+        "payment": {
+            "title": "Payment & Validation",
+            "description": "Your email is only used for license delivery and preventing duplicate activations. Financial details (cards) are handled by Lemon Squeezy; we never see or store them."
+        },
+        "destruction": {
+            "title": "Right to be Forgotten",
+            "description": "If you terminate your license, all minimal account metadata is purged from our systems as required by law."
+        },
+        "contact": {
+            "title": "Contact",
+            "email": "Email: support@galpi.app",
+            "description": "If you have privacy concerns, reach out to us directly."
+        }
+    },
+    "termsPage": {
+        "title": "Terms of Service",
+        "lastUpdated": "Last Update: January 29, 2026",
+        "sections": [
+            {
+                "id": "01",
+                "title": "Purpose",
+                "content": "These terms govern the use of Galpi by Wisgraph (\"Company\"), defining the relationship between the service and its users."
+            },
+            {
+                "id": "02",
+                "title": "Local-First Definition",
+                "content": "Galpi is a local-first productivity tool. Data resides on your device. We do not aggregate or centralize your knowledge assets."
+            },
+            {
+                "id": "03",
+                "title": "License & Ownership",
+                "items": [
+                    "1. A license grants permission to use the software per the agreed tier, not permanent ownership of IP.",
+                    "2. One license is meant for use by one individual on their own devices."
+                ]
+            },
+            {
+                "id": "04",
+                "title": "Refund Policy",
+                "content": "We offer an unconditional 7-day refund policy. Email us, and we'll process it without delay. License keys are invalidated upon refund."
+            },
+            {
+                "id": "05",
+                "title": "Limitation of Liability",
+                "content": "Galpi is provided 'as is'. We aren't liable for data loss or conflicts with system software. Backup is your responsibility—be a smart data citizen."
+            }
+        ],
+        "footer": "Orchestrate your workflow with confidence."
     }
 }

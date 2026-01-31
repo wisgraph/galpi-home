@@ -57,7 +57,7 @@ const TechDeepDive: React.FC = () => {
                   <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                     {t('tech.features.1.desc')}
                   </p>
-                  <span className="inline-block mt-3 text-xs px-2.5 py-1 bg-violet-100 dark:bg-purple-900/20 text-violet-700 dark:text-purple-300 border border-violet-200 dark:border-purple-500/30 rounded font-medium">No Vendor Lock-in</span>
+                  <span className="inline-block mt-3 text-xs px-2.5 py-1 bg-violet-100 dark:bg-purple-900/20 text-violet-700 dark:text-purple-300 border border-violet-200 dark:border-purple-500/30 rounded font-medium">{t('tech.lockIn')}</span>
                 </div>
               </div>
 
@@ -114,7 +114,7 @@ const TechDeepDive: React.FC = () => {
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-violet-500 to-pink-500 opacity-50"></div>
               <div className="flex items-center gap-2 mb-5 border-b border-slate-800/50 pb-3">
                 <FileJson size={14} className="text-yellow-400" />
-                <span className="text-slate-400">~/Documents/갈피/data.jsonl</span>
+                <span className="text-slate-400">{t('tech.dataPath')}</span>
               </div>
               <div className="text-slate-400 space-y-1.5 leading-relaxed">
                 <p><span className="text-slate-500">{`{`}</span></p>

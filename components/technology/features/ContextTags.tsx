@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Hash, Settings, MousePointer2, Target, Layers, Layout } from 'lucide-react';
+import { useTranslation } from '@/locales/i18n';
 
 const ContextTags: React.FC = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="min-h-full font-sans selection:bg-indigo-500/30">
             {/* Hero Section */}
@@ -17,16 +20,16 @@ const ContextTags: React.FC = () => {
                     >
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-black uppercase tracking-widest mb-8">
                             <Zap size={14} className="animate-pulse" />
-                            The Context Workflow
+                            {t('engineeringPage.featureDetails.contextTags.badge')}
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight leading-[1.1]">
-                            규칙이 감각으로,<br />
-                            <span className="text-indigo-600 dark:text-indigo-400 italic">스템프 시스템</span>
-                        </h1>
-                        <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-3xl">
-                            단순한 분류를 넘어 작업의 흐름을 잇습니다. <br className="hidden md:block" />
-                            갈피의 3단계 태그 매커니즘이 어떻게 수동 입력을 없애는지 확인해보세요.
-                        </p>
+                        <h1
+                            className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight leading-[1.1]"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.title') }}
+                        />
+                        <p
+                            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-3xl"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.description') }}
+                        />
                     </motion.div>
                 </div>
             </header>
@@ -36,16 +39,16 @@ const ContextTags: React.FC = () => {
                 <section className="grid lg:grid-cols-12 gap-12 items-center">
                     <div className="lg:col-span-5 space-y-6">
                         <div className="inline-flex items-center gap-2 text-indigo-500 font-black tracking-widest uppercase text-xs">
-                            <Hash size={16} /> 01. The Grammar
+                            <Hash size={16} /> {t('engineeringPage.featureDetails.contextTags.steps.typedTag.badge')}
                         </div>
-                        <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-                            타입드 태그 <br />
-                            <span className="text-indigo-500">(Typed Tag)</span>
-                        </h2>
-                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                            갈피는 일반적인 태그뿐만 아니라, <code className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">#타입:값</code> 구조의 <b>타입드 태그</b>를 지원합니다.
-                            이는 데이터와 작업 맥락에 '프로젝트', '속성'과 같은 명확한 역할을 부여하여, 지능형 필터링과 자동화가 가능하게 만드는 핵심 속성(Property)이 됩니다.
-                        </p>
+                        <h2
+                            className="text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.steps.typedTag.title') }}
+                        />
+                        <p
+                            className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.steps.typedTag.description') }}
+                        />
                         <div className="flex gap-3">
                             <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs text-slate-500 font-mono">#project:galpi</span>
                             <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs text-slate-500 font-mono">#client:internal</span>
@@ -73,19 +76,19 @@ const ContextTags: React.FC = () => {
                     </div>
                     <div className="space-y-6 order-1 lg:order-2 lg:col-span-5">
                         <div className="inline-flex items-center gap-2 text-indigo-500 font-black tracking-widest uppercase text-xs">
-                            <Settings size={16} /> 02. The Eligibility
+                            <Settings size={16} /> {t('engineeringPage.featureDetails.contextTags.steps.contextType.badge')}
                         </div>
-                        <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-                            컨텍스트 타입 <br />
-                            <span className="text-indigo-500">(Context Type)</span>
-                        </h2>
-                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                            설정 화면에서 '프로젝트'와 같이 특별한 관리가 필요한 타입을 지정할 수 있습니다.
-                            여기에 등록된 타입들은 갈피 시스템의 <b>지능형 자동화 자격</b>을 얻으며, 단순한 태그를 넘어 실시간 작업 환경의 일부로 격상됩니다.
-                        </p>
+                        <h2
+                            className="text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.steps.contextType.title') }}
+                        />
+                        <p
+                            className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.steps.contextType.description') }}
+                        />
                         <div className="flex items-center gap-2 text-sm text-slate-500">
                             <Layout size={16} />
-                            <span>설정 &gt; 태그 &gt; 컨텍스트 타입 에서 관리</span>
+                            <span>{t('engineeringPage.featureDetails.contextTags.steps.contextType.guide')}</span>
                         </div>
                     </div>
                 </section>
@@ -98,15 +101,14 @@ const ContextTags: React.FC = () => {
                         <div className="grid lg:grid-cols-2 gap-12">
                             <div className="space-y-8">
                                 <div className="inline-flex items-center gap-2 text-indigo-200 font-black tracking-widest uppercase text-xs">
-                                    <Target size={16} /> 03. The Activation
+                                    <Target size={16} /> {t('engineeringPage.featureDetails.contextTags.steps.contextStamp.badge')}
                                 </div>
-                                <h2 className="text-4xl md:text-5xl font-black leading-tight tracking-tight">
-                                    컨텍스트 스탬프 <br />
-                                    <span className="text-indigo-200 italic font-light italic">Context Stamp</span>
-                                </h2>
+                                <h2
+                                    className="text-4xl md:text-5xl font-black leading-tight tracking-tight"
+                                    dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.steps.contextStamp.title') }}
+                                />
                                 <p className="text-lg text-indigo-100 leading-relaxed font-light">
-                                    검색창 우측에 고정되는 <b>스탬프(Stamp)</b>는 현재 당신의 작업 맥락을 의미합니다.
-                                    한 번 찍힌 스탬프는 당신의 모든 캡처 활동에 조용히 개입하여 입력을 대신합니다.
+                                    {t('engineeringPage.featureDetails.contextTags.steps.contextStamp.description')}
                                 </p>
                             </div>
                             <ul className="grid sm:grid-cols-1 gap-6">
@@ -115,8 +117,8 @@ const ContextTags: React.FC = () => {
                                         <Zap size={24} />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-xl">자동 주입 (Auto-Injection)</h4>
-                                        <p className="text-indigo-100/70 text-sm">새 정보를 캡처할 때, 활성화된 스탬프가 자동으로 태그로 기록됩니다.</p>
+                                        <h4 className="font-bold text-xl">{t('engineeringPage.featureDetails.contextTags.steps.contextStamp.features.autoInjection.title')}</h4>
+                                        <p className="text-indigo-100/70 text-sm">{t('engineeringPage.featureDetails.contextTags.steps.contextStamp.features.autoInjection.description')}</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
@@ -124,8 +126,8 @@ const ContextTags: React.FC = () => {
                                         <MousePointer2 size={24} />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-xl">제로 타이핑 (Zero Typing)</h4>
-                                        <p className="text-indigo-100/70 text-sm">스탬프가 찍혀 있다면, 리스트의 항목을 클릭 한 번으로 일괄 분류할 수 있습니다.</p>
+                                        <h4 className="font-bold text-xl">{t('engineeringPage.featureDetails.contextTags.steps.contextStamp.features.zeroTyping.title')}</h4>
+                                        <p className="text-indigo-100/70 text-sm">{t('engineeringPage.featureDetails.contextTags.steps.contextStamp.features.zeroTyping.description')}</p>
                                     </div>
                                 </li>
                             </ul>
@@ -144,9 +146,10 @@ const ContextTags: React.FC = () => {
 
                 {/* Recap */}
                 <footer className="text-center space-y-8 pt-20 border-t border-slate-100 dark:border-slate-800">
-                    <p className="text-2xl md:text-4xl font-black text-slate-900 dark:text-white leading-[1.2]">
-                        "정의된 타입(Type)이<br className="md:hidden" /> 현재의 스탬프(Stamp)가 되어<br className="md:hidden" /> 데이터와 만납니다."
-                    </p>
+                    <p
+                        className="text-2xl md:text-4xl font-black text-slate-900 dark:text-white leading-[1.2]"
+                        dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.footer') }}
+                    />
                     <div className="flex justify-center gap-8 text-xs font-mono text-slate-400 tracking-widest uppercase">
                         <span>Rule</span>
                         <span className="text-slate-200 dark:text-slate-800">/</span>
@@ -161,3 +164,4 @@ const ContextTags: React.FC = () => {
 };
 
 export default ContextTags;
+

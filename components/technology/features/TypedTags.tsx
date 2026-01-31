@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Tag, Edit3, Palette, LayoutGrid, Hash } from 'lucide-react';
+import { useTranslation } from '@/locales/i18n';
 
 const TypedTags: React.FC = () => {
+    const { t } = useTranslation();
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-black font-sans selection:bg-rose-500/30">
             {/* Header */}
@@ -18,16 +20,16 @@ const TypedTags: React.FC = () => {
                     >
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-900/30 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-xs font-bold uppercase tracking-widest mb-6">
                             <Tag size={12} />
-                            Automation First
+                            {t('engineeringPage.featureDetails.typedTags.badge')}
                         </div>
-                        <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
-                            태그 관리가 <br className="md:hidden" />
-                            <span className="text-rose-600 dark:text-rose-400 italic">'노동'</span>이 되어서는 안 됩니다.
-                        </h1>
-                        <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-                            입력은 줄이고, 구조는 단단하게. <br className="hidden md:block" />
-                            당신이 타이핑하는 그 순간, 이미 구조화를 끝마칩니다.
-                        </p>
+                        <h1
+                            className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-tight"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.typedTags.title') }}
+                        />
+                        <p
+                            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.typedTags.description') }}
+                        />
                     </motion.div>
                 </div>
             </header>
@@ -38,10 +40,11 @@ const TypedTags: React.FC = () => {
                 <section className="bg-white dark:bg-slate-900 rounded-3xl shadow-xl overflow-hidden border border-slate-200 dark:border-slate-800">
                     <div className="grid md:grid-cols-2">
                         <div className="p-8 md:p-12">
-                            <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-6">입력과 동시에 학습됩니다.</h2>
-                            <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                                설정을 위해 메뉴를 뒤지지 마세요. 검색창에 <code>#platform:ios</code>라고 입력하는 순간, 시스템은 <code>platform</code>이라는 타입을 즉시 학습하고 등록합니다.
-                            </p>
+                            <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-6">{t('engineeringPage.featureDetails.typedTags.concept.title')}</h2>
+                            <p
+                                className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8"
+                                dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.typedTags.concept.description') }}
+                            />
                             <div className="space-y-3 font-mono text-sm">
                                 <div className="flex items-center gap-3">
                                     <span className="text-slate-400 w-24 text-right">Standard</span>
@@ -81,50 +84,54 @@ const TypedTags: React.FC = () => {
                         <div className="w-10 h-10 rounded-full bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-black">
                             <LayoutGrid size={20} />
                         </div>
-                        <h4 className="font-bold text-lg text-slate-900 dark:text-white">스마트 프리셋 (Preset)</h4>
-                        <p className="text-sm text-slate-600 dark:text-slate-400">
-                            콜론(<code>:</code>)을 누르면, 갈피가 당신의 패턴을 분석해 다음 값을 제안합니다. 타이핑을 멈추고 선택만 하세요.
-                        </p>
+                        <h4 className="font-bold text-lg text-slate-900 dark:text-white">{t('engineeringPage.featureDetails.typedTags.features.preset.title')}</h4>
+                        <p
+                            className="text-sm text-slate-600 dark:text-slate-400"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.typedTags.features.preset.description') }}
+                        />
                     </div>
                     <div className="space-y-4">
                         <div className="w-10 h-10 rounded-full bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-black">
                             <Palette size={20} />
                         </div>
-                        <h4 className="font-bold text-lg text-slate-900 dark:text-white">시각적 우선순위</h4>
-                        <p className="text-sm text-slate-600 dark:text-slate-400">
-                            <code>#status:done</code>은 무채색으로, <code>#priority:high</code>는 붉은색으로. 정보의 경중을 색상으로 즉시 판단하세요.
-                        </p>
+                        <h4 className="font-bold text-lg text-slate-900 dark:text-white">{t('engineeringPage.featureDetails.typedTags.features.palette.title')}</h4>
+                        <p
+                            className="text-sm text-slate-600 dark:text-slate-400"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.typedTags.features.palette.description') }}
+                        />
                     </div>
                     <div className="space-y-4">
                         <div className="w-10 h-10 rounded-full bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-black">
                             <Hash size={20} />
                         </div>
-                        <h4 className="font-bold text-lg text-slate-900 dark:text-white">암시적 구조 (Implicit)</h4>
-                        <p className="text-sm text-slate-600 dark:text-slate-400">
-                            태그를 다는 순간이 곧 데이터베이스를 설계하는 순간입니다. 별도의 설정 화면은 필요하지 않습니다.
-                        </p>
+                        <h4 className="font-bold text-lg text-slate-900 dark:text-white">{t('engineeringPage.featureDetails.typedTags.features.implicit.title')}</h4>
+                        <p
+                            className="text-sm text-slate-600 dark:text-slate-400"
+                            dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.typedTags.features.implicit.description') }}
+                        />
                     </div>
                 </section>
 
                 {/* Use Cases List */}
                 <section>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">지능형 제안 예시 (Smart Suggest)</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">{t('engineeringPage.featureDetails.typedTags.smartSuggest.title')}</h3>
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
                             <div className="px-2 py-1 bg-blue-100 text-blue-700 font-mono text-sm rounded border border-blue-200 font-bold min-w-[100px] text-center">#status:</div>
-                            <span className="text-slate-600 dark:text-slate-400 text-sm">→ done, doing, todo (자동 제안)</span>
+                            <span className="text-slate-600 dark:text-slate-400 text-sm">{t('engineeringPage.featureDetails.typedTags.smartSuggest.statusLabel')}</span>
                         </div>
                         <div className="flex items-center gap-4 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800">
                             <div className="px-2 py-1 bg-red-100 text-red-700 font-mono text-sm rounded border border-red-200 font-bold min-w-[100px] text-center">#priority:</div>
-                            <span className="text-slate-600 dark:text-slate-400 text-sm">→ High(Red), Low(Green)</span>
+                            <span className="text-slate-600 dark:text-slate-400 text-sm">{t('engineeringPage.featureDetails.typedTags.smartSuggest.priorityLabel')}</span>
                         </div>
                     </div>
                 </section>
 
                 <div className="text-center pt-10 border-t border-slate-200 dark:border-slate-800">
-                    <p className="text-xl md:text-2xl font-serif italic text-slate-500 dark:text-slate-400">
-                        "단순히 찾는 도구가 아닙니다. <br />데이터의 맥락을 읽는 도구입니다."
-                    </p>
+                    <p
+                        className="text-xl md:text-2xl font-serif italic text-slate-500 dark:text-slate-400"
+                        dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.typedTags.footer') }}
+                    />
                 </div>
 
             </main>

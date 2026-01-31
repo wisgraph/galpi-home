@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <p className="text-slate-400 text-[10px] uppercase font-bold tracking-tighter">{t('footer.labels.company')}</p>
-                  <p className="text-slate-700 dark:text-slate-300 font-medium">위스그래프 (wisgraph)</p>
+                  <p className="text-slate-700 dark:text-slate-300 font-medium">{t('footer.values.company')}</p>
                 </div>
                 <div className="space-y-1">
                   <p className="text-slate-400 text-[10px] uppercase font-bold tracking-tighter">{t('footer.labels.businessNumber')}</p>
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="space-y-1">
                 <p className="text-slate-400 text-[10px] uppercase font-bold tracking-tighter">{t('footer.labels.address')}</p>
-                <p className="text-slate-700 dark:text-slate-300 font-medium">경기도 남양주시 화도읍 창현로 19, 503호</p>
+                <p className="text-slate-700 dark:text-slate-300 font-medium">{t('footer.values.address')}</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">
