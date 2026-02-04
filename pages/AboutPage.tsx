@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { BookMarked, Brain, Network, Sparkles, Target, Compass } from 'lucide-react';
 import ScrollReveal from '../components/animations/ScrollReveal';
 import { useTranslation } from '@/locales/i18n';
+import SEO from '../components/common/SEO';
+
 
 const AboutPage: React.FC = () => {
     const { t } = useTranslation();
@@ -16,6 +18,11 @@ const AboutPage: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="pt-24 bg-white dark:bg-slate-950"
         >
+            <SEO
+                title="서비스 소개"
+                description="갈피를 만든 이유와 우리의 철학을 확인하세요. 0.03초의 속도를 위한 엔지니어의 고집과 디지털 시냅스 시스템의 미래를 소개합니다."
+                canonical="https://galpi.wisgraph.com/about"
+            />
             {/* Hero Section */}
             <section className="relative py-20 md:py-32 overflow-hidden border-b border-slate-100 dark:border-slate-800/50">
                 <div className="absolute inset-0 bg-gradient-to-b from-rose-50 via-white to-white dark:from-rose-900/10 dark:via-slate-950 dark:to-slate-950" />

@@ -18,6 +18,8 @@ import ScrollReveal from '../components/animations/ScrollReveal';
 import DocSidebar from '../components/technology/DocSidebar';
 import { FeatureRegistry, FeatureList } from '../components/technology/TechRegistry';
 import { useTranslation } from '@/locales/i18n';
+import SEO from '../components/common/SEO';
+
 
 /**
  * TechOverview: This is the updated "Chapter-based" or "Manifesto" overview
@@ -164,6 +166,11 @@ const EngineeringPage: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="pt-24 bg-white dark:bg-slate-950 min-h-screen flex flex-col"
         >
+            <SEO
+                title="공학적 설계 철학"
+                description="Rust 네이티브의 압도적 성능, JSONL 기반의 데이터 투명성, 그리고 지연 시간 0에 도전하는 갈피의 엔지니어링 스토리를 공개합니다."
+                canonical="https://galpi.wisgraph.com/engineering"
+            />
             {/* Hero Section */}
             <section className="relative py-20 md:py-32 overflow-hidden border-b border-slate-100 dark:border-slate-800">
                 <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 via-white to-white dark:from-blue-900/10 dark:via-slate-950 dark:to-slate-950" />

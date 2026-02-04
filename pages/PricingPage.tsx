@@ -15,6 +15,8 @@ import {
 import ScrollReveal from '../components/animations/ScrollReveal';
 import FAQ from '../components/FAQ';
 import { useTranslation } from '@/locales/i18n';
+import SEO from '../components/common/SEO';
+
 
 
 const PricingPage: React.FC = () => {
@@ -35,6 +37,11 @@ const PricingPage: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="pt-24 bg-white dark:bg-slate-950 min-h-screen"
         >
+            <SEO
+                title="요금제 및 혜택"
+                description="한 번 구매로 영구 소장하세요. 구독료 없는 합리적인 가격 정책과 얼리버드 혜택, 그리고 투명한 업데이트 로드맵을 확인하실 수 있습니다."
+                canonical="https://galpi.wisgraph.com/pricing"
+            />
             {/* Hero Section - Restored to Amber/Orange Theme with [투명한 경고] Wording */}
             <section className="relative py-24 md:py-40 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-amber-50 via-white to-white dark:from-amber-900/10 dark:via-slate-950 dark:to-slate-950" />

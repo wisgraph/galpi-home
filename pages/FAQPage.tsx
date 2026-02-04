@@ -14,6 +14,8 @@ import {
 } from 'lucide-react';
 import ScrollReveal from '../components/animations/ScrollReveal';
 import { useTranslation } from '@/locales/i18n';
+import SEO from '../components/common/SEO';
+
 
 const FAQPage: React.FC = () => {
     const { t } = useTranslation();
@@ -65,6 +67,11 @@ const FAQPage: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="pt-24 bg-white dark:bg-slate-950 min-h-screen"
         >
+            <SEO
+                title="자주 묻는 질문(FAQ)"
+                description="갈피와 기존 런처의 차이점, 데이터 보안, 환불 정책 등 궁금한 점을 모두 해결해 드립니다. 더 자세한 내용은 디스코드 커뮤니티에서 확인하세요."
+                canonical="https://galpi.wisgraph.com/faq"
+            />
             {/* Hero Section */}
             <section className="relative py-32 overflow-hidden border-b border-slate-100 dark:border-slate-800/50">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-violet-100 dark:bg-violet-900/10 blur-[120px] pointer-events-none" />

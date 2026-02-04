@@ -8,6 +8,7 @@ import ComparisonTable from '../components/ComparisonTable';
 import Pricing from '../components/Pricing';
 import FAQ from '../components/FAQ';
 import useSmoothScroll from '../hooks/useSmoothScroll';
+import SEO from '../components/common/SEO';
 
 
 const pageVariants = {
@@ -33,6 +34,7 @@ const HomePage: React.FC = () => {
             animate="animate"
             exit="exit"
         >
+            <SEO />
             <Hero />
             <PersonaTabsCarousel />
             <HowItWorks />

@@ -14,6 +14,8 @@ import {
 import ScrollReveal from "../components/animations/ScrollReveal";
 import VideoMask from "../components/common/VideoMask";
 import { useTranslation } from "@/locales/i18n";
+import SEO from "../components/common/SEO";
+
 
 const featuresConfig = [
     {
@@ -233,6 +235,11 @@ const FeaturesPage: React.FC = () => {
 
     return (
         <div className="bg-white dark:bg-slate-950 min-h-screen">
+            <SEO
+                title="기능 살펴보기"
+                description="맥락 인식 자동 태깅, 0.03초 속도의 검색, 옵시디언 딥링크 연동 등 갈피만의 혁신적인 상호작용 기능을 확인해보세요."
+                canonical="https://galpi.wisgraph.com/features"
+            />
             {/* Hero Section */}
             <section className="relative pt-48 pb-24 overflow-hidden border-b border-slate-100 dark:border-white/5">
                 <div className="absolute inset-0 bg-gradient-to-b from-cyan-50/50 to-transparent dark:from-cyan-900/5 dark:to-transparent" />

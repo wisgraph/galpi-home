@@ -37,25 +37,28 @@ const AnimatedRoutes: React.FC = () => {
 
 import { TranslationProvider } from '@/locales/i18n';
 import { AnalyticsProvider } from './components/AnalyticsProvider';
+import { HelmetProvider } from 'react-helmet-async';
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider>
-      <TranslationProvider>
-        <BrowserRouter>
-          <ScrollToTop />
-          <AnalyticsProvider>
-            <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 selection:bg-violet-500 selection:text-white font-sans transition-colors duration-300">
-              <Navbar />
-              <main>
-                <AnimatedRoutes />
-              </main>
-              <Footer />
-            </div>
-          </AnalyticsProvider>
-        </BrowserRouter>
-      </TranslationProvider>
-    </ThemeProvider>
+    <HelmetProvider>
+      <ThemeProvider>
+        <TranslationProvider>
+          <BrowserRouter>
+            <ScrollToTop />
+            <AnalyticsProvider>
+              <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 selection:bg-violet-500 selection:text-white font-sans transition-colors duration-300">
+                <Navbar />
+                <main>
+                  <AnimatedRoutes />
+                </main>
+                <Footer />
+              </div>
+            </AnalyticsProvider>
+          </BrowserRouter>
+        </TranslationProvider>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 };
 
