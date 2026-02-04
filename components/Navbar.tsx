@@ -44,9 +44,9 @@ const Navbar: React.FC = () => {
             className="flex items-center gap-2 font-bold text-xl tracking-tight cursor-pointer group hover:opacity-80 transition-opacity"
           >
             <img
-              src="/assets/images/galpi-image.png"
+              src="/assets/images/galpi_logo.webp"
               alt={t('navbar.brand')}
-              className="w-8 h-8 object-contain"
+              className="w-10 h-10 object-contain"
             />
             <span className="text-slate-900 dark:text-white">{t('navbar.brand')}</span>
           </Link>
