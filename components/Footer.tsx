@@ -2,6 +2,8 @@ import React from 'react';
 import { Github, Mail, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '@/locales/i18n';
+import { trackEvent, GA_EVENTS } from '../lib/analytics';
+
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -24,6 +26,7 @@ const Footer: React.FC = () => {
                 href="https://discord.gg/BeneFYvVmZ"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent(GA_EVENTS.SOCIAL_CLICK, { platform: 'discord', location: 'footer' })}
                 className="p-2.5 bg-white dark:bg-slate-900 rounded-xl text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 hover:shadow-lg transition-all border border-slate-200 dark:border-slate-800"
                 title="Discord"
               >
@@ -33,6 +36,7 @@ const Footer: React.FC = () => {
                 href="https://github.com/wisgraph"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent(GA_EVENTS.SOCIAL_CLICK, { platform: 'github', location: 'footer' })}
                 className="p-2.5 bg-white dark:bg-slate-900 rounded-xl text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:shadow-lg transition-all border border-slate-200 dark:border-slate-800"
                 title="GitHub"
               >
@@ -40,6 +44,7 @@ const Footer: React.FC = () => {
               </a>
               <a
                 href="mailto:wisgraph.license@gmail.com"
+                onClick={() => trackEvent(GA_EVENTS.SOCIAL_CLICK, { platform: 'email', location: 'footer' })}
                 className="p-2.5 bg-white dark:bg-slate-900 rounded-xl text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:shadow-lg transition-all border border-slate-200 dark:border-slate-800"
                 title="Email"
               >
@@ -101,8 +106,8 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-8">
-            <Link to="/terms" className="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">{t('footer.links.terms')}</Link>
-            <Link to="/privacy" className="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors font-bold">{t('footer.links.privacy')}</Link>
+            <Link to="/terms" onClick={() => trackEvent(GA_EVENTS.POLICY_CLICK, { type: 'terms' })} className="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">{t('footer.links.terms')}</Link>
+            <Link to="/privacy" onClick={() => trackEvent(GA_EVENTS.POLICY_CLICK, { type: 'privacy' })} className="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors font-bold">{t('footer.links.privacy')}</Link>
           </div>
 
           <div className="flex items-center gap-2 text-slate-400 dark:text-slate-600 font-mono italic">

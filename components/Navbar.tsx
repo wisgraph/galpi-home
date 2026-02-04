@@ -109,7 +109,9 @@ const Navbar: React.FC = () => {
                       <button
                         key={lang.code}
                         onClick={() => {
+                          const oldLocale = locale;
                           setLocale(lang.code as any);
+                          trackEvent(GA_EVENTS.LANGUAGE_CHANGE, { from: oldLocale, to: lang.code });
                           setIsLangOpen(false);
                         }}
                         className={`w-full px-5 py-2.5 text-left text-sm transition-colors ${locale === lang.code
@@ -138,7 +140,11 @@ const Navbar: React.FC = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-3">
             <button
-              onClick={() => setLocale(locale === 'ko' ? 'en' : 'ko')}
+              onClick={() => {
+                const newLocale = locale === 'ko' ? 'en' : 'ko';
+                trackEvent(GA_EVENTS.LANGUAGE_CHANGE, { from: locale, to: newLocale, device: 'mobile' });
+                setLocale(newLocale);
+              }}
               className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold"
             >
               {locale === 'ko' ? 'EN' : 'KO'}
