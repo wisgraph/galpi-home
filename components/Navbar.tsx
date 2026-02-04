@@ -4,6 +4,8 @@ import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavbarLogic } from '../hooks/useNavbarLogic';
 import { useTranslation } from '@/locales/i18n';
+import { trackEvent, GA_EVENTS } from '../lib/analytics';
+
 
 const Navbar: React.FC = () => {
   const { t, locale, setLocale } = useTranslation();
@@ -57,6 +59,7 @@ const Navbar: React.FC = () => {
               <Link
                 key={item.label}
                 to={item.href}
+                onClick={() => trackEvent(GA_EVENTS.NAV_CLICK, { link_name: item.label, href: item.href })}
                 className={`text-base font-medium transition-colors relative ${isActive(item.href)
                   ? 'text-slate-900 dark:text-white'
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -125,6 +128,7 @@ const Navbar: React.FC = () => {
             {/* CTA Button - High Premium Style */}
             <Link
               to="/pricing"
+              onClick={() => trackEvent(GA_EVENTS.CTA_CLICK, { button_name: 'navbar_download' })}
               className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-black hover:scale-105 active:scale-95 transition-all shadow-lg shadow-violet-500/30 flex items-center gap-2 border-b-2 border-violet-800"
             >
               {t('navbar.actions.download')}

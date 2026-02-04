@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import ScrollReveal from './animations/ScrollReveal';
 import { useTranslation } from '@/locales/i18n';
+import { trackEvent, GA_EVENTS } from '../lib/analytics';
+
 
 const Pricing: React.FC = () => {
   const { t } = useTranslation();
@@ -73,6 +75,10 @@ const Pricing: React.FC = () => {
 
                 <motion.a
                   href={plan.name === 'Pro Lifetime' ? '#purchase' : 'https://github.com/wisgraph/galpi-release'}
+                  onClick={() => trackEvent(GA_EVENTS.CTA_CLICK, {
+                    button_name: plan.name === 'Pro Lifetime' ? 'pricing_purchase_lifetime' : 'pricing_download_starter',
+                    plan_name: plan.name
+                  })}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className={`w-full py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-2 transition-all ${plan.name === 'Pro Lifetime'

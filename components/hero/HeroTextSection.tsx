@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { Download, Play, ChevronDown } from "lucide-react";
 import { useTranslation } from '@/locales/i18n';
+import { trackEvent, GA_EVENTS } from '../../lib/analytics';
+
 
 const HeroTextSection: React.FC = () => {
   const { t } = useTranslation();
@@ -71,12 +73,14 @@ const HeroTextSection: React.FC = () => {
         >
           <Link
             to="/pricing"
+            onClick={() => trackEvent(GA_EVENTS.CTA_CLICK, { button_name: 'hero_cta_start' })}
             className="px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl hover:shadow-violet-500/20 flex items-center gap-2"
           >
             <Download size={20} /> {t('hero.ctaStart')}
           </Link>
           <Link
             to="/features"
+            onClick={() => trackEvent(GA_EVENTS.CTA_CLICK, { button_name: 'hero_cta_features' })}
             className="px-8 py-4 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 rounded-full font-semibold text-lg hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors flex items-center gap-2"
           >
             <Play size={18} className="text-violet-500" /> {t('hero.ctaFeatures')}
