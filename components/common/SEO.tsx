@@ -20,6 +20,13 @@ const SEO: React.FC<SEOProps> = ({
 }) => {
     const siteTitle = title.includes('갈피') ? title : `${title} | 갈피(galpi)`;
 
+    // Client-side fallback to ensure tab title updates immediately during SPA navigation
+    React.useEffect(() => {
+        if (typeof document !== 'undefined') {
+            document.title = siteTitle;
+        }
+    }, [siteTitle]);
+
     return (
         <Helmet>
             {/* 기본 메타 태그 */}
