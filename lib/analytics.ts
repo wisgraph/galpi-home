@@ -2,7 +2,7 @@
  * Google Analytics 4 tracking utility
  */
 
-export const GA_MEASUREMENT_ID = 'G-YZ6KKTCLQD';
+export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA4_MEASUREMENT_ID || '';
 
 // Type for GA event parameters
 export interface EventParams {

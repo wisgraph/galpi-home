@@ -1,4 +1,4 @@
-# 스트림 세부정보
+# GA 스트림 세부정보
 
 - 스트림 이름: galpi-home
 - 스트림 URL: https://galpi.wisgraph.com/
@@ -6,6 +6,10 @@
 - 측정 ID: G-YZ6KKTCLQD
 
 [[tag.md]]
+
+# Clarity id
+
+- id: vc3c2vpsi2
 
 
 ---
