@@ -7,7 +7,7 @@ export const runtime = 'edge';
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
-        const { member_nm, phone, email, product_nm, message, price } = body;
+        const { member_nm, phone, email, product_nm, message, price, coupon_code } = body;
 
         if (!member_nm || !phone || !product_nm || !price || !email) {
             return NextResponse.json(
@@ -16,8 +16,36 @@ export async function POST(request: NextRequest) {
             );
         }
 
+        let finalPrice = parseInt(price);
+        if (coupon_code) {
+            const upperCode = coupon_code.trim().toUpperCase();
+            const KV = (process.env as any).PAYMENTS_KV;
+            let couponDataStr = null;
+
+            if (KV) {
+                couponDataStr = await KV.get(`COUPON_${upperCode}`);
+            } else if (process.env.NODE_ENV === 'development') {
+                if (upperCode === 'THEBETTER2026') {
+                    couponDataStr = JSON.stringify({ type: 'fixed', amount: 1000 });
+                } else if (upperCode === 'BETA50') {
+                    couponDataStr = JSON.stringify({ type: 'percent', amount: 50 });
+                }
+            }
+
+            if (couponDataStr) {
+                const couponData = JSON.parse(couponDataStr);
+                if (couponData.type === 'fixed') {
+                    finalPrice = Math.max(0, finalPrice - parseInt(couponData.amount, 10));
+                } else if (couponData.type === 'percent') {
+                    finalPrice = Math.max(0, Math.floor(finalPrice * (1 - parseInt(couponData.amount, 10) / 100)));
+                }
+            } else {
+                return NextResponse.json({ error: '유효하지 않거나 만료된 쿠폰입니다.' }, { status: 400 });
+            }
+        }
+
         const cleanPhone = formatPhone(phone);
-        const cleanPrice = formatPrice(price);
+        const cleanPrice = formatPrice(finalPrice);
         const bill_id = generateBillId();
 
         // [Cloudflare KV 저장] 
