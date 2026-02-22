@@ -1,19 +1,15 @@
-'use client';
-
 import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { useLocation } from 'react-router-dom';
 import { trackPageView } from '../lib/analytics';
 
 /**
  * Hook to track page views automatically on route changes
  */
 export const usePageTracking = () => {
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
+    const location = useLocation();
 
     useEffect(() => {
         // Track page view on location change
-        const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
-        trackPageView(url);
-    }, [pathname, searchParams]);
+        trackPageView(location.pathname + location.search);
+    }, [location]);
 };

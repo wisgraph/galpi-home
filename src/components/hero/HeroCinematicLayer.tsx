@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -125,7 +123,7 @@ const HeroCinematicSection: React.FC = () => {
         ref={cinemaBoxRef}
         className="relative max-w-6xl mx-auto h-[600px] md:h-[700px] perspective-1000"
       >
-        <div className="relative w-full h-full rounded-[3rem] overflow-hidden bg-slate-200 dark:bg-slate-900 border border-white/10 shadow-2xl">
+        <div className="relative w-full h-full rounded-[3rem] overflow-hidden bg-slate-200 dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-2xl">
           {/* Layer 1: Chaos */}
           <HeroProblemLayer
             layerRef={problemLayerRef}

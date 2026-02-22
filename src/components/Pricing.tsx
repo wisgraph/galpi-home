@@ -1,12 +1,9 @@
-'use client';
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import ScrollReveal from './animations/ScrollReveal';
 import { useTranslation } from '@/locales/i18n';
 import { trackEvent, GA_EVENTS } from '../lib/analytics';
-import PaymentModal from './PaymentModal';
 
 
 const Pricing: React.FC = () => {
@@ -14,28 +11,8 @@ const Pricing: React.FC = () => {
   const tiersData = t('pricing.tiers');
   const tiers = Array.isArray(tiersData) ? tiersData : [];
 
-  const [isPaymentModalOpen, setIsPaymentModalOpen] = React.useState(false);
-  const [selectedPlan, setSelectedPlan] = React.useState<any>(null);
-
-  const handleBuyClick = (plan: any) => {
-    if (plan.name === 'Pro Lifetime') {
-      setSelectedPlan(plan);
-      setIsPaymentModalOpen(true);
-      trackEvent(GA_EVENTS.CTA_CLICK, {
-        button_name: 'pricing_purchase_lifetime',
-        plan_name: plan.name
-      });
-    } else {
-      window.location.href = 'https://github.com/wisgraph/galpi-release';
-      trackEvent(GA_EVENTS.CTA_CLICK, {
-        button_name: 'pricing_download_starter',
-        plan_name: plan.name
-      });
-    }
-  };
-
   return (
-    <section id="pricing" className="py-24 bg-slate-950 overflow-hidden relative">
+    <section id="pricing" className="py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden relative">
       {/* Absolute Glow Background - Restored to Amber/Orange */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-orange-400/10 dark:bg-orange-900/10 blur-[120px] pointer-events-none" />
 
@@ -43,10 +20,10 @@ const Pricing: React.FC = () => {
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2
-              className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight"
+              className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight"
               dangerouslySetInnerHTML={{ __html: t('pricing.title') }}
             />
-            <p className="text-xl text-slate-400 font-light">
+            <p className="text-xl text-slate-500 dark:text-slate-400 font-light">
               {t('pricing.subtitle')}
             </p>
           </div>
@@ -58,8 +35,8 @@ const Pricing: React.FC = () => {
               <motion.div
                 whileHover={{ y: -10 }}
                 className={`relative rounded-[2.5rem] p-10 h-full transition-all border-2 ${plan.name === 'Pro Lifetime'
-                  ? 'bg-slate-900 border-amber-400 shadow-[0_20px_60px_rgba(249,115,22,0.15)]'
-                  : 'bg-slate-900/50 border-slate-800'
+                  ? 'bg-white dark:bg-slate-900 border-amber-400 shadow-[0_20px_60px_rgba(249,115,22,0.15)]'
+                  : 'bg-white dark:bg-slate-900/50 border-slate-200 dark:border-slate-800'
                   }`}
               >
                 {plan.badge && (
@@ -74,11 +51,11 @@ const Pricing: React.FC = () => {
                   </h3>
                   <div className="flex items-baseline gap-2">
                     {plan.originalPrice && <span className="text-slate-400 line-through text-2xl font-light">{plan.originalPrice}</span>}
-                    <span className={`text-7xl font-black tracking-tighter italic ${plan.name === 'Pro Lifetime' ? 'text-orange-600' : 'text-white'}`}>
+                    <span className={`text-7xl font-black tracking-tighter italic ${plan.name === 'Pro Lifetime' ? 'text-orange-600' : 'text-slate-900 dark:text-white'}`}>
                       {plan.price}
                     </span>
                   </div>
-                  <p className="mt-4 text-slate-400 font-medium italic">{plan.description}</p>
+                  <p className="mt-4 text-slate-600 dark:text-slate-400 font-medium italic">{plan.description}</p>
                 </div>
 
                 <ul className="space-y-4 mb-12 flex-grow">
@@ -86,9 +63,9 @@ const Pricing: React.FC = () => {
                     // Check for highlights or standard features
                     const isHighlightedFeature = plan.name === 'Pro Lifetime' && (fIdx === 0);
                     return (
-                      <li key={fIdx} className="flex items-start gap-4 text-slate-400">
+                      <li key={fIdx} className="flex items-start gap-4 text-slate-600 dark:text-slate-400">
                         <Check size={18} className={isHighlightedFeature ? 'text-amber-500' : 'text-emerald-500'} strokeWidth={3} />
-                        <span className={`text-base leading-tight ${isHighlightedFeature ? 'text-white font-bold' : ''}`}>
+                        <span className={`text-base leading-tight ${isHighlightedFeature ? 'text-slate-900 dark:text-white font-bold' : ''}`}>
                           {feature}
                         </span>
                       </li>
@@ -96,32 +73,27 @@ const Pricing: React.FC = () => {
                   })}
                 </ul>
 
-                <motion.button
-                  onClick={() => handleBuyClick(plan)}
+                <motion.a
+                  href={plan.name === 'Pro Lifetime' ? '#purchase' : 'https://github.com/wisgraph/galpi-release'}
+                  onClick={() => trackEvent(GA_EVENTS.CTA_CLICK, {
+                    button_name: plan.name === 'Pro Lifetime' ? 'pricing_purchase_lifetime' : 'pricing_download_starter',
+                    plan_name: plan.name
+                  })}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className={`w-full py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-2 transition-all ${plan.name === 'Pro Lifetime'
                     ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-xl shadow-orange-600/30'
-                    : 'bg-slate-800 text-white hover:bg-slate-200'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200'
                     }`}
                 >
                   {plan.cta}
                   <ArrowRight size={20} />
-                </motion.button>
+                </motion.a>
               </motion.div>
             </ScrollReveal>
           ))}
         </div>
       </div>
-
-      {/* Payment Modal */}
-      {selectedPlan && (
-        <PaymentModal
-          isOpen={isPaymentModalOpen}
-          onClose={() => setIsPaymentModalOpen(false)}
-          plan={selectedPlan}
-        />
-      )}
     </section>
   );
 };

@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useLayoutEffect, useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -118,7 +116,7 @@ const PersonaTabsCarousel: React.FC = () => {
     }, [personaCount, displayPersonas]);
 
     return (
-        <div ref={sectionRef} className="bg-slate-950">
+        <div ref={sectionRef} className="bg-slate-50 dark:bg-slate-950">
             <PersonaHeader />
 
             <div ref={triggerRef} className="relative h-screen overflow-hidden">
@@ -159,7 +157,7 @@ const PersonaTabsCarousel: React.FC = () => {
                 </div>
             </div>
 
-            <div className="relative z-10 bg-slate-950">
+            <div className="relative z-10 bg-slate-50 dark:bg-slate-950">
                 <PersonaCTA />
             </div>
         </div>

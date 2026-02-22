@@ -1,17 +1,13 @@
-'use client';
-
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import ko from './ko.json';
 import en from './en.json';
-import jp from './jp.json';
 
 const translations: Record<string, any> = {
     ko,
     en,
-    jp,
 };
 
-type Locale = 'ko' | 'en' | 'jp';
+type Locale = 'ko' | 'en';
 
 interface TranslationContextType {
     t: (path: string, options?: any) => any;
@@ -21,10 +17,8 @@ interface TranslationContextType {
 
 const TranslationContext = createContext<TranslationContextType | undefined>(undefined);
 
-export const TranslationProvider: React.FC<{ children: ReactNode; initialLocale?: Locale }> = ({ children, initialLocale }) => {
+export const TranslationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [locale, setLocale] = useState<Locale>(() => {
-        if (initialLocale) return initialLocale;
-
         if (typeof window !== 'undefined') {
             const saved = localStorage.getItem('galpi-locale') as Locale;
             if (saved && (saved === 'ko' || saved === 'en')) return saved;
@@ -36,10 +30,8 @@ export const TranslationProvider: React.FC<{ children: ReactNode; initialLocale?
     });
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            localStorage.setItem('galpi-locale', locale);
-            document.documentElement.lang = locale;
-        }
+        localStorage.setItem('galpi-locale', locale);
+        document.documentElement.lang = locale;
     }, [locale]);
 
     const t = (path: string, _options?: any): any => {

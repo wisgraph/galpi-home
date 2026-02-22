@@ -1,13 +1,11 @@
-'use client';
-
 import VideoMask from "../common/VideoMask";
 
 interface HeroSolutionLayerProps {
-  layerRef: React.RefObject<HTMLDivElement | null>;
-  overlayRef: React.RefObject<HTMLDivElement | null>;
-  wrapperRef: React.RefObject<HTMLDivElement | null>;
-  videoRef: React.RefObject<HTMLVideoElement | null>;
-  timerRef: React.RefObject<HTMLDivElement | null>;
+  layerRef: React.RefObject<HTMLDivElement>;
+  overlayRef: React.RefObject<HTMLDivElement>;
+  wrapperRef: React.RefObject<HTMLDivElement>;
+  videoRef: React.RefObject<HTMLVideoElement>;
+  timerRef: React.RefObject<HTMLDivElement>;
 }
 
 const HeroSolutionLayer: React.FC<HeroSolutionLayerProps> = ({
@@ -35,7 +33,7 @@ const HeroSolutionLayer: React.FC<HeroSolutionLayerProps> = ({
       >
         <VideoMask
           videoRef={videoRef}
-          src="/assets/images/galpi-launcher-demo.mov"
+          src="/assets/images/hooklink-launcher-demo.mov"
           className="w-full h-auto block shadow-2xl"
           borderRadius="1.45rem"
           crop={{ top: 4.5, bottom: 9.6, left: 7.1, right: 7.1 }}
@@ -50,7 +48,7 @@ const HeroSolutionLayer: React.FC<HeroSolutionLayerProps> = ({
             </div>
           </div>
           <div className="inline-block px-4 py-1.5 rounded-full bg-violet-600 text-white text-xs font-bold tracking-[0.3em] uppercase shadow-lg">
-            Galpi Engine
+            HookLink Engine
           </div>
         </div>
       </div>

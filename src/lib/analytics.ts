@@ -2,8 +2,8 @@
  * Google Analytics 4 tracking utility
  */
 
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID || '';
-const IS_DEV = process.env.NODE_ENV === 'development';
+export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA4_MEASUREMENT_ID || '';
+const IS_DEV = import.meta.env.DEV;
 
 // Type for GA event parameters
 export interface EventParams {

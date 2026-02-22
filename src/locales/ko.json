@@ -1,9 +1,4 @@
 {
-    "metadata": {
-        "title": "갈피(galpi) - 지적 생산을 위한 0.1초의 순간이동",
-        "description": "파일, 웹페이지, 노트를 0.5초 만에 소환하는 macOS 생산성 도구 갈피. Rust 기반의 네이티브 성능과 투명한 데이터 소유권!",
-        "keywords": "생산성 도구, macOS, 런처, 파일 검색, 지식 관리, PKM, 갈피, galpi, galpi"
-    },
     "common": {
         "cta": {
             "start": "갈피 시작하기",

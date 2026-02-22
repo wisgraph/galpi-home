@@ -1,8 +1,5 @@
-'use client';
-
 import React from 'react';
-import Link from './common/Link';
-import { useRouter } from 'next/navigation';
+import { Link } from 'react-router-dom';
 import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavbarLogic } from '../hooks/useNavbarLogic';
@@ -10,33 +7,22 @@ import { useTranslation } from '@/locales/i18n';
 import { trackEvent, GA_EVENTS } from '../lib/analytics';
 
 
-
 const Navbar: React.FC = () => {
-  const { t, locale } = useTranslation();
-  const router = useRouter();
+  const { t, locale, setLocale } = useTranslation();
   const [isLangOpen, setIsLangOpen] = React.useState(false);
   const {
     isScrolled,
     isMobileMenuOpen,
     setIsMobileMenuOpen,
     isVisible,
-    pathname
+    location
   } = useNavbarLogic();
 
   const isActive = (href: string) => {
     if (href === '/') {
-      return pathname === `/${locale}` || pathname === `/${locale}/`;
+      return location.pathname === '/';
     }
-    return pathname.startsWith(`/${locale}${href}`);
-  };
-
-  const changeLocale = (newLocale: string) => {
-    const oldLocale = locale;
-    // Simple path replacer: swap /[oldLocale]/ with /[newLocale]/
-    const newPath = pathname.replace(`/${oldLocale}`, `/${newLocale}`);
-    router.push(newPath);
-    trackEvent(GA_EVENTS.LANGUAGE_CHANGE, { from: oldLocale, to: newLocale });
-    setIsLangOpen(false);
+    return location.pathname.startsWith(href);
   };
 
   const navItems = [
@@ -50,13 +36,13 @@ const Navbar: React.FC = () => {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent ${isScrolled
-        ? 'bg-slate-950/70 backdrop-blur-xl border-white/10 py-3 shadow-sm'
+        ? 'bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl border-slate-200 dark:border-white/10 py-3 shadow-sm'
         : 'bg-transparent py-5'
         } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'}`}>
         <div className="container mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link
-            href="/"
+            to="/"
             className="flex items-center gap-2 font-bold text-xl tracking-tight cursor-pointer group hover:opacity-80 transition-opacity"
           >
             <img
@@ -64,7 +50,7 @@ const Navbar: React.FC = () => {
               alt={t('navbar.brand')}
               className="w-10 h-10 object-contain"
             />
-            <span className="text-white">{t('navbar.brand')}</span>
+            <span className="text-slate-900 dark:text-white">{t('navbar.brand')}</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -72,11 +58,11 @@ const Navbar: React.FC = () => {
             {navItems.map((item) => (
               <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 onClick={() => trackEvent(GA_EVENTS.NAV_CLICK, { link_name: item.label, href: item.href })}
                 className={`text-base font-medium transition-colors relative ${isActive(item.href)
-                  ? 'text-white'
-                  : 'text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                  ? 'text-slate-900 dark:text-white'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                   }`}
               >
                 {item.label}
@@ -101,10 +87,10 @@ const Navbar: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/50 text-slate-300 border border-white/10 hover:border-violet-500/50 transition-all text-sm font-bold shadow-sm"
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:border-violet-500/50 transition-all text-sm font-bold shadow-sm"
               >
                 <Globe size={16} className="text-violet-500" />
-                {locale === 'ko' ? '한국어' : locale === 'en' ? 'English' : '日本語'}
+                {locale === 'ko' ? '한국어' : 'English'}
                 <ChevronDown size={14} className={`opacity-50 transition-transform duration-300 ${isLangOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -114,20 +100,23 @@ const Navbar: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.95, y: 10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                    className="absolute right-0 mt-3 w-40 bg-slate-900 border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] py-2 overflow-hidden z-[60]"
+                    className="absolute right-0 mt-3 w-40 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] py-2 overflow-hidden z-[60]"
                   >
                     {[
                       { code: 'ko', label: '🇰🇷 한국어' },
-                      { code: 'en', label: '🇺🇸 English' },
-                      { code: 'jp', label: '🇯🇵 日本語' }
+                      { code: 'en', label: '🇺🇸 English' }
                     ].map((lang) => (
                       <button
                         key={lang.code}
-                        onClick={() => changeLocale(lang.code)}
-
+                        onClick={() => {
+                          const oldLocale = locale;
+                          setLocale(lang.code as any);
+                          trackEvent(GA_EVENTS.LANGUAGE_CHANGE, { from: oldLocale, to: lang.code });
+                          setIsLangOpen(false);
+                        }}
                         className={`w-full px-5 py-2.5 text-left text-sm transition-colors ${locale === lang.code
                           ? 'bg-violet-500 text-white font-bold'
-                          : 'text-slate-400 hover:bg-slate-800'
+                          : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
                           }`}
                       >
                         {lang.label}
@@ -140,7 +129,7 @@ const Navbar: React.FC = () => {
 
             {/* CTA Button - High Premium Style */}
             <Link
-              href="/pricing"
+              to="/pricing"
               onClick={() => trackEvent(GA_EVENTS.CTA_CLICK, { button_name: 'navbar_download' })}
               className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-black hover:scale-105 active:scale-95 transition-all shadow-lg shadow-violet-500/30 flex items-center gap-2 border-b-2 border-violet-800"
             >
@@ -152,17 +141,17 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center gap-3">
             <button
               onClick={() => {
-                const locales: ('ko' | 'en' | 'jp')[] = ['ko', 'en', 'jp'];
-                const nextLocale = locales[(locales.indexOf(locale as any) + 1) % locales.length];
-                changeLocale(nextLocale);
+                const newLocale = locale === 'ko' ? 'en' : 'ko';
+                trackEvent(GA_EVENTS.LANGUAGE_CHANGE, { from: locale, to: newLocale, device: 'mobile' });
+                setLocale(newLocale);
               }}
-              className="px-3 py-1 rounded-full bg-slate-800 text-slate-400 text-xs font-bold"
+              className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-bold"
             >
-              {locale.toUpperCase()}
+              {locale === 'ko' ? 'EN' : 'KO'}
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="p-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -185,18 +174,18 @@ const Navbar: React.FC = () => {
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
-                    href={item.href}
+                    to={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-xl font-medium py-3 border-b border-slate-800 transition-colors ${isActive(item.href)
-                      ? 'text-white border-violet-500'
-                      : 'text-slate-400'
+                    className={`text-xl font-medium py-3 border-b border-slate-200 dark:border-slate-800 transition-colors ${isActive(item.href)
+                      ? 'text-slate-900 dark:text-white border-violet-500'
+                      : 'text-slate-500 dark:text-slate-400'
                       }`}
                   >
                     {item.label}
                   </Link>
                 ))}
                 <Link
-                  href="/pricing"
+                  to="/pricing"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="mt-4 px-6 py-3 rounded-full bg-violet-600 text-white text-center font-semibold"
                 >

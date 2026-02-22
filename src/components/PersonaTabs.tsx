@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useRef } from "react";
 import { personas } from "./persona/personaData";
 import PersonaHeader from "./persona/PersonaHeader";

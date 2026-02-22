@@ -1,5 +1,3 @@
-'use client';
-
 import React from "react";
 
 interface VideoMaskProps {
@@ -26,7 +24,7 @@ interface VideoMaskProps {
   /** Additional classes for the video element itself */
   videoClassName?: string;
   /** Ref to the video element if needed */
-  videoRef?: React.RefObject<HTMLVideoElement | null>;
+  videoRef?: React.RefObject<HTMLVideoElement>;
 }
 
 /**

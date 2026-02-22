@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { Database, FileJson, Anchor } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
@@ -16,7 +14,7 @@ const TechDeepDive: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="engineering" className="py-24 bg-slate-950 overflow-hidden relative">
+    <section id="engineering" className="py-24 bg-white dark:bg-slate-950 overflow-hidden relative">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50 dark:bg-slate-900/20 -skew-x-12 translate-x-1/4"></div>
 
@@ -26,37 +24,37 @@ const TechDeepDive: React.FC = () => {
           {/* Left Content */}
           <div className="lg:w-1/2">
             <h2
-              className="text-4xl md:text-5xl font-bold mb-8 text-white leading-tight"
+              className="text-4xl md:text-5xl font-bold mb-8 text-slate-900 dark:text-white leading-tight"
               dangerouslySetInnerHTML={{ __html: t('tech.title') }}
             />
-            <p className="text-lg text-slate-400 mb-12 leading-relaxed">
+            <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 leading-relaxed">
               {t('tech.description')}
             </p>
 
             <div className="space-y-12">
               <div className="flex gap-6 group">
-                <div className="shrink-0 w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-600 dark:text-cyan-400 group-hover:border-cyan-500/50 group-hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] transition-all duration-300">
+                <div className="shrink-0 w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-cyan-600 dark:text-cyan-400 group-hover:border-cyan-500/50 group-hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] transition-all duration-300">
                   <Database size={28} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                     {t('tech.features.0.title')}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                     {t('tech.features.0.desc')}
                   </p>
                 </div>
               </div>
 
               <div className="flex gap-6 group">
-                <div className="shrink-0 w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-800 flex items-center justify-center text-violet-600 dark:text-purple-400 group-hover:border-violet-500/50 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] transition-all duration-300">
+                <div className="shrink-0 w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-violet-600 dark:text-purple-400 group-hover:border-violet-500/50 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] transition-all duration-300">
                   <FileJson size={28} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-violet-600 dark:group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-violet-600 dark:group-hover:text-purple-400 transition-colors">
                     {t('tech.features.1.title')}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                     {t('tech.features.1.desc')}
                   </p>
                   <span className="inline-block mt-3 text-xs px-2.5 py-1 bg-violet-100 dark:bg-purple-900/20 text-violet-700 dark:text-purple-300 border border-violet-200 dark:border-purple-500/30 rounded font-medium">{t('tech.lockIn')}</span>
@@ -64,14 +62,14 @@ const TechDeepDive: React.FC = () => {
               </div>
 
               <div className="flex gap-6 group">
-                <div className="shrink-0 w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-800 flex items-center justify-center text-pink-600 dark:text-pink-400 group-hover:border-pink-500/50 group-hover:shadow-[0_0_20px_rgba(236,72,153,0.2)] transition-all duration-300">
+                <div className="shrink-0 w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-pink-600 dark:text-pink-400 group-hover:border-pink-500/50 group-hover:shadow-[0_0_20px_rgba(236,72,153,0.2)] transition-all duration-300">
                   <Anchor size={28} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
                     {t('tech.features.2.title')}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                     {t('tech.features.2.desc')}
                   </p>
                 </div>
@@ -82,8 +80,8 @@ const TechDeepDive: React.FC = () => {
           {/* Right Visuals */}
           <div className="lg:w-1/2 w-full pt-8">
             {/* Chart Card */}
-            <div className="bg-slate-50 dark:bg-slate-900/50 border border-slate-800 rounded-3xl p-8 mb-8 shadow-2xl backdrop-blur-sm">
-              <h4 className="text-slate-400 text-xs font-bold mb-8 uppercase tracking-widest">
+            <div className="bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-8 shadow-2xl backdrop-blur-sm">
+              <h4 className="text-slate-500 dark:text-slate-400 text-xs font-bold mb-8 uppercase tracking-widest">
                 {t('tech.chart.title') || 'Memory Usage Comparison'}
               </h4>
               <div className="h-64 w-full">
@@ -112,7 +110,7 @@ const TechDeepDive: React.FC = () => {
             </div>
 
             {/* Code Snippet Card */}
-            <div className="bg-[#0D1117] border border-slate-800 rounded-3xl p-6 shadow-2xl font-mono text-xs overflow-hidden relative group">
+            <div className="bg-[#0D1117] border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-2xl font-mono text-xs overflow-hidden relative group">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-violet-500 to-pink-500 opacity-50"></div>
               <div className="flex items-center gap-2 mb-5 border-b border-slate-800/50 pb-3">
                 <FileJson size={14} className="text-yellow-400" />

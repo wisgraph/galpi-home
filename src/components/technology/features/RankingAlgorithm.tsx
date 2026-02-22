@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Scale, ArrowUp, Star, Calculator, ArrowDown } from 'lucide-react';
@@ -22,10 +20,10 @@ const RankingAlgorithm: React.FC = () => {
                             <Scale size={12} />
                             중력 모델 (Gravity Model)
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+                        <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
                             랭킹 알고리즘<br />(The Ranking Algorithm)
                         </h1>
-                        <p className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed">
+                        <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
                             "흐르는 물(Recency)과<br className="hidden md:block" /> 단단한 바위(Importance)의 조화."
                         </p>
                     </motion.div>
@@ -37,21 +35,21 @@ const RankingAlgorithm: React.FC = () => {
                 {/* Concept */}
                 <section className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 className="text-3xl font-bold text-white mb-6">딜레마 (The Conflict)</h2>
+                        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">딜레마 (The Conflict)</h2>
                         <div className="space-y-4">
-                            <div className="p-6 bg-slate-900 rounded-2xl border-l-4 border-l-blue-500 shadow-sm">
-                                <p className="font-medium text-white mb-1">첫 번째 욕구</p>
-                                <p className="text-slate-400 text-sm">"방금 작업하던 파일(최신성)을 바로 열고 싶어."</p>
+                            <div className="p-6 bg-white dark:bg-slate-900 rounded-2xl border-l-4 border-l-blue-500 shadow-sm">
+                                <p className="font-medium text-slate-900 dark:text-white mb-1">첫 번째 욕구</p>
+                                <p className="text-slate-600 dark:text-slate-400 text-sm">"방금 작업하던 파일(최신성)을 바로 열고 싶어."</p>
                             </div>
                             <div className="flex justify-center text-slate-400"><span className="text-xs font-bold uppercase tracking-widest">Vs</span></div>
-                            <div className="p-6 bg-slate-900 rounded-2xl border-l-4 border-l-amber-500 shadow-sm">
-                                <p className="font-medium text-white mb-1">두 번째 욕구</p>
-                                <p className="text-slate-400 text-sm">"1년 전 파일이라도, 정말 중요한(중요도) 건 맨 위에 있어야 해."</p>
+                            <div className="p-6 bg-white dark:bg-slate-900 rounded-2xl border-l-4 border-l-amber-500 shadow-sm">
+                                <p className="font-medium text-slate-900 dark:text-white mb-1">두 번째 욕구</p>
+                                <p className="text-slate-600 dark:text-slate-400 text-sm">"1년 전 파일이라도, 정말 중요한(중요도) 건 맨 위에 있어야 해."</p>
                             </div>
                         </div>
                     </div>
-                    <div className="text-lg text-slate-400 leading-relaxed">
-                        이 두 가지 상충되는 욕구를 동시에 만족시키기 위해, Galpi는 물리학의 <strong>"중력 모델(Gravity Model)"</strong>을 차용했습니다.
+                    <div className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                        이 두 가지 상충되는 욕구를 동시에 만족시키기 위해, HookLink는 물리학의 <strong>"중력 모델(Gravity Model)"</strong>을 차용했습니다.
                     </div>
                 </section>
 
@@ -100,32 +98,32 @@ const RankingAlgorithm: React.FC = () => {
 
                 {/* Simulation Scenarios */}
                 <section className="space-y-8">
-                    <h2 className="text-2xl font-bold text-white border-l-4 border-indigo-500 pl-4">시뮬레이션 (Simulations)</h2>
+                    <h2 className="text-2xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-4">시뮬레이션 (Simulations)</h2>
 
                     <div className="grid md:grid-cols-2 gap-6">
                         {/* Sim 1 */}
-                        <div className="bg-slate-950 p-6 rounded-2xl">
-                            <h3 className="font-bold text-white mb-4 flex items-center gap-2">
+                        <div className="bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl">
+                            <h3 className="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                                 🌊 시뮬레이션 1: 일상적인 파일 (흐르는 물)
                             </h3>
                             <div className="space-y-3 text-sm">
-                                <div className="flex justify-between items-center p-3 bg-slate-900 rounded border border-slate-800">
+                                <div className="flex justify-between items-center p-3 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800">
                                     <span>어제 쓴 메모 (★1)</span>
                                     <span className="text-emerald-600 font-bold flex items-center gap-1"><ArrowUp size={12} /> Top Rank</span>
                                 </div>
-                                <div className="flex justify-between items-center p-3 bg-slate-900 rounded border border-slate-800 opacity-60">
+                                <div className="flex justify-between items-center p-3 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800 opacity-60">
                                     <span>작년 보고서 (★2)</span>
                                     <span className="text-slate-500 flex items-center gap-1"><ArrowDown size={12} /> Low Rank</span>
                                 </div>
                             </div>
-                            <p className="mt-4 text-xs text-slate-400">
+                            <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">
                                 가중치가 비슷하다면 최신성이 승리합니다. 사용자는 항상 "지금 작업 중인 파일"을 먼저 보게 됩니다.
                             </p>
                         </div>
 
                         {/* Sim 2 */}
-                        <div className="bg-slate-950 p-6 rounded-2xl">
-                            <h3 className="font-bold text-white mb-4 flex items-center gap-2">
+                        <div className="bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl">
+                            <h3 className="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
                                 🪨 시뮬레이션 2: 중요 파일 (단단한 바위)
                             </h3>
                             <div className="space-y-3 text-sm">
@@ -133,21 +131,21 @@ const RankingAlgorithm: React.FC = () => {
                                     <span className="font-bold text-amber-800 dark:text-amber-200">마스터 플랜 (★8)</span>
                                     <span className="text-amber-600 font-bold">Fixed Top 👑</span>
                                 </div>
-                                <div className="flex justify-between items-center p-3 bg-slate-900 rounded border border-slate-800">
+                                <div className="flex justify-between items-center p-3 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-800">
                                     <span>어제 쓴 메모 (★1)</span>
                                     <span className="text-slate-500">2nd Rank</span>
                                 </div>
                             </div>
-                            <p className="mt-4 text-xs text-slate-400">
+                            <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">
                                 압도적인 질량(중요도)을 가진 파일은 시간이 지나도 가라앉지 않고 상단을 지킵니다. (구명조끼 효과)
                             </p>
                         </div>
                     </div>
                 </section>
 
-                <div className="text-center pt-10 border-t border-slate-800">
-                    <p className="text-xl md:text-2xl font-serif italic text-slate-400">
-                        "Galpi는 당신이 무엇을 중요하게 여기는지<br /> 이미 알고 있습니다."
+                <div className="text-center pt-10 border-t border-slate-200 dark:border-slate-800">
+                    <p className="text-xl md:text-2xl font-serif italic text-slate-500 dark:text-slate-400">
+                        "HookLink는 당신이 무엇을 중요하게 여기는지<br /> 이미 알고 있습니다."
                     </p>
                 </div>
 

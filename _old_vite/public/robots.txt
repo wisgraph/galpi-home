@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://galpi.wisgraph.com/sitemap.xml

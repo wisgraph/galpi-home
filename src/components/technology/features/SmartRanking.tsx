@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Zap, Layers, Sparkles, Brain, ArrowDown } from 'lucide-react';
@@ -26,11 +24,11 @@ const SmartRanking: React.FC = () => {
                             {t('engineeringPage.featureDetails.smartRanking.badge')}
                         </div>
                         <h1
-                            className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight leading-[1.1]"
+                            className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight leading-[1.1]"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.smartRanking.title') }}
                         />
                         <p
-                            className="text-xl md:text-2xl text-slate-400 font-light leading-relaxed max-w-3xl"
+                            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-3xl"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.smartRanking.description') }}
                         />
                     </motion.div>
@@ -43,11 +41,11 @@ const SmartRanking: React.FC = () => {
                     <div className="space-y-10">
                         <div className="space-y-4">
                             <h2
-                                className="text-4xl font-black text-white tracking-tight leading-tight"
+                                className="text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight"
                                 dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.smartRanking.gravity.title') }}
                             />
                             <p
-                                className="text-lg text-slate-400 font-light leading-relaxed"
+                                className="text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed"
                                 dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.smartRanking.gravity.description') }}
                             />
                         </div>
@@ -62,8 +60,8 @@ const SmartRanking: React.FC = () => {
                                             0{i + 1}
                                         </div>
                                         <div className="space-y-1">
-                                            <h4 className="font-black text-white">{item.label}</h4>
-                                            <p className="text-sm text-slate-400 font-light">{item.desc}</p>
+                                            <h4 className="font-black text-slate-900 dark:text-white">{item.label}</h4>
+                                            <p className="text-sm text-slate-500 dark:text-slate-400 font-light">{item.desc}</p>
                                         </div>
                                     </div>
                                 ));
@@ -71,7 +69,7 @@ const SmartRanking: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="relative p-12 bg-slate-900 rounded-[4rem] text-white overflow-hidden shadow-2xl group border border-slate-200 dark:border-white/5">
+                    <div className="relative p-12 bg-white dark:bg-slate-900 rounded-[4rem] text-slate-900 dark:text-white overflow-hidden shadow-2xl group border border-slate-200 dark:border-white/5">
                         <div className="absolute top-0 right-10 flex gap-4 opacity-20">
                             {[...Array(3)].map((_, i) => (
                                 <motion.div
@@ -142,7 +140,7 @@ const SmartRanking: React.FC = () => {
                 {/* Closing */}
                 <div className="text-center pt-20 border-t border-slate-100 dark:border-slate-800 lg:px-20">
                     <p
-                        className="text-2xl md:text-3xl font-black italic text-white mb-8 leading-tight"
+                        className="text-2xl md:text-3xl font-black italic text-slate-900 dark:text-white mb-8 leading-tight"
                         dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.smartRanking.footer') }}
                     />
                     <div className="inline-flex items-center gap-2 text-slate-400 font-mono text-[10px] tracking-[0.3em] uppercase">
@@ -156,3 +154,4 @@ const SmartRanking: React.FC = () => {
 };
 
 export default SmartRanking;
+

@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Search, Zap, Variable, Cpu, Sparkles, Gauge } from 'lucide-react';
@@ -25,11 +23,11 @@ const SearchEngine: React.FC = () => {
                             {t('engineeringPage.featureDetails.searchEngine.badge')}
                         </div>
                         <h1
-                            className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight"
+                            className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-tight"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.searchEngine.title') }}
                         />
                         <p
-                            className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed"
+                            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.searchEngine.description') }}
                         />
                     </motion.div>
@@ -40,15 +38,15 @@ const SearchEngine: React.FC = () => {
 
                 {/* Performance Stats */}
                 <section className="grid md:grid-cols-3 gap-6 text-center">
-                    <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 shadow-sm">
+                    <div className="p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div className="text-4xl font-black text-blue-600 dark:text-blue-400 mb-2 font-mono">1ms</div>
                         <div className="text-sm font-bold text-slate-700 dark:text-white uppercase tracking-wide">{t('engineeringPage.featureDetails.searchEngine.stats.coldStart')}</div>
                     </div>
-                    <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 shadow-sm">
+                    <div className="p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div className="text-4xl font-black text-blue-600 dark:text-blue-400 mb-2 font-mono">0.02s</div>
                         <div className="text-sm font-bold text-slate-700 dark:text-white uppercase tracking-wide">{t('engineeringPage.featureDetails.searchEngine.stats.queryTime')}</div>
                     </div>
-                    <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800 shadow-sm">
+                    <div className="p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
                         <div className="text-4xl font-black text-blue-600 dark:text-blue-400 mb-2 font-mono">5MB</div>
                         <div className="text-sm font-bold text-slate-700 dark:text-white uppercase tracking-wide">{t('engineeringPage.featureDetails.searchEngine.stats.memory')}</div>
                     </div>
@@ -62,21 +60,21 @@ const SearchEngine: React.FC = () => {
                             <Sparkles size={24} />
                         </div>
                         <div className="flex-1">
-                            <h3 className="text-2xl font-bold text-white mb-4">{t('engineeringPage.featureDetails.searchEngine.features.chosung.title')}</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">{t('engineeringPage.featureDetails.searchEngine.features.chosung.title')}</h3>
                             <p
-                                className="text-lg text-slate-400 leading-relaxed mb-6"
+                                className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6"
                                 dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.searchEngine.features.chosung.description') }}
                             />
-                            <div className="bg-slate-100 dark:bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                            <div className="bg-slate-100 dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
                                 <div className="flex items-center gap-4 mb-4">
                                     <div className="px-3 py-1 bg-white dark:bg-black rounded border border-slate-300 dark:border-slate-700 font-mono text-blue-500 font-bold">ㄱㅎㅇ</div>
                                     <div className="text-slate-400">→</div>
-                                    <div className="text-white font-medium">2026_기획안.pdf</div>
+                                    <div className="text-slate-900 dark:text-white font-medium">2026_기획안.pdf</div>
                                 </div>
                                 <div className="flex items-center gap-4">
                                     <div className="px-3 py-1 bg-white dark:bg-black rounded border border-slate-300 dark:border-slate-700 font-mono text-blue-500 font-bold">#ㅎㄹ</div>
                                     <div className="text-slate-400">→</div>
-                                    <div className="text-white font-medium">#galpi</div>
+                                    <div className="text-slate-900 dark:text-white font-medium">#hooklink</div>
                                 </div>
                             </div>
                         </div>
@@ -88,9 +86,9 @@ const SearchEngine: React.FC = () => {
                             <Zap size={24} />
                         </div>
                         <div>
-                            <h3 className="text-2xl font-bold text-white mb-4">{t('engineeringPage.featureDetails.searchEngine.features.fuzzy.title')}</h3>
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">{t('engineeringPage.featureDetails.searchEngine.features.fuzzy.title')}</h3>
                             <p
-                                className="text-lg text-slate-400 leading-relaxed"
+                                className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed"
                                 dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.searchEngine.features.fuzzy.description') }}
                             />
                         </div>
@@ -102,17 +100,17 @@ const SearchEngine: React.FC = () => {
                             <Cpu size={24} />
                         </div>
                         <div>
-                            <h2 className="text-2xl font-bold text-white mb-4">{t('engineeringPage.featureDetails.searchEngine.features.memory.title')}</h2>
+                            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">{t('engineeringPage.featureDetails.searchEngine.features.memory.title')}</h2>
                             <p
-                                className="text-lg text-slate-400 leading-relaxed"
+                                className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed"
                                 dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.searchEngine.features.memory.description') }}
                             />
                         </div>
                     </div>
                 </section>
 
-                <div className="text-center pt-10 border-t border-slate-800">
-                    <p className="text-xl md:text-2xl font-serif italic text-slate-400">
+                <div className="text-center pt-10 border-t border-slate-200 dark:border-slate-800">
+                    <p className="text-xl md:text-2xl font-serif italic text-slate-500 dark:text-slate-400">
                         {t('engineeringPage.featureDetails.searchEngine.footer')}
                     </p>
                 </div>

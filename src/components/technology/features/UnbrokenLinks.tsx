@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link2Off, Compass, Anchor, ShieldCheck, Target, ExternalLink } from 'lucide-react';
@@ -26,11 +24,11 @@ const UnbrokenLinks: React.FC = () => {
                             {t('engineeringPage.featureDetails.unbrokenLinks.badge')}
                         </div>
                         <h1
-                            className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight leading-[1.1]"
+                            className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight leading-[1.1]"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.unbrokenLinks.title') }}
                         />
                         <p
-                            className="text-xl md:text-2xl text-slate-400 font-light leading-relaxed max-w-3xl"
+                            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-3xl"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.unbrokenLinks.description') }}
                         />
                     </motion.div>
@@ -45,18 +43,18 @@ const UnbrokenLinks: React.FC = () => {
                             <Link2Off size={32} />
                         </div>
                         <h2
-                            className="text-4xl font-black text-white tracking-tight leading-tight"
+                            className="text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.unbrokenLinks.nightmare.title') }}
                         />
-                        <p className="text-lg text-slate-400 leading-relaxed font-light">
+                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light">
                             {t('engineeringPage.featureDetails.unbrokenLinks.nightmare.description')}
                         </p>
-                        <div className="p-6 bg-red-50 dark:bg-red-950/10 rounded-2xl border border-red-100 dark:border-red-900/20 italic text-slate-400 font-light text-sm">
+                        <div className="p-6 bg-red-50 dark:bg-red-950/10 rounded-2xl border border-red-100 dark:border-red-900/20 italic text-slate-500 dark:text-slate-400 font-light text-sm">
                             {t('engineeringPage.featureDetails.unbrokenLinks.nightmare.quote')}
                         </div>
                     </div>
 
-                    <div className="relative p-8 bg-slate-900 rounded-[3rem] border border-slate-100 dark:border-slate-800 shadow-2xl overflow-hidden group">
+                    <div className="relative p-8 bg-white dark:bg-slate-900 rounded-[3rem] border border-slate-100 dark:border-slate-800 shadow-2xl overflow-hidden group">
                         <div className="absolute top-0 right-0 p-6">
                             <div className="px-4 py-1.5 bg-red-500 text-white text-[10px] font-black uppercase rounded-full animate-bounce shadow-lg shadow-red-500/20">
                                 {t('engineeringPage.featureDetails.unbrokenLinks.nightmare.badge')}
@@ -81,7 +79,7 @@ const UnbrokenLinks: React.FC = () => {
                 </section>
 
                 {/* Section 2: Stalker Logic */}
-                <section className="bg-slate-50 dark:bg-slate-900 text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden group shadow-xl dark:shadow-3xl border border-slate-200 dark:border-white/5">
+                <section className="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden group shadow-xl dark:shadow-3xl border border-slate-200 dark:border-white/5">
                     <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-500 to-cyan-500 opacity-50 shadow-[0_0_20px_rgba(16,185,129,0.3)]" />
 
                     <div className="max-w-3xl space-y-10 relative z-10">
@@ -99,19 +97,19 @@ const UnbrokenLinks: React.FC = () => {
                         />
 
                         <div className="grid md:grid-cols-2 gap-10 pt-10 text-left">
-                            <div className="space-y-4 p-8 bg-white dark:bg-white/5 rounded-3xl border border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 transition-colors shadow-sm dark:shadow-none">
+                            <div className="space-y-4 p-8 bg-white dark:bg-white/5 rounded-3xl border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 transition-colors shadow-sm dark:shadow-none">
                                 <h4 className="text-emerald-600 dark:text-emerald-400 font-black flex items-center gap-3 uppercase tracking-tight">
                                     <ShieldCheck size={20} /> {t('engineeringPage.featureDetails.unbrokenLinks.stalker.inode.title')}
                                 </h4>
-                                <p className="text-sm text-slate-400 font-light leading-relaxed">
+                                <p className="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                                     {t('engineeringPage.featureDetails.unbrokenLinks.stalker.inode.description')}
                                 </p>
                             </div>
-                            <div className="space-y-4 p-8 bg-white dark:bg-white/5 rounded-3xl border border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 transition-colors shadow-sm dark:shadow-none">
+                            <div className="space-y-4 p-8 bg-white dark:bg-white/5 rounded-3xl border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 transition-colors shadow-sm dark:shadow-none">
                                 <h4 className="text-emerald-600 dark:text-emerald-400 font-black flex items-center gap-3 uppercase tracking-tight">
                                     <ExternalLink size={20} /> {t('engineeringPage.featureDetails.unbrokenLinks.stalker.alias.title')}
                                 </h4>
-                                <p className="text-sm text-slate-400 font-light leading-relaxed">
+                                <p className="text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
                                     {t('engineeringPage.featureDetails.unbrokenLinks.stalker.alias.description')}
                                 </p>
                             </div>
@@ -122,7 +120,7 @@ const UnbrokenLinks: React.FC = () => {
                 {/* Closing */}
                 <div className="text-center pt-20 border-t border-slate-100 dark:border-slate-800 lg:px-20">
                     <p
-                        className="text-2xl md:text-3xl font-black italic text-white mb-8 leading-tight"
+                        className="text-2xl md:text-3xl font-black italic text-slate-900 dark:text-white mb-8 leading-tight"
                         dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.unbrokenLinks.footer') }}
                     />
                     <div className="inline-flex items-center gap-2 text-slate-400 font-mono text-[10px] tracking-[0.3em] uppercase">

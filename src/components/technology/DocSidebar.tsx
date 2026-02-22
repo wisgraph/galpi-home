@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, FileText, Star } from 'lucide-react';
@@ -19,10 +17,10 @@ interface DocSidebarProps {
 
 const DocSidebar: React.FC<DocSidebarProps> = ({ docs, selectedId, onSelect }) => {
     return (
-        <aside className="w-full md:w-80 shrink-0 md:border-r border-slate-100 dark:border-slate-800 bg-slate-950">
+        <aside className="w-full md:w-80 shrink-0 md:border-r border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
             <div className="p-8 sticky top-32 max-h-[calc(100vh-8rem)] overflow-y-auto scrollbar-hide">
                 <div className="mb-6">
-                    <h2 className="font-bold text-lg text-white flex items-center gap-2">
+                    <h2 className="font-bold text-lg text-slate-900 dark:text-white flex items-center gap-2">
                         <FileText className="w-5 h-5 text-violet-500" />
                         핵심 기능
                     </h2>
@@ -35,7 +33,7 @@ const DocSidebar: React.FC<DocSidebarProps> = ({ docs, selectedId, onSelect }) =
                                 onClick={() => onSelect(doc.id)}
                                 className={`w-full flex items-center justify-between px-3 py-2.5 text-sm rounded-lg transition-all duration-200 group ${selectedId === doc.id
                                     ? 'bg-violet-50 dark:bg-violet-500/10 text-violet-700 dark:text-violet-300 font-semibold shadow-sm'
-                                    : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
+                                    : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
                                     }`}
                             >
                                 <div className="flex items-center gap-2 truncate">

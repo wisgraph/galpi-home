@@ -1,13 +1,11 @@
-'use client';
-
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { useLocation } from 'react-router-dom';
 
 export const useNavbarLogic = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const pathname = usePathname();
-    const isHome = pathname === '/' || pathname === '/ko' || pathname === '/en' || pathname === '/jp' || pathname.endsWith('/ko') || pathname.endsWith('/en') || pathname.endsWith('/jp');
+    const location = useLocation();
+    const isHome = location.pathname === '/';
 
     // Scroll Logic
     useEffect(() => {
@@ -22,7 +20,7 @@ export const useNavbarLogic = () => {
     // Mobile Menu Logic
     useEffect(() => {
         setIsMobileMenuOpen(false);
-    }, [pathname]);
+    }, [location.pathname]);
 
     // Visibility Logic
     // Homepage: 2.5s delay (initially false), others: immediate (initially true)
@@ -45,6 +43,6 @@ export const useNavbarLogic = () => {
         isMobileMenuOpen,
         setIsMobileMenuOpen,
         isVisible,
-        pathname
+        location
     };
 };

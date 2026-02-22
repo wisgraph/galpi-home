@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import AutoContextSearch from './features/AutoContextSearch';
 import SearchEngine from './features/SearchEngine';

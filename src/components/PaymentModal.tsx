@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
@@ -13,6 +11,9 @@ interface PaymentModalProps {
     };
 }
 
+// Worker URL (환경변수 또는 하드코딩)
+const WORKER_URL = import.meta.env.VITE_PAYMENT_WORKER_URL || 'https://galpi-payment-worker.wisgraph.workers.dev';
+
 const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) => {
     const [step, setStep] = useState<'info' | 'success' | 'error'>('info');
     const [loading, setLoading] = useState(false);
@@ -25,6 +26,48 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
         email: '',
     });
 
+    const [couponCode, setCouponCode] = useState('');
+    const [couponDiscount, setCouponDiscount] = useState<{ type: string, amount: number, name?: string } | null>(null);
+    const [couponError, setCouponError] = useState('');
+    const [isVerifyingCoupon, setIsVerifyingCoupon] = useState(false);
+
+    const handleVerifyCoupon = async () => {
+        if (!couponCode.trim()) return;
+        setIsVerifyingCoupon(true);
+        setCouponError('');
+        try {
+            const response = await fetch(`${WORKER_URL}/api/payments/verify-coupon`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code: couponCode }),
+            });
+            const result = await response.json();
+            if (result.valid) {
+                setCouponDiscount(result.data);
+                setCouponError('');
+            } else {
+                setCouponDiscount(null);
+                setCouponError(result.message || '유효하지 않은 쿠폰입니다.');
+            }
+        } catch (err) {
+            setCouponDiscount(null);
+            setCouponError('쿠폰 조회 중 오류가 발생했습니다.');
+        } finally {
+            setIsVerifyingCoupon(false);
+        }
+    };
+
+    // 기본 원화 가격
+    const basePrice = 7000;
+    let finalPrice = basePrice;
+    if (couponDiscount) {
+        if (couponDiscount.type === 'fixed') {
+            finalPrice = Math.max(0, basePrice - couponDiscount.amount);
+        } else if (couponDiscount.type === 'percent') {
+            finalPrice = Math.max(0, Math.floor(basePrice * (1 - couponDiscount.amount / 100)));
+        }
+    }
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
@@ -35,32 +78,26 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
         setLoading(true);
 
         try {
-            // 원화 가격 산정 (예: $4.99 -> 7,000원 고정 또는 환율 적용)
-            // 사용자 요청에 따라 결제선생 연동 시 원화 금액이 필요함.
-            const priceInKrw = 7000;
-
-            const response = await fetch('/api/payments/send', {
+            const response = await fetch(`${WORKER_URL}/api/payments/send`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    member_nm: formData.name,
+                    name: formData.name, // Worker 규격에 맞게 name으로 전달 (기존은 member_nm)
                     phone: formData.phone,
                     email: formData.email,
-                    product_nm: `Galpi ${plan.name} - Super Early Bird`,
-                    message: '갈피 슈퍼 얼리버드 라이선스 결제 청구서입니다.',
-                    price: priceInKrw,
+                    coupon_code: couponDiscount ? couponCode : undefined
                 }),
             });
 
             const result = await response.json();
 
-            if (result.success) {
-                setShortUrl(result.data.shortURL);
+            if (result.code === '0000') {
+                setShortUrl(result.shortURL);
                 setStep('success');
             } else {
-                setErrorMessage(result.error || '청구서 발송 중 오류가 발생했습니다.');
+                setErrorMessage(result.msg || '청구서 발송 중 오류가 발생했습니다.');
                 setStep('error');
             }
         } catch (err) {
@@ -153,7 +190,50 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
                                             />
                                         </div>
 
-                                        <div className="pt-4">
+                                        <div className="pt-2 border-t border-slate-800/50">
+                                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 px-1">
+                                                할인 쿠폰
+                                            </label>
+                                            <div className="flex gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={couponCode}
+                                                    onChange={(e) => {
+                                                        setCouponCode(e.target.value);
+                                                        if (couponDiscount) setCouponDiscount(null);
+                                                    }}
+                                                    placeholder="프로모션 코드를 입력하세요"
+                                                    className="w-full bg-slate-800 border-none rounded-2xl px-5 py-3 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 transition-all uppercase"
+                                                />
+                                                <button
+                                                    type="button"
+                                                    onClick={handleVerifyCoupon}
+                                                    disabled={isVerifyingCoupon || !couponCode}
+                                                    className="px-6 bg-slate-700 text-white rounded-2xl font-bold whitespace-nowrap hover:bg-slate-600 transition-colors disabled:opacity-50"
+                                                >
+                                                    {isVerifyingCoupon ? <Loader2 className="animate-spin" size={18} /> : '적용'}
+                                                </button>
+                                            </div>
+                                            {couponError && <p className="text-red-500 text-xs mt-2 px-1 font-medium">{couponError}</p>}
+                                            {couponDiscount && (
+                                                <p className="text-emerald-500 text-xs mt-2 px-1 font-bold flex items-center gap-1">
+                                                    <CheckCircle2 size={12} />
+                                                    {couponDiscount.name ? `${couponDiscount.name} 쿠폰이 적용되었습니다.` : '쿠폰이 적용되었습니다.'}
+                                                </p>
+                                            )}
+                                        </div>
+
+                                        <div className="bg-slate-950/50 rounded-2xl p-5 border border-slate-800 flex justify-between items-center">
+                                            <span className="text-slate-400 font-medium">최종 결제 금액</span>
+                                            <div className="text-right">
+                                                {couponDiscount && (
+                                                    <span className="text-slate-500 line-through text-sm mr-2">{basePrice.toLocaleString()}원</span>
+                                                )}
+                                                <span className="text-2xl font-black text-white">{finalPrice.toLocaleString()}원</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="pt-2">
                                             <button
                                                 type="submit"
                                                 disabled={loading}
