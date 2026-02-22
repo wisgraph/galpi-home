@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
@@ -10,9 +12,6 @@ interface PaymentModalProps {
         price: string;
     };
 }
-
-// Worker URL (환경변수 또는 하드코딩)
-const WORKER_URL = import.meta.env.VITE_PAYMENT_WORKER_URL || 'https://galpi-payment-worker.wisgraph.workers.dev';
 
 const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) => {
     const [step, setStep] = useState<'info' | 'success' | 'error'>('info');
@@ -36,7 +35,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
         setIsVerifyingCoupon(true);
         setCouponError('');
         try {
-            const response = await fetch(`${WORKER_URL}/api/payments/verify-coupon`, {
+            const response = await fetch('/api/payments/verify-coupon', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ code: couponCode }),
@@ -78,26 +77,29 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
         setLoading(true);
 
         try {
-            const response = await fetch(`${WORKER_URL}/api/payments/send`, {
+            const response = await fetch('/api/payments/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: formData.name, // Worker 규격에 맞게 name으로 전달 (기존은 member_nm)
+                    member_nm: formData.name,
                     phone: formData.phone,
                     email: formData.email,
+                    product_nm: `Galpi ${plan.name} - Super Early Bird`,
+                    message: '갈피 슈퍼 얼리버드 라이선스 결제 청구서입니다.',
+                    price: basePrice, // 서버가 쿠폰을 재검증하여 최종 가격 산정
                     coupon_code: couponDiscount ? couponCode : undefined
                 }),
             });
 
             const result = await response.json();
 
-            if (result.code === '0000') {
-                setShortUrl(result.shortURL);
+            if (result.success) {
+                setShortUrl(result.data.shortURL);
                 setStep('success');
             } else {
-                setErrorMessage(result.msg || '청구서 발송 중 오류가 발생했습니다.');
+                setErrorMessage(result.error || '청구서 발송 중 오류가 발생했습니다.');
                 setStep('error');
             }
         } catch (err) {
@@ -200,7 +202,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
                                                     value={couponCode}
                                                     onChange={(e) => {
                                                         setCouponCode(e.target.value);
-                                                        if (couponDiscount) setCouponDiscount(null);
+                                                        if (couponDiscount) setCouponDiscount(null); // 코드가 바뀌면 기존 할인 취소
                                                     }}
                                                     placeholder="프로모션 코드를 입력하세요"
                                                     className="w-full bg-slate-800 border-none rounded-2xl px-5 py-3 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 transition-all uppercase"

@@ -1,3 +1,5 @@
+
+
 import React, { forwardRef } from "react";
 import { Persona } from "./personaData";
 import { useTheme } from "../../contexts/ThemeContext";
@@ -32,7 +34,7 @@ const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
     return (
       <div
         ref={ref}
-        className="h-screen w-full relative overflow-hidden flex flex-col md:flex-row items-center justify-center bg-white dark:bg-slate-950 px-6 md:px-10 lg:px-16"
+        className="h-screen w-full relative overflow-hidden flex flex-col md:flex-row items-center justify-center bg-slate-950 px-6 md:px-10 lg:px-16"
       >
         {/* 1. Immersive Apple-Style Background */}
         <div
@@ -59,7 +61,7 @@ const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
         {/* 2. Cinematic Content Area (Left Focus) */}
         <div className="persona-content relative z-20 w-full md:w-[40%] flex flex-col items-start gap-1 md:translate-y-8">
           {/* H1: Role */}
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white leading-none tracking-tight">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white leading-none tracking-tight">
             {role}
           </h1>
 
@@ -71,7 +73,7 @@ const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
           <div className="h-0.5 w-12 bg-slate-200 dark:bg-white/20 mt-10 mb-6" />
 
           {/* H5: PainPoint */}
-          <p className="text-base md:text-lg text-slate-500 dark:text-slate-400 font-medium tracking-tight max-w-lg leading-relaxed">
+          <p className="text-base md:text-lg text-slate-400 font-medium tracking-tight max-w-lg leading-relaxed">
             {painPoint.replace(/\*\*/g, "")}
           </p>
         </div>
@@ -132,7 +134,7 @@ const PersonaPanel = forwardRef<HTMLDivElement, PersonaPanelProps>(
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 dark:text-white/30 mb-1">
                 {t('persona.panel.solutionBadge') || 'The Solution'}
               </span>
-              <h4 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+              <h4 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.1)] dark:drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
                 {solution}
               </h4>
               <div className="h-px w-8 bg-slate-200 dark:bg-white/20 mt-3" />

@@ -1,3 +1,5 @@
+
+
 import { RefObject, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -5,18 +7,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 interface HeroAnimationRefs {
-    cinemaBox: RefObject<HTMLDivElement>;
-    problemLayer: RefObject<HTMLDivElement>;
-    solutionLayer: RefObject<HTMLDivElement>;
-    overlay: RefObject<HTMLDivElement>;
-    videoWrapper: RefObject<HTMLDivElement>;
-    slowTimer: RefObject<HTMLDivElement>;
-    fastTimer: RefObject<HTMLDivElement>;
-    video: RefObject<HTMLVideoElement>;
+    cinemaBox: RefObject<HTMLDivElement | null>;
+    problemLayer: RefObject<HTMLDivElement | null>;
+    solutionLayer: RefObject<HTMLDivElement | null>;
+    overlay: RefObject<HTMLDivElement | null>;
+    videoWrapper: RefObject<HTMLDivElement | null>;
+    slowTimer: RefObject<HTMLDivElement | null>;
+    fastTimer: RefObject<HTMLDivElement | null>;
+    video: RefObject<HTMLVideoElement | null>;
 }
 
 export const useHeroAnimation = (
-    containerRef: RefObject<HTMLDivElement>,
+    containerRef: RefObject<HTMLDivElement | null>,
     refs: HeroAnimationRefs
 ) => {
     useLayoutEffect(() => {

@@ -1,3 +1,5 @@
+
+
 import { useLayoutEffect, RefObject } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -5,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export const usePersonaAnimation = (
-    containerRef: RefObject<HTMLDivElement>,
+    containerRef: RefObject<HTMLDivElement | null>,
     panelsRef: React.MutableRefObject<HTMLDivElement[]>,
     itemCount: number
 ) => {

@@ -1,4 +1,9 @@
 {
+    "metadata": {
+        "title": "Galpi - 0.1s Teleportation for Intellectual Production",
+        "description": "Summon files, web pages, and notes in 0.5s. macOS productivity tool built with Rust and native performance.",
+        "keywords": "productivity, macOS, launcher, file search, knowledge management, PKM, galpi, galpi"
+    },
     "common": {
         "cta": {
             "start": "Get Started",

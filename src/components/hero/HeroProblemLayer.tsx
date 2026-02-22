@@ -1,10 +1,12 @@
+
+
 import React from "react";
 import VideoMask from "../common/VideoMask";
 import Typewriter from "../common/Typewriter";
 
 interface HeroProblemLayerProps {
-  layerRef: React.RefObject<HTMLDivElement>;
-  timerRef: React.RefObject<HTMLDivElement>;
+  layerRef: React.RefObject<HTMLDivElement | null>;
+  timerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const HeroProblemLayer: React.FC<HeroProblemLayerProps> = ({
@@ -34,7 +36,7 @@ const HeroProblemLayer: React.FC<HeroProblemLayerProps> = ({
         <div className="bg-black/40 backdrop-blur-xl px-12 py-8 rounded-[2rem] border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
           <div
             ref={timerRef}
-            className="text-6xl md:text-8xl font-mono font-bold text-slate-400 dark:text-slate-600 tabular-nums tracking-tighter"
+            className="text-6xl md:text-8xl font-mono font-bold text-slate-600 tabular-nums tracking-tighter"
           >
             0.00s
           </div>

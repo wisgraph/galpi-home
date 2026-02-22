@@ -1,5 +1,7 @@
+
+
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { trackPageView } from '../lib/analytics';
 
 /**
@@ -7,9 +9,12 @@ import { trackPageView } from '../lib/analytics';
  */
 export const usePageTracking = () => {
     const location = useLocation();
+    const pathname = location.pathname;
+    const searchParams = useSearchParams();
 
     useEffect(() => {
         // Track page view on location change
-        trackPageView(location.pathname + location.search);
-    }, [location]);
+        const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
+        trackPageView(url);
+    }, [pathname, searchParams]);
 };

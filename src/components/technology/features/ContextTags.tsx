@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Hash, Settings, MousePointer2, Target, Layers, Layout } from 'lucide-react';
@@ -23,11 +25,11 @@ const ContextTags: React.FC = () => {
                             {t('engineeringPage.featureDetails.contextTags.badge')}
                         </div>
                         <h1
-                            className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight leading-[1.1]"
+                            className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight leading-[1.1]"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.title') }}
                         />
                         <p
-                            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-3xl"
+                            className="text-xl md:text-2xl text-slate-400 font-light leading-relaxed max-w-3xl"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.description') }}
                         />
                     </motion.div>
@@ -42,16 +44,16 @@ const ContextTags: React.FC = () => {
                             <Hash size={16} /> {t('engineeringPage.featureDetails.contextTags.steps.typedTag.badge')}
                         </div>
                         <h2
-                            className="text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                            className="text-4xl font-black text-white tracking-tight"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.steps.typedTag.title') }}
                         />
                         <p
-                            className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light"
+                            className="text-lg text-slate-400 leading-relaxed font-light"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.steps.typedTag.description') }}
                         />
                         <div className="flex gap-3">
-                            <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs text-slate-500 font-mono">#project:galpi</span>
-                            <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-xs text-slate-500 font-mono">#client:internal</span>
+                            <span className="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-500 font-mono">#project:galpi</span>
+                            <span className="px-3 py-1 rounded-full bg-slate-800 text-xs text-slate-500 font-mono">#client:internal</span>
                         </div>
                     </div>
                     <div className="lg:col-span-7 relative bg-slate-50 dark:bg-slate-900/50 rounded-[2rem] border border-slate-100 dark:border-slate-800 flex items-center justify-center overflow-hidden shadow-inner group">
@@ -79,11 +81,11 @@ const ContextTags: React.FC = () => {
                             <Settings size={16} /> {t('engineeringPage.featureDetails.contextTags.steps.contextType.badge')}
                         </div>
                         <h2
-                            className="text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                            className="text-4xl font-black text-white tracking-tight"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.steps.contextType.title') }}
                         />
                         <p
-                            className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light"
+                            className="text-lg text-slate-400 leading-relaxed font-light"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.steps.contextType.description') }}
                         />
                         <div className="flex items-center gap-2 text-sm text-slate-500">
@@ -147,7 +149,7 @@ const ContextTags: React.FC = () => {
                 {/* Recap */}
                 <footer className="text-center space-y-8 pt-20 border-t border-slate-100 dark:border-slate-800">
                     <p
-                        className="text-2xl md:text-4xl font-black text-slate-900 dark:text-white leading-[1.2]"
+                        className="text-2xl md:text-4xl font-black text-white leading-[1.2]"
                         dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.contextTags.footer') }}
                     />
                     <div className="flex justify-center gap-8 text-xs font-mono text-slate-400 tracking-widest uppercase">
@@ -164,4 +166,3 @@ const ContextTags: React.FC = () => {
 };
 
 export default ContextTags;
-

@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import Markdown from 'react-markdown';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -19,11 +21,11 @@ const DocContent: React.FC<DocContentProps> = ({ content, title }) => {
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <div className="mb-8 pb-8 border-b border-slate-200 dark:border-slate-800">
-                            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+                        <div className="mb-8 pb-8 border-b border-slate-800">
+                            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                                 {title}
                             </h1>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wide">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-slate-400 text-xs font-medium uppercase tracking-wide">
                                 Technical Documentation
                             </div>
                         </div>

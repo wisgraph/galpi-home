@@ -1,3 +1,5 @@
+
+
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -5,7 +7,8 @@ export const useNavbarLogic = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
-    const isHome = location.pathname === '/';
+    const pathname = location.pathname;
+    const isHome = pathname === '/' || pathname === '/ko' || pathname === '/en' || pathname === '/jp' || pathname.endsWith('/ko') || pathname.endsWith('/en') || pathname.endsWith('/jp');
 
     // Scroll Logic
     useEffect(() => {
@@ -20,7 +23,7 @@ export const useNavbarLogic = () => {
     // Mobile Menu Logic
     useEffect(() => {
         setIsMobileMenuOpen(false);
-    }, [location.pathname]);
+    }, [pathname]);
 
     // Visibility Logic
     // Homepage: 2.5s delay (initially false), others: immediate (initially true)
@@ -43,6 +46,6 @@ export const useNavbarLogic = () => {
         isMobileMenuOpen,
         setIsMobileMenuOpen,
         isVisible,
-        location
+        pathname
     };
 };

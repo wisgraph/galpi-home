@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Database, Shield, Unlock, Code2, AlertTriangle, CheckCircle } from 'lucide-react';
@@ -24,11 +26,11 @@ const DataSync: React.FC = () => {
                             {t('engineeringPage.featureDetails.dataSync.badge')}
                         </div>
                         <h1
-                            className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tight leading-[1.1]"
+                            className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight leading-[1.1]"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.dataSync.title') }}
                         />
                         <p
-                            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-3xl"
+                            className="text-xl md:text-2xl text-slate-400 font-light leading-relaxed max-w-3xl"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.dataSync.description') }}
                         />
                     </motion.div>
@@ -40,14 +42,14 @@ const DataSync: React.FC = () => {
                 <section className="grid lg:grid-cols-2 gap-16 items-start">
                     <div className="space-y-8">
                         <h2
-                            className="text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight"
+                            className="text-4xl font-black text-white tracking-tight leading-tight"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.dataSync.sovereignty.title') }}
                         />
-                        <div className="space-y-6 text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed">
+                        <div className="space-y-6 text-lg text-slate-400 font-light leading-relaxed">
                             <p>
                                 {t('engineeringPage.featureDetails.dataSync.sovereignty.description1')}
                             </p>
-                            <p className="font-bold text-slate-900 dark:text-white bg-cyan-50 dark:bg-cyan-950/20 py-2 px-4 rounded-xl border-l-4 border-cyan-500">
+                            <p className="font-bold text-white bg-cyan-50 dark:bg-cyan-950/20 py-2 px-4 rounded-xl border-l-4 border-cyan-500">
                                 {t('engineeringPage.featureDetails.dataSync.sovereignty.description2')}
                             </p>
                         </div>
@@ -95,10 +97,10 @@ const DataSync: React.FC = () => {
                             desc: t('engineeringPage.featureDetails.dataSync.technicalTruth.zeroAnalytics.description')
                         }
                     ].map((item, i) => (
-                        <div key={i} className="p-10 bg-white dark:bg-slate-900 rounded-[3rem] border border-slate-100 dark:border-slate-800 shadow-sm border-b-8 border-b-cyan-500/30 hover:border-b-cyan-500 transition-all">
+                        <div key={i} className="p-10 bg-slate-900 rounded-[3rem] border border-slate-100 dark:border-slate-800 shadow-sm border-b-8 border-b-cyan-500/30 hover:border-b-cyan-500 transition-all">
                             <item.icon className="w-12 h-12 text-cyan-500 mb-8" />
-                            <h3 className="text-xl font-black mb-4 text-slate-900 dark:text-white uppercase tracking-tight">{item.title}</h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-light">
+                            <h3 className="text-xl font-black mb-4 text-white uppercase tracking-tight">{item.title}</h3>
+                            <p className="text-slate-400 text-sm leading-relaxed font-light">
                                 {item.desc}
                             </p>
                         </div>
@@ -108,7 +110,7 @@ const DataSync: React.FC = () => {
                 {/* Closing */}
                 <div className="text-center pt-20 border-t border-slate-100 dark:border-slate-800 lg:px-20">
                     <p
-                        className="text-2xl md:text-3xl font-black italic text-slate-900 dark:text-white mb-8 leading-tight"
+                        className="text-2xl md:text-3xl font-black italic text-white mb-8 leading-tight"
                         dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.dataSync.footer') }}
                     />
                     <div className="inline-flex items-center gap-2 text-slate-400 font-mono text-[10px] tracking-[0.3em] uppercase">
@@ -122,4 +124,3 @@ const DataSync: React.FC = () => {
 };
 
 export default DataSync;
-

@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Command, Keyboard, Zap, Hash, ArrowRight } from 'lucide-react';
@@ -24,11 +26,11 @@ const TagAutocomplete: React.FC = () => {
                             {t('engineeringPage.featureDetails.tagAutocomplete.badge')}
                         </div>
                         <h1
-                            className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-tight"
+                            className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-tight"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.tagAutocomplete.title') }}
                         />
                         <p
-                            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed"
+                            className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.tagAutocomplete.description') }}
                         />
                     </motion.div>
@@ -40,7 +42,7 @@ const TagAutocomplete: React.FC = () => {
                 {/* Intro */}
                 <section className="text-center max-w-2xl mx-auto">
                     <p
-                        className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light"
+                        className="text-lg text-slate-400 leading-relaxed font-light"
                         dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.tagAutocomplete.intro') }}
                     />
                 </section>
@@ -55,12 +57,12 @@ const TagAutocomplete: React.FC = () => {
                             <div className="relative mb-6">
                                 <div className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900 border border-purple-500/50 rounded-xl shadow-[0_0_0_4px_rgba(168,85,247,0.1)]">
                                     <span className="text-slate-400">Search...</span>
-                                    <span className="text-slate-900 dark:text-white font-medium">#pro</span>
+                                    <span className="text-white font-medium">#pro</span>
                                     <span className="w-0.5 h-5 bg-purple-500 animate-pulse" />
                                 </div>
 
                                 {/* Autocomplete Dropdown */}
-                                <div className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden">
+                                <div className="absolute top-full left-0 mt-2 w-64 bg-slate-900 rounded-xl border border-slate-800 shadow-xl overflow-hidden">
                                     <div className="p-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-400 uppercase tracking-wider">
                                         {t('engineeringPage.featureDetails.tagAutocomplete.mockup.badge')}
                                     </div>
@@ -69,10 +71,10 @@ const TagAutocomplete: React.FC = () => {
                                             <span>#project:antigravity</span>
                                             <span className="text-[10px] opacity-50 px-1.5 py-0.5 rounded border border-purple-300">Enter</span>
                                         </div>
-                                        <div className="p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 flex justify-between items-center cursor-pointer">
+                                        <div className="p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 flex justify-between items-center cursor-pointer">
                                             <span>#project:galpi</span>
                                         </div>
-                                        <div className="p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 flex justify-between items-center cursor-pointer">
+                                        <div className="p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-400 flex justify-between items-center cursor-pointer">
                                             <span>#protocol</span>
                                         </div>
                                     </div>
@@ -85,20 +87,20 @@ const TagAutocomplete: React.FC = () => {
                 {/* Features Grid */}
                 <section className="grid md:grid-cols-2 gap-8">
                     <div className="p-8 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">
-                        <div className="w-12 h-12 rounded-xl bg-white dark:bg-black shadow-sm flex items-center justify-center text-slate-900 dark:text-white mb-6">
+                        <div className="w-12 h-12 rounded-xl bg-white dark:bg-black shadow-sm flex items-center justify-center text-white mb-6">
                             <Zap size={24} />
                         </div>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('engineeringPage.featureDetails.tagAutocomplete.features.learning.title')}</h3>
-                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        <h3 className="text-xl font-bold text-white mb-3">{t('engineeringPage.featureDetails.tagAutocomplete.features.learning.title')}</h3>
+                        <p className="text-slate-400 text-sm leading-relaxed">
                             {t('engineeringPage.featureDetails.tagAutocomplete.features.learning.description')}
                         </p>
                     </div>
                     <div className="p-8 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">
-                        <div className="w-12 h-12 rounded-xl bg-white dark:bg-black shadow-sm flex items-center justify-center text-slate-900 dark:text-white mb-6">
+                        <div className="w-12 h-12 rounded-xl bg-white dark:bg-black shadow-sm flex items-center justify-center text-white mb-6">
                             <Keyboard size={24} />
                         </div>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('engineeringPage.featureDetails.tagAutocomplete.features.frictionless.title')}</h3>
-                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        <h3 className="text-xl font-bold text-white mb-3">{t('engineeringPage.featureDetails.tagAutocomplete.features.frictionless.title')}</h3>
+                        <p className="text-slate-400 text-sm leading-relaxed">
                             {t('engineeringPage.featureDetails.tagAutocomplete.features.frictionless.description')}
                         </p>
                     </div>
@@ -137,8 +139,8 @@ const TagAutocomplete: React.FC = () => {
                     </div>
                 </section>
 
-                <div className="text-center pt-10 border-t border-slate-200 dark:border-slate-800">
-                    <p className="text-xl md:text-2xl font-serif italic text-slate-500 dark:text-slate-400">
+                <div className="text-center pt-10 border-t border-slate-800">
+                    <p className="text-xl md:text-2xl font-serif italic text-slate-400">
                         {t('engineeringPage.featureDetails.tagAutocomplete.footer')}
                     </p>
                 </div>
@@ -149,4 +151,3 @@ const TagAutocomplete: React.FC = () => {
 };
 
 export default TagAutocomplete;
-

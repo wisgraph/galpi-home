@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Search, Zap, Cpu, Brain, Repeat, Settings2, Sparkles, MousePointer2, Keyboard } from 'lucide-react';
@@ -24,11 +26,11 @@ const AutoContextSearch: React.FC = () => {
                             {t('engineeringPage.featureDetails.autoContextSearch.badge')}
                         </div>
                         <h1
-                            className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-tight"
+                            className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-tight"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.autoContextSearch.title') }}
                         />
                         <p
-                            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed"
+                            className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.autoContextSearch.description') }}
                         />
                     </motion.div>
@@ -40,25 +42,25 @@ const AutoContextSearch: React.FC = () => {
                 {/* Core Concept */}
                 <section className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-3xl font-black text-slate-900 dark:text-white">{t('engineeringPage.featureDetails.autoContextSearch.concept.title')}</h2>
+                        <h2 className="text-3xl font-black text-white">{t('engineeringPage.featureDetails.autoContextSearch.concept.title')}</h2>
                         <p
-                            className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light"
+                            className="text-lg text-slate-400 leading-relaxed font-light"
                             dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.autoContextSearch.concept.description') }}
                         />
                         <div className="p-5 bg-purple-50 dark:bg-purple-950/20 rounded-2xl border border-purple-100 dark:border-purple-900/30 flex items-start gap-4">
                             <MousePointer2 className="text-rose-500 shrink-0 mt-1 rotate-12" size={24} />
                             <div>
-                                <h4 className="font-bold text-slate-900 dark:text-white mb-1">{t('engineeringPage.featureDetails.autoContextSearch.concept.mouseWarning.title')}</h4>
-                                <p className="text-sm text-slate-600 dark:text-slate-400">
+                                <h4 className="font-bold text-white mb-1">{t('engineeringPage.featureDetails.autoContextSearch.concept.mouseWarning.title')}</h4>
+                                <p className="text-sm text-slate-400">
                                     {t('engineeringPage.featureDetails.autoContextSearch.concept.mouseWarning.description')}
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-900 p-8 rounded-[2rem] shadow-2xl border border-slate-200 dark:border-slate-800 relative">
+                    <div className="bg-slate-900 p-8 rounded-[2rem] shadow-2xl border border-slate-800 relative">
                         <div className="space-y-4">
-                            <div className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-black rounded-xl border border-slate-200 dark:border-slate-800">
+                            <div className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-black rounded-xl border border-slate-800">
                                 <Keyboard className="text-purple-500" size={20} />
                                 <div className="flex-1">
                                     <div className="text-[10px] text-slate-400 uppercase tracking-widest">{t('engineeringPage.featureDetails.autoContextSearch.concept.reachBadge')}</div>
@@ -90,24 +92,24 @@ const AutoContextSearch: React.FC = () => {
                         <div className="w-10 h-10 rounded-xl bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-black">
                             <Brain size={24} />
                         </div>
-                        <h2 className="text-3xl font-black text-slate-900 dark:text-white">{t('engineeringPage.featureDetails.autoContextSearch.smartContext.title')}</h2>
+                        <h2 className="text-3xl font-black text-white">{t('engineeringPage.featureDetails.autoContextSearch.smartContext.title')}</h2>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8">
-                        <div className="p-8 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">{t('engineeringPage.featureDetails.autoContextSearch.smartContext.recovery.title')}</h3>
+                        <div className="p-8 bg-slate-900 rounded-3xl border border-slate-800 shadow-sm">
+                            <h3 className="text-xl font-bold text-white mb-4">{t('engineeringPage.featureDetails.autoContextSearch.smartContext.recovery.title')}</h3>
                             <p
-                                className="text-slate-600 dark:text-slate-400 leading-relaxed font-light"
+                                className="text-slate-400 leading-relaxed font-light"
                                 dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.autoContextSearch.smartContext.recovery.description') }}
                             />
                         </div>
-                        <div className="p-8 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                        <div className="p-8 bg-slate-900 rounded-3xl border border-slate-800 shadow-sm space-y-4">
                             <div className="flex items-center gap-3 text-indigo-500">
                                 <Settings2 size={24} />
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white">{t('engineeringPage.featureDetails.autoContextSearch.smartContext.custom.title')}</h3>
+                                <h3 className="text-xl font-bold text-white">{t('engineeringPage.featureDetails.autoContextSearch.smartContext.custom.title')}</h3>
                             </div>
                             <p
-                                className="text-slate-600 dark:text-slate-400 leading-relaxed font-light"
+                                className="text-slate-400 leading-relaxed font-light"
                                 dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.autoContextSearch.smartContext.custom.description') }}
                             />
                         </div>
@@ -115,9 +117,9 @@ const AutoContextSearch: React.FC = () => {
                 </section>
 
                 {/* Closing */}
-                <div className="text-center pt-10 border-t border-slate-200 dark:border-slate-800">
+                <div className="text-center pt-10 border-t border-slate-800">
                     <p
-                        className="text-xl md:text-2xl font-serif italic text-slate-500 dark:text-slate-400"
+                        className="text-xl md:text-2xl font-serif italic text-slate-400"
                         dangerouslySetInnerHTML={{ __html: t('engineeringPage.featureDetails.autoContextSearch.footer') }}
                     />
                 </div>
@@ -128,4 +130,3 @@ const AutoContextSearch: React.FC = () => {
 };
 
 export default AutoContextSearch;
-
