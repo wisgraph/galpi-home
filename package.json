@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "pages:build": "npx @cloudflare/next-on-pages --experimental-minify"
+    "pages:build": "npx @opennextjs/cloudflare build"
   },
   "dependencies": {
     "@microsoft/clarity": "^1.0.2",
@@ -22,7 +22,7 @@
     "recharts": "^3.7.0"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.0",
+    "@opennextjs/cloudflare": "^1.16.5",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
