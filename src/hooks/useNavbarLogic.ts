@@ -1,0 +1,50 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+
+export const useNavbarLogic = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const isHome = pathname === '/' || pathname === '/ko' || pathname === '/en' || pathname === '/jp' || pathname.endsWith('/ko') || pathname.endsWith('/en') || pathname.endsWith('/jp');
+
+    // Scroll Logic
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Check initial scroll position
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Mobile Menu Logic
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [pathname]);
+
+    // Visibility Logic
+    // Homepage: 2.5s delay (initially false), others: immediate (initially true)
+    const [isVisible, setIsVisible] = useState(!isHome);
+
+    useEffect(() => {
+        if (isHome) {
+            setIsVisible(false);
+            const timer = setTimeout(() => {
+                setIsVisible(true);
+            }, 2500);
+            return () => clearTimeout(timer);
+        } else {
+            setIsVisible(true);
+        }
+    }, [isHome]);
+
+    return {
+        isScrolled,
+        isMobileMenuOpen,
+        setIsMobileMenuOpen,
+        isVisible,
+        pathname
+    };
+};

@@ -1,41 +1,36 @@
-# 갈피 (Galpi)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-**갈피** - The Context Launcher
+## Getting Started
 
-맥락 기반 링크 관리 시스템
-
-## 개요
-
-갈피는 파일, 웹사이트, 문서를 맥락 중심으로 연결하고 관리하는 macOS 애플리케이션입니다.
-
-## 주요 기능
-
-- **맥락 기반 연결**: Set Theory를 활용한 자동 연결
-- **Rust 네이티브**: 빠른 성능과 낮은 메모리 사용
-- **투명한 데이터**: JSONL 텍스트 파일로 저장
-- **이중 추적 시스템**: 파일 이동에도 끊어지지 않는 연결
-
-## 기술 스택
-
-- React 19
-- TypeScript
-- Vite
-- TailwindCSS
-- Framer Motion
-
-## 개발
+First, run the development server:
 
 ```bash
-# 의존성 설치
-npm install
-
-# 개발 서버 실행
 npm run dev
-
-# 빌드
-npm run build
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## 라이선스
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Copyright © 2026 갈피 (Galpi)
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

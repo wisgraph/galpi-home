@@ -1,0 +1,256 @@
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import {
+    Check,
+    X,
+    Shield,
+    Zap,
+    CreditCard,
+    ArrowRight,
+    Vote,
+    TrendingUp
+} from 'lucide-react';
+import ScrollReveal from '@/components/animations/ScrollReveal';
+import FAQ from '@/components/FAQ';
+import { useTranslation } from '@/locales/i18n';
+
+const PricingPage: React.FC = () => {
+    const { t } = useTranslation();
+
+    const pricingPlans = t('pricingPage.plans', { returnObjects: true }) as any[];
+    const priceRoadmap = t('pricingPage.roadmap.phases', { returnObjects: true }) as any[];
+    // const trustBadges = t('pricingPage.trustBadges', { returnObjects: true }) as any[];
+
+    // Map icons to badges
+    // const badgeIcons = [Shield, Zap, CreditCard];
+
+    return (
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="pt-24 bg-slate-950 min-h-screen"
+        >
+            {/* Hero Section */}
+            <section className="relative py-24 md:py-40 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-amber-50 via-white to-white dark:from-amber-900/10 dark:via-slate-950 dark:to-slate-950" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-r from-amber-300/30 to-orange-300/30 dark:from-amber-600/10 dark:to-orange-600/10 rounded-full blur-[120px] opacity-30" />
+
+                <div className="container mx-auto px-6 relative">
+                    <ScrollReveal>
+                        <div className="max-w-4xl mx-auto text-center space-y-8">
+                            <div className="space-y-4">
+                                <p className="text-lg md:text-xl text-slate-500 dark:text-slate-500 font-medium">
+                                    {t('pricingPage.hero.apps')}
+                                </p>
+                                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter leading-tight">
+                                    <span
+                                        className="bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent italic"
+                                        dangerouslySetInnerHTML={{ __html: t('pricingPage.hero.question') }}
+                                    />
+                                </h1>
+                            </div>
+                            <div className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed space-y-4 font-light">
+                                <p
+                                    className="font-bold text-white"
+                                    dangerouslySetInnerHTML={{ __html: t('pricingPage.hero.optimized') }}
+                                />
+                                <p dangerouslySetInnerHTML={{ __html: t('pricingPage.hero.opportunity') }} />
+                            </div>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+
+            {/* Pricing Cards */}
+            <section className="py-20 bg-slate-950 relative overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full bg-amber-400/5 dark:bg-orange-900/5 blur-[120px] pointer-events-none"></div>
+
+                <div className="container mx-auto px-6 relative z-10">
+                    <div className="max-w-5xl mx-auto">
+                        <div className="grid md:grid-cols-2 gap-10">
+                            {Array.isArray(pricingPlans) && pricingPlans.map((plan, index) => (
+                                <ScrollReveal key={plan.name} delay={index * 0.1}>
+                                    <div
+                                        className={`relative rounded-[2.5rem] p-10 h-full transition-all border-2 ${plan.name === 'Pro Lifetime'
+                                            ? 'bg-slate-900 border-amber-400 shadow-[0_20px_60px_rgba(245,158,11,0.12)]'
+                                            : 'bg-slate-900/50 border-slate-800'
+                                            }`}
+                                    >
+                                        {plan.badge && (
+                                            <div className="absolute -top-4 right-10 bg-gradient-to-r from-amber-500 to-orange-600 text-white text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest shadow-lg">
+                                                {plan.badge}
+                                            </div>
+                                        )}
+
+                                        <div className="mb-10">
+                                            <h3 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-4">
+                                                {plan.name}
+                                            </h3>
+                                            <div className="flex items-baseline gap-2">
+                                                {plan.originalPrice && <span className="text-slate-400 line-through text-2xl font-light">{plan.originalPrice}</span>}
+                                                <span className={`text-7xl font-black tracking-tighter italic ${plan.name === 'Pro Lifetime' ? 'text-amber-500' : 'text-white'}`}>
+                                                    {plan.price}
+                                                </span>
+                                            </div>
+                                            <p className="mt-4 text-slate-400 font-medium italic">{plan.description}</p>
+                                        </div>
+
+                                        <ul className="space-y-4 mb-12 flex-grow">
+                                            {Array.isArray(plan.features) && plan.features.map((feature: any, fIdx: number) => (
+                                                <li key={fIdx} className="flex items-start gap-4 text-slate-400">
+                                                    {feature.included ? (
+                                                        <Check size={18} className={feature.highlight ? 'text-amber-500' : 'text-emerald-500'} strokeWidth={3} />
+                                                    ) : (
+                                                        <X size={18} className="text-slate-300" strokeWidth={3} />
+                                                    )}
+                                                    <span className={`text-base leading-tight ${feature.highlight ? 'text-white font-bold' : ''}`}>
+                                                        {feature.text}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        <motion.a
+                                            href={plan.name === 'Pro Lifetime' ? '#purchase' : 'https://github.com/wisgraph/galpi-release'}
+                                            whileHover={{ scale: 1.02 }}
+                                            whileTap={{ scale: 0.98 }}
+                                            className={`w-full py-5 rounded-2xl font-black text-xl text-center flex items-center justify-center gap-2 transition-all ${plan.name === 'Pro Lifetime'
+                                                ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-xl shadow-orange-600/30'
+                                                : 'bg-slate-800 text-white hover:bg-slate-200'
+                                                }`}
+                                        >
+                                            {plan.cta}
+                                            <ArrowRight size={20} />
+                                        </motion.a>
+                                    </div>
+                                </ScrollReveal>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Price Roadmap */}
+            <section className="py-24 bg-slate-950">
+                <div className="container mx-auto px-6 max-w-4xl">
+                    <ScrollReveal>
+                        <div className="text-center mb-16 space-y-4">
+                            <div className="inline-flex items-center gap-2 text-orange-500 font-black uppercase text-sm tracking-widest mb-2">
+                                <TrendingUp size={20} /> {t('pricingPage.roadmap.appAppreciation')}
+                            </div>
+                            <h2 className="text-4xl font-black text-white tracking-tight italic">{t('pricingPage.roadmap.title')}</h2>
+                            <p
+                                className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed"
+                                dangerouslySetInnerHTML={{ __html: t('pricingPage.roadmap.description') }}
+                            />
+                        </div>
+                    </ScrollReveal>
+                    <div className="grid gap-4">
+                        {Array.isArray(priceRoadmap) && priceRoadmap.map((item, i) => (
+                            <div key={i} className={`flex flex-col md:flex-row items-center justify-between p-8 rounded-3xl border transition-all ${i === 0
+                                ? 'bg-amber-500/5 border-amber-500 shadow-xl scale-[1.02] z-10'
+                                : 'bg-slate-50 dark:bg-slate-900/30 border-slate-100 dark:border-slate-800 opacity-50'
+                                }`}>
+                                <div className="flex items-center gap-6 mb-4 md:mb-0">
+                                    <span className={`text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full ${i === 0 ? 'bg-amber-500 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-500'}`}>
+                                        {item.phase}
+                                    </span>
+                                    <span className={`text-xl font-bold ${i === 0 ? 'text-white' : 'text-slate-500'}`}>{item.apps}{t('pricingPage.roadmap.supportSuffix')}</span>
+                                    {item.note && <span className="text-xs text-slate-400 italic">{item.note}</span>}
+                                </div>
+                                <div className="flex items-center gap-8">
+                                    <span className={`text-3xl font-black ${i === 0 ? 'text-amber-600' : 'text-slate-400'}`}>{item.price}</span>
+                                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{item.status}</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="mt-10 text-center text-slate-400 italic font-medium">
+                        {t('pricingPage.roadmap.footerNote')}
+                    </div>
+                </div>
+            </section>
+
+            {/* Voting Section */}
+            <section className="py-24 bg-slate-950">
+                <div className="container mx-auto px-6 max-w-4xl">
+                    <div className="bg-slate-900 rounded-[3rem] p-12 md:p-16 text-center text-white relative overflow-hidden border border-white/5 shadow-xl dark:shadow-2xl">
+                        <div className="absolute inset-0 bg-gradient-to-br from-amber-600/10 to-transparent pointer-events-none" />
+                        <div className="relative z-10 space-y-8">
+                            <Vote size={48} className="mx-auto text-amber-500" />
+                            <h2 className="text-4xl font-black tracking-tight">{t('pricingPage.voting.title')}</h2>
+                            <p
+                                className="text-xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed"
+                                dangerouslySetInnerHTML={{ __html: t('pricingPage.voting.description') }}
+                            />
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-xl mx-auto text-sm">
+                                <div className="bg-slate-50 dark:bg-white/5 border border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400">
+                                    <Check size={14} /> {t('pricingPage.voting.required')}
+                                </div>
+                                <div className="bg-slate-50 dark:bg-white/5 border border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-amber-600 dark:text-amber-400">
+                                    {t('pricingPage.voting.inProgress')}
+                                </div>
+                                <div className="bg-slate-50 dark:bg-white/5 border border-white/10 p-3 rounded-xl flex items-center justify-center gap-2 text-slate-400">
+                                    {t('pricingPage.voting.voting')}
+                                </div>
+                            </div>
+
+                            <button className="px-10 py-5 bg-amber-600 text-white rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-xl shadow-amber-600/30">
+                                {t('pricingPage.voting.button')}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-32 bg-slate-950">
+                <div className="container mx-auto px-6 text-center">
+                    <h2 className="text-4xl font-black text-white mb-20 tracking-tight">{t('pricingPage.faqTitle')}</h2>
+                    <FAQ />
+                </div>
+            </section>
+
+            {/* CTA */}
+            <section className="py-40 relative overflow-hidden bg-slate-950 text-white text-center">
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-600/10 to-transparent pointer-events-none" />
+
+                <div className="container mx-auto px-6 relative z-10">
+                    <ScrollReveal>
+                        <div className="max-w-4xl mx-auto space-y-12">
+                            <div className="space-y-4">
+                                <h2
+                                    className="text-5xl md:text-7xl font-black tracking-tighter leading-tight"
+                                    dangerouslySetInnerHTML={{ __html: t('pricingPage.finalCta.title') }}
+                                />
+                                <p className="text-2xl text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+                                    {t('pricingPage.finalCta.description')}
+                                </p>
+                            </div>
+
+                            <div className="space-y-6">
+                                <motion.a
+                                    href="#purchase"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="inline-flex items-center gap-4 px-12 py-6 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full text-white font-black text-2xl shadow-2xl shadow-orange-600/30 hover:shadow-orange-600/50 transition-all border-b-4 border-orange-800"
+                                >
+                                    {t('pricingPage.finalCta.button')}
+                                    <ArrowRight size={28} />
+                                </motion.a>
+                            </div>
+
+                            <p className="text-slate-500 font-medium tracking-widest text-sm uppercase">{t('pricingPage.finalCta.footer')}</p>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </section>
+        </motion.div>
+    );
+};
+
+export default PricingPage;
