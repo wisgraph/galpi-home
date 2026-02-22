@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import React from 'react';
 import FeaturesClient from './FeaturesClient';
 import { Metadata } from 'next';

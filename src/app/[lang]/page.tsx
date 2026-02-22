@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import React from 'react';
 import HomeClient from './HomeClient';
 import { Metadata } from 'next';

@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import React from 'react';
 import TermsClient from './TermsClient';
 import { Metadata } from 'next';

@@ -1,3 +1,4 @@
+export const runtime = 'edge';
 import React from 'react';
 import AboutClient from './AboutClient';
 import { Metadata } from 'next';
