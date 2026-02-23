@@ -3,7 +3,7 @@ main = "src/index.ts"
 compatibility_date = "2024-02-23"
 
 [vars]
-PAYMINT_BASE_URL = "http://stg.paymint.co.kr:10200"
+PAYMINT_BASE_URL = "https://erp-api.payssam.kr"
 WORKER_URL = "https://galpi-payment-worker.kogoome.workers.dev"
 BUSINESS_NUMBER = "1234567890"
 

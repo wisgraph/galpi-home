@@ -20,7 +20,7 @@ export interface PaymintResponse {
 }
 
 export async function sendBill(params: SendBillParams, env: any): Promise<PaymintResponse> {
-    const PAYMINT_BASE_URL = env.PAYMINT_BASE_URL || 'http://stg.paymint.co.kr:10200';
+    const PAYMINT_BASE_URL = (env.PAYMINT_BASE_URL || 'http://stg.paymint.co.kr:10200').replace(/\/$/, '');
     const PAYMINT_API_KEY = env.PAYMINT_API_KEY;
     const PAYMINT_MEMBER = env.PAYMINT_MEMBER;
     const PAYMINT_MERCHANT = env.PAYMINT_MERCHANT;
@@ -28,7 +28,10 @@ export async function sendBill(params: SendBillParams, env: any): Promise<Paymin
     const hashString = `${params.bill_id},${params.phone},${params.price}`;
     const hash = await createHash(hashString);
 
-    const response = await fetch(`${PAYMINT_BASE_URL}/if/bill/send`, {
+    const requestUrl = `${PAYMINT_BASE_URL}/if/bill/send`;
+    console.log('[DEBUG] Request URL:', requestUrl);
+
+    const response = await fetch(requestUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8'

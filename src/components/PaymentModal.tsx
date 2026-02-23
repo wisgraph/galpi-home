@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { X, CheckCircle2, AlertCircle, Loader2, ExternalLink, Copy } from 'lucide-react';
 
 interface PaymentModalProps {
     isOpen: boolean;
@@ -263,26 +263,37 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
                                         <CheckCircle2 size={40} className="text-emerald-500" />
                                     </div>
                                     <h2 className="text-3xl font-black text-white mb-4">청구서 발송 완료!</h2>
-                                    <p className="text-slate-400 mb-8 leading-relaxed">
+                                    <p className="text-slate-400 mb-8 leading-relaxed px-4 text-pretty">
                                         입력하신 번호로 <strong>카카오톡 결제 청구서</strong>가 발송되었습니다.<br />
-                                        청구서에서 결제를 완료하시면 라이선스가 발급됩니다.
+                                        알림톡 확인이 어렵다면 아래 버튼을 눌러 바로 결제하실 수 있습니다.
                                     </p>
 
-                                    <div className="p-4 bg-slate-800 rounded-2xl mb-8">
-                                        <p className="text-xs text-slate-500 mb-2 font-black uppercase tracking-widest">직접 결제 링크</p>
+                                    <div className="space-y-3 mb-8 px-4">
                                         <a
                                             href={shortUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-orange-500 font-bold break-all hover:underline"
+                                            className="w-full py-5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-2xl font-black text-xl shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all"
                                         >
-                                            {shortUrl}
+                                            지금 바로 결제하기
+                                            <ExternalLink size={20} />
                                         </a>
+
+                                        <button
+                                            onClick={() => {
+                                                navigator.clipboard.writeText(shortUrl);
+                                                alert('링크가 복사되었습니다.');
+                                            }}
+                                            className="w-full py-4 bg-slate-800/50 text-slate-400 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-slate-800 hover:text-white transition-all border border-slate-700/50"
+                                        >
+                                            <Copy size={16} />
+                                            결제 링크 복사하기
+                                        </button>
                                     </div>
 
                                     <button
                                         onClick={onClose}
-                                        className="w-full py-4 bg-slate-800 text-white rounded-2xl font-bold hover:bg-slate-700 transition-colors"
+                                        className="w-full py-4 text-slate-500 hover:text-white font-bold transition-colors"
                                     >
                                         닫기
                                     </button>
