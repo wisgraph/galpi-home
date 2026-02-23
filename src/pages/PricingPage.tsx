@@ -40,7 +40,7 @@ const PricingPage: React.FC = () => {
                 className="pt-24 bg-white dark:bg-slate-950 min-h-screen"
             >
                 <SEO
-                    title="요금제 및 혜택"
+                    title="라이선스 및 혜택"
                     description="한 번 구매로 영구 소장하세요. 구독료 없는 합리적인 가격 정책과 얼리버드 혜택, 그리고 투명한 업데이트 로드맵을 확인하실 수 있습니다."
                     canonical="https://galpi.wisgraph.com/pricing"
                 />
