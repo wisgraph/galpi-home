@@ -147,10 +147,10 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
 
                                     <form onSubmit={handleSubmit} className="space-y-6">
                                         <div>
-                                            <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-1 px-1">
+                                            <label className="block text-sm font-black text-slate-200 uppercase tracking-widest mb-1.5 px-1">
                                                 Name
                                             </label>
-                                            <p className="text-xs text-slate-400 mb-2 px-1 opacity-80 font-medium">닉네임도 괜찮아요</p>
+                                            <p className="text-[13px] text-slate-400 mb-3 px-1 font-medium">닉네임도 괜찮아요</p>
                                             <input
                                                 type="text"
                                                 name="name"
@@ -158,15 +158,15 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
                                                 value={formData.name}
                                                 onChange={handleInputChange}
                                                 placeholder="홍길동 or galpi_user"
-                                                className="w-full bg-slate-800 border-none rounded-2xl px-5 py-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-orange-500/50 transition-all"
+                                                className="w-full bg-slate-800/80 border border-slate-700/50 rounded-2xl px-5 py-4.5 text-lg text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 focus:bg-slate-800 transition-all outline-none"
                                             />
                                         </div>
 
                                         <div>
-                                            <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-1 px-1">
+                                            <label className="block text-sm font-black text-slate-200 uppercase tracking-widest mb-1.5 px-1">
                                                 Phone
                                             </label>
-                                            <p className="text-xs text-slate-400 mb-2 px-1 opacity-80 font-medium">결제 알림톡 발송에만 사용 · 수집하지 않습니다</p>
+                                            <p className="text-[13px] text-slate-400 mb-3 px-1 font-medium">결제 알림톡 발송에만 사용 · 수집하지 않습니다</p>
                                             <input
                                                 type="tel"
                                                 name="phone"
@@ -174,15 +174,15 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
                                                 value={formData.phone}
                                                 onChange={handleInputChange}
                                                 placeholder="01012345678"
-                                                className="w-full bg-slate-800 border-none rounded-2xl px-5 py-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-orange-500/50 transition-all"
+                                                className="w-full bg-slate-800/80 border border-slate-700/50 rounded-2xl px-5 py-4.5 text-lg text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 focus:bg-slate-800 transition-all outline-none"
                                             />
                                         </div>
 
                                         <div>
-                                            <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-1 px-1">
+                                            <label className="block text-sm font-black text-slate-200 uppercase tracking-widest mb-1.5 px-1">
                                                 Email
                                             </label>
-                                            <p className="text-xs text-slate-400 mb-2 px-1 opacity-80 font-medium">라이선스 키 발급에 사용됩니다</p>
+                                            <p className="text-[13px] text-slate-400 mb-3 px-1 font-medium">라이선스 키 발급에 사용됩니다</p>
                                             <input
                                                 type="email"
                                                 name="email"
@@ -190,12 +190,12 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
                                                 value={formData.email}
                                                 onChange={handleInputChange}
                                                 placeholder="example@gmail.com"
-                                                className="w-full bg-slate-800 border-none rounded-2xl px-5 py-4 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-orange-500/50 transition-all"
+                                                className="w-full bg-slate-800/80 border border-slate-700/50 rounded-2xl px-5 py-4.5 text-lg text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 focus:bg-slate-800 transition-all outline-none"
                                             />
                                         </div>
 
                                         <div className="pt-2 border-t border-slate-800/50">
-                                            <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2 px-1">
+                                            <label className="block text-sm font-black text-slate-200 uppercase tracking-widest mb-3 px-1">
                                                 할인 쿠폰
                                             </label>
                                             <div className="flex gap-2">
@@ -207,7 +207,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
                                                         if (couponDiscount) setCouponDiscount(null); // 코드가 바뀌면 기존 할인 취소
                                                     }}
                                                     placeholder="프로모션 코드를 입력하세요"
-                                                    className="w-full bg-slate-800 border-none rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-orange-500/50 transition-all uppercase"
+                                                    className="w-full bg-slate-800/80 border border-slate-700/50 rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 focus:bg-slate-800 transition-all uppercase outline-none"
                                                 />
                                                 <button
                                                     type="button"
