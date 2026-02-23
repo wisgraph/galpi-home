@@ -13,6 +13,8 @@ interface PaymentModalProps {
     };
 }
 
+const WORKER_URL = import.meta.env.VITE_PAYMENT_WORKER_URL || 'https://galpi-payment-worker.wisgraph.workers.dev';
+
 const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) => {
     const [step, setStep] = useState<'info' | 'success' | 'error'>('info');
     const [loading, setLoading] = useState(false);
@@ -20,8 +22,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
     const [shortUrl, setShortUrl] = useState('');
 
     const [formData, setFormData] = useState({
-        name: '',
-        phone: '',
+        userId: '',
         email: '',
     });
 
@@ -35,7 +36,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
         setIsVerifyingCoupon(true);
         setCouponError('');
         try {
-            const response = await fetch('/api/payments/verify-coupon', {
+            const response = await fetch(`${WORKER_URL}/api/payments/verify-coupon`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ code: couponCode }),
@@ -77,18 +78,14 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
         setLoading(true);
 
         try {
-            const response = await fetch('/api/payments/send', {
+            const response = await fetch(`${WORKER_URL}/api/payments/send`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    member_nm: formData.name,
-                    phone: formData.phone,
+                    userId: formData.userId,
                     email: formData.email,
-                    product_nm: `Galpi ${plan.name} - Super Early Bird`,
-                    message: '갈피 슈퍼 얼리버드 라이선스 결제 청구서입니다.',
-                    price: basePrice, // 서버가 쿠폰을 재검증하여 최종 가격 산정
                     coupon_code: couponDiscount ? couponCode : undefined
                 }),
             });
@@ -149,33 +146,19 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
                                     <form onSubmit={handleSubmit} className="space-y-6">
                                         <div>
                                             <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 px-1">
-                                                성함
+                                                갈피 아이디
                                             </label>
                                             <input
                                                 type="text"
-                                                name="name"
+                                                name="userId"
                                                 required
-                                                value={formData.name}
+                                                value={formData.userId}
                                                 onChange={handleInputChange}
-                                                placeholder="홍길동"
+                                                placeholder="galpi_username"
                                                 className="w-full bg-slate-800 border-none rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 transition-all"
                                             />
                                         </div>
 
-                                        <div>
-                                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 px-1">
-                                                전화번호
-                                            </label>
-                                            <input
-                                                type="tel"
-                                                name="phone"
-                                                required
-                                                value={formData.phone}
-                                                onChange={handleInputChange}
-                                                placeholder="01012345678"
-                                                className="w-full bg-slate-800 border-none rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 transition-all"
-                                            />
-                                        </div>
 
                                         <div>
                                             <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 px-1">
