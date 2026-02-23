@@ -22,7 +22,8 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
     const [shortUrl, setShortUrl] = useState('');
 
     const [formData, setFormData] = useState({
-        userId: '',
+        name: '',
+        phone: '',
         email: '',
     });
 
@@ -84,7 +85,8 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    userId: formData.userId,
+                    name: formData.name,
+                    phone: formData.phone,
                     email: formData.email,
                     coupon_code: couponDiscount ? couponCode : undefined
                 }),
@@ -145,25 +147,42 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
 
                                     <form onSubmit={handleSubmit} className="space-y-6">
                                         <div>
-                                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 px-1">
-                                                갈피 아이디
+                                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-1 px-1">
+                                                Name
                                             </label>
+                                            <p className="text-xs text-slate-600 px-1 mb-2">닉네임도 괜찮아요</p>
                                             <input
                                                 type="text"
-                                                name="userId"
+                                                name="name"
                                                 required
-                                                value={formData.userId}
+                                                value={formData.name}
                                                 onChange={handleInputChange}
-                                                placeholder="galpi_username"
+                                                placeholder="홍길동 or galpi_user"
                                                 className="w-full bg-slate-800 border-none rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 transition-all"
                                             />
                                         </div>
 
+                                        <div>
+                                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-1 px-1">
+                                                Phone
+                                            </label>
+                                            <p className="text-xs text-slate-600 px-1 mb-2">결제 알림톡 발송에만 사용 · 수집하지 않습니다</p>
+                                            <input
+                                                type="tel"
+                                                name="phone"
+                                                required
+                                                value={formData.phone}
+                                                onChange={handleInputChange}
+                                                placeholder="01012345678"
+                                                className="w-full bg-slate-800 border-none rounded-2xl px-5 py-4 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 transition-all"
+                                            />
+                                        </div>
 
                                         <div>
-                                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2 px-1">
-                                                이메일 (필수)
+                                            <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-1 px-1">
+                                                Email
                                             </label>
+                                            <p className="text-xs text-slate-600 px-1 mb-2">라이선스 키 발급에 사용됩니다</p>
                                             <input
                                                 type="email"
                                                 name="email"
