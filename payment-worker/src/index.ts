@@ -1,4 +1,4 @@
-import { Router } from 'itty-router';
+import { Router, error, json } from 'itty-router';
 import { sendBill } from './paymint';
 import { formatPhone, formatPrice, generateBillId } from './utils';
 
@@ -17,27 +17,31 @@ router.options('*', () => new Response(null, { headers: corsHeaders }));
 // 1. 청구서 발송 API
 router.post('/api/payments/send', async (request, env) => {
     try {
-        const body = await request.json();
+        const body = await request.json() as any;
         const { name, phone, email, coupon_code } = body;
 
         if (!name || !phone || !email) {
-            return new Response(JSON.stringify({ error: '필수 정보가 누락되었습니다.' }), { status: 400, headers: corsHeaders });
+            return new Response(JSON.stringify({ success: false, error: '필수 정보가 누락되었습니다.' }), { status: 400, headers: corsHeaders });
         }
 
         // 기본 금액
-        let finalPrice = 10000; // ₩10,000
+        let finalPrice = 20000; // ₩20,000 (테스트 환경 최소 금액)
 
-        // 쿠폰 검증 및 할인 적용
-        if (coupon_code) {
-            const upperCode = coupon_code.trim().toUpperCase();
-            const couponDataStr = await env.PAYMENTS_KV.get(`COUPON_${upperCode}`);
-            if (couponDataStr) {
-                const couponData = JSON.parse(couponDataStr);
-                if (couponData.type === 'fixed') {
-                    finalPrice = Math.max(0, finalPrice - couponData.amount);
-                } else if (couponData.type === 'percent') {
-                    finalPrice = Math.floor(finalPrice * (1 - couponData.amount / 100));
+        // 쿠폰 검증 및 할인 적용 (KV 없으면 스킵)
+        if (coupon_code && env.PAYMENTS_KV) {
+            try {
+                const upperCode = coupon_code.trim().toUpperCase();
+                const couponDataStr = await env.PAYMENTS_KV.get(`COUPON_${upperCode}`);
+                if (couponDataStr) {
+                    const couponData = JSON.parse(couponDataStr);
+                    if (couponData.type === 'fixed') {
+                        finalPrice = Math.max(0, finalPrice - couponData.amount);
+                    } else if (couponData.type === 'percent') {
+                        finalPrice = Math.floor(finalPrice * (1 - couponData.amount / 100));
+                    }
                 }
+            } catch (e) {
+                console.warn('KV lookup failed (local dev?):', e);
             }
         }
 
@@ -45,16 +49,36 @@ router.post('/api/payments/send', async (request, env) => {
         const cleanPhone = formatPhone(phone);
         const cleanPrice = formatPrice(finalPrice);
 
-        // KV에 사용자 정보 임시 저장 (콜백 시 활용)
-        await env.PAYMENTS_KV.put(`PAYMENT_${bill_id}`, JSON.stringify({
-            name,
-            phone: cleanPhone,
-            email,
-            basePrice: 10000,
-            finalPrice,
-            coupon_code: coupon_code || '',
-            createdAt: new Date().toISOString()
-        }), { expirationTtl: 3600 * 24 }); // 24시간 유효
+        // KV에 사용자 정보 임시 저장 (없으면 스킵)
+        if (env.PAYMENTS_KV) {
+            try {
+                await env.PAYMENTS_KV.put(`PAYMENT_${bill_id}`, JSON.stringify({
+                    name,
+                    phone: cleanPhone,
+                    email,
+                    basePrice: 7000,
+                    finalPrice,
+                    coupon_code: coupon_code || '',
+                    createdAt: new Date().toISOString()
+                }), { expirationTtl: 3600 * 24 });
+            } catch (e) {
+                console.warn('KV put failed (local dev?):', e);
+            }
+        }
+
+        // Paymint API 키 없으면 로컬 개발 모의 응답
+        if (!env.PAYMINT_API_KEY) {
+            console.log('[DEV] Paymint API key missing - returning mock response');
+            return new Response(JSON.stringify({
+                success: true,
+                data: {
+                    code: '0000',
+                    msg: '성공 (개발 모드)',
+                    shortURL: `https://pay.paymint.co.kr/mock/${bill_id}`,
+                    bill_id
+                }
+            }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+        }
 
         const response = await sendBill({
             bill_id,
@@ -63,13 +87,17 @@ router.post('/api/payments/send', async (request, env) => {
             member_nm: name,
             phone: cleanPhone,
             price: cleanPrice,
-            expire_dt: '',
+            expire_dt: '2099-12-31',
             callbackURL: `${env.WORKER_URL}/api/payments/callback`
         }, env);
 
-        return new Response(JSON.stringify(response), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+        return new Response(JSON.stringify({
+            success: response.code === '0000',
+            data: response,
+            error: response.code !== '0000' ? (response.msg || '페이민트 API 오류') : undefined
+        }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     } catch (error: any) {
-        return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: corsHeaders });
+        return new Response(JSON.stringify({ success: false, error: error.message }), { status: 500, headers: corsHeaders });
     }
 });
 
@@ -120,15 +148,27 @@ router.post('/api/payments/verify-coupon', async (request, env) => {
         }
 
         const upperCode = code.trim().toUpperCase();
+
+        // KV 없으면 하드코딩 테스트 쿠폰 반환
+        if (!env.PAYMENTS_KV) {
+            if (upperCode === 'THEBETTER2026') {
+                return new Response(JSON.stringify({ valid: true, data: { type: 'fixed', amount: 1000, name: '커뮤니티 특별 혜택' } }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+            }
+            if (upperCode === 'BETA50') {
+                return new Response(JSON.stringify({ valid: true, data: { type: 'percent', amount: 50, name: '베타테스터 반값' } }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+            }
+            return new Response(JSON.stringify({ valid: false, message: '유효하지 않은 쿠폰입니다.' }), { status: 404, headers: corsHeaders });
+        }
+
         const couponDataStr = await env.PAYMENTS_KV.get(`COUPON_${upperCode}`);
 
         if (!couponDataStr) {
             // 로컬 개발/테스트용 하드코딩 (KV에 데이터 없을 때)
             if (upperCode === 'THEBETTER2026') {
-                return new Response(JSON.stringify({ valid: true, data: { type: 'fixed', amount: 1000, name: '커뮤니티 특별 혜택' } }), { headers: corsHeaders });
+                return new Response(JSON.stringify({ valid: true, data: { type: 'fixed', amount: 1000, name: '커뮤니티 특별 혜택' } }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
             }
             if (upperCode === 'BETA50') {
-                return new Response(JSON.stringify({ valid: true, data: { type: 'percent', amount: 50, name: '베타테스터 반값' } }), { headers: corsHeaders });
+                return new Response(JSON.stringify({ valid: true, data: { type: 'percent', amount: 50, name: '베타테스터 반값' } }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
             }
 
             return new Response(JSON.stringify({ valid: false, message: '유효하지 않은 쿠폰입니다.' }), { status: 404, headers: corsHeaders });
@@ -144,7 +184,7 @@ router.post('/api/payments/verify-coupon', async (request, env) => {
 router.all('*', () => new Response('Not Found', { status: 404 }));
 
 export default {
-    async fetch(request: Request, env: any) {
-        return router.handle(request, env);
+    async fetch(request: Request, env: any, ctx: any) {
+        return router.fetch(request, env, ctx);
     }
 };

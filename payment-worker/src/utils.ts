@@ -17,8 +17,8 @@ export function formatPrice(price: number | string): string {
     return price.toString().replace(/,/g, '');
 }
 
-// bill_id 생성
+// bill_id 생성 - 최대 20자리 (사업자번호 10자리 + 하이픈 + 9자리)
 export function generateBillId(businessNumber: string): string {
-    const timestamp = Date.now().toString().slice(-9);
+    const timestamp = Date.now().toString().slice(-9); // 뒤 9자리만 사용 → 총 20자 이하
     return `${businessNumber}-${timestamp}`;
 }

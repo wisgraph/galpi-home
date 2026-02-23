@@ -44,11 +44,9 @@ export async function sendBill(params: SendBillParams, env: any): Promise<Paymin
         })
     });
 
-    if (!response.ok) {
-        throw new Error(`페이민트 API 응답 오류: ${response.statusText}`);
-    }
-
-    return response.json();
+    // Paymint는 에러시도 body에 상세 정보 제공 - 우선 JSON 파싱 시도
+    const data = await response.json().catch(() => ({ code: response.status, msg: response.statusText }));
+    return data as PaymintResponse;
 }
 
 export async function cancelPayment(bill_id: string, price: string, env: any): Promise<PaymintResponse> {
