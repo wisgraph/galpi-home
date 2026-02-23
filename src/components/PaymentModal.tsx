@@ -213,13 +213,13 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
                                                         if (couponDiscount) setCouponDiscount(null); // 코드가 바뀌면 기존 할인 취소
                                                     }}
                                                     placeholder="프로모션 코드를 입력하세요"
-                                                    className="w-full bg-slate-800/80 border border-slate-700/50 rounded-2xl px-6 py-4.5 text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 focus:bg-slate-800 transition-all uppercase outline-none"
+                                                    className="w-full bg-slate-800/80 border border-slate-700/50 rounded-2xl px-6 py-5 text-xl text-white placeholder:text-slate-600 focus:ring-2 focus:ring-orange-500/50 focus:bg-slate-800 transition-all uppercase outline-none"
                                                 />
                                                 <button
                                                     type="button"
                                                     onClick={handleVerifyCoupon}
                                                     disabled={isVerifyingCoupon || !couponCode}
-                                                    className="px-6 bg-slate-700 text-white rounded-2xl font-bold whitespace-nowrap hover:bg-slate-600 transition-colors disabled:opacity-50"
+                                                    className="px-8 bg-slate-700 text-white rounded-2xl font-bold whitespace-nowrap hover:bg-slate-600 transition-colors disabled:opacity-50 text-lg"
                                                 >
                                                     {isVerifyingCoupon ? <Loader2 className="animate-spin" size={18} /> : '적용'}
                                                 </button>
