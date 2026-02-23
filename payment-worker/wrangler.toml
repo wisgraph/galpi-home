@@ -3,13 +3,16 @@ main = "src/index.ts"
 compatibility_date = "2024-02-23"
 
 [vars]
-# PAYMINT_BASE_URL = "http://stg.paymint.co.kr:10200"
-# PAYMINT_API_KEY = "..."
-# PAYMINT_MEMBER = "..."
-# PAYMINT_MERCHANT = "..."
-# GOOGLE_FORM_URL = "..."
-# WORKER_URL = "https://galpi-payment-worker.wisgraph.workers.dev"
+PAYMINT_BASE_URL = "http://stg.paymint.co.kr:10200"
+WORKER_URL = "https://galpi-payment-worker.kogoome.workers.dev"
+BUSINESS_NUMBER = "1234567890"
+
+# 민감한 키는 wrangler secret put 으로 설정
+# PAYMINT_API_KEY
+# PAYMINT_MEMBER
+# PAYMINT_MERCHANT
+# GOOGLE_FORM_URL
 
 [[kv_namespaces]]
 binding = "PAYMENTS_KV"
-id = "..." # Cloudflare 대시보드에서 생성 후 ID 입력 필요
+id = "53a0bdf56ab94899b277765215858395"

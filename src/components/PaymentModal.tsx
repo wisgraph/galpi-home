@@ -13,7 +13,7 @@ interface PaymentModalProps {
     };
 }
 
-const WORKER_URL = import.meta.env.VITE_PAYMENT_WORKER_URL || 'https://galpi-payment-worker.wisgraph.workers.dev';
+const WORKER_URL = import.meta.env.VITE_PAYMENT_WORKER_URL || 'https://galpi-payment-worker.kogoome.workers.dev';
 
 const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) => {
     const [step, setStep] = useState<'info' | 'success' | 'error'>('info');
