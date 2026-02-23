@@ -21,6 +21,7 @@ const AnimatedRoutes: React.FC = () => {
     <AnimatePresence mode="wait">
       <div key={location.pathname}>
         <Routes location={location}>
+          {/* 기본 라우트 */}
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/features" element={<FeaturesPage />} />
@@ -29,6 +30,15 @@ const AnimatedRoutes: React.FC = () => {
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          {/* Locale-prefixed 라우트 (/ko/..., /en/..., /jp/...) */}
+          <Route path="/:locale" element={<HomePage />} />
+          <Route path="/:locale/about" element={<AboutPage />} />
+          <Route path="/:locale/features" element={<FeaturesPage />} />
+          <Route path="/:locale/engineering" element={<EngineeringPage />} />
+          <Route path="/:locale/pricing" element={<PricingPage />} />
+          <Route path="/:locale/faq" element={<FAQPage />} />
+          <Route path="/:locale/terms" element={<TermsPage />} />
+          <Route path="/:locale/privacy" element={<PrivacyPage />} />
         </Routes>
       </div>
     </AnimatePresence>
