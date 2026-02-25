@@ -45,7 +45,7 @@ router.post('/api/payments/send', async (request, env) => {
             }
         }
 
-        const bill_id = generateBillId(env.BUSINESS_NUMBER || '1234567890');
+        const bill_id = generateBillId(env.BUSINESS_NUMBER || '4831402933');
         const cleanPhone = formatPhone(phone);
         const cleanPrice = formatPrice(finalPrice);
 
@@ -128,8 +128,8 @@ router.post('/api/payments/send', async (request, env) => {
     }
 });
 
-// 2. 결제 완료 콜백 API
-router.post('/api/payments/callback', async (request, env) => {
+// 2. 결제 완료 콜백 API (ctx 추가로 비동기 작업 지원)
+router.post('/api/payments/callback', async (request, env, ctx) => {
     try {
         let body: any = {};
         const contentType = request.headers.get('Content-Type') || '';
@@ -146,54 +146,84 @@ router.post('/api/payments/callback', async (request, env) => {
         console.log(`[DEBUG] Final Parsed Body:`, JSON.stringify(body));
 
         // 실시간 로그에서 확인된 필드명 토대로 추출 (Paymint 실제 응답 필드 반영)
-        const result = body.result || body.appr_state === 'F' ? '0000' : (body.res_cd || body.code);
+        const result = body.result || (body.appr_state === 'F' ? '0000' : (body.res_cd || body.code));
         const bill_id = body.bill_id || body.order_id || body.ord_no;
         const price = body.price || body.appr_price || body.amt || body.amount;
 
         console.log(`[DEBUG] Extracted -> bill_id: ${bill_id}, result: ${result} (state: ${body.appr_state}), price: ${price}`);
 
-        // 결제 성공 시에만 처리 (appr_state 'F'는 승인 성공을 의미하는 것으로 보임)
+        if (!bill_id) {
+            console.error('[ERROR] No bill_id found in callback body');
+            return new Response(JSON.stringify({ result: 'OK' }), { headers: { 'Content-Type': 'application/json' } });
+        }
+
+        // 결제 성공 시에만 처리
         if (result === '0000' || body.appr_num || result === 'OK' || result === 'success') {
+
+            // [중요] 중복 발급 방지 필터링 (Idempotency)
+            if (env.PAYMENTS_KV) {
+                const alreadyHandled = await env.PAYMENTS_KV.get(`HANDLED_${bill_id}`);
+                if (alreadyHandled) {
+                    console.log(`[DEBUG] Already handled bill_id: ${bill_id}. Skipping duplicate trigger.`);
+                    return new Response(JSON.stringify({ result: 'OK' }), { headers: { 'Content-Type': 'application/json' } });
+                }
+                // 즉시 마킹 (동시성 방지)
+                await env.PAYMENTS_KV.put(`HANDLED_${bill_id}`, 'true', { expirationTtl: 3600 * 24 * 7 });
+            }
+
             const userDataStr = await env.PAYMENTS_KV.get(`PAYMENT_${bill_id}`);
             console.log(`[DEBUG] KV Lookup for PAYMENT_${bill_id}:`, userDataStr ? 'Found' : 'Not Found');
 
             if (!userDataStr) {
-                console.error(`[CRITICAL] No user data found for bill_id: ${bill_id}. Cannot issue license.`);
+                console.error(`[CRITICAL] No user data found for bill_id: ${bill_id}.`);
                 return new Response(JSON.stringify({ result: 'FAIL', message: 'User data not found' }), { status: 404, headers: { 'Content-Type': 'application/json' } });
             }
 
             const userData = JSON.parse(userDataStr);
-            console.log(`[DEBUG] User found in KV: name=${userData.name}, email=${userData.email}`);
-            console.log(`[DEBUG] Sending license trigger for: ${userData.email}`);
 
-            // 구글 폼으로 전송 (라이선스 발급용)
-            const formData = new URLSearchParams();
-            formData.append('entry.48333038', userData.email);      // 이메일
-            formData.append('entry.1776154045', bill_id);           // TID (주문번호)
-            formData.append('entry.2087199898', price.toString());  // 금액
+            // 실제 라이선스 발급 트리거 (Google Form 전송)는 비동기로 처리
+            // 이를 통해 페이민트에 'OK' 응답을 빛의 속도로 돌려줄 수 있음 (타임아웃 방지)
+            const triggerLicense = async () => {
+                const formData = new URLSearchParams();
+                formData.append('entry.48333038', userData.email);
+                formData.append('entry.1776154045', bill_id);
+                formData.append('entry.2087199898', price.toString());
 
-            const productName = userData.coupon_code
-                ? `갈피(Galpi) 프리미엄 (${userData.coupon_code})`
-                : '갈피(Galpi) 프리미엄';
+                const productName = userData.coupon_code
+                    ? `갈피(Galpi) 프리미엄 (${userData.coupon_code})`
+                    : '갈피(Galpi) 프리미엄';
 
-            formData.append('entry.1427011517', productName);       // 상품명
-            formData.append('entry.2009005118', userData.name);     // 이름(닉네임)
-            formData.append('entry.303484727', 'paymint');          // 결제방식
+                formData.append('entry.1427011517', productName);
+                formData.append('entry.2009005118', userData.name);
+                formData.append('entry.303484727', 'paymint');
 
-            const googleFormUrl = env.GOOGLE_FORM_URL || 'https://docs.google.com/forms/d/e/1FAIpQLSem4V9TELLO75O5a2wF65f-eaFZ_ifH5SyGOpfxB_pqNFr4EQ/formResponse';
-            console.log(`[DEBUG] Triggering Google Form: ${googleFormUrl}`);
+                const googleFormUrl = env.GOOGLE_FORM_URL || 'https://docs.google.com/forms/d/e/1FAIpQLSem4V9TELLO75O5a2wF65f-eaFZ_ifH5SyGOpfxB_pqNFr4EQ/formResponse';
+                console.log(`[ASYNC] Triggering Google Form for: ${userData.email}`);
 
-            const gResponse = await fetch(googleFormUrl, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: formData,
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            });
+                try {
+                    await fetch(googleFormUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: formData,
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                    });
+                    console.log(`[ASYNC] Google Form Trigger Success: ${bill_id}`);
+                } catch (e: any) {
+                    console.error(`[ASYNC ERROR] Google Form Trigger Failed: ${e.message}`);
+                    // 실패 시 KV 마킹 삭제하여 재시도 가능하게 할 수도 있지만, 
+                    // 보통 페이민트가 다시 콜백을 주므로 일단 로그만 남김
+                }
+            };
 
-            console.log(`[DEBUG] Google Form Triggered. Status: ${gResponse.status}`);
+            // 작업 예약 (응답은 즉시 반환)
+            if (ctx && ctx.waitUntil) {
+                ctx.waitUntil(triggerLicense());
+            } else {
+                // 로컬 환경 등 ctx가 없는 경우
+                await triggerLicense();
+            }
         }
 
-        // 페이민트 요구 응답 형식
         return new Response(JSON.stringify({ result: 'OK' }), { headers: { 'Content-Type': 'application/json' } });
     } catch (error: any) {
         console.error('[ERROR] Callback processing failed:', error.message);

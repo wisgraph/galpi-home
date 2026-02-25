@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2, AlertCircle, Loader2, ExternalLink, Copy } from 'lucide-react';
+import { X, CheckCircle2, AlertCircle, Loader2, ExternalLink, Copy, Download } from 'lucide-react';
 
 interface PaymentModalProps {
     isOpen: boolean;
@@ -283,6 +283,16 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, plan }) =>
                                         >
                                             지금 바로 결제하기
                                             <ExternalLink size={20} />
+                                        </a>
+
+                                        <a
+                                            href="https://github.com/wisgraph/galpi-release/releases"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-full py-5 bg-slate-800 text-white rounded-2xl font-black text-xl shadow-xl flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all border border-slate-700"
+                                        >
+                                            <Download size={20} className="text-orange-500" />
+                                            갈피 앱 다운로드
                                         </a>
 
                                         <button

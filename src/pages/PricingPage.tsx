@@ -128,7 +128,7 @@ const PricingPage: React.FC = () => {
                                             </ul>
 
                                             <motion.button
-                                                onClick={() => plan.name === 'Pro Lifetime' ? setIsPaymentModalOpen(true) : window.open('https://github.com/wisgraph/galpi-release', '_blank')}
+                                                onClick={() => plan.name === 'Pro Lifetime' ? setIsPaymentModalOpen(true) : window.open('https://github.com/wisgraph/galpi-release/releases', '_blank')}
                                                 whileHover={{ scale: 1.02 }}
                                                 whileTap={{ scale: 0.98 }}
                                                 className={`w-full py-5 rounded-2xl font-black text-xl text-center flex items-center justify-center gap-2 transition-all ${plan.name === 'Pro Lifetime'

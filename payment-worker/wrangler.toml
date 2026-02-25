@@ -5,7 +5,7 @@ compatibility_date = "2024-02-23"
 [vars]
 PAYMINT_BASE_URL = "https://erp-api.payssam.kr"
 WORKER_URL = "https://galpi-payment-worker.kogoome.workers.dev"
-BUSINESS_NUMBER = "1234567890"
+BUSINESS_NUMBER = "4831402933"
 
 # 민감한 키는 wrangler secret put 으로 설정
 # PAYMINT_API_KEY

@@ -26,7 +26,7 @@ const Pricing: React.FC = () => {
         plan_name: plan.name
       });
     } else {
-      window.location.href = 'https://github.com/wisgraph/galpi-release';
+      window.location.href = 'https://github.com/wisgraph/galpi-release/releases';
       trackEvent(GA_EVENTS.CTA_CLICK, {
         button_name: 'pricing_download_starter',
         plan_name: plan.name
