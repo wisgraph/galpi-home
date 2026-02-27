@@ -12,7 +12,7 @@ import { trackEvent, GA_EVENTS } from '../lib/analytics';
 
 
 const Navbar: React.FC = () => {
-  const { t, locale } = useTranslation();
+  const { t, locale, setLocale } = useTranslation();
   const navigate = useNavigate();
   const [isLangOpen, setIsLangOpen] = React.useState(false);
   const {
@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
 
   const changeLocale = (newLocale: string) => {
     const oldLocale = locale;
-    // Simple path replacer: swap /[oldLocale]/ with /[newLocale]/
+    setLocale(newLocale as 'ko' | 'en' | 'jp');
     const newPath = pathname.replace(`/${oldLocale}`, `/${newLocale}`);
     navigate(newPath);
     trackEvent(GA_EVENTS.LANGUAGE_CHANGE, { from: oldLocale, to: newLocale });
